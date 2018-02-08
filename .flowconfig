@@ -23,6 +23,7 @@
 <PROJECT_ROOT>/\.git/
 <PROJECT_ROOT>/node_modules/reqwest/.+
 <PROJECT_ROOT>/node_modules/fbemitter/.+
+<PROJECT_ROOT>/node_modules/xdl/build/detach/.+
 
 [include]
 
@@ -63,4 +64,4 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/iss
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
 
 [version]
-^0.64.0
+^0.66.0

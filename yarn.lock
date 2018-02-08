@@ -2600,9 +2600,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@^0.64.0:
-  version "0.64.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.64.0.tgz#ddd3fb3b183ab1ab35a5d5dec9caf5ebbcded167"
+flow-bin@^0.66.0:
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.66.0.tgz#a96dde7015dc3343fd552a7b4963c02be705ca26"
 
 follow-redirects@^1.2.3:
   version "1.4.1"
@@ -3596,9 +3596,9 @@ jest-environment-node@^22.2.0:
     jest-mock "^22.2.0"
     jest-util "^22.2.0"
 
-jest-expo@25.0.0:
-  version "25.0.0"
-  resolved "https://registry.yarnpkg.com/jest-expo/-/jest-expo-25.0.0.tgz#c17b77b66091aca174445405a19ce2ae88e27dd9"
+jest-expo@25.1.0:
+  version "25.1.0"
+  resolved "https://registry.yarnpkg.com/jest-expo/-/jest-expo-25.1.0.tgz#7f91d0c93f3dadaa8f45dab065d06bccd0519a8c"
   dependencies:
     babel-jest "^22.1.0"
     jest "^22.1.1"
