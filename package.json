@@ -20,7 +20,8 @@
     "start": "react-native-scripts start",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js",
+    "test": "node node_modules/jest/bin/jest.js --config=.jest.json",
+    "test-ci": "sh ./scripts/test.sh",
     "lint": "eslint ."
   },
   "jest": {
