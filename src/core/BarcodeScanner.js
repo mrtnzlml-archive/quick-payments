@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
+import { Actions } from 'react-native-router-flux';
 
 type State = {|
   hasCameraPermission: boolean | null,
@@ -19,7 +20,7 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
   };
 
   handleBarCodeRead = ({ data }: { data: string }) => {
-    alert(`Bar code with data '${data}' has been scanned!`);
+    Actions.payment();
   };
 
   render = () => {

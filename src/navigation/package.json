@@ -1,9 +1,0 @@
-{
-  "name": "mobile-quick-payments-navigation",
-  "version": "0.0.0",
-  "private": true,
-  "main": "index.js",
-  "dependencies": {
-    "react-navigation": "^1.0.3"
-  }
-}
