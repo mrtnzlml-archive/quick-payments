@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { Title } from 'mobile-quick-payments-shared';
-import { SafeAreaView } from 'mobile-quick-payments-navigation';
+import { Title, SafeAreaView } from 'mobile-quick-payments-shared';
 
 import BarcodeScanner from './BarcodeScanner';
 

@@ -2,5 +2,8 @@
   "name": "mobile-quick-payments-shared",
   "version": "0.0.0",
   "private": true,
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "react-native-safe-area-view": "^0.6.0"
+  }
 }
