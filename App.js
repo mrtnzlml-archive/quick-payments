@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import BarcodeScanner from './src/BarcodeScanner';
+import Homepage from './src/Homepage';
 
 export default class App extends React.Component<{||}> {
-  render = () => <BarcodeScanner />;
+  render = () => <Homepage />;
 }
