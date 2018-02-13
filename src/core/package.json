@@ -1,0 +1,10 @@
+{
+  "name": "mobile-quick-payments-core",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "mobile-quick-payments-navigation": "^0",
+    "mobile-quick-payments-shared": "^0"
+  }
+}
