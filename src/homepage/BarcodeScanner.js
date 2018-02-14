@@ -20,6 +20,7 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
   };
 
   handleBarCodeRead = ({ data }: { data: string }) => {
+    // console.warn(data);
     Actions.payment();
   };
 

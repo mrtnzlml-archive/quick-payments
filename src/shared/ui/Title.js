@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-import Colors from '../Colors';
+import Colors from './Colors';
 
 type Props = {|
   children: React.Node,
