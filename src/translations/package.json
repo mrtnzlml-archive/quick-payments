@@ -1,0 +1,9 @@
+{
+  "name": "mobile-quick-payments-translations",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "react-intl": "^2.4.0"
+  }
+}

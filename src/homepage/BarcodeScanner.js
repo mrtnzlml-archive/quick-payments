@@ -4,6 +4,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
 import { Actions } from 'react-native-router-flux';
+import { Translation } from 'mobile-quick-payments-translations';
 
 type State = {|
   hasCameraPermission: boolean | null,
@@ -28,9 +29,17 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
     const { hasCameraPermission } = this.state;
 
     if (hasCameraPermission === null) {
-      return <Text>Requesting for camera permission</Text>;
+      return (
+        <Text>
+          <Translation id="BarcodeScanner.RequestingCameraPermission" />
+        </Text>
+      );
     } else if (hasCameraPermission === false) {
-      return <Text>No access to camera</Text>;
+      return (
+        <Text>
+          <Translation id="BarcodeScanner.NoCameraPermission" />
+        </Text>
+      );
     } else {
       return (
         <View style={{ flex: 1 }}>
