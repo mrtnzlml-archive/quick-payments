@@ -2,18 +2,20 @@
 
 import * as React from 'react';
 import { Text, StyleSheet } from 'react-native';
+import { type StylePropType } from 'mobile-quick-payments-shared';
 
 import Colors from './Colors';
 
 type Props = {|
   children: React.Node,
+  style?: StylePropType,
 |};
 
-export default ({ children }: Props) => (
-  <Text style={style.title}>{children}</Text>
+export default ({ children, style }: Props) => (
+  <Text style={[styleSheet.title, style]}>{children}</Text>
 );
 
-const style = StyleSheet.create({
+const styleSheet = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
