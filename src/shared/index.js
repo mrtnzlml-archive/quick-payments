@@ -2,6 +2,7 @@
 
 export { default as Colors } from './ui/Colors';
 export { default as Layout } from './ui/Layout';
+export { default as StyleSheet } from './ui/PlatformStyleSheet';
 export { default as Title } from './ui/Title';
 
 /**
