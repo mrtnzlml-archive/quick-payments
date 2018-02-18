@@ -18,7 +18,6 @@ import { StyleSheet, Platform } from 'react-native';
  * })
  */
 export default {
-
   /**
    * {
    *   "bottom": 0,

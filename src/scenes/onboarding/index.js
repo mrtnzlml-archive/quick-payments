@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { Layout } from 'mobile-quick-payments-shared';
 
 /**
@@ -9,7 +9,7 @@ import { Layout } from 'mobile-quick-payments-shared';
  * one simple process.
  */
 export default () => (
-  <Layout>
+  <View>
     <Text>Product name Title</Text>
     <Text>Simplest in-person payments</Text>
     <Text>What is your email address?</Text>
@@ -17,5 +17,5 @@ export default () => (
       1) already have an account - please logging
       2) new account - start customer onboarding process (debit card)
     */}
-  </Layout>
+  </View>
 );

@@ -3,7 +3,10 @@
 export { default as Colors } from './ui/Colors';
 export { default as Layout } from './ui/Layout';
 export { default as StyleSheet } from './ui/PlatformStyleSheet';
+export { default as Text } from './ui/Text';
 export { default as Title } from './ui/Title';
+
+export { default as SafeAreaView } from 'react-native-safe-area-view';
 
 /**
  * Styles are only reexported here to avoid importing internal RN libraries

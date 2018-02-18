@@ -1,3 +1,5 @@
+Simplest in-person payments
+
 # TODO
 
 - fraud protection (https://stripe.com/docs/connect/best-practices#fraud, https://stripe.com/docs/disputes/prevention#avoiding-fraudulent-payments)
@@ -5,10 +7,10 @@
 
 # QR Code Specification
 
-QR code should contain only PoS URL unique for every retailer. Behind this PoS link is going to be:
+QR code should contain only unique ID for every retailer. Behind this merchant UID:
 
-- unique ID of the merchant
 - currency of the merchant
+- other details (TODO)
 
 # Scenes
 
@@ -16,6 +18,7 @@ QR code should contain only PoS URL unique for every retailer. Behind this PoS l
 
 - [ ] create your account (email + password)
 - [ ] add debit card
+- [ ] how does it work (scan QR code, entry amount to pay, show to the retailer, go)
 
 References:
 
@@ -25,7 +28,8 @@ References:
 
 - [ ] QR code scanner
 - [ ] amount to pay
-- [ ] confirmation for the retailer
+- [ ] confirmation (for the retailer) - should retailer get a notification?
+- [ ] rejection (for the customer)
 
 References:
 
@@ -36,3 +40,7 @@ References:
 
 - [ ] personal profile (+ become retailer)
 - [ ] payment history (all previous payments)
+
+# Building Standalone Apps for Android and iOS
+
+- https://docs.expo.io/versions/latest/guides/building-standalone-apps.html

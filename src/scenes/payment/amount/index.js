@@ -5,10 +5,7 @@ import { Title, Layout } from 'mobile-quick-payments-shared';
 import { Translation } from 'mobile-quick-payments-translations';
 
 export default () => (
-  <Layout>
-    <Title>TODO: go back button</Title>
-    <Title>
-      <Translation id="Payment.Title" />
-    </Title>
+  <Layout title={<Translation id="Payment.Title" />}>
+    <Title>TODO: cancel button</Title>
   </Layout>
 );
