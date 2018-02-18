@@ -41,3 +41,15 @@ it('works with unknown platform', () => {
     container: { flexDirection: 'row' },
   });
 });
+
+it('exports absolute fill object', () => {
+  expect(StyleSheet.absoluteFill).toMatchSnapshot();
+  expect({
+    ...StyleSheet.absoluteFill,
+    position: 'relative',
+  }).toMatchSnapshot();
+});
+
+it('exports hairline width', () => {
+  expect(StyleSheet.hairlineWidth).toMatchSnapshot();
+});

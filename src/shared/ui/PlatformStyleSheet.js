@@ -18,6 +18,9 @@ import { StyleSheet, Platform } from 'react-native';
  * })
  */
 export default {
+  absoluteFill: StyleSheet.absoluteFill,
+  hairlineWidth: StyleSheet.hairlineWidth,
+
   create(styles: Object): { [name: string]: number } {
     const platformStyles = {};
     Object.keys(styles).forEach(name => {
