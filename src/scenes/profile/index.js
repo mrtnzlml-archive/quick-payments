@@ -1,13 +1,14 @@
 // @flow
 
 import * as React from 'react';
-import { Text, View } from 'react-native';
-import { Layout } from 'mobile-quick-payments-shared';
+import { View } from 'react-native';
 
 export default () => (
   <View>
-    <Text>TODO: user's profile</Text>
-    <Text>TODO: display registered debit card</Text>
-    <Text>TODO: simple payment history</Text>
+    {/*
+      TODO: user's profile
+      TODO: display registered debit card
+      TODO: simple payment history
+    */}
   </View>
 );

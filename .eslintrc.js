@@ -15,10 +15,23 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['import', 'prettier', 'react', 'flowtype'],
+  plugins: ['import', 'prettier', 'react', 'flowtype', 'dependencies'],
   rules: {
     'no-console': [ERROR, { allow: ['warn', 'error'] }],
     'no-underscore-dangle': [ERROR, { enforceInMethodNames: true }],
+    'no-restricted-imports': [
+      ERROR,
+      {
+        paths: [
+          {
+            name: 'react-native',
+            importNames: ['Text', 'StyleSheet'],
+            message:
+              "Please use 'mobile-quick-payments-shared' package instead.",
+          },
+        ],
+      },
+    ],
     'import/order': [
       ERROR,
       {
@@ -37,5 +50,9 @@ module.exports = {
     'react/no-access-state-in-setstate': ERROR,
     'react/prop-types': OFF, // we use Flow instead,
     'flowtype/require-valid-file-annotation': [ERROR, 'always'],
+    'dependencies/case-sensitive': ERROR,
+    'dependencies/no-cycles': ERROR,
+    'dependencies/no-unresolved': ERROR,
+    'dependencies/require-json-ext': ERROR,
   },
 };

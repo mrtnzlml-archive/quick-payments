@@ -8,6 +8,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "eslint": "^4.17.0",
+    "eslint-plugin-dependencies": "^2.4.0",
     "eslint-plugin-flowtype": "^2.42.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.6.0",
@@ -25,7 +26,7 @@
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --config=.jest.json",
     "test-ci": "sh ./scripts/test.sh",
-    "lint": "eslint ."
+    "lint": "eslint . --report-unused-disable-directives"
   },
   "jest": {
     "preset": "jest-expo"

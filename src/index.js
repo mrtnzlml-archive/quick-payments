@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { Text } from 'react-native';
 import { Router, Stack, Scene } from 'react-native-router-flux';
+import { Text } from 'mobile-quick-payments-shared';
 import { getMessages } from 'mobile-quick-payments-translations';
 import { IntlProvider } from 'react-intl';
 

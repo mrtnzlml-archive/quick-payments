@@ -1,6 +1,6 @@
 // @flow
 
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform } from 'react-native'; // eslint-disable-line no-restricted-imports
 
 /**
  * This StyleSheet allows to define platform differences easily:

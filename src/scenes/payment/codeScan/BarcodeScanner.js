@@ -57,7 +57,9 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
             These Views below create opacity around scan window (just a design).
           */}
           <View style={[styleSheet.opacityFrame, styleSheet.titleView]}>
-            <Text style={styleSheet.title}>Scan QR code</Text>
+            <Text style={styleSheet.title}>
+              <Translation id="BarcodeScanner.ScanCode" />
+            </Text>
           </View>
           <View style={styleSheet.verticalScanWindow}>
             <View style={styleSheet.opacityFrame} />
@@ -70,7 +72,9 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
             <View style={styleSheet.opacityFrame} />
           </View>
           <View style={[styleSheet.opacityFrame, styleSheet.cancelView]}>
-            <Text style={styleSheet.cancel}>Cancel</Text>
+            <Text style={styleSheet.cancel}>
+              <Translation id="General.Cancel" />
+            </Text>
           </View>
         </View>
       );

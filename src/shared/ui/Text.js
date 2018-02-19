@@ -1,11 +1,14 @@
 // @flow
 
 import * as React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { type StylePropType } from 'mobile-quick-payments-shared';
+import { Text } from 'react-native'; // eslint-disable-line no-restricted-imports
+import { Translation } from 'mobile-quick-payments-translations';
+
+import StyleSheet from './PlatformStyleSheet';
+import type { StylePropType } from '../index';
 
 type Props = {|
-  children: React.Node,
+  children: React.Element<typeof Translation>,
   style?: StylePropType,
 |};
 
