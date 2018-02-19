@@ -30,6 +30,7 @@
 [untyped]
 <PROJECT_ROOT>/node_modules/react-native/Libraries/.+
 <PROJECT_ROOT>/node_modules/expo/.+
+<PROJECT_ROOT>/node_modules/iterall/.+
 
 [libs]
 node_modules/react-native/Libraries/react-native/react-native-interface.js
