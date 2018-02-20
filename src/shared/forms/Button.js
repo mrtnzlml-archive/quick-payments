@@ -1,14 +1,16 @@
 // @flow
 
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Translation } from 'mobile-quick-payments-translations';
 
 import StyleSheet from '../ui/PlatformStyleSheet';
 import Colors from '../ui/Colors';
 import Touchable from '../ui/Touchable';
+import Text from '../ui/Text';
 
 type Props = {|
-  title: string,
+  title: React.Element<typeof Translation>,
   onPress: () => void,
 |};
 

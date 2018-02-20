@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import { type StylePropType } from '../index';
+import type { StylePropType } from '../index';
 
 type Props = {
   // not exact: additional props allowed for TouchableOpacity and TouchableNativeFeedback

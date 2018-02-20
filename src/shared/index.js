@@ -1,5 +1,8 @@
 // @flow
 
+export { default as Button } from './forms/Button';
+export { default as TextInput } from './forms/TextInput';
+
 export { default as Colors } from './ui/Colors';
 export { default as Layout } from './ui/Layout';
 export { default as StyleSheet } from './ui/PlatformStyleSheet';

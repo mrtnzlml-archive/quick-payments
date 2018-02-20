@@ -29,7 +29,7 @@ References:
 
 ## Payment
 
-- [ ] QR code scanner
+- [x] QR code scanner
 - [ ] amount to pay
 - [ ] confirmation (for the retailer) - should retailer get a notification?
 - [ ] rejection (for the customer)
