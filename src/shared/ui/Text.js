@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Text } from 'react-native'; // eslint-disable-line no-restricted-imports
+import RN from 'react-native';
 import { Translation } from 'mobile-quick-payments-translations';
 
 import StyleSheet from './PlatformStyleSheet';
@@ -12,9 +12,16 @@ type Props = {|
   style?: StylePropType,
 |};
 
-export default ({ children, style }: Props) => (
-  <Text style={[styleSheet.title, style]}>{children}</Text>
-);
+export default class Text extends React.Component<Props> {
+  // note: this must be class (not functional component) to work properly
+  // with Animated library from RN
+
+  render = () => (
+    <RN.Text style={[styleSheet.title, this.props.style]}>
+      {this.props.children}
+    </RN.Text>
+  );
+}
 
 const styleSheet = StyleSheet.create({
   title: {

@@ -12,7 +12,10 @@ export default () => (
       <Translation id="General.TODO" />
     </Text>
 
-    <TextInput placeholder="General.TODO" keyboardType="numeric" />
+    <TextInput
+      placeholder={<Translation id="General.TODO" />}
+      keyboardType="numeric"
+    />
     <Button title={<Translation id="General.TODO" />} onPress={VoidCallback} />
   </Layout>
 );
