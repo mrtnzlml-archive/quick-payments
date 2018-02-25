@@ -75,17 +75,19 @@ const ColorPalette = {
 };
 
 export default {
-  /**
-   * Background of the application (primary background color).
-   */
+  // Background of the application (primary background color).
   background: ColorPalette.white,
+
+  // Color of the text across whole application
+  text: '#141414', // Licorice
+
+  // Default color for errors
+  error: '#E03616', // Vermilion
 
   // a: '#EEC643', // Sandstorm
   // b: '#313B72', // Deep Koamaru
-  // c: '#E03616', // Vermilion
 
   brandPrimary: '#73C157', // Mantis
-  text: '#141414', // Licorice
 
   ...ColorPalette,
 };

@@ -22,7 +22,7 @@ function SplitScreen(props: Props) {
   );
 
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.background }}>
+    <View style={styleSheet.wrapper}>
       <View style={styleSheet.topBackground}>
         <SafeAreaView
           style={[styleSheet.safeAreaView, styleSheet.safeAreaViewTop]}
@@ -55,6 +55,10 @@ function createStyleSheet(
   const triangleHeight = screenWidth / 15;
 
   return StyleSheet.create({
+    wrapper: {
+      flex: 1,
+      backgroundColor: Colors.background,
+    },
     safeAreaView: {
       paddingHorizontal: 10,
     },
