@@ -5,6 +5,7 @@ import RN from 'react-native';
 import { Translation } from 'mobile-quick-payments-translations';
 
 import StyleSheet from './PlatformStyleSheet';
+import Colors from './Colors';
 import type { StylePropType } from '../index';
 
 type Props = {|
@@ -27,5 +28,6 @@ const styleSheet = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'normal',
+    color: Colors.text,
   },
 });
