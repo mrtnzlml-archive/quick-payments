@@ -80,7 +80,12 @@ export default {
    */
   background: ColorPalette.white,
 
-  brandPrimary: '#00cd00',
+  // a: '#EEC643', // Sandstorm
+  // b: '#313B72', // Deep Koamaru
+  // c: '#E03616', // Vermilion
+
+  brandPrimary: '#73C157', // Mantis
+  text: '#141414', // Licorice
 
   ...ColorPalette,
 };
