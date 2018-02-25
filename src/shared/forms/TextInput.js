@@ -58,6 +58,7 @@ export default class TextInput extends React.Component<Props, State> {
 
     const styleSheet = {
       textInput: {
+        borderRadius: 2,
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: Colors.grey.$500,
         paddingVertical: this.paddingVertical,
