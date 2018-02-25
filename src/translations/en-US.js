@@ -7,6 +7,11 @@
  * $PRODUCT_NAME - name of the product
  */
 const Translations = {
+  // Dashboard
+  'Dashboard.Title': 'TODO: payments history',
+  'Dashboard.Navigation.MyCard': 'MY CARDS',
+  'Dashboard.Navigation.BecomeRetailer': 'BECOME RETAILER',
+
   // Payment
   'Payment.Title': 'How much?',
 
@@ -19,7 +24,7 @@ const Translations = {
   'Onboarding.Title': '$PRODUCT_NAME',
   'Onboarding.Subtitle': 'Simplest in-person payments',
   'Onboarding.Email': 'What is your email address?',
-  'Onboarding.Email.Submit': 'What is your email address?',
+  'Onboarding.Email.Submit': 'Login',
 
   // General
   'General.Cancel': 'Cancel',

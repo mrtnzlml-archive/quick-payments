@@ -24,7 +24,7 @@ function Icon(props: Props) {
 Icon.defaultProps = {
   name: 'warning',
   size: 20,
-  color: Color.grey.$500,
+  color: Color.text,
 };
 
 export default Icon;

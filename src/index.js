@@ -17,6 +17,14 @@ const Application = () => (
   >
     <Router>
       <Stack key="root">
+        <Stack key="dashboard">
+          <Scene
+            initial={true}
+            key="dashboard"
+            hideNavBar={true}
+            component={require('./scenes/dashboard').default}
+          />
+        </Stack>
         <Stack key="onboarding" initial={true}>
           <Scene
             initial={true}
@@ -25,7 +33,7 @@ const Application = () => (
             component={require('./scenes/onboarding').default}
           />
         </Stack>
-        <Stack key="payment" initial={false}>
+        <Stack key="payment">
           <Scene
             initial={true}
             key="payment.codeScan"

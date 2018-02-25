@@ -10,6 +10,7 @@ export { default as StyleSheet } from './ui/PlatformStyleSheet';
 export { default as SplitScreen } from './ui/SplitScreen';
 export { default as Text } from './ui/Text';
 export { default as Title } from './ui/Title';
+export { default as Touchable } from './ui/Touchable';
 
 export { default as Dimensions } from './Dimensions';
 
