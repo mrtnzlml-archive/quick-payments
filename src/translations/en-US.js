@@ -16,9 +16,10 @@ const Translations = {
   'BarcodeScanner.NoCameraPermission': 'No access to camera',
 
   // Onboarding
-  'Onboarding.Title': '$PRODUCT_NAME Title',
+  'Onboarding.Title': '$PRODUCT_NAME',
   'Onboarding.Subtitle': 'Simplest in-person payments',
   'Onboarding.Email': 'What is your email address?',
+  'Onboarding.Email.Submit': 'What is your email address?',
 
   // General
   'General.Cancel': 'Cancel',

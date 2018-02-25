@@ -41,8 +41,9 @@ References:
 
 ## Others
 
-- [ ] personal profile (+ become retailer)
-- [ ] payment history (all previous payments)
+- [ ] become retailer
+- [ ] dashboard with payment history
+- [ ] debit cards overview
 
 # Building Standalone Apps for Android and iOS
 

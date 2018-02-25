@@ -25,7 +25,7 @@ module.exports = {
         paths: [
           {
             name: 'react-native',
-            importNames: ['Text', 'StyleSheet'],
+            importNames: ['Dimensions', 'Text', 'StyleSheet'],
             message:
               "Please use 'mobile-quick-payments-shared' package instead.",
           },
