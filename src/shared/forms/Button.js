@@ -8,6 +8,7 @@ import StyleSheet from '../ui/PlatformStyleSheet';
 import Colors from '../ui/Colors';
 import Touchable from '../ui/Touchable';
 import Text from '../ui/Text';
+import Icon from '../ui/Icon';
 
 type Props = {|
   title: React.Element<typeof Translation>,
@@ -19,6 +20,9 @@ export default (props: Props) => {
     <Touchable accessibilityComponentType="button" onPress={props.onPress}>
       <View style={styleSheet.view}>
         <Text style={styleSheet.text}>{props.title}</Text>
+        <View style={styleSheet.icon}>
+          <Icon name="chevron-right" color={Colors.white} />
+        </View>
       </View>
     </Touchable>
   );
@@ -26,6 +30,8 @@ export default (props: Props) => {
 
 const styleSheet = StyleSheet.create({
   view: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     backgroundColor: Colors.brandPrimary,
     borderRadius: 2,
     android: {
@@ -38,5 +44,11 @@ const styleSheet = StyleSheet.create({
     color: Colors.white,
     textAlign: 'center',
     padding: 8,
+    fontWeight: 'bold',
+  },
+  icon: {
+    position: 'absolute',
+    right: 0,
+    alignSelf: 'center',
   },
 });
