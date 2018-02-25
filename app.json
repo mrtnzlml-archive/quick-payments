@@ -1,5 +1,11 @@
 {
   "expo": {
     "sdkVersion": "25.0.0"
-  }
+  },
+  "githubUrl": "https://github.com/adeira/mobile-quick-payments",
+  "orientation": "portrait",
+  "platforms": [
+    "android",
+    "ios"
+  ]
 }

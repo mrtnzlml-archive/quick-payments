@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react';
+import Expo from 'expo';
 import { Router, Stack, Scene } from 'react-native-router-flux';
 import { Text } from 'mobile-quick-payments-shared';
 import { getMessages } from 'mobile-quick-payments-translations';
@@ -8,7 +9,7 @@ import { IntlProvider } from 'react-intl';
 
 const LOCALE = 'en';
 
-export default () => (
+const Application = () => (
   <IntlProvider
     locale={LOCALE}
     textComponent={Text}
@@ -51,3 +52,5 @@ export default () => (
     </Router>
   </IntlProvider>
 );
+
+Expo.registerRootComponent(Application);
