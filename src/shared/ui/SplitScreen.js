@@ -23,15 +23,13 @@ function SplitScreen(props: Props) {
 
   return (
     <View style={styleSheet.wrapper}>
-      <View style={styleSheet.topBackground}>
-        <SafeAreaView
-          style={[styleSheet.safeAreaView, styleSheet.safeAreaViewTop]}
-        >
+      <View style={styleSheet.topArea}>
+        <SafeAreaView style={styleSheet.safeAreaView}>
           {props.childrenTop}
         </SafeAreaView>
       </View>
       <View style={styleSheet.bottomTriangle} />
-      <View>
+      <View style={styleSheet.bottomArea}>
         <SafeAreaView style={styleSheet.safeAreaView}>
           {props.childrenBottom}
         </SafeAreaView>
@@ -60,17 +58,17 @@ function createStyleSheet(
       backgroundColor: Colors.background,
     },
     safeAreaView: {
-      paddingHorizontal: 10,
-    },
-    safeAreaViewTop: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
+      paddingHorizontal: 10,
     },
-    topBackground: {
+    topArea: {
       height: screenHeight * ratio - triangleHeight / 2,
       width: screenWidth,
       backgroundColor: backgroundColor,
+    },
+    bottomArea: {
+      flex: 1,
     },
     bottomTriangle: {
       width: 0,
