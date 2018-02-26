@@ -4,7 +4,6 @@ Simplest in-person payments
 
 # TODO
 
-- dockerize API
 - fraud protection (https://stripe.com/docs/connect/best-practices#fraud, https://stripe.com/docs/disputes/prevention#avoiding-fraudulent-payments)
 - https://stripe.com/docs/connect/best-practices
 

@@ -1,5 +1,9 @@
 ```
-yarn start
+docker build -t adeira/mobile-quick-payments-api .
+docker image ls
+docker run -p 80:3000 adeira/mobile-quick-payments-api
+docker ps
+docker stop fe37e002feda
 ```
 
-Open: http://localhost:3000/graphiql
+Open: http://127.0.0.1/graphiql
