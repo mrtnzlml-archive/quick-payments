@@ -4,15 +4,21 @@ import * as React from 'react';
 import RN from 'react-native';
 import { Translation } from 'mobile-quick-payments-translations';
 
-import StyleSheet from '../ui/PlatformStyleSheet';
 import Colors from '../ui/Colors';
 import Text from '../ui/Text';
+import StyleSheet from '../ui/PlatformStyleSheet';
+import type { StylePropType } from '../index';
 
 type Props = {|
   placeholder: React.Element<typeof Translation>,
 
   // works across all platforms
   keyboardType: 'default' | 'numeric' | 'email-address' | 'phone-pad',
+
+  style?: StylePropType,
+  onChangeText?: (text: string) => void,
+
+  // TODO: error message (similar to placeholder but below)
 |};
 
 type State = {|
@@ -38,6 +44,10 @@ export default class TextInput extends React.Component<Props, State> {
   };
 
   handleChangeText = (text: string) => {
+    if (this.props.onChangeText) {
+      this.props.onChangeText(text);
+    }
+
     if (text === '') {
       // placeholder in
       RN.Animated.timing(this.state.placeholder.paddingVertical, {
@@ -82,8 +92,8 @@ export default class TextInput extends React.Component<Props, State> {
           {this.props.placeholder}
         </AnimatedText>
         <RN.TextInput
-          style={styleSheet.textInput}
           {...this.props}
+          style={[styleSheet.textInput, this.props.style]}
           placeholder={null}
           onChangeText={this.handleChangeText}
         />

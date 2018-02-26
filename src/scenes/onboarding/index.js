@@ -33,6 +33,7 @@ export default () => (
       </View>
     }
     childrenBottom={
+      // TODO: submit only if all fields are valid
       <FormGroup>
         <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
         <Button
