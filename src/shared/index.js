@@ -2,6 +2,7 @@
 
 export { default as Button } from './forms/Button';
 export { default as EmailInput } from './forms/EmailInput';
+export { default as FormGroup } from './forms/FormGroup';
 export { default as NumericInput } from './forms/NumericInput';
 // export { default as TextInput } from './forms/TextInput'; // not exported because we should use the specific inputs
 

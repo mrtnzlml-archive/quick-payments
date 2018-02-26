@@ -10,6 +10,7 @@ import {
   SplitScreen,
   EmailInput,
   Button,
+  FormGroup,
 } from 'mobile-quick-payments-shared';
 import { Translation } from 'mobile-quick-payments-translations';
 
@@ -32,13 +33,13 @@ export default () => (
       </View>
     }
     childrenBottom={
-      <View>
+      <FormGroup>
         <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
         <Button
           title={<Translation id="Onboarding.Email.Submit" />}
           onPress={VoidAction}
         />
-      </View>
+      </FormGroup>
     }
   />
 );
