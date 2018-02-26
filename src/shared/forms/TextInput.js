@@ -24,6 +24,9 @@ type State = {|
 /**
  * Wrapper around native 'TextInput' component. This component doesn't use
  * native placeholder because we need more fancy behavior.
+ *
+ * Do not use this component directly outside of shared package. Use more
+ * specific inputs like `EmailInput` or `NumericInput`.
  */
 export default class TextInput extends React.Component<Props, State> {
   paddingVertical = 20;

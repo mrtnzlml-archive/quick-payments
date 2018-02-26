@@ -8,7 +8,7 @@ import {
   Title,
   Text,
   SplitScreen,
-  TextInput,
+  EmailInput,
   Button,
 } from 'mobile-quick-payments-shared';
 import { Translation } from 'mobile-quick-payments-translations';
@@ -33,10 +33,7 @@ export default () => (
     }
     childrenBottom={
       <View>
-        <TextInput
-          keyboardType="email-address"
-          placeholder={<Translation id="Onboarding.Email" />}
-        />
+        <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
         <Button
           title={<Translation id="Onboarding.Email.Submit" />}
           onPress={VoidAction}

@@ -1,7 +1,9 @@
 // @flow
 
 export { default as Button } from './forms/Button';
-export { default as TextInput } from './forms/TextInput';
+export { default as EmailInput } from './forms/EmailInput';
+export { default as NumericInput } from './forms/NumericInput';
+// export { default as TextInput } from './forms/TextInput'; // not exported because we should use the specific inputs
 
 export { default as Colors } from './ui/Colors';
 export { default as Icon } from './ui/Icon';
