@@ -2,6 +2,9 @@
 // @flow
 
 /**
+ * This vocabulary is little bit special because it's considered original.
+ * Other translations use this vocabulary as a reference.
+ *
  * Special variables:
  *
  * $PRODUCT_NAME - name of the product
