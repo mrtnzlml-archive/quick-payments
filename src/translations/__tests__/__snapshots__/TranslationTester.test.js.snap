@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works 1`] = `
+Array [
+  "Key 'KEY_DOES_NOT_EXIST' doesn't exist in vocabulary '0'.",
+  "Key 'FIRST_UPPERCASE' from vocabulary '0' should start with uppercase character but it starts with lowercase 't'.",
+  "Key 'FIRST_LOWERCASE' from vocabulary '0' should start with lowercase character but it starts with uppercase 'T'.",
+  "Key 'PUNCTUATION' from vocabulary '0' should end with '!' but it ends with '.' character.",
+  "Translated string should contain special variable but it doesn't.",
+  "Translated string should contain '2' special variables but it contains '1' variables.",
+  "Key 'NOT_TRANSLATED' is not translated in vocabulary '0' (the values are same).",
+]
+`;
