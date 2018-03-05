@@ -15,6 +15,7 @@ it('is consistent', () => {
     .readdirSync(testFolder)
     .filter(filename => /(?<!en-US)\.js$/.test(filename))
     .forEach(filename => {
+      // $FlowExpectedError: the parameter passed to require must be a string literal
       const vocabulary = require(path.join(testFolder, filename)).default;
       vocabularies.push(vocabulary);
     });

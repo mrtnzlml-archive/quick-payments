@@ -8,19 +8,21 @@ const isUpperCase = character => character === character.toUpperCase();
 const isLowerCase = character => character === character.toLowerCase();
 
 export const run = (
-  originalVocabulary: TranslationKeys,
-  translatedVocabularies: $ReadOnlyArray<TranslationKeys>,
-  failFn: (Function, string) => boolean,
+  originalVocabulary: { [TranslationKeys]: string },
+  translatedVocabularies: $ReadOnlyArray<{ [TranslationKeys]: string }>,
+  failFn?: (mixed, string) => boolean,
 ) => {
-  let failIf = failFn;
-  if (failFn === undefined) {
-    failIf = (test, failMessage) => {
-      if (test) {
-        console.warn(failMessage);
-        return true;
-      }
-      return false;
-    };
+  // default failIf implementation (console.warn)
+  let failIf = (test, failMessage) => {
+    if (test) {
+      console.warn(failMessage);
+      return true;
+    }
+    return false;
+  };
+
+  if (failFn !== undefined) {
+    failIf = failFn;
   }
 
   translatedVocabularies.forEach((translatedVocabulary, index) => {
@@ -75,7 +77,7 @@ export const run = (
         originalVariables && !translatedVariables,
         "Translated string should contain special variable but it doesn't.",
       );
-      if (originalVariables !== null && translatedVariables !== null) {
+      if (originalVariables != null && translatedVariables != null) {
         failIf(
           originalVariables.length !== translatedVariables.length,
           `Translated string should contain '${

@@ -37,6 +37,7 @@ const vocabularies = [
 ];
 
 it('works', () => {
+  // $FlowExpectedError: this test intentionally doesn't use valid translation keys
   run(mainTranslation, vocabularies, failFn);
   expect(sink).toMatchSnapshot();
 });
