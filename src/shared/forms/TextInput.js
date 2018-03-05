@@ -1,29 +1,34 @@
 // @flow
 
 import * as React from 'react';
+import * as Animatable from 'react-native-animatable';
 import RN from 'react-native';
 import { Translation } from 'mobile-quick-payments-translations';
 
 import Colors from '../ui/Colors';
 import Text from '../ui/Text';
 import StyleSheet from '../ui/PlatformStyleSheet';
-import type { StylePropType } from '../index';
 
 type Props = {|
+  // placeholder (help text) of the field will automatically slide to the
+  // top of the field therefore it's always visible
   placeholder: React.Element<typeof Translation>,
 
-  // works across all platforms
+  // these types work across all platforms
   keyboardType: 'default' | 'numeric' | 'email-address' | 'phone-pad',
 
-  style?: StylePropType,
+  // callback called on text change
   onChangeText?: (text: string) => void,
 
-  // TODO: error message (similar to placeholder but below)
+  // error message to be displayed below the field
+  errorMessage?: React.Element<typeof Translation>,
 |};
 
 type State = {|
-  placeholder: {|
-    paddingVertical: RN.Animated.Value,
+  transition: {|
+    fontSize: number,
+    paddingTop: number,
+    color: string,
   |},
 |};
 
@@ -35,11 +40,11 @@ type State = {|
  * specific inputs like `EmailInput` or `NumericInput`.
  */
 export default class TextInput extends React.Component<Props, State> {
-  paddingVertical = 20;
-
   state = {
-    placeholder: {
-      paddingVertical: new RN.Animated.Value(this.paddingVertical),
+    transition: {
+      fontSize: 20,
+      paddingTop: 20,
+      color: Colors.grey.$500,
     },
   };
 
@@ -50,53 +55,66 @@ export default class TextInput extends React.Component<Props, State> {
 
     if (text === '') {
       // placeholder in
-      RN.Animated.timing(this.state.placeholder.paddingVertical, {
-        toValue: this.paddingVertical,
-        duration: 50,
-      }).start();
+      this.setState({
+        transition: {
+          fontSize: 20,
+          paddingTop: 20,
+          color: Colors.grey.$500,
+        },
+      });
     } else {
       // placeholder out
-      RN.Animated.timing(this.state.placeholder.paddingVertical, {
-        toValue: 2,
-        duration: 50,
-      }).start();
+      this.setState({
+        transition: {
+          fontSize: 15,
+          paddingTop: 0,
+          color: Colors.brandPrimary,
+        },
+      });
     }
   };
 
   render = () => {
-    const color = this.state.placeholder.paddingVertical.interpolate({
-      inputRange: [0, this.paddingVertical],
-      outputRange: [Colors.brandPrimary, Colors.grey.$600],
-    });
-
-    const styleSheet = {
+    const styleSheet = StyleSheet.create({
       textInput: {
-        borderRadius: 2,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderColor: Colors.grey.$500,
-        paddingVertical: this.paddingVertical,
-        paddingHorizontal: 15,
+        borderBottomWidth: 1,
+        borderColor: this.props.errorMessage ? Colors.error : Colors.grey.$500,
+        paddingTop: 20, // we need more space to fit in the placeholder
+        paddingBottom: 10,
+        fontSize: 20,
       },
       placeholder: {
         position: 'absolute',
-        color: color,
-        paddingVertical: this.state.placeholder.paddingVertical,
-        paddingHorizontal: 15,
+        paddingTop: this.state.transition.paddingTop,
+        color: this.state.transition.color,
+        fontSize: this.state.transition.fontSize,
       },
-    };
+      errorMessage: {
+        color: Colors.error,
+        fontSize: 10,
+        fontWeight: 'bold',
+      },
+    });
 
-    const AnimatedText = RN.Animated.createAnimatedComponent(Text);
     return (
       <RN.View>
-        <AnimatedText style={styleSheet.placeholder}>
+        <Animatable.Text
+          duration={100}
+          transition={['color', 'fontSize', 'paddingTop']}
+          style={styleSheet.placeholder}
+        >
           {this.props.placeholder}
-        </AnimatedText>
+        </Animatable.Text>
         <RN.TextInput
           {...this.props}
-          style={[styleSheet.textInput, this.props.style]}
+          style={styleSheet.textInput}
           placeholder={null}
           onChangeText={this.handleChangeText}
         />
+        <Text style={styleSheet.errorMessage}>
+          {/* $FlowExpectedError: the white space below prevents line jumping */}
+          {this.props.errorMessage || ' '}
+        </Text>
       </RN.View>
     );
   };

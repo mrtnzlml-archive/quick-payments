@@ -42,9 +42,7 @@ export const run = (
       // first uppercase letter must stay uppercase even after translation
       failIf(
         isUpperCase(first(original)) && !isUpperCase(first(translated)),
-        `Key '${originalKey}' from vocabulary '${
-          index
-        }' should start with uppercase character but it starts with lowercase '${first(
+        `Key '${originalKey}' from vocabulary '${index}' should start with uppercase character but it starts with lowercase '${first(
           translated,
         )}'.`,
       );
@@ -52,9 +50,7 @@ export const run = (
       // first lowercase letter must stay lowercase even after translation
       failIf(
         isLowerCase(first(original)) && !isLowerCase(first(translated)),
-        `Key '${originalKey}' from vocabulary '${
-          index
-        }' should start with lowercase character but it starts with uppercase '${first(
+        `Key '${originalKey}' from vocabulary '${index}' should start with lowercase character but it starts with uppercase '${first(
           translated,
         )}'.`,
       );
@@ -62,11 +58,9 @@ export const run = (
       // translation should end with the same punctuation (.!?)
       failIf(
         last(original).match(/^[.!?]/) && last(original) !== last(translated),
-        `Key '${originalKey}' from vocabulary '${
-          index
-        }' should end with '${last(original)}' but it ends with '${last(
-          translated,
-        )}' character.`,
+        `Key '${originalKey}' from vocabulary '${index}' should end with '${last(
+          original,
+        )}' but it ends with '${last(translated)}' character.`,
       );
 
       // translation should contain the same amount of special variables as the original
@@ -91,9 +85,7 @@ export const run = (
       // translation should not contain the same value as original
       failIf(
         original === translated,
-        `Key '${originalKey}' is not translated in vocabulary '${
-          index
-        }' (the values are same).`,
+        `Key '${originalKey}' is not translated in vocabulary '${index}' (the values are same).`,
       );
     });
 
@@ -101,9 +93,7 @@ export const run = (
     Object.keys(translatedVocabulary).forEach(vocabularyKey => {
       failIf(
         originalVocabulary[vocabularyKey] === undefined,
-        `Key '${
-          vocabularyKey
-        }' in vocabulary 'TODO' is redundant and should be removed.`,
+        `Key '${vocabularyKey}' in vocabulary 'TODO' is redundant and should be removed.`,
       );
     });
   });

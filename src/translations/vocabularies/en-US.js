@@ -32,6 +32,7 @@ const Translations = {
   // General
   'General.Cancel': 'Cancel',
   'General.TODO': '***TODO***',
+  'General.Form.Validation.Email': 'Please insert valid email address.',
 };
 
 export type TranslationKeys = $Keys<typeof Translations>;

@@ -5,8 +5,6 @@ import _ from 'lodash';
 import { Translation } from 'mobile-quick-payments-translations';
 
 import TextInput from './TextInput';
-import StyleSheet from '../ui/PlatformStyleSheet';
-import Colors from '../ui/Colors';
 
 type Props = {|
   placeholder: React.Element<typeof Translation>,
@@ -47,15 +45,14 @@ export default class EmailInput extends React.Component<Props, State> {
         keyboardType="email-address"
         placeholder={this.props.placeholder}
         onChangeText={_.debounce(this.handleInputChange, 1000)}
-        style={this.state.isValid ? undefined : styleSheet.validationError}
+        errorMessage={
+          this.state.isValid ? (
+            undefined
+          ) : (
+            <Translation id="General.Form.Validation.Email" />
+          )
+        }
       />
     );
   };
 }
-
-const styleSheet = StyleSheet.create({
-  validationError: {
-    borderColor: Colors.error,
-    borderWidth: 1,
-  },
-});

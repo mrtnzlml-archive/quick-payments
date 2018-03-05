@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 // @flow
 
 import type { TranslationKeys } from './en-US';

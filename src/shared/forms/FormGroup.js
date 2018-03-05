@@ -13,12 +13,15 @@ type Props = {|
  * `FormGroup` silently expects that all form elements are in a column.
  */
 export default function FormGroup(props: Props) {
-  const lastIndex = props.children.length - 1;
+  const isLast = index => index === props.children.length - 1;
+
   return props.children.map((child, index) => (
-    <View
-      key={index}
-      style={index === lastIndex ? styleSheet.lastRow : styleSheet.row}
-    >
+    <View key={index} style={isLast(index) ? undefined : styleSheet.row}>
+      {/*
+        TODO: add something like "onValidation" callback to the child and
+              allow form submit only if the form is completely valid, note
+              that empty textinput should not be valid (?)
+      */}
       {child}
     </View>
   ));
@@ -27,8 +30,5 @@ export default function FormGroup(props: Props) {
 const styleSheet = StyleSheet.create({
   row: {
     marginBottom: 10,
-  },
-  lastRow: {
-    // nothing at this moment
   },
 });

@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 
 import OriginalVocabulary from '../en-US';
-
 import { run } from '../../TranslationsTester';
 
 it('is consistent', () => {

@@ -16,32 +16,36 @@ import { Translation } from 'mobile-quick-payments-translations';
 
 const VoidAction = () => {}; // TODO
 
+const OnboardingTop = () => (
+  <View>
+    <Title style={styleSheet.title}>
+      <Translation id="Onboarding.Title" />
+    </Title>
+    <Text>
+      <Translation id="Onboarding.Subtitle" />
+    </Text>
+  </View>
+);
+
+// TODO: submit only if all fields are valid
+const OnboardingBottom = () => (
+  <FormGroup>
+    <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
+    <Button
+      title={<Translation id="Onboarding.Email.Submit" />}
+      onPress={VoidAction}
+    />
+  </FormGroup>
+);
+
 /**
  * Welcome page of the onboarding should combine login and registration into
  * one simple process.
  */
 export default () => (
   <SplitScreen
-    childrenTop={
-      <View>
-        <Title style={styleSheet.title}>
-          <Translation id="Onboarding.Title" />
-        </Title>
-        <Text>
-          <Translation id="Onboarding.Subtitle" />
-        </Text>
-      </View>
-    }
-    childrenBottom={
-      // TODO: submit only if all fields are valid
-      <FormGroup>
-        <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
-        <Button
-          title={<Translation id="Onboarding.Email.Submit" />}
-          onPress={VoidAction}
-        />
-      </FormGroup>
-    }
+    childrenTop={<OnboardingTop />}
+    childrenBottom={<OnboardingBottom />}
   />
 );
 

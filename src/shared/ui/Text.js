@@ -9,7 +9,7 @@ import Colors from './Colors';
 import type { StylePropType } from '../index';
 
 type Props = {|
-  children: React.Element<typeof Translation>,
+  children?: React.Element<typeof Translation>,
   style?: StylePropType,
 |};
 
