@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import messages, {
   type TranslationKeys as OriginalTranslationKeys,
-} from './vocabularies/en-US';
+} from './en-US';
 
 /**
  * Returns all messages for given language.

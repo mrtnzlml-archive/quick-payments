@@ -1,8 +1,9 @@
 // @flow
 
-import type { TranslationKeys } from './en-US';
+import type { TranslationKeys } from '../en-US';
 
 const Translations = {
+  'Dashboard.Navigation.MyCard': 'MIS TARJETAS',
   // TODO
 };
 

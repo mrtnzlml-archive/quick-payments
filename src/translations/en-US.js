@@ -2,7 +2,7 @@
 // @flow
 
 /**
- * This vocabulary is little bit special because it's considered original.
+ * This vocabulary is little bit special because it's considered to be an original.
  * Other translations use this vocabulary as a reference.
  *
  * Special variables:
