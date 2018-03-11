@@ -3,7 +3,7 @@
   "name": "mobile-quick-payments",
   "version": "0.0.0",
   "workspaces": [
-    "src/*"
+    "packages/*"
   ],
   "devDependencies": {
     "babel-eslint": "^8.2.1",
@@ -19,7 +19,7 @@
     "react-native-scripts": "1.11.1",
     "react-test-renderer": "16.2.0"
   },
-  "main": "./src/index.js",
+  "main": "./packages/index.js",
   "scripts": {
     "start": "react-native-scripts start",
     "android": "react-native-scripts android",
