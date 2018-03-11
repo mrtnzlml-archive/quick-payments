@@ -4,7 +4,7 @@ import { run } from '../TranslationsTester';
 
 let sink = [];
 const failFn = (testFn, message) => {
-  if (testFn) {
+  if (testFn === true) {
     sink.push(message);
     return true;
   }

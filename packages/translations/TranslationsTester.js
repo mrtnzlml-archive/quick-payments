@@ -14,7 +14,7 @@ export const run = (
 ) => {
   // default failIf implementation (console.warn)
   let failIf = (test, failMessage) => {
-    if (test) {
+    if (test === true) {
       console.warn(failMessage);
       return true;
     }

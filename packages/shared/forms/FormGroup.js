@@ -30,7 +30,8 @@ export default class FormGroup extends React.Component<Props, State> {
   componentDidMount = () => {
     const childrenToBeValidated = {};
     this.props.children.map((child, index) => {
-      childrenToBeValidated[index] = !!child.props.omitValidation;
+      // `true` means child is valid
+      childrenToBeValidated[index] = child.props.omitValidation;
     });
     this.setState({
       children: childrenToBeValidated,
@@ -39,7 +40,7 @@ export default class FormGroup extends React.Component<Props, State> {
 
   isFormGroupValid = (): boolean =>
     !!Object.values(this.state.children).reduce(
-      (acc, curVal) => acc && curVal,
+      (accumulator, currentValue) => accumulator && Boolean(currentValue),
       true,
     );
 

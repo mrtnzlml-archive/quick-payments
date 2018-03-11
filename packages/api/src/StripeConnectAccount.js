@@ -7,6 +7,7 @@ import StripeClientFactory from './StripeClientFactory';
  */
 export default class StripeConnectAccount {
   StripeAccounts: {|
+    // $FlowFixMe: type the return type properly!
     create: Object => Promise<Object>,
   |};
 

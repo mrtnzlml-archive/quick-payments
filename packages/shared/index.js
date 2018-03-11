@@ -24,6 +24,7 @@ export { default as SafeAreaView } from 'react-native-safe-area-view';
  * Styles are only reexported here to avoid importing internal RN libraries
  * everywhere (types are not exported directly).
  */
+// $FlowExpectedError: we are importing file declared as [untyped] in the .flowconfig because of broken RN types
 import type { StyleProp as NativeStyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 
 export type StylePropType = NativeStyleProp;

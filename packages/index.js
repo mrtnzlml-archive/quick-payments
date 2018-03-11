@@ -8,12 +8,13 @@ import {
   getMessages,
   IntlProvider,
   type SupportedLanguagesType,
+  type TranslationKeysObject,
 } from 'mobile-quick-payments-translations';
 
 type State = {|
   isLoading: boolean,
   locale: SupportedLanguagesType,
-  intlMessages: Object,
+  intlMessages: TranslationKeysObject,
 |};
 
 class Application extends React.Component<{||}, State> {
