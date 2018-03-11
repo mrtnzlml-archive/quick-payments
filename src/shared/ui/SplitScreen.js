@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { View } from 'react-native';
+import { View, KeyboardAvoidingView } from 'react-native';
 import { StyleSheet, Colors, SafeAreaView } from 'mobile-quick-payments-shared';
 
 import Dimensions from '../Dimensions';
@@ -22,7 +22,11 @@ function SplitScreen(props: Props) {
   );
 
   return (
-    <View style={styleSheet.wrapper}>
+    <KeyboardAvoidingView
+      style={styleSheet.wrapper}
+      behavior="position"
+      contentContainerStyle={styleSheet.wrapper} // the style of the content container(View) when behavior is 'position'
+    >
       <View style={styleSheet.topArea}>
         <SafeAreaView style={styleSheet.safeAreaView}>
           {props.childrenTop}
@@ -34,7 +38,7 @@ function SplitScreen(props: Props) {
           {props.childrenBottom}
         </SafeAreaView>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
