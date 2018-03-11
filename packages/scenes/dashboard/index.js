@@ -87,9 +87,9 @@ const styleSheet = StyleSheet.create({
       width: 0,
       height: 0,
     },
-    shadowOpacity: 1,
+    shadowOpacity: 0.5,
     shadowRadius: 1,
-    elevation: 2,
+    elevation: 1,
   },
   primaryButtonImage: {
     height: 50,

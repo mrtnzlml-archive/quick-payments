@@ -46,7 +46,7 @@ class Application extends React.Component<{||}, State> {
       >
         <Router>
           <Stack key="root">
-            <Stack key="dashboard">
+            <Stack key="dashboard" initial={true}>
               <Scene
                 initial={true}
                 key="dashboard"
@@ -54,7 +54,7 @@ class Application extends React.Component<{||}, State> {
                 component={require('./scenes/dashboard').default}
               />
             </Stack>
-            <Stack key="onboarding" initial={true}>
+            <Stack key="onboarding">
               <Scene
                 initial={true}
                 key="onboarding"
