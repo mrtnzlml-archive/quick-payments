@@ -8,6 +8,7 @@ import TextInput from './TextInput';
 
 type Props = {|
   placeholder: React.Element<typeof Translation>,
+  onValidation?: boolean => void, // FIXME: this is being injected in FormGroup component
 |};
 
 type State = {|
@@ -30,13 +31,21 @@ export default class EmailInput extends React.Component<Props, State> {
    * Email must be validated through verification link.
    */
   validateEmail = (emailAddress: string): boolean => {
-    return /^(\S+@\S+|)$/.test(emailAddress); // empty string is considered valid
+    return /^(\S+@\S+)$/.test(emailAddress);
   };
 
   handleInputChange = (text: string) => {
-    this.setState({
-      isValid: this.validateEmail(text),
-    });
+    const isValid = this.validateEmail(text);
+    this.setState(
+      {
+        isValid,
+      },
+      () => {
+        if (this.props.onValidation) {
+          this.props.onValidation(isValid); // TODO: this should be enforced otherwise FormGroup won't work
+        }
+      },
+    );
   };
 
   render = () => {

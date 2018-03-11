@@ -6,25 +6,70 @@ import { View } from 'react-native';
 import StyleSheet from '../ui/PlatformStyleSheet';
 
 type Props = {|
-  children: $ReadOnlyArray<React.Node>,
+  children: $ReadOnlyArray<React.Element<*>>,
+  onValidationCheck: boolean => void,
+|};
+
+type State = {|
+  // { [child-index]: is-valid }
+  children: { [number]: boolean },
 |};
 
 /**
  * `FormGroup` silently expects that all form elements are in a column.
  */
-export default function FormGroup(props: Props) {
-  const isLast = index => index === props.children.length - 1;
+export default class FormGroup extends React.Component<Props, State> {
+  state = {
+    children: {},
+  };
 
-  return props.children.map((child, index) => (
-    <View key={index} style={isLast(index) ? undefined : styleSheet.row}>
-      {/*
-        TODO: add something like "onValidation" callback to the child and
-              allow form submit only if the form is completely valid, note
-              that empty textinput should not be valid (?)
-      */}
-      {child}
-    </View>
-  ));
+  /**
+   * Registers all children to be validated. Child with `omitValidation`
+   * property is considered to be valid by default (buttons; not required).
+   */
+  componentDidMount = () => {
+    const childrenToBeValidated = {};
+    this.props.children.map((child, index) => {
+      childrenToBeValidated[index] = !!child.props.omitValidation;
+    });
+    this.setState({
+      children: childrenToBeValidated,
+    });
+  };
+
+  isFormGroupValid = (): boolean =>
+    !!Object.values(this.state.children).reduce(
+      (acc, curVal) => acc && curVal,
+      true,
+    );
+
+  render = () => {
+    const children = this.props.children;
+    const isLast = index => index === children.length - 1;
+
+    return children.map((child, index) => {
+      let validatedChild = child;
+
+      if (React.isValidElement(child)) {
+        validatedChild = React.cloneElement(child, {
+          onValidation: isValid =>
+            this.setState(
+              prevState => {
+                prevState.children[index] = isValid;
+                return prevState;
+              },
+              () => this.props.onValidationCheck(this.isFormGroupValid()),
+            ),
+        });
+      }
+
+      return (
+        <View key={index} style={isLast(index) ? undefined : styleSheet.row}>
+          {validatedChild}
+        </View>
+      );
+    });
+  };
 }
 
 const styleSheet = StyleSheet.create({

@@ -14,8 +14,6 @@ import {
 } from 'mobile-quick-payments-shared';
 import { Translation } from 'mobile-quick-payments-translations';
 
-const VoidAction = () => {}; // TODO
-
 const OnboardingTop = () => (
   <View>
     <Title style={styleSheet.title}>
@@ -28,15 +26,31 @@ const OnboardingTop = () => (
 );
 
 // TODO: submit only if all fields are valid
-const OnboardingBottom = () => (
-  <FormGroup>
-    <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
-    <Button
-      title={<Translation id="Onboarding.Email.Submit" />}
-      onPress={VoidAction}
-    />
-  </FormGroup>
-);
+class OnboardingBottom extends React.Component<{||}, { formIsValid: boolean }> {
+  state = {
+    formIsValid: false,
+  };
+
+  handleValidationFormCheck = isValid =>
+    this.setState({
+      formIsValid: isValid,
+      // TODO: form values (?)
+    });
+
+  handleFormSubmit = () => console.warn('TODO: form values');
+
+  render = () => (
+    <FormGroup onValidationCheck={this.handleValidationFormCheck}>
+      <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
+      <Button
+        disabled={!this.state.formIsValid}
+        omitValidation={true}
+        title={<Translation id="Onboarding.Email.Submit" />}
+        onPress={this.handleFormSubmit}
+      />
+    </FormGroup>
+  );
+}
 
 /**
  * Welcome page of the onboarding should combine login and registration into
