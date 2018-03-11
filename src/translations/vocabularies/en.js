@@ -36,4 +36,5 @@ const Translations = {
 };
 
 export type TranslationKeys = $Keys<typeof Translations>;
-export default (Translations: { [TranslationKeys]: string });
+export type TranslationKeysObject = { [TranslationKeys]: string }
+export default (Translations: TranslationKeysObject);

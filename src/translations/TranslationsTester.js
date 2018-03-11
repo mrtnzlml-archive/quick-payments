@@ -1,6 +1,6 @@
 // @flow
 
-import type { TranslationKeys } from './index';
+import type { TranslationKeysObject } from './index';
 
 const first = text => text.slice(0, 1);
 const last = text => text.slice(-1);
@@ -8,8 +8,8 @@ const isUpperCase = character => character === character.toUpperCase();
 const isLowerCase = character => character === character.toLowerCase();
 
 export const run = (
-  originalVocabulary: { [TranslationKeys]: string },
-  translatedVocabularies: $ReadOnlyArray<{ [TranslationKeys]: string }>,
+  originalVocabulary: TranslationKeysObject,
+  translatedVocabularies: $ReadOnlyArray<TranslationKeysObject>,
   failFn?: (mixed, string) => boolean,
 ) => {
   // default failIf implementation (console.warn)

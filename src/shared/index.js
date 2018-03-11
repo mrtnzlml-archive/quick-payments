@@ -15,6 +15,7 @@ export { default as Text } from './ui/Text';
 export { default as Title } from './ui/Title';
 export { default as Touchable } from './ui/Touchable';
 
+export { default as Device } from './Device';
 export { default as Dimensions } from './Dimensions';
 
 export { default as SafeAreaView } from 'react-native-safe-area-view';
