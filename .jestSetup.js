@@ -17,8 +17,4 @@ beforeEach(() => {
    */
   // $FlowExpectedError: cannot overwrite console object
   console.log = jest.fn(); // eslint-disable-line no-console
-  // $FlowExpectedError: cannot overwrite console object
-  console.error = jest.fn(error => {
-    throw new Error(error);
-  });
 });
