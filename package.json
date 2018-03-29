@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.17.0",
     "eslint-plugin-dependencies": "^2.4.0",

@@ -1,15 +1,60 @@
 // @flow
 
-const { microGraphiql, microGraphql } = require('apollo-server-micro');
-const micro = require('micro');
-const { get, post, router } = require('microrouter');
-const { buildSchema } = require('graphql');
+import { microGraphiql, microGraphql } from 'apollo-server-micro';
+import micro from 'micro';
+import { get, post, router } from 'microrouter';
+import { makeExecutableSchema } from 'graphql-tools';
 
-const schema = buildSchema(`
+import { Payments as DatabasePayments } from './src/InMemoryDatabase';
+
+const typeDefs = `
   type Query {
-    hello: String
+    scenes: AllAvailableScenes
   }
-`);
+
+  type AllAvailableScenes {
+    dashboard: DashboardScene
+  }
+
+  type DashboardScene {
+    payments(clientId: ID!): [Payment]
+  }
+
+  type Payment {
+    clientId: ID!
+    status: PaymentStatus
+    amount: Int
+    currency: PaymentCurrency
+  }
+
+  enum PaymentStatus {
+    PAID
+    FAILED
+  }
+
+  enum PaymentCurrency {
+    MXN
+  }
+`;
+
+const resolvers = {
+  Query: {
+    scenes: () => ({
+      dashboard: {
+        payments: ({ clientId }) => {
+          return DatabasePayments.filter(
+            payment => payment.clientId === clientId,
+          );
+        },
+      },
+    }),
+  },
+};
+
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
 
 const graphqlHandler = microGraphql({ schema });
 const graphiqlHandler = microGraphiql({ endpointURL: '/graphql' });
