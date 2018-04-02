@@ -4,6 +4,8 @@ Simplest in-person payments
 
 # TODO
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/adeira/mobile-quick-payments.svg)](https://greenkeeper.io/)
+
 - fraud protection (https://stripe.com/docs/connect/best-practices#fraud, https://stripe.com/docs/disputes/prevention#avoiding-fraudulent-payments)
 - https://stripe.com/docs/connect/best-practices
 
