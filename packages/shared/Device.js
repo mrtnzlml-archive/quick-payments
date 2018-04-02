@@ -10,7 +10,7 @@ export default {
   getCurrentLocaleAsync: async (): Promise<SupportedLanguagesType> => {
     // this hopefully returns always language tags
     // https://www.w3.org/International/articles/language-tags/
-    const currentLocale = await Expo.Util.getCurrentLocaleAsync();
+    const currentLocale = await Expo.DangerZone.Localization.getCurrentLocaleAsync();
     const language = currentLocale.match(/^[^-]+/g);
 
     if (language !== null && isLanguageSupported(language[0])) {

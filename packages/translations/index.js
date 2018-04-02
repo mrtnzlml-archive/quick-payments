@@ -9,7 +9,7 @@ import {
 import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 
-import {
+import enVocabulary, {
   type TranslationKeys as OriginalTranslationKeys,
   type TranslationKeysObject as OriginalTranslationKeysObject,
 } from './vocabularies/en';
@@ -34,7 +34,7 @@ export const getMessages = (
   // Metro Bundler currently doesn't support dynamic requires
   switch (language) {
     case 'en':
-      return require('./vocabularies/en.js').default;
+      return enVocabulary;
     case 'es':
       return require('./vocabularies/es.js').default;
     default:
