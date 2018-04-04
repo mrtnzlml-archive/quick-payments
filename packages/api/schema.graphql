@@ -1,0 +1,27 @@
+type Query {
+    scenes: AllAvailableScenes
+}
+
+type AllAvailableScenes {
+    dashboard: DashboardScene
+}
+
+type DashboardScene {
+    payments(clientId: ID!): [Payment]
+}
+
+type Payment {
+    clientId: ID!
+    status: PaymentStatus
+    amount: Int
+    currency: PaymentCurrency
+}
+
+enum PaymentStatus {
+    PAID
+    FAILED
+}
+
+enum PaymentCurrency {
+    MXN
+}

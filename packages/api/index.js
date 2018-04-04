@@ -1,41 +1,13 @@
 // @flow
 
+import fs from 'fs';
+import path from 'path';
 import { microGraphiql, microGraphql } from 'apollo-server-micro';
 import micro from 'micro';
 import { get, post, router } from 'microrouter';
 import { makeExecutableSchema } from 'graphql-tools';
 
 import { Payments as DatabasePayments } from './src/InMemoryDatabase';
-
-const typeDefs = `
-  type Query {
-    scenes: AllAvailableScenes
-  }
-
-  type AllAvailableScenes {
-    dashboard: DashboardScene
-  }
-
-  type DashboardScene {
-    payments(clientId: ID!): [Payment]
-  }
-
-  type Payment {
-    clientId: ID!
-    status: PaymentStatus
-    amount: Int
-    currency: PaymentCurrency
-  }
-
-  enum PaymentStatus {
-    PAID
-    FAILED
-  }
-
-  enum PaymentCurrency {
-    MXN
-  }
-`;
 
 const resolvers = {
   Query: {
@@ -52,7 +24,7 @@ const resolvers = {
 };
 
 const schema = makeExecutableSchema({
-  typeDefs,
+  typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8'),
   resolvers,
 });
 

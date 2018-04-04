@@ -24,6 +24,9 @@
 <PROJECT_ROOT>/node_modules/reqwest/.+
 <PROJECT_ROOT>/node_modules/fbemitter/.+
 <PROJECT_ROOT>/node_modules/xdl/build/detach/.+
+<PROJECT_ROOT>/node_modules/react-relay/lib/.+
+<PROJECT_ROOT>/node_modules/relay-compiler/lib/.+
+<PROJECT_ROOT>/node_modules/relay-runtime/lib/.+
 
 [include]
 
