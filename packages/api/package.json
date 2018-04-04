@@ -8,7 +8,11 @@
     "graphql": "^0.13.1",
     "stripe": "^5.5.0"
   },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "nodemon": "^1.17.3"
+  },
   "scripts": {
-    "start": "node index.js"
+    "start": "yarn run nodemon --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn run babel-node index.js"
   }
 }

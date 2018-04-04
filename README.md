@@ -2,6 +2,14 @@
 
 Simplest in-person payments
 
+# Start API server
+
+```
+docker-compose up
+```
+
+Open: http://127.0.0.1/graphql
+
 # TODO
 
 - fraud protection (https://stripe.com/docs/connect/best-practices#fraud, https://stripe.com/docs/disputes/prevention#avoiding-fraudulent-payments)

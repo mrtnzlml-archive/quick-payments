@@ -1,0 +1,14 @@
+# https://docs.docker.com/compose/compose-file/
+# https://github.com/b00giZm/docker-compose-nodejs-examples
+version: '3'
+
+services:
+  graphql:
+    build: ./packages/api
+    image: adeira/mobile-quick-payments-api
+    volumes:
+      # HOST:CONTAINER
+      - '.:/app' # add everything because of workspaces and dependency hoisting (FIXME)
+    ports:
+      # HOST:CONTAINER
+      - '80:3000'

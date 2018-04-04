@@ -5,8 +5,15 @@
   "workspaces": [
     "packages/*"
   ],
+  "dependencies": {
+    "expo": "^26.0.0",
+    "react": "16.3.0-alpha.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
+    "react-native-animatable": "^1.2.4",
+    "react-native-router-flux": "^4.0.0-beta.28",
+    "react-relay": "^1.5.0"
+  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-relay": "^1.5.0",
     "eslint": "^4.17.0",
@@ -34,13 +41,5 @@
   },
   "jest": {
     "preset": "jest-expo"
-  },
-  "dependencies": {
-    "expo": "^26.0.0",
-    "react": "16.3.0-alpha.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
-    "react-native-animatable": "^1.2.4",
-    "react-native-router-flux": "^4.0.0-beta.28",
-    "react-relay": "^1.5.0"
   }
 }
