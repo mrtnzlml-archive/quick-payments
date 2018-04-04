@@ -1,43 +1,21 @@
 // @flow
 
-import fs from 'fs';
-import path from 'path';
-import { microGraphiql, microGraphql } from 'apollo-server-micro';
-import micro from 'micro';
-import { get, post, router } from 'microrouter';
-import { makeExecutableSchema } from 'graphql-tools';
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
 
-import { Payments as DatabasePayments } from './src/InMemoryDatabase';
+import { schema, resolvers } from './graphql';
 
-const resolvers = {
-  Query: {
-    scenes: () => ({
-      dashboard: {
-        payments: ({ clientId }) => {
-          return DatabasePayments.filter(
-            payment => payment.clientId === clientId,
-          );
-        },
-      },
-    }),
-  },
-};
+const app = express();
+const PORT = 3000;
 
-const schema = makeExecutableSchema({
-  typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8'),
-  resolvers,
-});
-
-const graphqlHandler = microGraphql({ schema });
-const graphiqlHandler = microGraphiql({ endpointURL: '/graphql' });
-
-const server = micro(
-  router(
-    get('/graphql', graphqlHandler),
-    post('/graphql', graphqlHandler),
-    get('/graphiql', graphiqlHandler),
-    (req, res) => micro.send(res, 404, 'not found'),
-  ),
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema: schema,
+    rootValue: resolvers,
+    graphiql: true,
+  }),
 );
-
-server.listen(3000);
+app.listen(PORT, () => {
+  console.warn(`Running a GraphQL API server at 127.0.0.1:${PORT}/graphql`);
+});

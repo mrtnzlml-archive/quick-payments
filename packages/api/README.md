@@ -6,10 +6,10 @@ docker ps
 docker stop fe37e002feda
 ```
 
-Open: http://127.0.0.1/graphiql
+Open: http://127.0.0.1/graphql
 
 ```
 yarn babel-node packages/api/index.js
 ```
 
-Open: http://127.0.0.1:3000/graphiql
+http://127.0.0.1:3000/graphql

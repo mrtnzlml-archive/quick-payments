@@ -35,6 +35,7 @@
 <PROJECT_ROOT>/node_modules/expo/.+
 <PROJECT_ROOT>/node_modules/iterall/.+
 <PROJECT_ROOT>/node_modules/graphql/.+
+<PROJECT_ROOT>/node_modules/express-graphql/.+
 
 [libs]
 node_modules/react-native/Libraries/react-native/react-native-interface.js

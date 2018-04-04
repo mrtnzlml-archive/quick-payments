@@ -1,0 +1,378 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works 1`] = `
+Object {
+  "data": Object {
+    "__schema": Object {
+      "directives": Array [
+        Object {
+          "name": "skip",
+        },
+        Object {
+          "name": "include",
+        },
+        Object {
+          "name": "deprecated",
+        },
+      ],
+      "types": Array [
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "scenes",
+              "type": Object {
+                "name": "AllAvailableScenes",
+              },
+            },
+          ],
+          "name": "Query",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "dashboard",
+              "type": Object {
+                "name": "DashboardScene",
+              },
+            },
+          ],
+          "name": "AllAvailableScenes",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "payments",
+              "type": Object {
+                "name": null,
+              },
+            },
+          ],
+          "name": "DashboardScene",
+        },
+        Object {
+          "fields": null,
+          "name": "ID",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "clientId",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "status",
+              "type": Object {
+                "name": "PaymentStatus",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "amount",
+              "type": Object {
+                "name": "Int",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "currency",
+              "type": Object {
+                "name": "PaymentCurrency",
+              },
+            },
+          ],
+          "name": "Payment",
+        },
+        Object {
+          "fields": null,
+          "name": "PaymentStatus",
+        },
+        Object {
+          "fields": null,
+          "name": "Int",
+        },
+        Object {
+          "fields": null,
+          "name": "PaymentCurrency",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "types",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "queryType",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "mutationType",
+              "type": Object {
+                "name": "__Type",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "subscriptionType",
+              "type": Object {
+                "name": "__Type",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "directives",
+              "type": Object {
+                "name": null,
+              },
+            },
+          ],
+          "name": "__Schema",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "kind",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "name",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "description",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "fields",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "interfaces",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "possibleTypes",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "enumValues",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "inputFields",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "ofType",
+              "type": Object {
+                "name": "__Type",
+              },
+            },
+          ],
+          "name": "__Type",
+        },
+        Object {
+          "fields": null,
+          "name": "__TypeKind",
+        },
+        Object {
+          "fields": null,
+          "name": "String",
+        },
+        Object {
+          "fields": null,
+          "name": "Boolean",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "name",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "description",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "args",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "type",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "isDeprecated",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "deprecationReason",
+              "type": Object {
+                "name": "String",
+              },
+            },
+          ],
+          "name": "__Field",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "name",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "description",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "type",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "defaultValue",
+              "type": Object {
+                "name": "String",
+              },
+            },
+          ],
+          "name": "__InputValue",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "name",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "description",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "isDeprecated",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "deprecationReason",
+              "type": Object {
+                "name": "String",
+              },
+            },
+          ],
+          "name": "__EnumValue",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "name",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "description",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "locations",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "args",
+              "type": Object {
+                "name": null,
+              },
+            },
+          ],
+          "name": "__Directive",
+        },
+        Object {
+          "fields": null,
+          "name": "__DirectiveLocation",
+        },
+      ],
+    },
+  },
+}
+`;

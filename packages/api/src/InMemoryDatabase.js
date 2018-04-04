@@ -48,14 +48,14 @@ export const Payments: $ReadOnlyArray<{|
   },
   {
     clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E',
-    status: PaymentStatuses.PAID,
+    status: PaymentStatuses.FAILED,
     amount: 1000, // 10 MXN
     currency: Currencies.MXN,
     retailerId: '5B3D42C0-A0EF-4F69-8AF6-F8162F2ACB60',
   },
   {
     clientId: '74F58983-89F8-4233-9420-15664950056F',
-    status: PaymentStatuses.FAILED,
+    status: PaymentStatuses.PAID,
     amount: 1000, // 10 MXN
     currency: Currencies.MXN,
     retailerId: 'unknown',
