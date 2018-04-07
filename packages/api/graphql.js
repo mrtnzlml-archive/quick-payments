@@ -13,10 +13,16 @@ export const schema = buildSchema(
 export const resolvers = {
   scenes: () => ({
     dashboard: {
-      payments: ({ clientId }: {| clientId: number |}) => {
+      payments: ({ clientId }: {| clientId: string |}) => {
         return DatabasePayments.filter(
           payment => payment.clientId === clientId,
         );
+      },
+    },
+    payment: {
+      // TODO: require client ID as well? (or authorize via headers)
+      checkStatus: ({ paymentId }: {| paymentId: string |}) => {
+        return DatabasePayments.find(payment => payment.id === paymentId);
       },
     },
   }),

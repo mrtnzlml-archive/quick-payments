@@ -9,6 +9,7 @@ import QueryRendererLoading from './QueryRendererLoading';
 export default class QueryRenderer extends React.Component<{|
   query: string,
   render: ({| props: Object |}) => React.Node,
+  variables?: Object,
 |}> {
   renderQueryRendererResult = ({
     props,

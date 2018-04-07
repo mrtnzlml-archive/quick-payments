@@ -75,16 +75,12 @@ class Application extends React.Component<{||}, State> {
                 component={require('./scenes/payment/amount').default}
               />
               <Scene
-                key="payment.confirmation"
+                key="payment.result"
                 hideNavBar={true}
-                component={
-                  require('./scenes/payment/result/Confirmation').default
-                }
-              />
-              <Scene
-                key="payment.rejection"
-                hideNavBar={true}
-                component={require('./scenes/payment/result/Rejection').default}
+                component={require('./scenes/payment/result').default}
+                // custom scene props
+                paymentId="73F4E736-3F49-4EA3-9241-72C5072EE060" // TODO
+                // paymentId="3EEF653E-E0EC-4396-BE66-35D55A9A2366" // failed
               />
             </Stack>
           </Stack>

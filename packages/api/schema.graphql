@@ -4,10 +4,15 @@ type Query {
 
 type AllAvailableScenes {
   dashboard: DashboardScene
+  payment: PaymentScene
 }
 
 type DashboardScene {
   payments(clientId: ID!): [Payment]
+}
+
+type PaymentScene {
+  checkStatus(paymentId: ID!): Payment
 }
 
 type Payment {
