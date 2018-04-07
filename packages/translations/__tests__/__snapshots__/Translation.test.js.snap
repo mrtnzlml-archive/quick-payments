@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`throws exception for unclear properties 1`] = `"You can use only 'id' or 'passThrough' property in translations but not both."`;
+
+exports[`works with \`passThrough\` property 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+>
+  passThrough test
+</Text>
+`;
+
+exports[`works with translation ID property 1`] = `
+<FormattedMessage
+  id="ID test"
+  values={Object {}}
+>
+  [Function]
+</FormattedMessage>
+`;
