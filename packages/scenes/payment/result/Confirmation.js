@@ -7,10 +7,9 @@ import {
   Icon,
   Colors,
   StyleSheet,
-  Text,
+  Price,
 } from 'mobile-quick-payments-shared';
 import { createFragmentContainer, graphql } from 'mobile-quick-payments-relay';
-import Translation from 'mobile-quick-payments-translations';
 
 /**
  * TODO: this page must be animated to avoid scam with static screenshots
@@ -26,9 +25,7 @@ const Confirmation = ({ data }) => (
     }
     childrenBottom={
       <View>
-        {/* TODO: Price component */}
-        <Translation passThrough={data.amount} />
-        <Translation passThrough={data.currency} />
+        <Price amount={data.amount} currency={data.currency} />
       </View>
     }
   />

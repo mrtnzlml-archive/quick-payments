@@ -7,9 +7,9 @@ import {
   Icon,
   Colors,
   StyleSheet,
+  Price,
 } from 'mobile-quick-payments-shared';
 import { createFragmentContainer, graphql } from 'mobile-quick-payments-relay';
-import Translation from 'mobile-quick-payments-translations';
 
 const Rejection = ({ data }) => (
   <SplitScreen
@@ -21,10 +21,8 @@ const Rejection = ({ data }) => (
     }
     childrenBottom={
       <View>
-        {/* TODO: Price component */}
         {/* TODO: show the error and explanation */}
-        <Translation passThrough={data.amount} />
-        <Translation passThrough={data.currency} />
+        <Price amount={data.amount} currency={data.currency} />
       </View>
     }
   />
