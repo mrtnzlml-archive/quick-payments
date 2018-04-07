@@ -14,17 +14,17 @@
     "react-native-router-flux": "^4.0.0-beta.28"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.2",
     "babel-plugin-relay": "^1.5.0",
-    "eslint": "^4.17.0",
+    "eslint": "^4.19.1",
     "eslint-plugin-dependencies": "^2.4.0",
-    "eslint-plugin-flowtype": "^2.42.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-react": "^7.7.0",
     "flow-bin": "^0.69.0",
     "jest-expo": "^26.0.0",
-    "prettier": "^1.10.2",
+    "prettier": "^1.11.1",
     "react-native-scripts": "1.13.1",
     "react-test-renderer": "16.3.0-alpha.1",
     "relay-compiler": "^1.5.0"
