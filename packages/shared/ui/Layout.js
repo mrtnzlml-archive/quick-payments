@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import SafeAreaView from 'react-native-safe-area-view';
-import { Translation } from 'mobile-quick-payments-translations';
+import Translation from 'mobile-quick-payments-translations';
 
 import Title from './Title';
 import Text from './Text';

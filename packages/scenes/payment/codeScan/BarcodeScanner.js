@@ -4,7 +4,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
 import { Actions } from 'react-native-router-flux';
-import { Translation } from 'mobile-quick-payments-translations';
+import Translation from 'mobile-quick-payments-translations';
 import { StyleSheet, Colors, Text } from 'mobile-quick-payments-shared';
 
 type State = {|

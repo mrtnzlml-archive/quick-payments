@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Translation } from 'mobile-quick-payments-translations';
+import Translation from 'mobile-quick-payments-translations';
 
 import Text from './Text';
 import Colors from './Colors';

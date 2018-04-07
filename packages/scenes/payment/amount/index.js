@@ -7,7 +7,7 @@ import {
   NumericInput,
   Button,
 } from 'mobile-quick-payments-shared';
-import { Translation } from 'mobile-quick-payments-translations';
+import Translation from 'mobile-quick-payments-translations';
 
 const VoidCallback = () => {};
 

@@ -52,7 +52,7 @@ export type TranslationKeysObject = OriginalTranslationKeysObject;
  * Component returns translated string including components necessary
  * for translation formatting.
  */
-export { default as Translation } from './Translation';
+export { default } from './Translation';
 
 export const IntlProvider = (props: {|
   children: React.Node,

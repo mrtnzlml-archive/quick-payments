@@ -11,7 +11,7 @@ import {
   Text,
   Icon,
 } from 'mobile-quick-payments-shared';
-import { Translation } from 'mobile-quick-payments-translations';
+import Translation from 'mobile-quick-payments-translations';
 import { QueryRenderer, graphql } from 'mobile-quick-payments-relay';
 import idx from 'idx';
 

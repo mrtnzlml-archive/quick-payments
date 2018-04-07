@@ -10,7 +10,7 @@ import {
   Text,
 } from 'mobile-quick-payments-shared';
 import { createFragmentContainer, graphql } from 'mobile-quick-payments-relay';
-import { Translation } from 'mobile-quick-payments-translations';
+import Translation from 'mobile-quick-payments-translations';
 
 /**
  * TODO: this page must be animated to avoid scam with static screenshots
