@@ -26,11 +26,9 @@ function SplitScreen(props: Props) {
           {props.childrenTop}
         </SafeAreaView>
       </View>
-      <View style={styleSheet.bottomArea}>
-        <SafeAreaView style={styleSheet.safeAreaView}>
-          {props.childrenBottom}
-        </SafeAreaView>
-      </View>
+      <SafeAreaView style={styleSheet.safeAreaView}>
+        {props.childrenBottom}
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 }
@@ -49,8 +47,6 @@ function createStyleSheet(backgroundColor: string) {
       backgroundColor: Colors.background,
     },
     safeAreaView: {
-      flex: 1,
-      justifyContent: 'center',
       paddingHorizontal: 10,
     },
     topArea: {
@@ -65,9 +61,6 @@ function createStyleSheet(backgroundColor: string) {
       shadowOpacity: 1,
       shadowRadius: 1,
       elevation: 1,
-    },
-    bottomArea: {
-      flex: 1,
     },
   });
 }
