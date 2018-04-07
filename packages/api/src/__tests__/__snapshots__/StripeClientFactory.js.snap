@@ -434,6 +434,13 @@ Object {
     "setMetadata": [Function],
     "update": [Function],
   },
+  "usageRecords": Object {
+    "_stripe": [Circular],
+    "_urlData": Object {},
+    "basePath": [Function],
+    "path": [Function],
+    "resourcePath": "subscription_items",
+  },
   "webhooks": Object {
     "DEFAULT_TOLERANCE": 300,
     "constructEvent": [Function],

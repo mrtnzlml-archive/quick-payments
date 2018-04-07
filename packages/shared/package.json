@@ -6,6 +6,6 @@
   "dependencies": {
     "lodash": "^4.17.5",
     "mobile-quick-payments-translations": "^0",
-    "react-native-safe-area-view": "^0.6.0"
+    "react-native-safe-area-view": "^0.7.0"
   }
 }
