@@ -37,6 +37,13 @@ Object {
                 "name": "DashboardScene",
               },
             },
+            Object {
+              "isDeprecated": false,
+              "name": "payment",
+              "type": Object {
+                "name": "PaymentScene",
+              },
+            },
           ],
           "name": "AllAvailableScenes",
         },
@@ -100,6 +107,18 @@ Object {
         Object {
           "fields": null,
           "name": "PaymentCurrency",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "checkStatus",
+              "type": Object {
+                "name": "Payment",
+              },
+            },
+          ],
+          "name": "PaymentScene",
         },
         Object {
           "fields": Array [
