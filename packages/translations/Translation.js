@@ -13,20 +13,24 @@ type Props =
       passThrough: string,
     |};
 
-export default (props: Props) => {
-  if (props.id !== undefined && props.passThrough !== undefined) {
-    throw new Error(
-      "You can use only 'id' or 'passThrough' property in translations but not both.",
+export default class Translation extends React.PureComponent<Props> {
+  render = () => {
+    const p = this.props;
+
+    if (p.id !== undefined && p.passThrough !== undefined) {
+      throw new Error(
+        "You can use only 'id' or 'passThrough' property in translations but not both.",
+      );
+    }
+
+    if (p.passThrough !== undefined) {
+      return <Text>{p.passThrough}</Text>;
+    }
+
+    return (
+      <FormattedMessage id={p.id}>
+        {translatedText => <Text>{translatedText}</Text>}
+      </FormattedMessage>
     );
-  }
-
-  if (props.passThrough !== undefined) {
-    return <Text>{props.passThrough}</Text>;
-  }
-
-  return (
-    <FormattedMessage id={props.id}>
-      {translatedText => <Text>{translatedText}</Text>}
-    </FormattedMessage>
-  );
-};
+  };
+}
