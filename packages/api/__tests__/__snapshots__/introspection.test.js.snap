@@ -60,7 +60,7 @@ Object {
           "fields": Array [
             Object {
               "isDeprecated": false,
-              "name": "clientId",
+              "name": "id",
               "type": Object {
                 "name": null,
               },

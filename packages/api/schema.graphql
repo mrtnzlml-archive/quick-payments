@@ -1,27 +1,28 @@
 type Query {
-    scenes: AllAvailableScenes
+  scenes: AllAvailableScenes
 }
 
 type AllAvailableScenes {
-    dashboard: DashboardScene
+  dashboard: DashboardScene
 }
 
 type DashboardScene {
-    payments(clientId: ID!): [Payment]
+  payments(clientId: ID!): [Payment]
 }
 
 type Payment {
-    clientId: ID!
-    status: PaymentStatus
-    amount: Int
-    currency: PaymentCurrency
+  id: ID!
+  #clientId: ID! TODO: return client type directly
+  status: PaymentStatus
+  amount: Int
+  currency: PaymentCurrency
 }
 
 enum PaymentStatus {
-    PAID
-    FAILED
+  PAID
+  FAILED
 }
 
 enum PaymentCurrency {
-    MXN
+  MXN
 }

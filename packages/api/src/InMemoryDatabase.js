@@ -12,7 +12,7 @@ const Currencies = {
 opaque type UUID = string;
 
 const Clients: $ReadOnlyArray<{|
-  +id: string,
+  +id: UUID,
   name: string,
 |}> = [
   {
@@ -23,7 +23,7 @@ const Clients: $ReadOnlyArray<{|
 
 // these are going to be basically converted Clients
 const Retailers: $ReadOnlyArray<{|
-  +id: string,
+  +id: UUID,
   name: string,
 |}> = [
   {
@@ -33,13 +33,16 @@ const Retailers: $ReadOnlyArray<{|
 ];
 
 export const Payments: $ReadOnlyArray<{|
+  +id: UUID,
   +clientId: UUID,
   +status: $Keys<typeof PaymentStatuses>,
   +amount: number, // always INT, not FLOAT!
   +currency: $Keys<typeof Currencies>,
   +retailerId: UUID,
+  // TODO: date
 |}> = [
   {
+    id: '73F4E736-3F49-4EA3-9241-72C5072EE060',
     clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E', // we need to fetch by this ID
     status: PaymentStatuses.PAID,
     amount: 1000, // 10 MXN
@@ -47,6 +50,7 @@ export const Payments: $ReadOnlyArray<{|
     retailerId: '5B3D42C0-A0EF-4F69-8AF6-F8162F2ACB60',
   },
   {
+    id: '3EEF653E-E0EC-4396-BE66-35D55A9A2366',
     clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E',
     status: PaymentStatuses.FAILED,
     amount: 1000, // 10 MXN
@@ -54,6 +58,7 @@ export const Payments: $ReadOnlyArray<{|
     retailerId: '5B3D42C0-A0EF-4F69-8AF6-F8162F2ACB60',
   },
   {
+    id: '0CD4D2CD-F410-4111-A89E-DE6B991C4FEB',
     clientId: '74F58983-89F8-4233-9420-15664950056F',
     status: PaymentStatuses.PAID,
     amount: 1000, // 10 MXN

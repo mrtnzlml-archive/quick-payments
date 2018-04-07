@@ -72,3 +72,7 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
 [lints]
 all=error
 untyped-import=off
+; unclear types are used by Relay Compiler
+unclear-type=off
+; untyped imports are used by Relay Compiler
+untyped-type-import=off

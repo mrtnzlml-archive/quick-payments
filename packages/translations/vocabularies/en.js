@@ -10,29 +10,27 @@
  * $PRODUCT_NAME - name of the product
  */
 const Translations = {
-  // Dashboard
-  'Dashboard.Title': 'TODO: payments history',
-  'Dashboard.Navigation.MyCard': 'MY CARDS',
-  'Dashboard.Navigation.BecomeRetailer': 'BECOME RETAILER',
-
-  // Payment
-  'Payment.Title': 'How much?',
-
-  // BarcodeScanner
-  'BarcodeScanner.ScanCode': 'Scan QR code',
-  'BarcodeScanner.RequestingCameraPermission': 'Requesting for camera permission',
   'BarcodeScanner.NoCameraPermission': 'No access to camera',
+  'BarcodeScanner.RequestingCameraPermission': 'Requesting for camera permission',
+  'BarcodeScanner.ScanCode': 'Scan QR code',
 
-  // Onboarding
-  'Onboarding.Title': '$PRODUCT_NAME',
-  'Onboarding.Subtitle': 'Simplest in-person payments',
+  'Dashboard.Title': 'Payments history',
+  'Dashboard.Navigation.BecomeRetailer': 'BECOME RETAILER',
+  'Dashboard.Navigation.MyCard': 'MY CARDS',
+
+  'General.Cancel': 'Cancel',
+  'General.Form.Validation.Email': 'Please insert valid email address.',
+  'General.TODO': '***TODO***',
+
   'Onboarding.Email': 'What is your email address?',
   'Onboarding.Email.Submit': 'Login',
+  'Onboarding.Subtitle': 'Simplest in-person payments',
+  'Onboarding.Title': '$PRODUCT_NAME',
 
-  // General
-  'General.Cancel': 'Cancel',
-  'General.TODO': '***TODO***',
-  'General.Form.Validation.Email': 'Please insert valid email address.',
+  'Payment.Title': 'How much?',
+
+  // TODO: this should be registered by the workspace package automatically (the same for rest of the translations/packages)
+  'Relay.QueryRenderer.Loading': 'Loading...'
 };
 
 export type TranslationKeys = $Keys<typeof Translations>;

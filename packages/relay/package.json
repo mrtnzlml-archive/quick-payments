@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "mobile-quick-payments-relay",
+  "version": "0.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "mobile-quick-payments-shared": "^0",
+    "mobile-quick-payments-translations": "^0",
+    "react-relay": "^1.5.0"
+  }
+}

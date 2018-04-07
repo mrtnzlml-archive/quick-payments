@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {
   StyleSheet,
@@ -12,6 +12,11 @@ import {
   Icon,
 } from 'mobile-quick-payments-shared';
 import { Translation } from 'mobile-quick-payments-translations';
+import { QueryRenderer, graphql } from 'mobile-quick-payments-relay';
+import idx from 'idx';
+
+import PaymentRow from './PaymentRow';
+import type { dashboardQueryResponse } from './__generated__/dashboardQuery.graphql';
 
 const goToCodeScan = () => Actions['payment.codeScan']();
 
@@ -43,27 +48,65 @@ const SecondaryButton = ({
   </Touchable>
 );
 
-export default () => (
-  <Layout title={<Translation id="Dashboard.Title" />}>
-    <View style={styleSheet.navigation}>
-      <View style={styleSheet.button}>
-        <SecondaryButton
-          iconName="credit-card"
-          description={<Translation id="Dashboard.Navigation.MyCard" />}
-        />
+export default class Dashboard extends React.Component<{||}> {
+  renderQueryRendererResult = ({
+    props,
+  }: {|
+    props: dashboardQueryResponse,
+  |}) => {
+    const payments = idx(props, _ => _.scenes.dashboard.payments) || [];
+    return (
+      <ScrollView>
+        {payments.map(payment => {
+          if (payment) {
+            return <PaymentRow key={payment.id} data={payment} />;
+          }
+        })}
+      </ScrollView>
+    );
+  };
+
+  render = () => (
+    <Layout title={<Translation id="Dashboard.Title" />}>
+      <QueryRenderer
+        query={graphql`
+          query dashboardQuery {
+            scenes {
+              dashboard {
+                # TODO: get client ID from props
+                payments(clientId: "EA53A691-9970-46BB-BACD-80D4A120334E") {
+                  id
+                  ...PaymentRow
+                }
+              }
+            }
+          }
+        `}
+        render={this.renderQueryRendererResult}
+      />
+
+      <View style={styleSheet.navigation}>
+        <View style={styleSheet.button}>
+          <SecondaryButton
+            iconName="credit-card"
+            description={<Translation id="Dashboard.Navigation.MyCard" />}
+          />
+        </View>
+        <View style={styleSheet.button}>
+          <PrimaryButton />
+        </View>
+        <View style={styleSheet.button}>
+          <SecondaryButton
+            iconName="trending-up"
+            description={
+              <Translation id="Dashboard.Navigation.BecomeRetailer" />
+            }
+          />
+        </View>
       </View>
-      <View style={styleSheet.button}>
-        <PrimaryButton />
-      </View>
-      <View style={styleSheet.button}>
-        <SecondaryButton
-          iconName="trending-up"
-          description={<Translation id="Dashboard.Navigation.BecomeRetailer" />}
-        />
-      </View>
-    </View>
-  </Layout>
-);
+    </Layout>
+  );
+}
 
 const styleSheet = StyleSheet.create({
   navigation: {
@@ -78,10 +121,10 @@ const styleSheet = StyleSheet.create({
   },
   primaryButton: {
     backgroundColor: '#313B72',
-    borderRadius: 15,
-    padding: 15,
-    height: 80, // image + (2 * padding)
-    width: 80, // image + (2 * padding)
+    borderRadius: 5,
+    padding: 10,
+    height: 70, // image + (2 * padding)
+    width: 70, // image + (2 * padding)
     shadowColor: Colors.black,
     shadowOffset: {
       width: 0,
@@ -97,8 +140,7 @@ const styleSheet = StyleSheet.create({
   },
   secondaryButton: {
     alignItems: 'center',
-    paddingHorizontal: 5,
-    paddingVertical: 15,
+    padding: 5,
   },
   secondaryButtonText: {
     fontSize: 10,

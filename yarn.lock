@@ -3913,7 +3913,7 @@ idtoken-verifier@^1.1.2:
     superagent "^3.8.2"
     url-join "^1.1.0"
 
-idx@^2.1.0:
+idx@^2.1.0, idx@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/idx/-/idx-2.2.0.tgz#8544749f9faba6409822b5d9488ba5bc77b8fbfe"
 
