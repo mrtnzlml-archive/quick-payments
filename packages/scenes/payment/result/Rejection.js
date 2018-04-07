@@ -2,16 +2,28 @@
 
 import * as React from 'react';
 import { View } from 'react-native';
-import { SplitScreen, Icon, Colors } from 'mobile-quick-payments-shared';
+import {
+  SplitScreen,
+  Icon,
+  Colors,
+  StyleSheet,
+} from 'mobile-quick-payments-shared';
 
 export default () => (
   <SplitScreen
     backgroundColor={Colors.error}
     childrenTop={
-      <View>
+      <View style={styleSheet.container}>
         <Icon name="clear" color={Colors.white} size={300} />
       </View>
     }
     childrenBottom={<View>{/* Show amount payed and button back */}</View>}
   />
 );
+
+const styleSheet = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

@@ -13,13 +13,7 @@ type Props = {|
 |};
 
 function SplitScreen(props: Props) {
-  const { width, height } = Dimensions.get();
-  const styleSheet = createStyleSheet(
-    width,
-    height,
-    props.backgroundColor,
-    0.5,
-  );
+  const styleSheet = createStyleSheet(props.backgroundColor);
 
   return (
     <KeyboardAvoidingView
@@ -32,7 +26,6 @@ function SplitScreen(props: Props) {
           {props.childrenTop}
         </SafeAreaView>
       </View>
-      <View style={styleSheet.bottomTriangle} />
       <View style={styleSheet.bottomArea}>
         <SafeAreaView style={styleSheet.safeAreaView}>
           {props.childrenBottom}
@@ -48,14 +41,8 @@ SplitScreen.defaultProps = {
 
 export default SplitScreen;
 
-function createStyleSheet(
-  screenWidth: number,
-  screenHeight: number,
-  backgroundColor: string,
-  ratio: number,
-) {
-  const triangleHeight = screenWidth / 15;
-
+function createStyleSheet(backgroundColor: string) {
+  const { width, height } = Dimensions.get();
   return StyleSheet.create({
     wrapper: {
       flex: 1,
@@ -67,31 +54,20 @@ function createStyleSheet(
       paddingHorizontal: 10,
     },
     topArea: {
-      height: screenHeight * ratio - triangleHeight / 2,
-      width: screenWidth,
+      height: height * 0.5, // 50% of the screen
+      width: width,
       backgroundColor: backgroundColor,
-    },
-    bottomArea: {
-      flex: 1,
-    },
-    bottomTriangle: {
-      width: 0,
-      height: 0,
-      backgroundColor: 'transparent',
-      borderStyle: 'solid',
-      borderRightWidth: screenWidth,
-      borderRightColor: 'transparent',
-      borderTopWidth: triangleHeight,
-      borderTopColor: backgroundColor,
-      zIndex: -1, // just to hide the shadow
       shadowColor: Colors.black,
       shadowOffset: {
         width: 0,
         height: 0,
       },
       shadowOpacity: 1,
-      shadowRadius: 2,
-      elevation: 2,
+      shadowRadius: 1,
+      elevation: 1,
+    },
+    bottomArea: {
+      flex: 1,
     },
   });
 }
