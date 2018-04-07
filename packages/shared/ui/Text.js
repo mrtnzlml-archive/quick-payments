@@ -19,7 +19,7 @@ export default class Text extends React.Component<Props> {
 
   render = () => (
     <RN.Text style={[styleSheet.title, this.props.style]}>
-      {this.props.children ? React.Children.only(this.props.children) : null}
+      {this.props.children}
     </RN.Text>
   );
 }
