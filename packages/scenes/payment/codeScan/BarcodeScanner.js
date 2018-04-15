@@ -29,17 +29,13 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
 
     if (hasCameraPermission === null) {
       return (
-        <Text>
-          {/* TODO: design this vv */}
-          <Translation id="BarcodeScanner.RequestingCameraPermission" />
-        </Text>
+        // TODO: design this (vv)
+        <Translation id="BarcodeScanner.RequestingCameraPermission" />
       );
     } else if (hasCameraPermission === false) {
       return (
-        <Text>
-          {/* TODO: design this vv */}
-          <Translation id="BarcodeScanner.NoCameraPermission" />
-        </Text>
+        // TODO: design this (vv)
+        <Translation id="BarcodeScanner.NoCameraPermission" />
       );
     } else {
       return (

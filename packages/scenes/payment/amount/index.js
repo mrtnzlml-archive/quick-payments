@@ -13,10 +13,7 @@ const VoidCallback = () => {};
 
 export default () => (
   <Layout title={<Translation id="Payment.Title" />}>
-    <Text>
-      <Translation id="General.TODO" />
-    </Text>
-
+    <Translation id="General.TODO" />
     <NumericInput placeholder={<Translation id="General.TODO" />} />
     <Button title={<Translation id="General.TODO" />} onPress={VoidCallback} />
   </Layout>

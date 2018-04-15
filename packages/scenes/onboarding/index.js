@@ -19,9 +19,7 @@ const OnboardingTop = () => (
     <Title style={styleSheet.title}>
       <Translation id="Onboarding.Title" />
     </Title>
-    <Text>
-      <Translation id="Onboarding.Subtitle" />
-    </Text>
+    <Translation id="Onboarding.Subtitle" />
   </View>
 );
 
