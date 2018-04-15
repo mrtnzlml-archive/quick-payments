@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
-import { Actions } from 'react-native-router-flux';
 import Translation from 'mobile-quick-payments-translations';
 import { StyleSheet, Colors, Text } from 'mobile-quick-payments-shared';
 
@@ -23,7 +22,6 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
 
   handleBarCodeRead = ({ data }: { data: string }) => {
     // console.warn(data);
-    Actions['payment.amount']();
   };
 
   render = () => {

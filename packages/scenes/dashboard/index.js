@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { View, Image, ScrollView } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import {
   StyleSheet,
   Colors,
@@ -18,10 +17,8 @@ import idx from 'idx';
 import PaymentRow from './PaymentRow';
 import type { dashboardQueryResponse } from './__generated__/dashboardQuery.graphql';
 
-const goToCodeScan = () => Actions['payment.codeScan']();
-
 const PrimaryButton = () => (
-  <Touchable accessibilityComponentType="button" onPress={goToCodeScan}>
+  <Touchable accessibilityComponentType="button">
     <View style={styleSheet.primaryButton}>
       <Image
         style={styleSheet.primaryButtonImage}
