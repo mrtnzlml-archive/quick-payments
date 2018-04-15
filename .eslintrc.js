@@ -15,7 +15,14 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['import', 'prettier', 'react', 'flowtype', 'dependencies'],
+  plugins: [
+    'import',
+    'prettier',
+    'react',
+    'react-native',
+    'flowtype',
+    'dependencies',
+  ],
   rules: {
     'no-console': [ERROR, { allow: ['warn', 'error'] }],
     'no-underscore-dangle': [ERROR, { enforceInMethodNames: true }],
@@ -55,6 +62,7 @@ module.exports = {
     'react/jsx-no-bind': ERROR,
     'react/no-access-state-in-setstate': ERROR,
     'react/prop-types': OFF, // we use Flow instead,
+    'react-native/no-unused-styles': ERROR,
     'flowtype/require-valid-file-annotation': [ERROR, 'always'],
     'dependencies/case-sensitive': ERROR,
     'dependencies/no-cycles': ERROR,

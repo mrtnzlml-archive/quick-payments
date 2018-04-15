@@ -1,51 +1,35 @@
 // @flow
 
 import * as React from 'react';
-import { View, Image, ScrollView } from 'react-native';
-import {
-  StyleSheet,
-  Colors,
-  Layout,
-  Touchable,
-  Text,
-  Icon,
-} from 'mobile-quick-payments-shared';
+import { View, ScrollView } from 'react-native';
+import { StyleSheet, Colors, Layout } from 'mobile-quick-payments-shared';
 import Translation from 'mobile-quick-payments-translations';
 import { QueryRenderer, graphql } from 'mobile-quick-payments-relay';
 import idx from 'idx';
 
 import PaymentRow from './PaymentRow';
+import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 import type { dashboardQueryResponse } from './__generated__/dashboardQuery.graphql';
 
-const PrimaryButton = () => (
-  <Touchable accessibilityComponentType="button">
-    <View style={styleSheet.primaryButton}>
-      <Image
-        style={styleSheet.primaryButtonImage}
-        source={require('./qr_code.png')}
-      />
-    </View>
-  </Touchable>
-);
+const Query = graphql`
+  query dashboardQuery($clientId: ID!) {
+    scenes {
+      dashboard {
+        payments(clientId: $clientId) {
+          id
+          ...PaymentRow
+        }
+      }
+    }
+  }
+`;
 
-const VoidCallback = () => {}; // FIXME
+type Props = {|
+  clientId: string,
+|};
 
-const SecondaryButton = ({
-  iconName,
-  description,
-}: {
-  iconName: string,
-  description: React.Element<typeof Translation>,
-}) => (
-  <Touchable accessibilityComponentType="button" onPress={VoidCallback}>
-    <View style={styleSheet.secondaryButton}>
-      <Icon name={iconName} size={40} color={Colors.grey.$800} />
-      <Text style={styleSheet.secondaryButtonText}>{description}</Text>
-    </View>
-  </Touchable>
-);
-
-export default class Dashboard extends React.Component<{||}> {
+export default class Dashboard extends React.Component<Props> {
   renderQueryRendererResult = ({
     props,
   }: {|
@@ -66,19 +50,10 @@ export default class Dashboard extends React.Component<{||}> {
   render = () => (
     <Layout title={<Translation id="Dashboard.Title" />}>
       <QueryRenderer
-        query={graphql`
-          query dashboardQuery {
-            scenes {
-              dashboard {
-                # TODO: get client ID from props
-                payments(clientId: "EA53A691-9970-46BB-BACD-80D4A120334E") {
-                  id
-                  ...PaymentRow
-                }
-              }
-            }
-          }
-        `}
+        query={Query}
+        variables={{
+          clientId: this.props.clientId,
+        }}
         render={this.renderQueryRendererResult}
       />
 
@@ -115,32 +90,5 @@ const styleSheet = StyleSheet.create({
   button: {
     flex: 1,
     alignItems: 'center',
-  },
-  primaryButton: {
-    backgroundColor: '#313B72',
-    borderRadius: 5,
-    padding: 10,
-    height: 70, // image + (2 * padding)
-    width: 70, // image + (2 * padding)
-    shadowColor: Colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 1,
-    elevation: 1,
-  },
-  primaryButtonImage: {
-    height: 50,
-    width: 50,
-  },
-  secondaryButton: {
-    alignItems: 'center',
-    padding: 5,
-  },
-  secondaryButtonText: {
-    fontSize: 10,
-    color: Colors.grey.$700,
   },
 });

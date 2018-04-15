@@ -55,7 +55,7 @@ class Application extends React.Component<{||}, State> {
         locale={this.state.locale}
         messages={this.state.intlMessages}
       >
-        <Scenes.dashboard />
+        <Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />
       </IntlProvider>
     );
   };
