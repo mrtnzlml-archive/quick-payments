@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
+    "babel-plugin-idx": "^2.2.0",
     "babel-plugin-relay": "^1.5.0",
     "eslint": "^4.19.1",
     "eslint-plugin-dependencies": "^2.4.0",

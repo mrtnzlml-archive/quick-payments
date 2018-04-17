@@ -1,9 +1,20 @@
 {
-  "presets": ["babel-preset-expo"],
+  "presets": [
+    "babel-preset-expo"
+  ],
+  "plugins": [
+    "babel-plugin-idx",
+    [
+      "relay",
+      {
+        "schema":
+        "packages/api/schema.graphql"
+      }
+    ]
+  ],
   "env": {
     "development": {
       "plugins": [
-        "relay",
         "transform-react-jsx-source"
       ]
     }
