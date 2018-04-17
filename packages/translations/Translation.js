@@ -5,12 +5,18 @@ import { Text } from 'react-native'; // eslint-disable-line no-restricted-import
 import { FormattedMessage } from 'react-intl';
 import { type TranslationKeys } from 'mobile-quick-payments-translations';
 
+type CommonProps = {|
+  testID?: string,
+|};
+
 type Props =
   | {|
       id: TranslationKeys,
+      ...CommonProps,
     |}
   | {|
       passThrough: string,
+      ...CommonProps,
     |};
 
 export default class Translation extends React.PureComponent<Props> {
