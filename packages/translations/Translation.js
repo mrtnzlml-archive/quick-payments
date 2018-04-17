@@ -1,9 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import { Text } from 'react-native'; // eslint-disable-line no-restricted-imports
 import { FormattedMessage } from 'react-intl';
-import { type TranslationKeys } from 'mobile-quick-payments-translations';
+import { Text } from 'mobile-quick-payments-shared';
+import type { TranslationKeys } from 'mobile-quick-payments-translations';
 
 type CommonProps = {|
   testID?: string,
@@ -30,6 +30,7 @@ export default class Translation extends React.PureComponent<Props> {
     }
 
     if (p.passThrough !== undefined) {
+      // $FlowExpectedError: we do not allow to use 'string' in the 'Text' components but translations are the only exceptions.
       return <Text>{p.passThrough}</Text>;
     }
 
