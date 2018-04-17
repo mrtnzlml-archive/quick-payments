@@ -18,3 +18,17 @@ it('renders Price component as expected', () => {
     Renderer.create(<Price amount={1e6} currency="MXN" />),
   ).toMatchSnapshot();
 });
+
+it('handles falsy values', () => {
+  expect(
+    Renderer.create(<Price amount={null} currency="MXN" />).toJSON(),
+  ).toBeNull();
+
+  expect(
+    Renderer.create(<Price amount={10} currency={null} />).toJSON(),
+  ).toBeNull();
+
+  expect(
+    Renderer.create(<Price amount={null} currency={null} />).toJSON(),
+  ).toBeNull();
+});
