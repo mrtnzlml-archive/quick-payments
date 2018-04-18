@@ -8,14 +8,12 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
-export type PaymentCurrency = ('MXN' | '%future added value');
-export type PaymentStatus = ('FAILED' | 'PAID' | '%future added value');
+type PaymentPrice$ref = any;
+type StatusIcon$ref = any;
 import type { FragmentReference } from 'relay-runtime';
 declare export opaque type PaymentRow$ref: FragmentReference;
 export type PaymentRow = {|
-  +status: ?PaymentStatus,
-  +amount: ?number,
-  +currency: ?PaymentCurrency,
+  +$fragmentRefs: (PaymentPrice$ref & StatusIcon$ref),
   +$refType: PaymentRow$ref,
 |};
 */
@@ -29,27 +27,16 @@ const node/*: ConcreteFragment*/ = {
   "argumentDefinitions": [],
   "selections": [
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "status",
-      "args": null,
-      "storageKey": null
+      "kind": "FragmentSpread",
+      "name": "PaymentPrice",
+      "args": null
     },
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "amount",
-      "args": null,
-      "storageKey": null
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "currency",
-      "args": null,
-      "storageKey": null
+      "kind": "FragmentSpread",
+      "name": "StatusIcon",
+      "args": null
     }
   ]
 };
-(node/*: any*/).hash = 'd12f0dfdc9a66604cf80c804768c657f';
+(node/*: any*/).hash = '728397e35de932414d66c1c5f352728e';
 module.exports = node;

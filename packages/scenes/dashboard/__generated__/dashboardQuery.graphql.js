@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 7a9d393c9f3bb8eb70d281cd70c49d39
+ * @relayHash 977b3f2441549d4bf9c18dfa15bf6de0
  */
 
 /* eslint-disable */
@@ -41,9 +41,17 @@ query dashboardQuery(
 }
 
 fragment PaymentRow on Payment {
-  status
+  ...PaymentPrice
+  ...StatusIcon
+}
+
+fragment PaymentPrice on Payment {
   amount
   currency
+}
+
+fragment StatusIcon on Payment {
+  status
 }
 */
 
@@ -76,7 +84,7 @@ return {
   "operationKind": "query",
   "name": "dashboardQuery",
   "id": null,
-  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  status\n  amount\n  currency\n}\n",
+  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  ...PaymentPrice\n  ...StatusIcon\n}\n\nfragment PaymentPrice on Payment {\n  amount\n  currency\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -162,13 +170,6 @@ return {
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "name": "status",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
                     "name": "amount",
                     "args": null,
                     "storageKey": null
@@ -177,6 +178,13 @@ return {
                     "kind": "ScalarField",
                     "alias": null,
                     "name": "currency",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "status",
                     "args": null,
                     "storageKey": null
                   }
