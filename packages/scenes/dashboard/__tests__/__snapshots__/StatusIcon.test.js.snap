@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders status FAIL 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#141414",
+        "fontSize": 16,
+        "fontWeight": "normal",
+      },
+      Array [
+        Object {
+          "fontWeight": "bold",
+        },
+        Object {
+          "color": "#d32f2f",
+        },
+      ],
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={undefined}
+  >
+    FAIL
+  </Text>
+</Text>
+`;
+
+exports[`renders status PAID 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#141414",
+        "fontSize": 16,
+        "fontWeight": "normal",
+      },
+      Array [
+        Object {
+          "fontWeight": "bold",
+        },
+        Object {
+          "color": "#388e3c",
+        },
+      ],
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={undefined}
+  >
+    PAID
+  </Text>
+</Text>
+`;
