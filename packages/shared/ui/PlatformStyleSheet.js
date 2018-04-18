@@ -31,6 +31,8 @@ export default {
    */
   absoluteFill: StyleSheet.absoluteFill,
 
+  flatten: StyleSheet.flatten,
+
   hairlineWidth: StyleSheet.hairlineWidth,
 
   /**
