@@ -3,11 +3,6 @@
 import * as React from 'react';
 import Translation from 'mobile-quick-payments-translations';
 
-const SupportedCurrencies = {
-  // TODO
-  MXN: true,
-};
-
 const SupportedLocales = {
   // TODO
   en: true,
@@ -18,7 +13,7 @@ type Props = {|
   // Amount should be integer (smallest currency unit) so for example
   // cents for EUR (100 cents = 1 EUR) or 100 for ¥100 (zero-decimal currency).
   +amount: ?number,
-  +currency: ?$Keys<typeof SupportedCurrencies>,
+  +currency: ?string, // TODO: SupportedCurrencies (?)
   +locale?: $Keys<typeof SupportedLocales>,
 |};
 

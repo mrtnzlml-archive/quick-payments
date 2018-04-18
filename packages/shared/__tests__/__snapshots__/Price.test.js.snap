@@ -5,6 +5,16 @@ exports[`renders Price component as expected 1`] = `
   accessible={true}
   allowFontScaling={true}
   ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#141414",
+        "fontSize": 16,
+        "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
 >
   MX$0.00
 </Text>
@@ -15,6 +25,16 @@ exports[`renders Price component as expected 2`] = `
   accessible={true}
   allowFontScaling={true}
   ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#141414",
+        "fontSize": 16,
+        "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
 >
   MX$10.46
 </Text>
@@ -25,6 +45,16 @@ exports[`renders Price component as expected 3`] = `
   accessible={true}
   allowFontScaling={true}
   ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#141414",
+        "fontSize": 16,
+        "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
 >
   MX$1,000,000.00
 </Text>
