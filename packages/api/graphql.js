@@ -4,7 +4,11 @@ import fs from 'fs';
 import path from 'path';
 import { buildSchema } from 'graphql';
 
-import { Payments as DatabasePayments } from './src/InMemoryDatabase';
+import {
+  Payments as DatabasePayments,
+  Clients as DatabaseClients,
+  Retailers as DatabaseRetailers,
+} from './src/InMemoryDatabase';
 
 export const schema = buildSchema(
   fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8'),
@@ -16,7 +20,15 @@ export const resolvers = {
       payments: ({ clientId }: {| clientId: string |}) => {
         return DatabasePayments.filter(
           payment => payment.clientId === clientId,
-        );
+        ).map(payment => ({
+          ...payment,
+          client: DatabaseClients.find(
+            client => client.id === payment.clientId,
+          ),
+          retailer: DatabaseRetailers.find(
+            retailer => retailer.id === payment.retailerId,
+          ),
+        }));
       },
     },
     payment: {

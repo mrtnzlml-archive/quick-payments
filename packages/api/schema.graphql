@@ -17,10 +17,22 @@ type PaymentScene {
 
 type Payment {
   id: ID!
-  #clientId: ID! TODO: return client type directly
   status: PaymentStatus
   amount: Int
   currency: PaymentCurrency
+  client: Client
+  retailer: Retailer
+}
+
+# TODO: introduce interfaces (?)
+type Retailer {
+  id: ID!
+  name: String
+}
+
+type Client {
+  id: ID!
+  name: String
 }
 
 enum PaymentStatus {
