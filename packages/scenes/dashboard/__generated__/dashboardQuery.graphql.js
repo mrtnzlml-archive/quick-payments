@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 977b3f2441549d4bf9c18dfa15bf6de0
+ * @relayHash 4785ea5ebd6d650e0d6c40b263cf686f
  */
 
 /* eslint-disable */
@@ -43,6 +43,10 @@ query dashboardQuery(
 fragment PaymentRow on Payment {
   ...PaymentPrice
   ...StatusIcon
+  retailer {
+    ...RetailerName
+    id
+  }
 }
 
 fragment PaymentPrice on Payment {
@@ -52,6 +56,10 @@ fragment PaymentPrice on Payment {
 
 fragment StatusIcon on Payment {
   status
+}
+
+fragment RetailerName on Retailer {
+  name
 }
 */
 
@@ -84,7 +92,7 @@ return {
   "operationKind": "query",
   "name": "dashboardQuery",
   "id": null,
-  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  ...PaymentPrice\n  ...StatusIcon\n}\n\nfragment PaymentPrice on Payment {\n  amount\n  currency\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n",
+  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  ...PaymentPrice\n  ...StatusIcon\n  retailer {\n    ...RetailerName\n    id\n  }\n}\n\nfragment PaymentPrice on Payment {\n  amount\n  currency\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment RetailerName on Retailer {\n  name\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -187,6 +195,25 @@ return {
                     "name": "status",
                     "args": null,
                     "storageKey": null
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "retailer",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "Retailer",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "name",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      v2
+                    ]
                   }
                 ]
               }
