@@ -93,6 +93,20 @@ Object {
                 "name": "PaymentCurrency",
               },
             },
+            Object {
+              "isDeprecated": false,
+              "name": "client",
+              "type": Object {
+                "name": "Client",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "retailer",
+              "type": Object {
+                "name": "Retailer",
+              },
+            },
           ],
           "name": "Payment",
         },
@@ -107,6 +121,48 @@ Object {
         Object {
           "fields": null,
           "name": "PaymentCurrency",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "id",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "name",
+              "type": Object {
+                "name": "String",
+              },
+            },
+          ],
+          "name": "Client",
+        },
+        Object {
+          "fields": null,
+          "name": "String",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "id",
+              "type": Object {
+                "name": null,
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "name",
+              "type": Object {
+                "name": "String",
+              },
+            },
+          ],
+          "name": "Retailer",
         },
         Object {
           "fields": Array [
@@ -231,10 +287,6 @@ Object {
         Object {
           "fields": null,
           "name": "__TypeKind",
-        },
-        Object {
-          "fields": null,
-          "name": "String",
         },
         Object {
           "fields": null,
