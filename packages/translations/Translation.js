@@ -15,7 +15,7 @@ type Props =
       ...CommonProps,
     |}
   | {|
-      passThrough: string,
+      passThrough: ?string | ?number,
       ...CommonProps,
     |};
 
@@ -29,15 +29,15 @@ export default class Translation extends React.PureComponent<Props> {
       );
     }
 
-    if (p.passThrough !== undefined) {
-      // $FlowExpectedError: we do not allow to use 'string' in the 'Text' components but translations are the only exceptions.
-      return <Text>{p.passThrough}</Text>;
+    if (p.id !== undefined) {
+      return (
+        <FormattedMessage id={p.id}>
+          {translatedText => <Text>{translatedText}</Text>}
+        </FormattedMessage>
+      );
     }
 
-    return (
-      <FormattedMessage id={p.id}>
-        {translatedText => <Text>{translatedText}</Text>}
-      </FormattedMessage>
-    );
+    // $FlowExpectedError: we do not allow to use 'string' in the 'Text' components but translations are the only exceptions.
+    return <Text>{p.passThrough}</Text>;
   };
 }
