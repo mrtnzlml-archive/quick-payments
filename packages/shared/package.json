@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.10",
     "mobile-quick-payments-translations": "^0",
     "react-native-safe-area-view": "^0.7.0"
   }

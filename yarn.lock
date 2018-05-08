@@ -4063,9 +4063,13 @@ idtoken-verifier@^1.1.2:
     superagent "^3.8.2"
     url-join "^1.1.0"
 
-idx@^2.1.0, idx@^2.2.0:
+idx@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/idx/-/idx-2.2.0.tgz#8544749f9faba6409822b5d9488ba5bc77b8fbfe"
+
+idx@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/idx/-/idx-2.3.0.tgz#4ae3fe3fca4c1baeccf2dde83d9d8b50b47cc465"
 
 ignore-by-default@^1.0.1:
   version "1.0.1"
@@ -5276,6 +5280,10 @@ lodash@^3.5.0:
 lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.14.1, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
+
+lodash@^4.17.10:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
 lodash@~2.4.1:
   version "2.4.2"
@@ -6693,14 +6701,14 @@ react-redux@^5.0.2:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
-react-relay@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-1.5.0.tgz#c985a4b9728c7bcbe9d3044511608be4c104a44b"
+react-relay@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-1.6.0.tgz#7a0eca435c81b9b01d8917d4bca6507eefbcdfe4"
   dependencies:
     babel-runtime "^6.23.0"
     fbjs "^0.8.14"
     prop-types "^15.5.8"
-    relay-runtime "1.5.0"
+    relay-runtime "1.6.0"
 
 react-test-renderer@16.3.1:
   version "16.3.1"
@@ -6943,13 +6951,6 @@ relay-compiler@^1.6.0:
     relay-runtime "1.6.0"
     signedsource "^1.0.0"
     yargs "^9.0.0"
-
-relay-runtime@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-1.5.0.tgz#95e7c26f95f216370f7d699290238a4d966a915c"
-  dependencies:
-    babel-runtime "^6.23.0"
-    fbjs "^0.8.14"
 
 relay-runtime@1.6.0:
   version "1.6.0"
