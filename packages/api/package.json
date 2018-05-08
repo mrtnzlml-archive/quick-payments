@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.4"
   },
   "scripts": {
     "start": "yarn run nodemon --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn run babel-node index.js"

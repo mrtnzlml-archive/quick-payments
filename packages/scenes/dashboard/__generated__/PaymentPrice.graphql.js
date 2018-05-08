@@ -8,8 +8,8 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
-export type PaymentCurrency = ('MXN' | '%future added value');
-import type { FragmentReference } from 'relay-runtime';
+export type PaymentCurrency = "MXN" | "%future added value";
+import type { FragmentReference } from "relay-runtime";
 declare export opaque type PaymentPrice$ref: FragmentReference;
 export type PaymentPrice = {|
   +amount: ?number,
@@ -42,5 +42,6 @@ const node/*: ConcreteFragment*/ = {
     }
   ]
 };
+// prettier-ignore
 (node/*: any*/).hash = 'ae4ab6fb6fff591a35d34242337f2e88';
 module.exports = node;

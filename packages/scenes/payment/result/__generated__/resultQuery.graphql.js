@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 159b2abd2f33a7a9964c31ab67b1842e
+ * @relayHash 462ab307905d84a213c220eeefb213cc
  */
 
 /* eslint-disable */
@@ -11,19 +11,19 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type Confirmation$ref = any;
 type Rejection$ref = any;
-export type PaymentStatus = ('FAILED' | 'PAID' | '%future added value');
+export type PaymentStatus = "FAILED" | "PAID" | "%future added value";
 export type resultQueryVariables = {|
-  paymentId: string,
+  paymentId: string
 |};
 export type resultQueryResponse = {|
   +scenes: ?{|
     +payment: ?{|
       +checkStatus: ?{|
         +status: ?PaymentStatus,
-        +$fragmentRefs: (Confirmation$ref & Rejection$ref),
-      |},
-    |},
-  |},
+        +$fragmentRefs: Confirmation$ref & Rejection$ref,
+      |}
+    |}
+  |}
 |};
 */
 
@@ -203,5 +203,6 @@ return {
   }
 };
 })();
+// prettier-ignore
 (node/*: any*/).hash = '170d36d2be6c226dafcec99c68767208';
 module.exports = node;

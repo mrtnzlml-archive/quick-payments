@@ -13,22 +13,22 @@
     "react-native-animatable": "^1.2.4"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
+    "babel-eslint": "^8.2.3",
     "babel-plugin-idx": "^2.2.0",
-    "babel-plugin-relay": "^1.5.0",
+    "babel-plugin-relay": "^1.6.0",
     "eslint": "^4.19.1",
     "eslint-plugin-dependencies": "^2.4.0",
-    "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-react-native": "^3.2.1",
-    "flow-bin": "^0.70.0",
+    "flow-bin": "^0.71.0",
     "jest-expo": "^27.0.0",
-    "prettier": "^1.11.1",
-    "react-native-scripts": "1.13.1",
-    "react-test-renderer": "16.3.0-alpha.1",
-    "relay-compiler": "^1.5.0"
+    "prettier": "^1.12.1",
+    "react-native-scripts": "1.14.0",
+    "react-test-renderer": "16.3.1",
+    "relay-compiler": "^1.6.0"
   },
   "main": "./packages/index.js",
   "scripts": {

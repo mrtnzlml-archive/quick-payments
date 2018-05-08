@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4785ea5ebd6d650e0d6c40b263cf686f
+ * @relayHash f5fcbfaf64c4150a3500377b83481a2a
  */
 
 /* eslint-disable */
@@ -11,7 +11,7 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type PaymentRow$ref = any;
 export type dashboardQueryVariables = {|
-  clientId: string,
+  clientId: string
 |};
 export type dashboardQueryResponse = {|
   +scenes: ?{|
@@ -19,9 +19,9 @@ export type dashboardQueryResponse = {|
       +payments: ?$ReadOnlyArray<?{|
         +id: string,
         +$fragmentRefs: PaymentRow$ref,
-      |}>,
-    |},
-  |},
+      |}>
+    |}
+  |}
 |};
 */
 
@@ -225,5 +225,6 @@ return {
   }
 };
 })();
+// prettier-ignore
 (node/*: any*/).hash = 'd6d4cdd36c5df38973aae8aa0532cd03';
 module.exports = node;

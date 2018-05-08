@@ -11,12 +11,13 @@ import {
 
 import type { StylePropType } from '../index';
 
-type Props = {
-  // not exact: additional props allowed for TouchableOpacity and TouchableNativeFeedback
+type Props = {|
   children: React.Node,
+  onPress: () => void,
   style?: StylePropType,
   pressColor?: string,
-};
+  accessibilityComponentType?: 'button',
+|};
 
 const ANDROID_VERSION_LOLLIPOP = 21;
 

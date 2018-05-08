@@ -16,7 +16,9 @@ type Props = {|
   description: React.Element<typeof Translation>,
 |};
 
-const VoidCallback = () => {}; // FIXME
+const VoidCallback = () => {
+  console.warn('TODO'); // FIXME
+};
 
 export default function SecondaryButton({ iconName, description }: Props) {
   return (
