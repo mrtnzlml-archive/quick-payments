@@ -15,12 +15,12 @@ import {
 import Translation from 'mobile-quick-payments-translations';
 
 const OnboardingTop = () => (
-  <View>
+  <React.Fragment>
     <Title style={styleSheet.title}>
       <Translation id="Onboarding.Title" />
     </Title>
     <Translation id="Onboarding.Subtitle" />
-  </View>
+  </React.Fragment>
 );
 
 // TODO: submit only if all fields are valid
