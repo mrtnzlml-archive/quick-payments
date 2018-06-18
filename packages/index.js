@@ -53,9 +53,9 @@ class Application extends React.Component<{||}, State> {
         locale={this.state.locale}
         messages={this.state.intlMessages}
       >
-        {/*<Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />*/}
+        <Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />
 
-        <Scenes.onboarding />
+        {/*<Scenes.onboarding />*/}
 
         {/*<Scenes.payment.result paymentId="73F4E736-3F49-4EA3-9241-72C5072EE060" />*/}
         {/*<Scenes.payment.result paymentId="3EEF653E-E0EC-4396-BE66-35D55A9A2366" />*/}

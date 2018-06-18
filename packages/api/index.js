@@ -16,6 +16,7 @@ app.use(
     graphiql: true,
   }),
 );
+
 app.listen(PORT, () => {
   console.warn(`Running a GraphQL API server at 127.0.0.1:${PORT}/graphql`);
 });
