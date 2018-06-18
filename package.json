@@ -6,10 +6,10 @@
     "packages/*"
   ],
   "dependencies": {
-    "expo": "^27.0.0",
+    "expo": "^28.0.0",
     "idx": "^2.3.0",
     "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-28.0.0.tar.gz",
     "react-native-animatable": "^1.2.4"
   },
   "devDependencies": {
@@ -24,7 +24,7 @@
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-react-native": "^3.2.1",
     "flow-bin": "^0.71.0",
-    "jest-expo": "^27.0.0",
+    "jest-expo": "^28.0.0",
     "prettier": "^1.12.1",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1",
