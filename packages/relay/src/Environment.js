@@ -17,7 +17,9 @@ const store = new Store(recordSource);
 
 AsyncStorage.getItem(ASYNC_STORE_KEY)
   .then(content => {
-    store.publish(new RecordSource(JSON.parse(content)));
+    if (content !== null) {
+      store.publish(new RecordSource(JSON.parse(content)));
+    }
   })
   .catch(error => {
     // AsyncStorage read wasn't successful - nevermind
