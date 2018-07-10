@@ -6,7 +6,7 @@ import TextInput from './TextInput';
 import Translation from '../../translations';
 
 type Props = {|
-  placeholder: React.Element<typeof Translation>,
+  +placeholder: React.Element<typeof Translation>,
 |};
 
 export default class NumericInput extends React.Component<Props> {

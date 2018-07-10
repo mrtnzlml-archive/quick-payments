@@ -6,11 +6,15 @@ import { QueryRenderer as RelayQueryRenderer } from 'react-relay';
 import Environment from './Environment';
 import QueryRendererLoading from './QueryRendererLoading';
 
-export default class QueryRenderer extends React.Component<{|
-  query: string,
-  render: ({| props: Object |}) => React.Node,
-  variables?: Object,
-|}> {
+type Props = {|
+  +query: string,
+  +render: ({|
+    +props: Object,
+  |}) => React.Node,
+  +variables?: Object,
+|};
+
+export default class QueryRenderer extends React.Component<Props> {
   renderQueryRendererResult = ({
     props,
   }: {|

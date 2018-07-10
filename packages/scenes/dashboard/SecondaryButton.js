@@ -12,8 +12,8 @@ import {
 import Translation from 'mobile-quick-payments-translations';
 
 type Props = {|
-  iconName: string,
-  description: React.Element<typeof Translation>,
+  +iconName: string,
+  +description: React.Element<typeof Translation>,
 |};
 
 const VoidCallback = () => {

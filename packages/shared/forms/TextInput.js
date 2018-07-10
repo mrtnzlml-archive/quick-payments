@@ -12,16 +12,16 @@ import StyleSheet from '../ui/PlatformStyleSheet';
 type Props = {|
   // placeholder (help text) of the field will automatically slide to the
   // top of the field therefore it's always visible
-  placeholder: React.Element<typeof Translation>,
+  +placeholder: React.Element<typeof Translation>,
 
   // these types work across all platforms
-  keyboardType: 'default' | 'numeric' | 'email-address' | 'phone-pad',
+  +keyboardType: 'default' | 'numeric' | 'email-address' | 'phone-pad',
 
   // callback called on text change
-  onChangeText?: (text: string) => void,
+  +onChangeText?: (text: string) => void,
 
   // error message to be displayed below the field
-  errorMessage?: React.Element<typeof Translation>,
+  +errorMessage?: React.Element<typeof Translation>,
 |};
 
 type State = {|

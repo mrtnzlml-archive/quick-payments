@@ -26,15 +26,15 @@ const Query = graphql`
 `;
 
 type Props = {|
-  clientId: string,
+  +clientId: string,
+|};
+
+type QueryRendererResponse = {|
+  +props: dashboardQueryResponse,
 |};
 
 export default class Dashboard extends React.Component<Props> {
-  renderQueryRendererResult = ({
-    props,
-  }: {|
-    props: dashboardQueryResponse,
-  |}) => {
+  renderQueryRendererResult = ({ props }: QueryRendererResponse) => {
     const payments = idx(props, _ => _.scenes.dashboard.payments) || [];
     return (
       <ScrollView>

@@ -6,8 +6,8 @@ import { View } from 'react-native';
 import StyleSheet from '../ui/PlatformStyleSheet';
 
 type Props = {|
-  children: $ReadOnlyArray<React.Element<any>>,
-  onValidationCheck: boolean => void,
+  +children: $ReadOnlyArray<React.Element<any>>,
+  +onValidationCheck: boolean => void,
 |};
 
 type State = {|

@@ -7,10 +7,10 @@ import Color from './Colors';
 import type { StylePropType } from '../index';
 
 type Props = {|
-  name: string,
-  size: number,
-  color?: string,
-  style?: StylePropType,
+  +name: string,
+  +size: number,
+  +color?: string,
+  +style?: StylePropType,
 |};
 
 /**

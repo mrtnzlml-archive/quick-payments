@@ -9,11 +9,15 @@ import Rejection from './Rejection';
 import type { resultQueryResponse } from './__generated__/resultQuery.graphql';
 
 type Props = {|
-  paymentId: string,
+  +paymentId: string,
+|};
+
+type QueryRendererResponse = {|
+  +props: resultQueryResponse,
 |};
 
 export default class PaymentStatus extends React.Component<Props> {
-  renderQueryRendererResult = ({ props }: {| props: resultQueryResponse |}) => {
+  renderQueryRendererResult = ({ props }: QueryRendererResponse) => {
     const data = idx(props, _ => _.scenes.payment.checkStatus);
     const status = data && data.status;
 

@@ -12,11 +12,11 @@ import {
 import type { StylePropType } from '../index';
 
 type Props = {|
-  children: React.Node,
-  onPress: () => void,
-  style?: StylePropType,
-  pressColor?: string,
-  accessibilityComponentType?: 'button',
+  +children: React.Node,
+  +onPress: () => void,
+  +style?: StylePropType,
+  +pressColor?: string,
+  +accessibilityComponentType?: 'button',
 |};
 
 const ANDROID_VERSION_LOLLIPOP = 21;

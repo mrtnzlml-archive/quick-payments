@@ -9,8 +9,8 @@ import Colors from './Colors';
 import type { StylePropType } from '../index';
 
 type Props = {|
-  children?: React.Element<typeof Translation>,
-  style?: StylePropType,
+  +children?: React.Element<typeof Translation>,
+  +style?: StylePropType,
 |};
 
 const TextContext = React.createContext({

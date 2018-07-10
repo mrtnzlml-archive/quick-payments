@@ -10,9 +10,9 @@ import Colors from './Colors';
 import StyleSheet from './PlatformStyleSheet';
 
 type Props = {|
-  children: React.Node,
-  title: React.Element<typeof Translation>,
-  help?: React.Element<typeof Translation>,
+  +children: React.Node,
+  +title: React.Element<typeof Translation>,
+  +help?: React.Element<typeof Translation>,
 |};
 
 export default ({ children, title, help }: Props) => (

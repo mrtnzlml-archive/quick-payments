@@ -6,16 +6,16 @@ import { Text } from 'mobile-quick-payments-shared';
 import type { TranslationKeys } from 'mobile-quick-payments-translations';
 
 type CommonProps = {|
-  testID?: string,
+  +testID?: string,
 |};
 
 type Props =
   | {|
-      id: TranslationKeys,
+      +id: TranslationKeys,
       ...CommonProps,
     |}
   | {|
-      passThrough: ?string | ?number,
+      +passThrough: ?string | ?number,
       ...CommonProps,
     |};
 

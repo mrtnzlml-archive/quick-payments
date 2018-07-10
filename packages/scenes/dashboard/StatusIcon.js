@@ -8,7 +8,7 @@ import { Text, StyleSheet, Colors } from 'mobile-quick-payments-shared';
 import type { StatusIcon as StatusIconType } from './__generated__/StatusIcon.graphql';
 
 type Props = {|
-  data: StatusIconType,
+  +data: StatusIconType,
 |};
 
 export function StatusIcon({ data: { status } }: Props) {

@@ -12,7 +12,7 @@ import RetailerName from './RetailerName';
 import type { PaymentRow as PaymentRowType } from './__generated__/PaymentRow.graphql';
 
 type Props = {|
-  data: PaymentRowType,
+  +data: PaymentRowType,
 |};
 
 function PaymentRow({ data }: Props) {

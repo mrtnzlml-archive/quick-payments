@@ -7,9 +7,9 @@ import { StyleSheet, Colors, SafeAreaView } from 'mobile-quick-payments-shared';
 import Dimensions from '../Dimensions';
 
 type Props = {|
-  childrenTop: React.Node,
-  childrenBottom: React.Node,
-  backgroundColor: string,
+  +childrenTop: React.Node,
+  +childrenBottom: React.Node,
+  +backgroundColor: string,
 |};
 
 function SplitScreen(props: Props) {

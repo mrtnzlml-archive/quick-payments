@@ -11,10 +11,10 @@ import Text from '../ui/Text';
 import Icon from '../ui/Icon';
 
 type Props = {|
-  title: React.Element<typeof Translation>,
-  onPress: () => void,
-  omitValidation?: boolean, // FIXME: this is needed only because of internal details of FormGroup component
-  disabled?: boolean,
+  +title: React.Element<typeof Translation>,
+  +onPress: () => void,
+  +omitValidation?: boolean, // FIXME: this is needed only because of internal details of FormGroup component
+  +disabled?: boolean,
 |};
 
 function Button(props: Props) {

@@ -7,8 +7,8 @@ import Translation from 'mobile-quick-payments-translations';
 import TextInput from './TextInput';
 
 type Props = {|
-  placeholder: React.Element<typeof Translation>,
-  onValidation?: boolean => void, // FIXME: this is being injected in FormGroup component
+  +placeholder: React.Element<typeof Translation>,
+  +onValidation?: boolean => void, // FIXME: this is being injected in FormGroup component
 |};
 
 type State = {|

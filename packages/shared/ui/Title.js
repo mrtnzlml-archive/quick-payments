@@ -9,8 +9,8 @@ import StyleSheet from './PlatformStyleSheet';
 import type { StylePropType } from '../index';
 
 type Props = {|
-  children: React.Element<typeof Translation>,
-  style?: StylePropType,
+  +children: React.Element<typeof Translation>,
+  +style?: StylePropType,
 |};
 
 export default ({ children, style }: Props) => (
