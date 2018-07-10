@@ -5,7 +5,7 @@ import Translation from 'mobile-quick-payments-translations';
 
 const SupportedLocales = {
   // TODO
-  en: true,
+  en: true
 };
 
 type Props = {|
@@ -14,7 +14,7 @@ type Props = {|
   // cents for EUR (100 cents = 1 EUR) or 100 for ¥100 (zero-decimal currency).
   +amount: ?number,
   +currency: ?string, // TODO: SupportedCurrencies (?)
-  +locale?: $Keys<typeof SupportedLocales>,
+  +locale?: $Keys<typeof SupportedLocales>
 |};
 
 /**
@@ -28,7 +28,7 @@ export default ({ amount, currency, locale = 'en' }: Props) => {
   // $FlowIssue: https://github.com/facebook/flow/issues/2801
   const price = Intl.NumberFormat(locale, {
     style: 'currency',
-    currency,
+    currency
   }).format(amount);
 
   return <Translation passThrough={price} />;

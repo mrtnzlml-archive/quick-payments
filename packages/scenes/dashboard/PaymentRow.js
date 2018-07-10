@@ -12,7 +12,7 @@ import RetailerName from './RetailerName';
 import type { PaymentRow as PaymentRowType } from './__generated__/PaymentRow.graphql';
 
 type Props = {|
-  +data: PaymentRowType,
+  +data: PaymentRowType
 |};
 
 function PaymentRow({ data }: Props) {
@@ -45,23 +45,23 @@ const styleSheet = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: Colors.blueGrey.$200,
+    borderBottomColor: Colors.blueGrey.$200
   },
   containerLeft: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   row: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   retailerName: {
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   dateTime: {
-    color: Colors.grey.$500,
+    color: Colors.grey.$500
   },
   cityName: {
-    fontStyle: 'italic',
-  },
+    fontStyle: 'italic'
+  }
 });
 
 export default createFragmentContainer(
@@ -74,5 +74,5 @@ export default createFragmentContainer(
         ...RetailerName
       }
     }
-  `,
+  `
 );

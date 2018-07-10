@@ -7,12 +7,12 @@ import StyleSheet from '../ui/PlatformStyleSheet';
 
 type Props = {|
   +children: $ReadOnlyArray<React.Element<any>>,
-  +onValidationCheck: boolean => void,
+  +onValidationCheck: boolean => void
 |};
 
 type State = {|
   // { [child-index]: is-valid }
-  children: { [number]: boolean },
+  children: { [number]: boolean }
 |};
 
 /**
@@ -20,7 +20,7 @@ type State = {|
  */
 export default class FormGroup extends React.Component<Props, State> {
   state = {
-    children: {},
+    children: {}
   };
 
   /**
@@ -34,14 +34,14 @@ export default class FormGroup extends React.Component<Props, State> {
       childrenToBeValidated[index] = child.props.omitValidation;
     });
     this.setState({
-      children: childrenToBeValidated,
+      children: childrenToBeValidated
     });
   };
 
   isFormGroupValid = (): boolean =>
     !!Object.values(this.state.children).reduce(
       (accumulator, currentValue) => accumulator && Boolean(currentValue),
-      true,
+      true
     );
 
   render = () => {
@@ -59,8 +59,8 @@ export default class FormGroup extends React.Component<Props, State> {
                 prevState.children[index] = isValid;
                 return prevState;
               },
-              () => this.props.onValidationCheck(this.isFormGroupValid()),
-            ),
+              () => this.props.onValidationCheck(this.isFormGroupValid())
+            )
         });
       }
 
@@ -75,6 +75,6 @@ export default class FormGroup extends React.Component<Props, State> {
 
 const styleSheet = StyleSheet.create({
   row: {
-    marginBottom: 10,
-  },
+    marginBottom: 10
+  }
 });

@@ -26,11 +26,11 @@ const Query = graphql`
 `;
 
 type Props = {|
-  +clientId: string,
+  +clientId: string
 |};
 
 type QueryRendererResponse = {|
-  +props: dashboardQueryResponse,
+  +props: dashboardQueryResponse
 |};
 
 export default class Dashboard extends React.Component<Props> {
@@ -52,7 +52,7 @@ export default class Dashboard extends React.Component<Props> {
       <QueryRenderer
         query={Query}
         variables={{
-          clientId: this.props.clientId,
+          clientId: this.props.clientId
         }}
         render={this.renderQueryRendererResult}
       />
@@ -85,10 +85,10 @@ const styleSheet = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'flex-end'
   },
   button: {
     flex: 1,
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });

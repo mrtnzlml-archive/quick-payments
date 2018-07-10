@@ -10,7 +10,7 @@ import type { StylePropType } from '../index';
 
 type Props = {|
   +children: React.Element<typeof Translation>,
-  +style?: StylePropType,
+  +style?: StylePropType
 |};
 
 export default ({ children, style }: Props) => (
@@ -21,6 +21,6 @@ const styleSheet = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: Colors.text,
-  },
+    color: Colors.text
+  }
 });

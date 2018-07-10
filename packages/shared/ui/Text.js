@@ -10,11 +10,11 @@ import type { StylePropType } from '../index';
 
 type Props = {|
   +children?: React.Element<typeof Translation>,
-  +style?: StylePropType,
+  +style?: StylePropType
 |};
 
 const TextContext = React.createContext({
-  isNested: false,
+  isNested: false
 });
 
 /**
@@ -59,6 +59,6 @@ const styleSheet = StyleSheet.create({
   defaultText: {
     fontSize: 16,
     fontWeight: 'normal',
-    color: Colors.text,
-  },
+    color: Colors.text
+  }
 });

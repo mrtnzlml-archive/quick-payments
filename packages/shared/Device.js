@@ -3,7 +3,7 @@
 import Expo from 'expo';
 import {
   isLanguageSupported,
-  type SupportedLanguagesType,
+  type SupportedLanguagesType
 } from 'mobile-quick-payments-translations';
 
 export default {
@@ -18,5 +18,5 @@ export default {
     } else {
       return 'en'; // unable to resolve the language = fallback to EN
     }
-  },
+  }
 };

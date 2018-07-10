@@ -7,7 +7,7 @@ import Translation from 'mobile-quick-payments-translations';
 import type { RetailerName as RetailerNameType } from './__generated__/RetailerName.graphql';
 
 type Props = {|
-  +data: RetailerNameType,
+  +data: RetailerNameType
 |};
 
 function RetailerName({ data }: Props) {
@@ -20,5 +20,5 @@ export default createFragmentContainer(
     fragment RetailerName on Retailer {
       name
     }
-  `,
+  `
 );

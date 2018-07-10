@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 // @flow
 
 /**
@@ -11,7 +10,8 @@
  */
 const Translations = {
   'BarcodeScanner.NoCameraPermission': 'No access to camera',
-  'BarcodeScanner.RequestingCameraPermission': 'Requesting for camera permission',
+  'BarcodeScanner.RequestingCameraPermission':
+    'Requesting for camera permission',
   'BarcodeScanner.ScanCode': 'Scan QR code',
 
   'Dashboard.Title': 'Payments history',
@@ -34,5 +34,5 @@ const Translations = {
 };
 
 export type TranslationKeys = $Keys<typeof Translations>;
-export type TranslationKeysObject = { [TranslationKeys]: string }
+export type TranslationKeysObject = { [TranslationKeys]: string };
 export default (Translations: TranslationKeysObject);

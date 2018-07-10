@@ -6,7 +6,7 @@ import {
   RecordSource,
   Store,
   Observable,
-  createOperationSelector,
+  createOperationSelector
 } from 'relay-runtime';
 import { AsyncStorage } from 'react-native';
 
@@ -19,12 +19,12 @@ function fetchFromTheNetwork(operation, variables, observer) {
   fetch(GRAPHQL_URL, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       query: operation.text, // TODO: fetch persisted queries instead (based on operation.id)
-      variables,
-    }),
+      variables
+    })
   })
     .then(fetchResponse => fetchResponse.json())
     .then(jsonResponse => {
@@ -37,7 +37,7 @@ function fetchFromTheNetwork(operation, variables, observer) {
     .then(() => {
       AsyncStorage.setItem(
         ASYNC_STORE_KEY,
-        JSON.stringify(store.getSource()),
+        JSON.stringify(store.getSource())
       ).catch(error => {
         // AsyncStorage write wasn't successful - nevermind
         console.warn(error);
@@ -58,7 +58,7 @@ function fetchQuery(operation, variables, cacheConfig) {
           store.publish(new RecordSource(JSON.parse(content)));
           const operationSelector = createOperationSelector(
             operation,
-            variables,
+            variables
           );
           if (store.check(operationSelector.root)) {
             // we have all data in the store to fulfill this query so let's
@@ -82,5 +82,5 @@ function fetchQuery(operation, variables, cacheConfig) {
 
 export default new Environment({
   network: Network.create(fetchQuery),
-  store,
+  store
 });

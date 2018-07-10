@@ -13,32 +13,32 @@ const createStyle = () =>
     container: {
       flexDirection: 'row',
       ios: {
-        padding: 10,
+        padding: 10
       },
       android: {
-        padding: 20,
-      },
-    },
+        padding: 20
+      }
+    }
   });
 
 it('works with iOS', () => {
   Platform.OS = 'ios';
   expect(createStyle()).toEqual({
-    container: { flexDirection: 'row', padding: 10 },
+    container: { flexDirection: 'row', padding: 10 }
   });
 });
 
 it('works with Android', () => {
   Platform.OS = 'android';
   expect(createStyle()).toEqual({
-    container: { flexDirection: 'row', padding: 20 },
+    container: { flexDirection: 'row', padding: 20 }
   });
 });
 
 it('works with unknown platform', () => {
   Platform.OS = 'unknown platform';
   expect(createStyle()).toEqual({
-    container: { flexDirection: 'row' },
+    container: { flexDirection: 'row' }
   });
 });
 
@@ -46,7 +46,7 @@ it('exports absolute fill object', () => {
   expect(StyleSheet.absoluteFill).toMatchSnapshot();
   expect({
     ...StyleSheet.absoluteFill,
-    position: 'relative',
+    position: 'relative'
   }).toMatchSnapshot();
 });
 

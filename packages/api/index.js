@@ -13,8 +13,8 @@ app.use(
   graphqlHTTP({
     schema: schema,
     rootValue: resolvers,
-    graphiql: true,
-  }),
+    graphiql: true
+  })
 );
 
 app.listen(PORT, () => {

@@ -9,17 +9,17 @@ import QueryRendererLoading from './QueryRendererLoading';
 type Props = {|
   +query: string,
   +render: ({|
-    +props: Object,
+    +props: Object
   |}) => React.Node,
-  +variables?: Object,
+  +variables?: Object
 |};
 
 export default class QueryRenderer extends React.Component<Props> {
   renderQueryRendererResult = ({
-    props,
+    props
   }: {|
     error: Error,
-    props: Object,
+    props: Object
   |}) => {
     // TODO: handle errors
 

@@ -17,6 +17,6 @@ it('is possible to use Text component without children', () => {
 it('is possible to use Text component with custom styles', () => {
   expect(
     // $FlowExpectedError: children should be type of Translation in real code
-    Renderer.create(<Text style={{ color: 'red' }}>Styled OK</Text>),
+    Renderer.create(<Text style={{ color: 'red' }}>Styled OK</Text>)
   ).toMatchSnapshot();
 });

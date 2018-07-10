@@ -4,9 +4,9 @@ import { Dimensions } from 'react-native'; // eslint-disable-line no-restricted-
 
 type DimensionsType = {|
   +width: number,
-  +height: number,
+  +height: number
 |};
 
 export default {
-  get: (): DimensionsType => Dimensions.get('screen'),
+  get: (): DimensionsType => Dimensions.get('screen')
 };

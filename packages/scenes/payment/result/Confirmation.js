@@ -7,7 +7,7 @@ import {
   Icon,
   Colors,
   StyleSheet,
-  Price,
+  Price
 } from 'mobile-quick-payments-shared';
 import { createFragmentContainer, graphql } from 'mobile-quick-payments-relay';
 
@@ -34,8 +34,8 @@ const Confirmation = ({ data }) => (
 const styleSheet = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });
 
 export default createFragmentContainer(
@@ -45,5 +45,5 @@ export default createFragmentContainer(
       amount
       currency
     }
-  `,
+  `
 );

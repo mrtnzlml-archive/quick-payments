@@ -15,7 +15,7 @@ const ColorPalette = {
     $600: '#e53935',
     $700: '#d32f2f',
     $800: '#c62828',
-    $900: '#b71c1c',
+    $900: '#b71c1c'
   },
 
   green: {
@@ -28,7 +28,7 @@ const ColorPalette = {
     $600: '#43a047',
     $700: '#388e3c',
     $800: '#2e7d32',
-    $900: '#1b5e20',
+    $900: '#1b5e20'
   },
 
   orange: {
@@ -41,7 +41,7 @@ const ColorPalette = {
     $600: '#fb8c00',
     $700: '#f57c00',
     $800: '#ef6c00',
-    $900: '#e65100',
+    $900: '#e65100'
   },
 
   grey: {
@@ -54,7 +54,7 @@ const ColorPalette = {
     $600: '#757575',
     $700: '#616161',
     $800: '#424242',
-    $900: '#212121',
+    $900: '#212121'
   },
 
   blueGrey: {
@@ -67,11 +67,11 @@ const ColorPalette = {
     $600: '#546e7a',
     $700: '#455a64',
     $800: '#37474f',
-    $900: '#263238',
+    $900: '#263238'
   },
 
   black: '#000000',
-  white: '#ffffff',
+  white: '#ffffff'
 };
 
 export default {
@@ -89,5 +89,5 @@ export default {
 
   brandPrimary: '#73C157', // Mantis
 
-  ...ColorPalette,
+  ...ColorPalette
 };

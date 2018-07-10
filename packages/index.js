@@ -7,13 +7,13 @@ import {
   getMessages,
   IntlProvider,
   type SupportedLanguagesType,
-  type TranslationKeysObject,
+  type TranslationKeysObject
 } from 'mobile-quick-payments-translations';
 
 type State = {|
   isLoading: boolean,
   locale: SupportedLanguagesType,
-  intlMessages: TranslationKeysObject,
+  intlMessages: TranslationKeysObject
 |};
 
 const Scenes = {
@@ -22,15 +22,15 @@ const Scenes = {
   payment: {
     amount: require('./scenes/payment/amount').default,
     codeScan: require('./scenes/payment/codeScan').default,
-    result: require('./scenes/payment/result').default,
-  },
+    result: require('./scenes/payment/result').default
+  }
 };
 
 class Application extends React.Component<{||}, State> {
   state = {
     isLoading: true,
     locale: 'en',
-    intlMessages: {},
+    intlMessages: {}
   };
 
   componentDidMount = async () => {
@@ -39,7 +39,7 @@ class Application extends React.Component<{||}, State> {
     this.setState({
       isLoading: false,
       locale: deviceLocale,
-      intlMessages: getMessages(deviceLocale),
+      intlMessages: getMessages(deviceLocale)
     });
   };
 

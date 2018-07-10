@@ -21,15 +21,15 @@ type Props = {|
   +onChangeText?: (text: string) => void,
 
   // error message to be displayed below the field
-  +errorMessage?: React.Element<typeof Translation>,
+  +errorMessage?: React.Element<typeof Translation>
 |};
 
 type State = {|
   transition: {|
     fontSize: number,
     paddingTop: number,
-    color: string,
-  |},
+    color: string
+  |}
 |};
 
 /**
@@ -44,8 +44,8 @@ export default class TextInput extends React.Component<Props, State> {
     transition: {
       fontSize: 20,
       paddingTop: 20,
-      color: Colors.grey.$500,
-    },
+      color: Colors.grey.$500
+    }
   };
 
   handleChangeText = (text: string) => {
@@ -59,8 +59,8 @@ export default class TextInput extends React.Component<Props, State> {
         transition: {
           fontSize: 20,
           paddingTop: 20,
-          color: Colors.grey.$500,
-        },
+          color: Colors.grey.$500
+        }
       });
     } else {
       // placeholder out
@@ -68,8 +68,8 @@ export default class TextInput extends React.Component<Props, State> {
         transition: {
           fontSize: 15,
           paddingTop: 0,
-          color: Colors.brandPrimary,
-        },
+          color: Colors.brandPrimary
+        }
       });
     }
   };
@@ -81,19 +81,19 @@ export default class TextInput extends React.Component<Props, State> {
         borderColor: this.props.errorMessage ? Colors.error : Colors.grey.$500,
         paddingTop: 20, // we need more space to fit in the placeholder
         paddingBottom: 10,
-        fontSize: 20,
+        fontSize: 20
       },
       placeholder: {
         position: 'absolute',
         paddingTop: this.state.transition.paddingTop,
         color: this.state.transition.color,
-        fontSize: this.state.transition.fontSize,
+        fontSize: this.state.transition.fontSize
       },
       errorMessage: {
         color: Colors.error,
         fontSize: 10,
-        fontWeight: 'bold',
-      },
+        fontWeight: 'bold'
+      }
     });
 
     return (

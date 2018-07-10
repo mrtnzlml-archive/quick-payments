@@ -7,12 +7,12 @@ import Translation from 'mobile-quick-payments-translations';
 import { StyleSheet, Colors, Text } from 'mobile-quick-payments-shared';
 
 type State = {|
-  hasCameraPermission: boolean | null,
+  hasCameraPermission: boolean | null
 |};
 
 export default class BarcodeScanner extends React.Component<{||}, State> {
   state = {
-    hasCameraPermission: null,
+    hasCameraPermission: null
   };
 
   componentWillMount = async () => {
@@ -80,40 +80,40 @@ const sharedCornerStyles = {
   position: 'absolute',
   borderColor: Colors.white,
   width: 10,
-  height: 10,
+  height: 10
 };
 
 const cornerWidth = 3;
 
 const styleSheet = StyleSheet.create({
   barCodeScannerWrapper: {
-    flex: 1,
+    flex: 1
   },
   opacityFrame: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)'
   },
   titleView: {
     justifyContent: 'flex-end',
     alignItems: 'center',
-    paddingBottom: 10,
+    paddingBottom: 10
   },
   title: {
-    color: Colors.white,
+    color: Colors.white
   },
   cancelView: {
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   cancel: {
-    color: Colors.white,
+    color: Colors.white
   },
   verticalScanWindow: {
     flexDirection: 'row',
-    flex: 5,
+    flex: 5
   },
   horizontalScanWindow: {
-    flex: 20,
+    flex: 20
   },
 
   /**
@@ -124,27 +124,27 @@ const styleSheet = StyleSheet.create({
     top: 0,
     left: 0,
     borderTopWidth: cornerWidth,
-    borderLeftWidth: cornerWidth,
+    borderLeftWidth: cornerWidth
   },
   topRightCorner: {
     ...sharedCornerStyles,
     top: 0,
     right: 0,
     borderTopWidth: cornerWidth,
-    borderRightWidth: cornerWidth,
+    borderRightWidth: cornerWidth
   },
   bottomLeftCorner: {
     ...sharedCornerStyles,
     bottom: 0,
     left: 0,
     borderBottomWidth: cornerWidth,
-    borderLeftWidth: cornerWidth,
+    borderLeftWidth: cornerWidth
   },
   bottomRightCorner: {
     ...sharedCornerStyles,
     bottom: 0,
     right: 0,
     borderBottomWidth: cornerWidth,
-    borderRightWidth: cornerWidth,
-  },
+    borderRightWidth: cornerWidth
+  }
 });

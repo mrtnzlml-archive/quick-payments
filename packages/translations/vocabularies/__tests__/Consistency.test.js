@@ -10,8 +10,7 @@ it('is consistent', () => {
   const testFolder = path.join(__dirname, '../');
   const vocabularies = [];
 
-  fs
-    .readdirSync(testFolder)
+  fs.readdirSync(testFolder)
     .filter(filename => /\.js$/.test(filename) && filename !== 'en.js')
     .forEach(filename => {
       // $FlowExpectedError: the parameter passed to require must be a string literal

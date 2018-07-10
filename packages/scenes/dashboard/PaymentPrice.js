@@ -7,7 +7,7 @@ import { Price as SharedPrice } from 'mobile-quick-payments-shared';
 import type { PaymentPrice as PaymentPriceType } from './__generated__/PaymentPrice.graphql';
 
 type Props = {|
-  +data: PaymentPriceType,
+  +data: PaymentPriceType
 |};
 
 export function PaymentPrice({ data: { amount, currency } }: Props) {
@@ -21,5 +21,5 @@ export default createFragmentContainer(
       amount
       currency
     }
-  `,
+  `
 );

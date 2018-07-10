@@ -10,9 +10,9 @@ afterEach(() => {
 jest.mock('expo', () => ({
   DangerZone: {
     Localization: {
-      getCurrentLocaleAsync: () => Promise.resolve(mock_LOCALE),
-    },
-  },
+      getCurrentLocaleAsync: () => Promise.resolve(mock_LOCALE)
+    }
+  }
 }));
 
 it('resolves valid locales', async () => {

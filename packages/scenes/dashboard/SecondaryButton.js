@@ -7,13 +7,13 @@ import {
   Icon,
   Colors,
   Touchable,
-  StyleSheet,
+  StyleSheet
 } from 'mobile-quick-payments-shared';
 import Translation from 'mobile-quick-payments-translations';
 
 type Props = {|
   +iconName: string,
-  +description: React.Element<typeof Translation>,
+  +description: React.Element<typeof Translation>
 |};
 
 const VoidCallback = () => {
@@ -34,10 +34,10 @@ export default function SecondaryButton({ iconName, description }: Props) {
 const styleSheet = StyleSheet.create({
   secondaryButton: {
     alignItems: 'center',
-    padding: 5,
+    padding: 5
   },
   secondaryButtonText: {
     fontSize: 10,
-    color: Colors.grey.$700,
-  },
+    color: Colors.grey.$700
+  }
 });

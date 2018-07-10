@@ -31,14 +31,14 @@ const styleSheet = StyleSheet.create({
     shadowColor: Colors.black,
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 0
     },
     shadowOpacity: 0.5,
     shadowRadius: 1,
-    elevation: 1,
+    elevation: 1
   },
   primaryButtonImage: {
     height: 50,
-    width: 50,
-  },
+    width: 50
+  }
 });

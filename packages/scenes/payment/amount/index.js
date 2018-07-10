@@ -5,7 +5,7 @@ import {
   Text,
   Layout,
   NumericInput,
-  Button,
+  Button
 } from 'mobile-quick-payments-shared';
 import Translation from 'mobile-quick-payments-translations';
 

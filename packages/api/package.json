@@ -6,11 +6,11 @@
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
-    "stripe": "^5.8.0"
+    "stripe": "^6.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.18.0"
   },
   "scripts": {
     "start": "yarn run nodemon --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn run babel-node index.js"

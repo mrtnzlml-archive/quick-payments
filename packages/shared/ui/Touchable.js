@@ -6,7 +6,7 @@ import {
   Platform,
   TouchableNativeFeedback,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 
 import type { StylePropType } from '../index';
@@ -16,14 +16,14 @@ type Props = {|
   +onPress: () => void,
   +style?: StylePropType,
   +pressColor?: string,
-  +accessibilityComponentType?: 'button',
+  +accessibilityComponentType?: 'button'
 |};
 
 const ANDROID_VERSION_LOLLIPOP = 21;
 
 export default class Touchable extends React.Component<Props> {
   static defaultProps = {
-    pressColor: 'rgba(0, 0, 0, .32)',
+    pressColor: 'rgba(0, 0, 0, .32)'
   };
 
   render = () => {
@@ -50,7 +50,7 @@ export default class Touchable extends React.Component<Props> {
           style={null}
           background={TouchableNativeFeedback.Ripple(
             this.props.pressColor,
-            false,
+            false
           )}
         >
           <View style={style}>{children}</View>

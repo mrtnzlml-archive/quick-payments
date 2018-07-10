@@ -14,7 +14,7 @@ export default class StripeClientFactory {
 
   constructor(
     apiToken: string = String(process.env.STRIPE_SECRET_API_TOKEN),
-    apiVersion: string = '2018-02-28',
+    apiVersion: string = '2018-02-28'
   ) {
     this.apiToken = apiToken;
     this.apiVersion = apiVersion;

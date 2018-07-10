@@ -6,17 +6,17 @@ import { Text } from 'mobile-quick-payments-shared';
 import type { TranslationKeys } from 'mobile-quick-payments-translations';
 
 type CommonProps = {|
-  +testID?: string,
+  +testID?: string
 |};
 
 type Props =
   | {|
       +id: TranslationKeys,
-      ...CommonProps,
+      ...CommonProps
     |}
   | {|
       +passThrough: ?string | ?number,
-      ...CommonProps,
+      ...CommonProps
     |};
 
 export default class Translation extends React.PureComponent<Props> {
@@ -25,7 +25,7 @@ export default class Translation extends React.PureComponent<Props> {
 
     if (p.id !== undefined && p.passThrough !== undefined) {
       throw new Error(
-        "You can use only 'id' or 'passThrough' property in translations but not both.",
+        "You can use only 'id' or 'passThrough' property in translations but not both."
       );
     }
 

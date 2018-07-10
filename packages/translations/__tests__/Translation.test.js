@@ -7,8 +7,8 @@ it('works with translation ID property', () => {
   expect(
     // $FlowExpectedError: string "ID test" is not a valid translation key
     new Translation({
-      id: 'ID test',
-    }).render(),
+      id: 'ID test'
+    }).render()
   ).toMatchSnapshot();
 });
 
@@ -16,8 +16,8 @@ it('works with `passThrough` property', () => {
   // this will just return Text tag directly
   expect(
     new Translation({
-      passThrough: 'passThrough test',
-    }).render(),
+      passThrough: 'passThrough test'
+    }).render()
   ).toMatchSnapshot();
 });
 
@@ -26,8 +26,8 @@ it('throws exception for unclear properties', () => {
     // $FlowExpectedError: ID and passThrough at the same time is not a valid type
     new Translation({
       id: 'ID test',
-      passThrough: 'passThrough test',
-    }).render(),
+      passThrough: 'passThrough test'
+    }).render()
   ).toThrowErrorMatchingSnapshot();
 });
 
@@ -35,8 +35,8 @@ it('works with almost any type of `passThrough` property', () => {
   const test = value => {
     expect(
       new Translation({
-        passThrough: value,
-      }).render(),
+        passThrough: value
+      }).render()
     ).toMatchSnapshot();
   };
 

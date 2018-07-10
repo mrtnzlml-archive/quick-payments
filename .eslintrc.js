@@ -57,7 +57,7 @@ module.exports = {
     'import/no-absolute-path': ERROR,
     'prettier/prettier': [
       ERROR,
-      { singleQuote: true, trailingComma: 'all', jsxBracketSameLine: false },
+      { singleQuote: true, jsxBracketSameLine: false },
     ],
     'react/jsx-no-bind': ERROR,
     'react/no-access-state-in-setstate': ERROR,

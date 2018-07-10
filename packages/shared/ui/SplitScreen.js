@@ -9,7 +9,7 @@ import Dimensions from '../Dimensions';
 type Props = {|
   +childrenTop: React.Node,
   +childrenBottom: React.Node,
-  +backgroundColor: string,
+  +backgroundColor: string
 |};
 
 function SplitScreen(props: Props) {
@@ -34,7 +34,7 @@ function SplitScreen(props: Props) {
 }
 
 SplitScreen.defaultProps = {
-  backgroundColor: Colors.brandPrimary,
+  backgroundColor: Colors.brandPrimary
 };
 
 export default SplitScreen;
@@ -44,10 +44,10 @@ function createStyleSheet(backgroundColor: string) {
   return StyleSheet.create({
     wrapper: {
       flex: 1,
-      backgroundColor: Colors.background,
+      backgroundColor: Colors.background
     },
     safeAreaView: {
-      paddingHorizontal: 10,
+      paddingHorizontal: 10
     },
     topArea: {
       height: height * 0.5, // 50% of the screen
@@ -56,11 +56,11 @@ function createStyleSheet(backgroundColor: string) {
       shadowColor: Colors.black,
       shadowOffset: {
         width: 0,
-        height: 0,
+        height: 0
       },
       shadowOpacity: 1,
       shadowRadius: 1,
-      elevation: 1,
-    },
+      elevation: 1
+    }
   });
 }

@@ -51,5 +51,5 @@ export default {
       platformStyles[name] = style;
     });
     return StyleSheet.create(platformStyles);
-  },
+  }
 };

@@ -27,7 +27,7 @@ it('works', async () => {
           }
         }
       `,
-      resolvers,
-    ),
+      resolvers
+    )
   ).resolves.toMatchSnapshot();
 });

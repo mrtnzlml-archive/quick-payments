@@ -12,7 +12,7 @@ import StyleSheet from './PlatformStyleSheet';
 type Props = {|
   +children: React.Node,
   +title: React.Element<typeof Translation>,
-  +help?: React.Element<typeof Translation>,
+  +help?: React.Element<typeof Translation>
 |};
 
 export default ({ children, title, help }: Props) => (
@@ -28,13 +28,13 @@ const styleSheet = StyleSheet.create({
   safeAreaView: {
     flex: 1,
     padding: 10,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.background
   },
   title: {
-    marginVertical: 10,
+    marginVertical: 10
   },
   help: {
     marginVertical: 10,
-    color: Colors.grey.$500,
-  },
+    color: Colors.grey.$500
+  }
 });

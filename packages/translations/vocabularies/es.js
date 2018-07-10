@@ -3,7 +3,7 @@
 import type { TranslationKeys } from './en';
 
 const Translations = {
-  'Dashboard.Navigation.MyCard': 'MIS TARJETAS',
+  'Dashboard.Navigation.MyCard': 'MIS TARJETAS'
   // TODO
 };
 

@@ -10,7 +10,7 @@ import {
   SplitScreen,
   EmailInput,
   Button,
-  FormGroup,
+  FormGroup
 } from 'mobile-quick-payments-shared';
 import Translation from 'mobile-quick-payments-translations';
 
@@ -26,12 +26,12 @@ const OnboardingTop = () => (
 // TODO: submit only if all fields are valid
 class OnboardingBottom extends React.Component<{||}, { formIsValid: boolean }> {
   state = {
-    formIsValid: false,
+    formIsValid: false
   };
 
   handleValidationFormCheck = isValid =>
     this.setState({
-      formIsValid: isValid,
+      formIsValid: isValid
       // TODO: form values (?)
     });
 
@@ -63,6 +63,6 @@ export default () => (
 
 const styleSheet = StyleSheet.create({
   title: {
-    color: Colors.white,
-  },
+    color: Colors.white
+  }
 });
