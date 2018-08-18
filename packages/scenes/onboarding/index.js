@@ -1,18 +1,17 @@
 // @flow
 
 import * as React from 'react';
-import { View } from 'react-native';
 import {
   StyleSheet,
   Colors,
   Title,
-  Text,
   SplitScreen,
   EmailInput,
   Button,
   FormGroup
-} from 'mobile-quick-payments-shared';
-import Translation from 'mobile-quick-payments-translations';
+} from 'quick-payments-shared';
+import Translation from 'quick-payments-translations';
+import { Switch } from 'quick-payments-navigation';
 
 const OnboardingTop = () => (
   <React.Fragment>
@@ -23,10 +22,16 @@ const OnboardingTop = () => (
   </React.Fragment>
 );
 
+type State = {|
+  formIsValid: boolean,
+  submitFormTo: null | string
+|};
+
 // TODO: submit only if all fields are valid
-class OnboardingBottom extends React.Component<{||}, { formIsValid: boolean }> {
+class OnboardingBottom extends React.Component<{||}, State> {
   state = {
-    formIsValid: false
+    formIsValid: false,
+    submitFormTo: null
   };
 
   handleValidationFormCheck = isValid =>
@@ -35,19 +40,32 @@ class OnboardingBottom extends React.Component<{||}, { formIsValid: boolean }> {
       // TODO: form values (?)
     });
 
-  handleFormSubmit = () => console.warn('TODO: form values');
+  handleFormSubmit = () => {
+    this.setState({
+      submitFormTo: '/dashboard'
+    });
 
-  render = () => (
-    <FormGroup onValidationCheck={this.handleValidationFormCheck}>
-      <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
-      <Button
-        disabled={!this.state.formIsValid}
-        omitValidation={true}
-        title={<Translation id="Onboarding.Email.Submit" />}
-        onPress={this.handleFormSubmit}
-      />
-    </FormGroup>
-  );
+    console.warn('TODO: form values');
+  };
+
+  render = () => {
+    if (this.state.submitFormTo !== null) {
+      return <Switch to={this.state.submitFormTo} />;
+    }
+
+    return (
+      <FormGroup onValidationCheck={this.handleValidationFormCheck}>
+        <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
+
+        <Button
+          disabled={!this.state.formIsValid}
+          omitValidation={true}
+          title={<Translation id="Onboarding.Email.Submit" />}
+          onPress={this.handleFormSubmit}
+        />
+      </FormGroup>
+    );
+  };
 }
 
 /**

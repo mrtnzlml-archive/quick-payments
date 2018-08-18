@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { createFragmentContainer, graphql } from 'mobile-quick-payments-relay';
-import { Price as SharedPrice } from 'mobile-quick-payments-shared';
+import { createFragmentContainer, graphql } from 'quick-payments-relay';
+import { Price as SharedPrice } from 'quick-payments-shared';
 
 import type { PaymentPrice as PaymentPriceType } from './__generated__/PaymentPrice.graphql';
 

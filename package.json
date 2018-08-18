@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "mobile-quick-payments",
+  "name": "quick-payments",
   "version": "0.0.0",
   "workspaces": [
     "packages/*"

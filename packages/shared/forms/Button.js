@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View } from 'react-native';
-import Translation from 'mobile-quick-payments-translations';
+import Translation from 'quick-payments-translations';
 
 import StyleSheet from '../ui/PlatformStyleSheet';
 import Colors from '../ui/Colors';

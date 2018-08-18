@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "mobile-quick-payments-shared",
+  "name": "quick-payments-shared",
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
     "lodash": "^4.17.10",
-    "mobile-quick-payments-translations": "^0",
+    "quick-payments-translations": "^0",
     "react-native-safe-area-view": "^0.9.0"
   }
 }

@@ -4,7 +4,7 @@ import Expo from 'expo';
 import {
   isLanguageSupported,
   type SupportedLanguagesType
-} from 'mobile-quick-payments-translations';
+} from 'quick-payments-translations';
 
 export default {
   getCurrentLocaleAsync: async (): Promise<SupportedLanguagesType> => {

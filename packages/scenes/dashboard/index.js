@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import { View, ScrollView } from 'react-native';
-import { StyleSheet, Colors, Layout } from 'mobile-quick-payments-shared';
-import Translation from 'mobile-quick-payments-translations';
-import { QueryRenderer, graphql } from 'mobile-quick-payments-relay';
+import { StyleSheet, Colors, Layout } from 'quick-payments-shared';
+import Translation from 'quick-payments-translations';
+import { QueryRenderer, graphql } from 'quick-payments-relay';
 import idx from 'idx';
 
 import PaymentRow from './PaymentRow';
@@ -13,10 +13,10 @@ import SecondaryButton from './SecondaryButton';
 import type { dashboardQueryResponse } from './__generated__/dashboardQuery.graphql';
 
 const Query = graphql`
-  query dashboardQuery($clientId: ID!) {
+  query dashboardQuery {
     scenes {
       dashboard {
-        payments(clientId: $clientId) {
+        payments(clientId: "EA53A691-9970-46BB-BACD-80D4A120334E") {
           id
           ...PaymentRow
         }

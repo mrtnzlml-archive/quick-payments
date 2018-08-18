@@ -8,8 +8,8 @@ import {
   Colors,
   Touchable,
   StyleSheet
-} from 'mobile-quick-payments-shared';
-import Translation from 'mobile-quick-payments-translations';
+} from 'quick-payments-shared';
+import Translation from 'quick-payments-translations';
 
 type Props = {|
   +iconName: string,

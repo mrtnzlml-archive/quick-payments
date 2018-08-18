@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders only the first registered component 1`] = `
+Object {
+  "actions": Object {
+    "activateRoute": [Function],
+    "isRouteActive": [Function],
+    "registerRoute": [Function],
+  },
+  "routes": Array [
+    Object {
+      "component": <MockedScene />,
+      "isActive": true,
+      "path": "/A",
+    },
+    Object {
+      "component": <MockedScene
+        shouldThrow={true}
+      />,
+      "isActive": false,
+      "path": "/B",
+    },
+    Object {
+      "component": <MockedScene
+        shouldThrow={true}
+      />,
+      "isActive": false,
+      "path": "/C",
+    },
+  ],
+}
+`;
+
+exports[`switches the scenes declaratively 1`] = `
+Object {
+  "actions": Object {
+    "activateRoute": [Function],
+    "isRouteActive": [Function],
+    "registerRoute": [Function],
+  },
+  "routes": Array [
+    Object {
+      "component": <UNDEFINED>
+        <Switch
+          to="/B"
+        />
+        <MockedScene />
+         
+      </UNDEFINED>,
+      "isActive": false,
+      "path": "/A",
+    },
+    Object {
+      "component": <MockedScene
+        message="BBB"
+      />,
+      "isActive": true,
+      "path": "/B",
+    },
+    Object {
+      "component": <MockedScene
+        shouldThrow={true}
+      />,
+      "isActive": false,
+      "path": "/C",
+    },
+  ],
+}
+`;
+
+exports[`throws when you try to switch to non-existent route 1`] = `"Cannot switch to a path '/unknown-route-wtf' because this path doesn't exist (or component RegisterSwitch is not mounted yet)."`;

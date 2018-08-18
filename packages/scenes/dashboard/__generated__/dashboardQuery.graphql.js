@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f5fcbfaf64c4150a3500377b83481a2a
+ * @relayHash d770c8d48cb1fd33821b427589569a80
  */
 
 /* eslint-disable */
@@ -10,9 +10,7 @@
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
 type PaymentRow$ref = any;
-export type dashboardQueryVariables = {|
-  clientId: string
-|};
+export type dashboardQueryVariables = {||};
 export type dashboardQueryResponse = {|
   +scenes: ?{|
     +dashboard: ?{|
@@ -27,12 +25,10 @@ export type dashboardQueryResponse = {|
 
 
 /*
-query dashboardQuery(
-  $clientId: ID!
-) {
+query dashboardQuery {
   scenes {
     dashboard {
-      payments(clientId: $clientId) {
+      payments(clientId: "EA53A691-9970-46BB-BACD-80D4A120334E") {
         id
         ...PaymentRow
       }
@@ -66,21 +62,13 @@ fragment RetailerName on Retailer {
 const node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
-    "kind": "LocalArgument",
+    "kind": "Literal",
     "name": "clientId",
-    "type": "ID!",
-    "defaultValue": null
-  }
-],
-v1 = [
-  {
-    "kind": "Variable",
-    "name": "clientId",
-    "variableName": "clientId",
+    "value": "EA53A691-9970-46BB-BACD-80D4A120334E",
     "type": "ID!"
   }
 ],
-v2 = {
+v1 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
@@ -92,14 +80,14 @@ return {
   "operationKind": "query",
   "name": "dashboardQuery",
   "id": null,
-  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  ...PaymentPrice\n  ...StatusIcon\n  retailer {\n    ...RetailerName\n    id\n  }\n}\n\nfragment PaymentPrice on Payment {\n  amount\n  currency\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment RetailerName on Retailer {\n  name\n}\n",
+  "text": "query dashboardQuery {\n  scenes {\n    dashboard {\n      payments(clientId: \"EA53A691-9970-46BB-BACD-80D4A120334E\") {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  ...PaymentPrice\n  ...StatusIcon\n  retailer {\n    ...RetailerName\n    id\n  }\n}\n\nfragment PaymentPrice on Payment {\n  amount\n  currency\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment RetailerName on Retailer {\n  name\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "dashboardQuery",
     "type": "Query",
     "metadata": null,
-    "argumentDefinitions": v0,
+    "argumentDefinitions": [],
     "selections": [
       {
         "kind": "LinkedField",
@@ -123,12 +111,12 @@ return {
                 "kind": "LinkedField",
                 "alias": null,
                 "name": "payments",
-                "storageKey": null,
-                "args": v1,
+                "storageKey": "payments(clientId:\"EA53A691-9970-46BB-BACD-80D4A120334E\")",
+                "args": v0,
                 "concreteType": "Payment",
                 "plural": true,
                 "selections": [
-                  v2,
+                  v1,
                   {
                     "kind": "FragmentSpread",
                     "name": "PaymentRow",
@@ -145,7 +133,7 @@ return {
   "operation": {
     "kind": "Operation",
     "name": "dashboardQuery",
-    "argumentDefinitions": v0,
+    "argumentDefinitions": [],
     "selections": [
       {
         "kind": "LinkedField",
@@ -169,12 +157,12 @@ return {
                 "kind": "LinkedField",
                 "alias": null,
                 "name": "payments",
-                "storageKey": null,
-                "args": v1,
+                "storageKey": "payments(clientId:\"EA53A691-9970-46BB-BACD-80D4A120334E\")",
+                "args": v0,
                 "concreteType": "Payment",
                 "plural": true,
                 "selections": [
-                  v2,
+                  v1,
                   {
                     "kind": "ScalarField",
                     "alias": null,
@@ -212,7 +200,7 @@ return {
                         "args": null,
                         "storageKey": null
                       },
-                      v2
+                      v1
                     ]
                   }
                 ]
@@ -226,5 +214,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'd6d4cdd36c5df38973aae8aa0532cd03';
+(node/*: any*/).hash = '59bb4220e7417c95b5c845981cb844af';
 module.exports = node;

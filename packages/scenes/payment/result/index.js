@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import idx from 'idx';
-import { QueryRenderer, graphql } from 'mobile-quick-payments-relay';
+import { QueryRenderer, graphql } from 'quick-payments-relay';
 
 import Confirmation from './Confirmation';
 import Rejection from './Rejection';

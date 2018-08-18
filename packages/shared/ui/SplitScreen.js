@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View, KeyboardAvoidingView } from 'react-native';
-import { StyleSheet, Colors, SafeAreaView } from 'mobile-quick-payments-shared';
+import { StyleSheet, Colors, SafeAreaView } from 'quick-payments-shared';
 
 import Dimensions from '../Dimensions';
 

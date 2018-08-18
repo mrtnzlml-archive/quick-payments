@@ -2,13 +2,14 @@
 
 import * as React from 'react';
 import Expo from 'expo';
-import { Device } from 'mobile-quick-payments-shared';
+import { Device } from 'quick-payments-shared';
 import {
   getMessages,
   IntlProvider,
   type SupportedLanguagesType,
   type TranslationKeysObject
-} from 'mobile-quick-payments-translations';
+} from 'quick-payments-translations';
+import { Switchboard, RegisterSwitch } from 'quick-payments-navigation';
 
 type State = {|
   isLoading: boolean,
@@ -53,12 +54,24 @@ class Application extends React.Component<{||}, State> {
         locale={this.state.locale}
         messages={this.state.intlMessages}
       >
-        <Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />
+        <Switchboard>
+          <RegisterSwitch path="/" component={<Scenes.onboarding />} />
 
-        {/*<Scenes.onboarding />*/}
+          <RegisterSwitch
+            path="/dashboard"
+            component={
+              <Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />
+            }
+          />
 
-        {/*<Scenes.payment.result paymentId="73F4E736-3F49-4EA3-9241-72C5072EE060" />*/}
-        {/*<Scenes.payment.result paymentId="3EEF653E-E0EC-4396-BE66-35D55A9A2366" />*/}
+          <RegisterSwitch
+            path="/payment/result"
+            component={
+              <Scenes.payment.result paymentId="73F4E736-3F49-4EA3-9241-72C5072EE060" />
+              // <Scenes.payment.result paymentId="3EEF653E-E0EC-4396-BE66-35D55A9A2366" />
+            }
+          />
+        </Switchboard>
       </IntlProvider>
     );
   };

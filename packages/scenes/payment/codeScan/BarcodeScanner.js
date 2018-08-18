@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
-import Translation from 'mobile-quick-payments-translations';
-import { StyleSheet, Colors, Text } from 'mobile-quick-payments-shared';
+import Translation from 'quick-payments-translations';
+import { StyleSheet, Colors, Text } from 'quick-payments-shared';
 
 type State = {|
   hasCameraPermission: boolean | null

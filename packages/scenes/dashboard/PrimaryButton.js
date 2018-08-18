@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View, Image } from 'react-native';
-import { Touchable, StyleSheet, Colors } from 'mobile-quick-payments-shared';
+import { Touchable, StyleSheet, Colors } from 'quick-payments-shared';
 
 const VoidCallback = () => {
   console.warn('TODO'); // FIXME

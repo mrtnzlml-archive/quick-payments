@@ -8,8 +8,8 @@ import {
   Colors,
   StyleSheet,
   Price
-} from 'mobile-quick-payments-shared';
-import { createFragmentContainer, graphql } from 'mobile-quick-payments-relay';
+} from 'quick-payments-shared';
+import { createFragmentContainer, graphql } from 'quick-payments-relay';
 
 const Rejection = ({ data }) => (
   <SplitScreen

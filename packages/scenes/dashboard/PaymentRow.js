@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import { View } from 'react-native';
-import { Text, StyleSheet, Colors } from 'mobile-quick-payments-shared';
-import { createFragmentContainer, graphql } from 'mobile-quick-payments-relay';
-import Translation from 'mobile-quick-payments-translations';
+import { Text, StyleSheet, Colors } from 'quick-payments-shared';
+import { createFragmentContainer, graphql } from 'quick-payments-relay';
+import Translation from 'quick-payments-translations';
 
 import PaymentPrice from './PaymentPrice';
 import StatusIcon from './StatusIcon';

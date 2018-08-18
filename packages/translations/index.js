@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Text } from 'mobile-quick-payments-shared';
+import { Text } from 'quick-payments-shared';
 import {
   IntlProvider as ReactIntlProvider,
   addLocaleData as ReactIntlAddLocaleData
