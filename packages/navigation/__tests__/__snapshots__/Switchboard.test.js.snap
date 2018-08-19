@@ -40,13 +40,13 @@ Object {
   },
   "routes": Array [
     Object {
-      "component": <UNDEFINED>
+      "component": <React.Fragment>
         <Switch
           to="/B"
         />
         <MockedScene />
          
-      </UNDEFINED>,
+      </React.Fragment>,
       "isActive": false,
       "path": "/A",
     },

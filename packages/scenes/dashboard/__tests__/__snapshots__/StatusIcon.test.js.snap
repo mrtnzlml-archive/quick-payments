@@ -27,7 +27,6 @@ exports[`renders status FAIL 1`] = `
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
-    style={undefined}
   >
     FAIL
   </Text>
@@ -61,7 +60,6 @@ exports[`renders status PAID 1`] = `
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
-    style={undefined}
   >
     PAID
   </Text>
