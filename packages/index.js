@@ -52,13 +52,15 @@ class Application extends React.Component<{||}, State> {
     return (
       <IntlProvider locale={this.state.locale} messages={this.state.intlMessages}>
         <Switchboard>
-          <RegisterSwitch path="/" component={<Scenes.onboarding />} />
+          {/* <RegisterSwitch path="/" component={<Scenes.onboarding />} /> */}
 
           <RegisterSwitch
             path="/dashboard"
             component={<Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />}
           />
 
+          {/* TODO: Switchboard for nested paths (?) */}
+          <RegisterSwitch path="/payment/codeScan" component={<Scenes.payment.codeScan />} />
           <RegisterSwitch
             path="/payment/result"
             component={

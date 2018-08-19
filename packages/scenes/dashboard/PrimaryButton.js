@@ -4,13 +4,13 @@ import * as React from 'react';
 import {View, Image} from 'react-native';
 import {Touchable, StyleSheet, Colors} from 'quick-payments-shared';
 
-const VoidCallback = () => {
-  console.warn('TODO'); // FIXME
-};
+type Props = {|
+  +onPress: () => void,
+|};
 
-export default function PrimaryButton() {
+export default function PrimaryButton(props: Props) {
   return (
-    <Touchable accessibilityComponentType="button" onPress={VoidCallback}>
+    <Touchable accessibilityComponentType="button" onPress={props.onPress}>
       <View style={styleSheet.primaryButton}>
         <Image style={styleSheet.primaryButtonImage} source={require('./qr_code.png')} />
       </View>
