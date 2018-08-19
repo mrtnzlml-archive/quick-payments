@@ -5,12 +5,12 @@ import * as React from 'react';
 import Context from './Context';
 
 type Props = {|
-  +to: string,
+  +to: React.Node,
 |};
 
 /**
- * <Switch to="/dashboard" />
+ * <Switch to={<Scene customParameter={true} />} />
  */
 export function Switch(props: Props) {
-  return <Context.Consumer>{({actions}) => actions.activateRoute(props.to)}</Context.Consumer>;
+  return <Context.Consumer>{({actions}) => actions.activateComponent(props.to)}</Context.Consumer>;
 }

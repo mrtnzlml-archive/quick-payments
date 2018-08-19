@@ -2,9 +2,11 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Text, StyleSheet, Colors} from '_shared';
+import {Text, StyleSheet, Colors, Touchable} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
+import {Switch} from '_navigation';
+import {PaymentResultScreen} from '_scenes';
 
 import PaymentPrice from './PaymentPrice';
 import StatusIcon from './StatusIcon';
@@ -15,29 +17,53 @@ type Props = {|
   +data: PaymentRowType,
 |};
 
-function PaymentRow({data}: Props) {
-  return (
-    <View style={styleSheet.container}>
-      <View style={styleSheet.containerLeft}>
-        <Text style={styleSheet.retailerName}>
-          <RetailerName data={data.retailer} />
-        </Text>
-        <View style={styleSheet.row}>
-          <PaymentPrice data={data} />
-          <Text style={styleSheet.cityName}>
-            <Translation passThrough=" (Todo City Name)" />
-          </Text>
-        </View>
-        <Text style={styleSheet.dateTime}>
-          <Translation passThrough="2018-11-11 12:34" />
-        </Text>
-      </View>
+type State = {
+  performTransition: boolean,
+};
 
-      <View>
-        <StatusIcon data={data} />
-      </View>
-    </View>
-  );
+class PaymentRow extends React.Component<Props, State> {
+  state = {
+    performTransition: false,
+  };
+
+  transitionToPaymentResult = () => {
+    this.setState({
+      performTransition: true,
+    });
+  };
+
+  render() {
+    const {data} = this.props;
+
+    if (this.state.performTransition === true) {
+      return <Switch to={<PaymentResultScreen paymentId={data.id} />} />;
+    }
+
+    return (
+      <Touchable style={styleSheet.container} onPress={this.transitionToPaymentResult}>
+        <React.Fragment>
+          <View style={styleSheet.containerLeft}>
+            <Text style={styleSheet.retailerName}>
+              <RetailerName data={data.retailer} />
+            </Text>
+            <View style={styleSheet.row}>
+              <PaymentPrice data={data} />
+              <Text style={styleSheet.cityName}>
+                <Translation passThrough=" (Todo City Name)" />
+              </Text>
+            </View>
+            <Text style={styleSheet.dateTime}>
+              <Translation passThrough="2018-11-11 12:34" />
+            </Text>
+          </View>
+
+          <View>
+            <StatusIcon data={data} />
+          </View>
+        </React.Fragment>
+      </Touchable>
+    );
+  }
 }
 
 const styleSheet = StyleSheet.create({
@@ -68,6 +94,7 @@ export default createFragmentContainer(
   PaymentRow,
   graphql`
     fragment PaymentRow on Payment {
+      id
       ...PaymentPrice
       ...StatusIcon
       retailer {

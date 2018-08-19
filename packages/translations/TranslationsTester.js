@@ -31,7 +31,10 @@ export const run = (
       const translated = translatedVocabulary[originalKey];
 
       // all keys from original vocabulary must exist even in all the translations
-      const failed = failIf(translated === undefined, `Key '${originalKey}' doesn't exist in vocabulary '${index}'.`);
+      const failed = failIf(
+        translated === undefined,
+        `Key '${originalKey}' doesn't exist in vocabulary '${index}'.`,
+      );
       if (failed) {
         return;
       }
@@ -55,9 +58,9 @@ export const run = (
       // translation should end with the same punctuation (.!?)
       failIf(
         last(original).match(/^[.!?]/) && last(original) !== last(translated),
-        `Key '${originalKey}' from vocabulary '${index}' should end with '${last(original)}' but it ends with '${last(
-          translated,
-        )}' character.`,
+        `Key '${originalKey}' from vocabulary '${index}' should end with '${last(
+          original,
+        )}' but it ends with '${last(translated)}' character.`,
       );
 
       // translation should contain the same amount of special variables as the original
@@ -71,9 +74,9 @@ export const run = (
       if (originalVariables != null && translatedVariables != null) {
         failIf(
           originalVariables.length !== translatedVariables.length,
-          `Translated string should contain '${originalVariables.length}' special variables but it contains '${
-            translatedVariables.length
-          }' variables.`,
+          `Translated string should contain '${
+            originalVariables.length
+          }' special variables but it contains '${translatedVariables.length}' variables.`,
         );
       }
 

@@ -7,6 +7,7 @@ import Translation from '_translations';
 import {QueryRenderer, graphql} from '_relay';
 import {Switch} from '_navigation';
 import idx from 'idx';
+import {CodeScanScene} from '_scenes';
 
 import PaymentRow from './PaymentRow';
 import PrimaryButton from './PrimaryButton';
@@ -14,10 +15,10 @@ import SecondaryButton from './SecondaryButton';
 import type {dashboardQueryResponse} from './__generated__/dashboardQuery.graphql';
 
 const Query = graphql`
-  query dashboardQuery {
+  query dashboardQuery($clientId: ID!) {
     scenes {
       dashboard {
-        payments(clientId: "EA53A691-9970-46BB-BACD-80D4A120334E") {
+        payments(clientId: $clientId) {
           id
           ...PaymentRow
         }
@@ -26,12 +27,10 @@ const Query = graphql`
   }
 `;
 
-type Props = {|
-  +clientId: string,
-|};
+type Props = {||};
 
 type State = {|
-  transitionTo: null | string,
+  performTransition: boolean,
 |};
 
 type QueryRendererResponse = {|
@@ -40,7 +39,7 @@ type QueryRendererResponse = {|
 
 export default class Dashboard extends React.Component<Props, State> {
   state = {
-    transitionTo: null,
+    performTransition: false,
   };
 
   renderQueryRendererResult = ({props}: QueryRendererResponse) => {
@@ -59,13 +58,13 @@ export default class Dashboard extends React.Component<Props, State> {
 
   transitionToQRScan = () => {
     this.setState({
-      transitionTo: '/payment/codeScan',
+      performTransition: true,
     });
   };
 
   render = () => {
-    if (this.state.transitionTo !== null) {
-      return <Switch to={this.state.transitionTo} />;
+    if (this.state.performTransition === true) {
+      return <Switch to={<CodeScanScene />} />;
     }
 
     return (
@@ -73,14 +72,18 @@ export default class Dashboard extends React.Component<Props, State> {
         <QueryRenderer
           query={Query}
           variables={{
-            clientId: this.props.clientId,
+            // TODO: this should be stored in the device after onboarding
+            clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E',
           }}
           render={this.renderQueryRendererResult}
         />
 
         <View style={styleSheet.navigation}>
           <View style={styleSheet.button}>
-            <SecondaryButton iconName="credit-card" description={<Translation id="Dashboard.Navigation.MyCard" />} />
+            <SecondaryButton
+              iconName="credit-card"
+              description={<Translation id="Dashboard.Navigation.MyCard" />}
+            />
           </View>
           <View style={styleSheet.button}>
             <PrimaryButton onPress={this.transitionToQRScan} />

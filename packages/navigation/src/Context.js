@@ -10,10 +10,7 @@ const UseSwitchboxFirstError = (...args) => {
 };
 
 export default React.createContext({
-  routes: [],
   actions: {
-    registerRoute: UseSwitchboxFirstError,
-    activateRoute: UseSwitchboxFirstError,
-    isRouteActive: UseSwitchboxFirstError,
+    activateComponent: UseSwitchboxFirstError,
   },
 });

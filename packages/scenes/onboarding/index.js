@@ -64,7 +64,9 @@ class OnboardingBottom extends React.Component<{||}, State> {
  * Welcome page of the onboarding should combine login and registration into
  * one simple process.
  */
-export default () => <SplitScreen childrenTop={<OnboardingTop />} childrenBottom={<OnboardingBottom />} />;
+export default () => (
+  <SplitScreen childrenTop={<OnboardingTop />} childrenBottom={<OnboardingBottom />} />
+);
 
 const styleSheet = StyleSheet.create({
   title: {

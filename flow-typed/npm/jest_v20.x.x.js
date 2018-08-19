@@ -474,7 +474,11 @@ declare var it: {
    */
   concurrent(name: string, fn?: (done: () => void) => ?Promise<mixed>, timeout?: number): void,
 };
-declare function fit(name: string, fn: (done: () => void) => ?Promise<mixed>, timeout?: number): void;
+declare function fit(
+  name: string,
+  fn: (done: () => void) => ?Promise<mixed>,
+  timeout?: number,
+): void;
 /** An individual test unit */
 declare var test: typeof it;
 /** A disabled group of tests */

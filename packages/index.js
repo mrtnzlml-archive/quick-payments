@@ -9,23 +9,14 @@ import {
   type SupportedLanguagesType,
   type TranslationKeysObject,
 } from '_translations';
-import {Switchboard, RegisterSwitch} from '_navigation';
+import {Switchboard} from '_navigation';
+import {DashboardScene} from '_scenes';
 
 type State = {|
   isLoading: boolean,
   locale: SupportedLanguagesType,
   intlMessages: TranslationKeysObject,
 |};
-
-const Scenes = {
-  dashboard: require('./scenes/dashboard').default,
-  onboarding: require('./scenes/onboarding').default,
-  payment: {
-    amount: require('./scenes/payment/amount').default,
-    codeScan: require('./scenes/payment/codeScan').default,
-    result: require('./scenes/payment/result').default,
-  },
-};
 
 class Application extends React.Component<{||}, State> {
   state = {
@@ -51,24 +42,7 @@ class Application extends React.Component<{||}, State> {
 
     return (
       <IntlProvider locale={this.state.locale} messages={this.state.intlMessages}>
-        <Switchboard>
-          {/* <RegisterSwitch path="/" component={<Scenes.onboarding />} /> */}
-
-          <RegisterSwitch
-            path="/dashboard"
-            component={<Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />}
-          />
-
-          {/* TODO: Switchboard for nested paths (?) */}
-          <RegisterSwitch path="/payment/codeScan" component={<Scenes.payment.codeScan />} />
-          <RegisterSwitch
-            path="/payment/result"
-            component={
-              <Scenes.payment.result paymentId="73F4E736-3F49-4EA3-9241-72C5072EE060" />
-              // <Scenes.payment.result paymentId="3EEF653E-E0EC-4396-BE66-35D55A9A2366" />
-            }
-          />
-        </Switchboard>
+        <Switchboard initialScene={<DashboardScene />} />
       </IntlProvider>
     );
   };

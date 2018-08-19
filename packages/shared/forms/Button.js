@@ -13,7 +13,8 @@ import Icon from '../ui/Icon';
 type Props = {|
   +title: React.Element<typeof Translation>,
   +onPress: () => void,
-  +omitValidation?: boolean, // FIXME: this is needed only because of internal details of FormGroup component
+  // FIXME: this is needed only because of internal details of FormGroup component (vv)
+  +omitValidation?: boolean,
   +disabled?: boolean,
 |};
 

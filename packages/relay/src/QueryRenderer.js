@@ -25,6 +25,10 @@ export default class QueryRenderer extends React.Component<Props> {
   };
 
   render = () => (
-    <RelayQueryRenderer environment={Environment} {...this.props} render={this.renderQueryRendererResult} />
+    <RelayQueryRenderer
+      environment={Environment}
+      {...this.props}
+      render={this.renderQueryRendererResult}
+    />
   );
 }

@@ -98,7 +98,11 @@ export default class TextInput extends React.Component<Props, State> {
 
     return (
       <RN.View>
-        <Animatable.Text duration={100} transition={['color', 'fontSize', 'paddingTop']} style={styleSheet.placeholder}>
+        <Animatable.Text
+          duration={100}
+          transition={['color', 'fontSize', 'paddingTop']}
+          style={styleSheet.placeholder}
+        >
           {this.props.placeholder}
         </Animatable.Text>
         <RN.TextInput

@@ -187,7 +187,7 @@ module.exports = {
     'lines-around-comment': OFF,
     'lines-around-directive': OFF,
     'max-depth': OFF,
-    'max-len': [WARN, 120, {tabWidth: ERROR, ignoreUrls: true}],
+    'max-len': [WARN, 100, {tabWidth: ERROR, ignoreUrls: true}],
     'max-lines': OFF,
     'max-nested-callbacks': OFF,
     'max-params': OFF,

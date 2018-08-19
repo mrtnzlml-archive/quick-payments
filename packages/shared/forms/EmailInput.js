@@ -54,7 +54,9 @@ export default class EmailInput extends React.Component<Props, State> {
         keyboardType="email-address"
         placeholder={this.props.placeholder}
         onChangeText={_.debounce(this.handleInputChange, 1000)}
-        errorMessage={this.state.isValid ? undefined : <Translation id="General.Form.Validation.Email" />}
+        errorMessage={
+          this.state.isValid ? undefined : <Translation id="General.Form.Validation.Email" />
+        }
       />
     );
   };

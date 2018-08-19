@@ -2,7 +2,10 @@
 
 import * as React from 'react';
 import {Text} from '_shared';
-import {IntlProvider as ReactIntlProvider, addLocaleData as ReactIntlAddLocaleData} from 'react-intl';
+import {
+  IntlProvider as ReactIntlProvider,
+  addLocaleData as ReactIntlAddLocaleData,
+} from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 

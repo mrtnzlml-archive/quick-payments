@@ -25,7 +25,7 @@ export default function getByPath(
   let current = root;
   for (let i = 0; i < path.length; i++) {
     const segment = path[i];
-    // $FlowExpectedError: segment could be a string which is not allowed as a key of array (but I am OK with that here)
+    // $FlowExpectedError: segment could be a string which is not allowed as a key of array
     if (current && current[segment] !== undefined) {
       current = current[segment];
     } else {

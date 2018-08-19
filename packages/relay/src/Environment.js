@@ -1,6 +1,13 @@
 // @flow
 
-import {Environment, Network, RecordSource, Store, Observable, createOperationSelector} from 'relay-runtime';
+import {
+  Environment,
+  Network,
+  RecordSource,
+  Store,
+  Observable,
+  createOperationSelector,
+} from 'relay-runtime';
 import {AsyncStorage} from 'react-native';
 
 const ASYNC_STORE_KEY = '@OfflineStore:key';

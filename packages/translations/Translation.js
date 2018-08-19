@@ -24,11 +24,17 @@ export default class Translation extends React.PureComponent<Props> {
     const p = this.props;
 
     if (p.id !== undefined && p.passThrough !== undefined) {
-      throw new Error("You can use only 'id' or 'passThrough' property in translations but not both.");
+      throw new Error(
+        "You can use only 'id' or 'passThrough' property in translations but not both.",
+      );
     }
 
     if (p.id !== undefined) {
-      return <FormattedMessage id={p.id}>{translatedText => <Text>{translatedText}</Text>}</FormattedMessage>;
+      return (
+        <FormattedMessage id={p.id}>
+          {translatedText => <Text>{translatedText}</Text>}
+        </FormattedMessage>
+      );
     }
 
     // we do not allow to use 'string' in the 'Text' components but
