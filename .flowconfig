@@ -46,8 +46,6 @@ flow-typed/
 [options]
 emoji=true
 
-esproposal.optional_chaining=enable
-
 module.system=haste
 
 munge_underscores=true

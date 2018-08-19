@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react';
+import idx from 'idx';
 import {QueryRenderer, graphql} from 'quick-payments-relay';
 
 import Confirmation from './Confirmation';
@@ -17,9 +18,10 @@ type QueryRendererResponse = {|
 
 export default class PaymentStatus extends React.Component<Props> {
   renderQueryRendererResult = ({props}: QueryRendererResponse) => {
-    const data = props.scenes?.payment?.checkStatus;
+    const data = idx(props, _ => _.scenes.payment.checkStatus);
+    const status = data && data.status;
 
-    if (data?.status === 'PAID') {
+    if (status === 'PAID') {
       return <Confirmation data={data} />;
     } else {
       return <Rejection data={data} />;

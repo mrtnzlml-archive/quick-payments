@@ -5,6 +5,7 @@ import {View, ScrollView} from 'react-native';
 import {StyleSheet, Layout} from 'quick-payments-shared';
 import Translation from 'quick-payments-translations';
 import {QueryRenderer, graphql} from 'quick-payments-relay';
+import idx from 'idx';
 
 import PaymentRow from './PaymentRow';
 import PrimaryButton from './PrimaryButton';
@@ -34,7 +35,7 @@ type QueryRendererResponse = {|
 
 export default class Dashboard extends React.Component<Props> {
   renderQueryRendererResult = ({props}: QueryRendererResponse) => {
-    const payments = props.scenes?.dashboard?.payments || [];
+    const payments = idx(props, _ => _.scenes.dashboard.payments) || [];
     return (
       <ScrollView>
         {payments.map(payment => {
