@@ -28,10 +28,6 @@ const Translations = {
 
   'Payment.Title': 'How much?',
   'Payment.Result.GoToDashboard': 'Go to dashboard',
-
-  // TODO: this should be registered by the workspace package automatically
-  // (the same for rest of the translations/packages)
-  'Relay.QueryRenderer.Loading': 'Loading...',
 };
 
 export type TranslationKeys = $Keys<typeof Translations>;

@@ -37,7 +37,7 @@ References:
 ## Payment
 
 - [x] QR code scanner
-- [ ] amount to pay
+- [ ] amount to pay (after QR code)
 - [ ] confirmation (for the retailer) - should retailer get a notification?
 - [ ] rejection (for the customer)
 
@@ -46,11 +46,15 @@ References:
 - https://stripe.com/docs/connect/destination-charges
 - https://stripe.com/docs/connect/currencies
 
+## Dashboard
+
+- [ ] dashboard with payment history
+
 ## Others
 
 - [ ] become retailer
-- [ ] dashboard with payment history
 - [ ] debit cards overview
+- [ ] profile of the user + logout
 
 # Building Standalone Apps for Android and iOS
 
