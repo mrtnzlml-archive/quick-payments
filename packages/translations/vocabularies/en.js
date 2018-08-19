@@ -27,6 +27,7 @@ const Translations = {
   'Onboarding.Title': '$PRODUCT_NAME',
 
   'Payment.Title': 'How much?',
+  'Payment.Result.GoToDashboard': 'Go to dashboard',
 
   // TODO: this should be registered by the workspace package automatically
   // (the same for rest of the translations/packages)
