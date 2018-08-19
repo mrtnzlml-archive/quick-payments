@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 462ab307905d84a213c220eeefb213cc
+ * @relayHash e270d2e0669289b2fba69407a8f1c4b5
  */
 
 /* eslint-disable */
@@ -24,6 +24,10 @@ export type resultQueryResponse = {|
       |}
     |}
   |}
+|};
+export type resultQuery = {|
+  variables: resultQueryVariables,
+  response: resultQueryResponse,
 |};
 */
 

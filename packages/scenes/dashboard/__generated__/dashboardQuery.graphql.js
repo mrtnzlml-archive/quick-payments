@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d770c8d48cb1fd33821b427589569a80
+ * @relayHash be8f528aad76a87cd35cfbe208d17a3f
  */
 
 /* eslint-disable */
@@ -20,6 +20,10 @@ export type dashboardQueryResponse = {|
       |}>
     |}
   |}
+|};
+export type dashboardQuery = {|
+  variables: dashboardQueryVariables,
+  response: dashboardQueryResponse,
 |};
 */
 
