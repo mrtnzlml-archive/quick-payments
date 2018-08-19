@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 import Translation from 'quick-payments-translations';
 
 import StyleSheet from '../ui/PlatformStyleSheet';
@@ -14,11 +14,11 @@ type Props = {|
   +title: React.Element<typeof Translation>,
   +onPress: () => void,
   +omitValidation?: boolean, // FIXME: this is needed only because of internal details of FormGroup component
-  +disabled?: boolean
+  +disabled?: boolean,
 |};
 
 function Button(props: Props) {
-  let child = (
+  const child = (
     <View style={styleSheet.view}>
       <Text style={styleSheet.text}>{props.title}</Text>
       <View style={styleSheet.icon}>
@@ -39,7 +39,7 @@ function Button(props: Props) {
 }
 
 Button.defaultProps = {
-  disabled: false
+  disabled: false,
 };
 
 export default Button;
@@ -52,22 +52,22 @@ const styleSheet = StyleSheet.create({
     borderRadius: 2,
     android: {
       android: {
-        elevation: 4
-      }
-    }
+        elevation: 4,
+      },
+    },
   },
   text: {
     color: Colors.white,
     textAlign: 'center',
     padding: 8,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   icon: {
     position: 'absolute',
     right: 0,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   disabled: {
-    opacity: 0.5
-  }
+    opacity: 0.5,
+  },
 });

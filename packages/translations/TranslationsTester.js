@@ -1,6 +1,6 @@
 // @flow
 
-import type { TranslationKeysObject } from './index';
+import type {TranslationKeysObject} from './index';
 
 const first = text => text.slice(0, 1);
 const last = text => text.slice(-1);
@@ -10,7 +10,7 @@ const isLowerCase = character => character === character.toLowerCase();
 export const run = (
   originalVocabulary: TranslationKeysObject,
   translatedVocabularies: $ReadOnlyArray<TranslationKeysObject>,
-  failFn?: (mixed, string) => boolean
+  failFn?: (mixed, string) => boolean,
 ) => {
   // default failIf implementation (console.warn)
   let failIf = (test, failMessage) => {
@@ -31,10 +31,7 @@ export const run = (
       const translated = translatedVocabulary[originalKey];
 
       // all keys from original vocabulary must exist even in all the translations
-      let failed = failIf(
-        translated === undefined,
-        `Key '${originalKey}' doesn't exist in vocabulary '${index}'.`
-      );
+      const failed = failIf(translated === undefined, `Key '${originalKey}' doesn't exist in vocabulary '${index}'.`);
       if (failed) {
         return;
       }
@@ -43,24 +40,24 @@ export const run = (
       failIf(
         isUpperCase(first(original)) && !isUpperCase(first(translated)),
         `Key '${originalKey}' from vocabulary '${index}' should start with uppercase character but it starts with lowercase '${first(
-          translated
-        )}'.`
+          translated,
+        )}'.`,
       );
 
       // first lowercase letter must stay lowercase even after translation
       failIf(
         isLowerCase(first(original)) && !isLowerCase(first(translated)),
         `Key '${originalKey}' from vocabulary '${index}' should start with lowercase character but it starts with uppercase '${first(
-          translated
-        )}'.`
+          translated,
+        )}'.`,
       );
 
       // translation should end with the same punctuation (.!?)
       failIf(
         last(original).match(/^[.!?]/) && last(original) !== last(translated),
-        `Key '${originalKey}' from vocabulary '${index}' should end with '${last(
-          original
-        )}' but it ends with '${last(translated)}' character.`
+        `Key '${originalKey}' from vocabulary '${index}' should end with '${last(original)}' but it ends with '${last(
+          translated,
+        )}' character.`,
       );
 
       // translation should contain the same amount of special variables as the original
@@ -69,23 +66,21 @@ export const run = (
       const translatedVariables = translated.match(regexp);
       failIf(
         originalVariables && !translatedVariables,
-        "Translated string should contain special variable but it doesn't."
+        "Translated string should contain special variable but it doesn't.",
       );
       if (originalVariables != null && translatedVariables != null) {
         failIf(
           originalVariables.length !== translatedVariables.length,
-          `Translated string should contain '${
-            originalVariables.length
-          }' special variables but it contains '${
+          `Translated string should contain '${originalVariables.length}' special variables but it contains '${
             translatedVariables.length
-          }' variables.`
+          }' variables.`,
         );
       }
 
       // translation should not contain the same value as original
       failIf(
         original === translated,
-        `Key '${originalKey}' is not translated in vocabulary '${index}' (the values are same).`
+        `Key '${originalKey}' is not translated in vocabulary '${index}' (the values are same).`,
       );
     });
 
@@ -93,7 +88,7 @@ export const run = (
     Object.keys(translatedVocabulary).forEach(vocabularyKey => {
       failIf(
         originalVocabulary[vocabularyKey] === undefined,
-        `Key '${vocabularyKey}' in vocabulary 'TODO' is redundant and should be removed.`
+        `Key '${vocabularyKey}' in vocabulary 'TODO' is redundant and should be removed.`,
       );
     });
   });

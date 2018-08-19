@@ -1,6 +1,6 @@
 // @flow
 
-import { run } from '../TranslationsTester';
+import {run} from '../TranslationsTester';
 
 let sink = [];
 const failFn = (testFn, message) => {
@@ -22,7 +22,7 @@ const mainTranslation = {
   PUNCTUATION: 'Translate me!',
   VARIABLE: 'This is $PRODUCT_NAME.',
   VARIABLES: 'This is $PRODUCT_NAME with $PRODUCT_FEATURE.',
-  NOT_TRANSLATED: 'This is still the same.'
+  NOT_TRANSLATED: 'This is still the same.',
 };
 
 const vocabularies = [
@@ -32,8 +32,8 @@ const vocabularies = [
     PUNCTUATION: 'Translate me.', // should end with "!"
     VARIABLE: 'This is PRODUCT_NAME.', // doesn't contain special variable
     VARIABLES: 'This is $PRODUCT_NAME with nothing.', // should contain two variables
-    NOT_TRANSLATED: 'This is still the same.'
-  }
+    NOT_TRANSLATED: 'This is still the same.',
+  },
 ];
 
 it('works', () => {

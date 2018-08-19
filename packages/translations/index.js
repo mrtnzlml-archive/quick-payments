@@ -1,22 +1,19 @@
 // @flow
 
 import * as React from 'react';
-import { Text } from 'quick-payments-shared';
-import {
-  IntlProvider as ReactIntlProvider,
-  addLocaleData as ReactIntlAddLocaleData
-} from 'react-intl';
+import {Text} from 'quick-payments-shared';
+import {IntlProvider as ReactIntlProvider, addLocaleData as ReactIntlAddLocaleData} from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 
 import enVocabulary, {
   type TranslationKeys as OriginalTranslationKeys,
-  type TranslationKeysObject as OriginalTranslationKeysObject
+  type TranslationKeysObject as OriginalTranslationKeysObject,
 } from './vocabularies/en';
 
 const SupportedLanguages = {
   en: true,
-  es: true
+  es: true,
 };
 
 export type SupportedLanguagesType = $Keys<typeof SupportedLanguages>;
@@ -28,9 +25,7 @@ export const isLanguageSupported = (language: string) => {
 /**
  * Returns all messages for given language.
  */
-export const getMessages = (
-  language: SupportedLanguagesType
-): TranslationKeysObject => {
+export const getMessages = (language: SupportedLanguagesType): TranslationKeysObject => {
   // Metro Bundler currently doesn't support dynamic requires
   switch (language) {
     case 'en':
@@ -52,12 +47,12 @@ export type TranslationKeysObject = OriginalTranslationKeysObject;
  * Component returns translated string including components necessary
  * for translation formatting.
  */
-export { default } from './Translation';
+export {default} from './Translation';
 
 export const IntlProvider = (props: {|
   children: React.Node,
   locale: SupportedLanguagesType,
-  messages: TranslationKeysObject
+  messages: TranslationKeysObject,
 |}) => {
   ReactIntlAddLocaleData([...en, ...es]);
   return <ReactIntlProvider textComponent={Text} {...props} />;

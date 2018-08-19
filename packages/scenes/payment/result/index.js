@@ -2,22 +2,22 @@
 
 import * as React from 'react';
 import idx from 'idx';
-import { QueryRenderer, graphql } from 'quick-payments-relay';
+import {QueryRenderer, graphql} from 'quick-payments-relay';
 
 import Confirmation from './Confirmation';
 import Rejection from './Rejection';
-import type { resultQueryResponse } from './__generated__/resultQuery.graphql';
+import type {resultQueryResponse} from './__generated__/resultQuery.graphql';
 
 type Props = {|
-  +paymentId: string
+  +paymentId: string,
 |};
 
 type QueryRendererResponse = {|
-  +props: resultQueryResponse
+  +props: resultQueryResponse,
 |};
 
 export default class PaymentStatus extends React.Component<Props> {
-  renderQueryRendererResult = ({ props }: QueryRendererResponse) => {
+  renderQueryRendererResult = ({props}: QueryRendererResponse) => {
     const data = idx(props, _ => _.scenes.payment.checkStatus);
     const status = data && data.status;
 
@@ -44,7 +44,7 @@ export default class PaymentStatus extends React.Component<Props> {
         }
       `}
       variables={{
-        paymentId: this.props.paymentId
+        paymentId: this.props.paymentId,
       }}
       render={this.renderQueryRendererResult}
     />

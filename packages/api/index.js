@@ -3,7 +3,7 @@
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
 
-import { schema, resolvers } from './graphql';
+import {schema, resolvers} from './graphql';
 
 const app = express();
 const PORT = 3000;
@@ -11,10 +11,10 @@ const PORT = 3000;
 app.use(
   '/graphql',
   graphqlHTTP({
-    schema: schema,
+    schema,
     rootValue: resolvers,
-    graphiql: true
-  })
+    graphiql: true,
+  }),
 );
 
 app.listen(PORT, () => {

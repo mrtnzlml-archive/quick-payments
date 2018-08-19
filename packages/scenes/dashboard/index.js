@@ -1,16 +1,16 @@
 // @flow
 
 import * as React from 'react';
-import { View, ScrollView } from 'react-native';
-import { StyleSheet, Colors, Layout } from 'quick-payments-shared';
+import {View, ScrollView} from 'react-native';
+import {StyleSheet, Layout} from 'quick-payments-shared';
 import Translation from 'quick-payments-translations';
-import { QueryRenderer, graphql } from 'quick-payments-relay';
+import {QueryRenderer, graphql} from 'quick-payments-relay';
 import idx from 'idx';
 
 import PaymentRow from './PaymentRow';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
-import type { dashboardQueryResponse } from './__generated__/dashboardQuery.graphql';
+import type {dashboardQueryResponse} from './__generated__/dashboardQuery.graphql';
 
 const Query = graphql`
   query dashboardQuery {
@@ -26,15 +26,15 @@ const Query = graphql`
 `;
 
 type Props = {|
-  +clientId: string
+  +clientId: string,
 |};
 
 type QueryRendererResponse = {|
-  +props: dashboardQueryResponse
+  +props: dashboardQueryResponse,
 |};
 
 export default class Dashboard extends React.Component<Props> {
-  renderQueryRendererResult = ({ props }: QueryRendererResponse) => {
+  renderQueryRendererResult = ({props}: QueryRendererResponse) => {
     const payments = idx(props, _ => _.scenes.dashboard.payments) || [];
     return (
       <ScrollView>
@@ -42,6 +42,7 @@ export default class Dashboard extends React.Component<Props> {
           if (payment) {
             return <PaymentRow key={payment.id} data={payment} />;
           }
+          return undefined;
         })}
       </ScrollView>
     );
@@ -52,17 +53,14 @@ export default class Dashboard extends React.Component<Props> {
       <QueryRenderer
         query={Query}
         variables={{
-          clientId: this.props.clientId
+          clientId: this.props.clientId,
         }}
         render={this.renderQueryRendererResult}
       />
 
       <View style={styleSheet.navigation}>
         <View style={styleSheet.button}>
-          <SecondaryButton
-            iconName="credit-card"
-            description={<Translation id="Dashboard.Navigation.MyCard" />}
-          />
+          <SecondaryButton iconName="credit-card" description={<Translation id="Dashboard.Navigation.MyCard" />} />
         </View>
         <View style={styleSheet.button}>
           <PrimaryButton />
@@ -70,9 +68,7 @@ export default class Dashboard extends React.Component<Props> {
         <View style={styleSheet.button}>
           <SecondaryButton
             iconName="trending-up"
-            description={
-              <Translation id="Dashboard.Navigation.BecomeRetailer" />
-            }
+            description={<Translation id="Dashboard.Navigation.BecomeRetailer" />}
           />
         </View>
       </View>
@@ -85,10 +81,10 @@ const styleSheet = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
   },
   button: {
     flex: 1,
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });

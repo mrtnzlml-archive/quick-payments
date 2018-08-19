@@ -16,12 +16,15 @@
     "babel-eslint": "^8.2.6",
     "babel-plugin-idx": "^2.4.0",
     "eslint": "^5.4.0",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-dependencies": "^2.4.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-native": "^3.2.1",
+    "eslint-plugin-relay": "^0.0.27",
     "flow-bin": "^0.79.1",
     "jest-expo": "^29.0.0",
     "prettier": "^1.14.2",
@@ -38,7 +41,7 @@
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "relay-compiler --src ./packages/scenes --schema ./packages/api/schema.graphql",
     "relay-cleanup": "find packages -name \"*.graphql.js\" -type f -delete && yarn relay",
-    "prettier": "prettier --write \"{flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --single-quote"
+    "prettier": "prettier --write \"{flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
   },
   "jest": {
     "preset": "jest-expo"

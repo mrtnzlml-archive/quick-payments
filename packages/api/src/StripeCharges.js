@@ -8,7 +8,7 @@ import StripeClientFactory from './StripeClientFactory';
 export default class StripeCharges {
   StripeCharges: {|
     // $FlowFixMe: type the return type properly!
-    create: Object => Promise<Object>
+    create: Object => Promise<Object>,
   |};
 
   constructor(stripeClient: StripeClientFactory = new StripeClientFactory()) {
@@ -30,7 +30,7 @@ export default class StripeCharges {
    * @see https://support.stripe.com/questions/what-is-the-minimum-amount-i-can-charge-with-stripe
    * @see https://stripe.com/docs/api/node#create_charge
    */
-  create = async (amount: number, currency: 'MXN' = 'MXN') => {
+  create = (amount: number, currency: 'MXN' = 'MXN') => {
     // TODO: handle errors
     return this.StripeCharges.create({
       amount,
@@ -49,8 +49,8 @@ export default class StripeCharges {
         amount: amount * 0.5, // TODO: 97% is transferred (3% is our fee) ???
 
         // ID of an existing, connected stripe account.
-        account: 'acct_1C3Ad8JyjH1H2d9b'
-      }
+        account: 'acct_1C3Ad8JyjH1H2d9b',
+      },
     });
   };
 }

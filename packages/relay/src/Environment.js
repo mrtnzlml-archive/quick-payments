@@ -1,14 +1,7 @@
 // @flow
 
-import {
-  Environment,
-  Network,
-  RecordSource,
-  Store,
-  Observable,
-  createOperationSelector
-} from 'relay-runtime';
-import { AsyncStorage } from 'react-native';
+import {Environment, Network, RecordSource, Store, Observable, createOperationSelector} from 'relay-runtime';
+import {AsyncStorage} from 'react-native';
 
 const ASYNC_STORE_KEY = '@OfflineStore:key';
 const GRAPHQL_URL = 'http://127.0.0.1/graphql';
@@ -19,12 +12,12 @@ function fetchFromTheNetwork(operation, variables, observer) {
   fetch(GRAPHQL_URL, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       query: operation.text, // TODO: fetch persisted queries instead (based on operation.id)
-      variables
-    })
+      variables,
+    }),
   })
     .then(fetchResponse => fetchResponse.json())
     .then(jsonResponse => {
@@ -35,10 +28,7 @@ function fetchFromTheNetwork(operation, variables, observer) {
       observer.complete();
     })
     .then(() => {
-      AsyncStorage.setItem(
-        ASYNC_STORE_KEY,
-        JSON.stringify(store.getSource())
-      ).catch(error => {
+      AsyncStorage.setItem(ASYNC_STORE_KEY, JSON.stringify(store.getSource())).catch(error => {
         // AsyncStorage write wasn't successful - nevermind
         console.warn(error);
       });
@@ -56,10 +46,7 @@ function fetchQuery(operation, variables, cacheConfig) {
       .then(content => {
         if (content !== null) {
           store.publish(new RecordSource(JSON.parse(content)));
-          const operationSelector = createOperationSelector(
-            operation,
-            variables
-          );
+          const operationSelector = createOperationSelector(operation, variables);
           if (store.check(operationSelector.root)) {
             // we have all data in the store to fulfill this query so let's
             // load it from the memory first and call the API after that
@@ -77,10 +64,12 @@ function fetchQuery(operation, variables, cacheConfig) {
         // the cache - this could be done only when online in the future
         fetchFromTheNetwork(operation, variables, observer);
       });
+
+    return undefined;
   });
 }
 
 export default new Environment({
   network: Network.create(fetchQuery),
-  store
+  store,
 });

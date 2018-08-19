@@ -1,8 +1,8 @@
 // @flow
 
-import { graphql } from 'graphql';
+import {graphql} from 'graphql';
 
-import { schema, resolvers } from '../graphql';
+import {schema, resolvers} from '../graphql';
 
 it('works', async () => {
   await expect(
@@ -27,7 +27,7 @@ it('works', async () => {
           }
         }
       `,
-      resolvers
-    )
+      resolvers,
+    ),
   ).resolves.toMatchSnapshot();
 });

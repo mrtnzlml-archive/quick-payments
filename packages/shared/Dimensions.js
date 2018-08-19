@@ -1,12 +1,12 @@
 // @flow
 
-import { Dimensions } from 'react-native'; // eslint-disable-line no-restricted-imports
+import {Dimensions} from 'react-native'; // eslint-disable-line no-restricted-imports
 
 type DimensionsType = {|
   +width: number,
-  +height: number
+  +height: number,
 |};
 
 export default {
-  get: (): DimensionsType => Dimensions.get('screen')
+  get: (): DimensionsType => Dimensions.get('screen'),
 };

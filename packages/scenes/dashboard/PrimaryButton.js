@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { View, Image } from 'react-native';
-import { Touchable, StyleSheet, Colors } from 'quick-payments-shared';
+import {View, Image} from 'react-native';
+import {Touchable, StyleSheet, Colors} from 'quick-payments-shared';
 
 const VoidCallback = () => {
   console.warn('TODO'); // FIXME
@@ -12,10 +12,7 @@ export default function PrimaryButton() {
   return (
     <Touchable accessibilityComponentType="button" onPress={VoidCallback}>
       <View style={styleSheet.primaryButton}>
-        <Image
-          style={styleSheet.primaryButtonImage}
-          source={require('./qr_code.png')}
-        />
+        <Image style={styleSheet.primaryButtonImage} source={require('./qr_code.png')} />
       </View>
     </Touchable>
   );
@@ -31,14 +28,14 @@ const styleSheet = StyleSheet.create({
     shadowColor: Colors.black,
     shadowOffset: {
       width: 0,
-      height: 0
+      height: 0,
     },
     shadowOpacity: 0.5,
     shadowRadius: 1,
-    elevation: 1
+    elevation: 1,
   },
   primaryButtonImage: {
     height: 50,
-    width: 50
-  }
+    width: 50,
+  },
 });

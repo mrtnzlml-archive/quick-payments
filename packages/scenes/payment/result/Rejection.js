@@ -1,17 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import { View } from 'react-native';
-import {
-  SplitScreen,
-  Icon,
-  Colors,
-  StyleSheet,
-  Price
-} from 'quick-payments-shared';
-import { createFragmentContainer, graphql } from 'quick-payments-relay';
+import {View} from 'react-native';
+import {SplitScreen, Icon, Colors, StyleSheet, Price} from 'quick-payments-shared';
+import {createFragmentContainer, graphql} from 'quick-payments-relay';
 
-const Rejection = ({ data }) => (
+const Rejection = ({data}) => (
   <SplitScreen
     backgroundColor={Colors.error}
     childrenTop={
@@ -31,8 +25,8 @@ const Rejection = ({ data }) => (
 const styleSheet = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default createFragmentContainer(
@@ -42,5 +36,5 @@ export default createFragmentContainer(
       amount
       currency
     }
-  `
+  `,
 );

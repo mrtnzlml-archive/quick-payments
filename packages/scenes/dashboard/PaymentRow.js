@@ -1,21 +1,21 @@
 // @flow
 
 import * as React from 'react';
-import { View } from 'react-native';
-import { Text, StyleSheet, Colors } from 'quick-payments-shared';
-import { createFragmentContainer, graphql } from 'quick-payments-relay';
+import {View} from 'react-native';
+import {Text, StyleSheet, Colors} from 'quick-payments-shared';
+import {createFragmentContainer, graphql} from 'quick-payments-relay';
 import Translation from 'quick-payments-translations';
 
 import PaymentPrice from './PaymentPrice';
 import StatusIcon from './StatusIcon';
 import RetailerName from './RetailerName';
-import type { PaymentRow as PaymentRowType } from './__generated__/PaymentRow.graphql';
+import type {PaymentRow as PaymentRowType} from './__generated__/PaymentRow.graphql';
 
 type Props = {|
-  +data: PaymentRowType
+  +data: PaymentRowType,
 |};
 
-function PaymentRow({ data }: Props) {
+function PaymentRow({data}: Props) {
   return (
     <View style={styleSheet.container}>
       <View style={styleSheet.containerLeft}>
@@ -45,23 +45,23 @@ const styleSheet = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: Colors.blueGrey.$200
+    borderBottomColor: Colors.blueGrey.$200,
   },
   containerLeft: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   retailerName: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   dateTime: {
-    color: Colors.grey.$500
+    color: Colors.grey.$500,
   },
   cityName: {
-    fontStyle: 'italic'
-  }
+    fontStyle: 'italic',
+  },
 });
 
 export default createFragmentContainer(
@@ -74,5 +74,5 @@ export default createFragmentContainer(
         ...RetailerName
       }
     }
-  `
+  `,
 );

@@ -1,22 +1,22 @@
 // @flow
 
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Text } from 'quick-payments-shared';
-import type { TranslationKeys } from 'quick-payments-translations';
+import {FormattedMessage} from 'react-intl';
+import {Text} from 'quick-payments-shared';
+import type {TranslationKeys} from 'quick-payments-translations';
 
 type CommonProps = {|
-  +testID?: string
+  +testID?: string,
 |};
 
 type Props =
   | {|
       +id: TranslationKeys,
-      ...CommonProps
+      ...CommonProps,
     |}
   | {|
       +passThrough: ?string | ?number,
-      ...CommonProps
+      ...CommonProps,
     |};
 
 export default class Translation extends React.PureComponent<Props> {
@@ -24,20 +24,16 @@ export default class Translation extends React.PureComponent<Props> {
     const p = this.props;
 
     if (p.id !== undefined && p.passThrough !== undefined) {
-      throw new Error(
-        "You can use only 'id' or 'passThrough' property in translations but not both."
-      );
+      throw new Error("You can use only 'id' or 'passThrough' property in translations but not both.");
     }
 
     if (p.id !== undefined) {
-      return (
-        <FormattedMessage id={p.id}>
-          {translatedText => <Text>{translatedText}</Text>}
-        </FormattedMessage>
-      );
+      return <FormattedMessage id={p.id}>{translatedText => <Text>{translatedText}</Text>}</FormattedMessage>;
     }
 
-    // $FlowExpectedError: we do not allow to use 'string' in the 'Text' components but translations are the only exceptions.
+    // we do not allow to use 'string' in the 'Text' components but
+    // translations are the only exceptions
+    // $FlowExpectedError: ^^
     return <Text>{p.passThrough}</Text>;
   };
 }

@@ -1,17 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import {
-  StyleSheet,
-  Colors,
-  Title,
-  SplitScreen,
-  EmailInput,
-  Button,
-  FormGroup
-} from 'quick-payments-shared';
+import {StyleSheet, Colors, Title, SplitScreen, EmailInput, Button, FormGroup} from 'quick-payments-shared';
 import Translation from 'quick-payments-translations';
-import { Switch } from 'quick-payments-navigation';
+import {Switch} from 'quick-payments-navigation';
 
 const OnboardingTop = () => (
   <React.Fragment>
@@ -24,25 +16,25 @@ const OnboardingTop = () => (
 
 type State = {|
   formIsValid: boolean,
-  submitFormTo: null | string
+  submitFormTo: null | string,
 |};
 
 // TODO: submit only if all fields are valid
 class OnboardingBottom extends React.Component<{||}, State> {
   state = {
     formIsValid: false,
-    submitFormTo: null
+    submitFormTo: null,
   };
 
   handleValidationFormCheck = isValid =>
     this.setState({
-      formIsValid: isValid
+      formIsValid: isValid,
       // TODO: form values (?)
     });
 
   handleFormSubmit = () => {
     this.setState({
-      submitFormTo: '/dashboard'
+      submitFormTo: '/dashboard',
     });
 
     console.warn('TODO: form values');
@@ -72,15 +64,10 @@ class OnboardingBottom extends React.Component<{||}, State> {
  * Welcome page of the onboarding should combine login and registration into
  * one simple process.
  */
-export default () => (
-  <SplitScreen
-    childrenTop={<OnboardingTop />}
-    childrenBottom={<OnboardingBottom />}
-  />
-);
+export default () => <SplitScreen childrenTop={<OnboardingTop />} childrenBottom={<OnboardingBottom />} />;
 
 const styleSheet = StyleSheet.create({
   title: {
-    color: Colors.white
-  }
+    color: Colors.white,
+  },
 });

@@ -1,26 +1,20 @@
 // @flow
 
 import * as React from 'react';
-import { View } from 'react-native';
-import {
-  Text,
-  Icon,
-  Colors,
-  Touchable,
-  StyleSheet
-} from 'quick-payments-shared';
+import {View} from 'react-native';
+import {Text, Icon, Colors, Touchable, StyleSheet} from 'quick-payments-shared';
 import Translation from 'quick-payments-translations';
 
 type Props = {|
   +iconName: string,
-  +description: React.Element<typeof Translation>
+  +description: React.Element<typeof Translation>,
 |};
 
 const VoidCallback = () => {
   console.warn('TODO'); // FIXME
 };
 
-export default function SecondaryButton({ iconName, description }: Props) {
+export default function SecondaryButton({iconName, description}: Props) {
   return (
     <Touchable accessibilityComponentType="button" onPress={VoidCallback}>
       <View style={styleSheet.secondaryButton}>
@@ -34,10 +28,10 @@ export default function SecondaryButton({ iconName, description }: Props) {
 const styleSheet = StyleSheet.create({
   secondaryButton: {
     alignItems: 'center',
-    padding: 5
+    padding: 5,
   },
   secondaryButtonText: {
     fontSize: 10,
-    color: Colors.grey.$700
-  }
+    color: Colors.grey.$700,
+  },
 });

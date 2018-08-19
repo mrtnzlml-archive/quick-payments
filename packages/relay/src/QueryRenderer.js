@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { QueryRenderer as RelayQueryRenderer } from 'react-relay';
+import {QueryRenderer as RelayQueryRenderer} from 'react-relay';
 
 import Environment from './Environment';
 import QueryRendererLoading from './QueryRendererLoading';
@@ -9,31 +9,22 @@ import QueryRendererLoading from './QueryRendererLoading';
 type Props = {|
   +query: string,
   +render: ({|
-    +props: Object
+    +props: Object,
   |}) => React.Node,
-  +variables?: Object
+  +variables?: Object,
 |};
 
 export default class QueryRenderer extends React.Component<Props> {
-  renderQueryRendererResult = ({
-    props
-  }: {|
-    error: Error,
-    props: Object
-  |}) => {
+  renderQueryRendererResult = ({props}: {|error: Error, props: Object|}) => {
     // TODO: handle errors
 
     if (!props) {
       return <QueryRendererLoading />;
     }
-    return this.props.render({ props });
+    return this.props.render({props});
   };
 
   render = () => (
-    <RelayQueryRenderer
-      environment={Environment}
-      {...this.props}
-      render={this.renderQueryRendererResult}
-    />
+    <RelayQueryRenderer environment={Environment} {...this.props} render={this.renderQueryRendererResult} />
   );
 }

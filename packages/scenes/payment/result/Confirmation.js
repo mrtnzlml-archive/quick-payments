@@ -1,22 +1,16 @@
 // @flow
 
 import * as React from 'react';
-import { View } from 'react-native';
-import {
-  SplitScreen,
-  Icon,
-  Colors,
-  StyleSheet,
-  Price
-} from 'quick-payments-shared';
-import { createFragmentContainer, graphql } from 'quick-payments-relay';
+import {View} from 'react-native';
+import {SplitScreen, Icon, Colors, StyleSheet, Price} from 'quick-payments-shared';
+import {createFragmentContainer, graphql} from 'quick-payments-relay';
 
 /**
  * TODO: this page must be animated to avoid scam with static screenshots
  * TODO: show date and time
  * TODO: it should be grey on return from homepage (?) - to prevent scams with just opening older
  */
-const Confirmation = ({ data }) => (
+const Confirmation = ({data}) => (
   <SplitScreen
     childrenTop={
       <View style={styleSheet.container}>
@@ -34,8 +28,8 @@ const Confirmation = ({ data }) => (
 const styleSheet = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default createFragmentContainer(
@@ -45,5 +39,5 @@ export default createFragmentContainer(
       amount
       currency
     }
-  `
+  `,
 );

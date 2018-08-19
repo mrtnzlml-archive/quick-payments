@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { invariant } from 'quick-payments-fbjs';
+import {invariant} from 'quick-payments-fbjs';
 
 // TODO: Responsive Routes
 // https://reacttraining.com/react-router/core/guides/philosophy/responsive-routes
@@ -9,7 +9,7 @@ import { invariant } from 'quick-payments-fbjs';
 const UseSwitchboxFirstError = (...args) => {
   throw new Error(
     'You cannot use actions of the Switchbox before using Swichbox somewhere. ' +
-      "It's beacuse Switchbox provides a context for your navigation."
+      "It's beacuse Switchbox provides a context for your navigation.",
   );
 };
 
@@ -18,31 +18,28 @@ const Context = React.createContext({
   actions: {
     registerRoute: UseSwitchboxFirstError,
     activateRoute: UseSwitchboxFirstError,
-    isRouteActive: UseSwitchboxFirstError
-  }
+    isRouteActive: UseSwitchboxFirstError,
+  },
 });
 
 type SwitchboardProps = {|
-  +children: React.Node
+  +children: React.Node,
 |};
 
 type SwitchboardState = {|
   routes: Array<{|
     path: string,
     component: React.Node,
-    isActive: boolean
+    isActive: boolean,
   |}>,
   +actions: {|
     registerRoute: (path: string, component: React.Node) => void,
     activateRoute: (path: string) => void,
-    isRouteActive: (path: string) => boolean
-  |}
+    isRouteActive: (path: string) => boolean,
+  |},
 |};
 
-export class Switchboard extends React.Component<
-  SwitchboardProps,
-  SwitchboardState
-> {
+export class Switchboard extends React.Component<SwitchboardProps, SwitchboardState> {
   registerRoute: (path: string, component: React.Node) => void;
   activateRoute: (path: string) => void;
   isRouteActive: (path: string) => boolean;
@@ -55,7 +52,7 @@ export class Switchboard extends React.Component<
         invariant(
           state.routes.find(route => route.path === path) === undefined,
           "Route with path '%s' already exists and therefore you cannot register it again.",
-          path
+          path,
         );
 
         return {
@@ -64,21 +61,22 @@ export class Switchboard extends React.Component<
             {
               path,
               component,
-              isActive: state.routes.length === 0 // activate first route
-            }
-          ]
+              isActive: state.routes.length === 0, // activate first route
+            },
+          ],
         };
       });
     };
 
     this.activateRoute = path => {
       this.setState(state => {
-        const { routes } = state;
+        const {routes} = state;
 
         invariant(
           routes.find(route => route.path === path) !== undefined,
-          "Cannot switch to a path '%s' because this path doesn't exist (or component RegisterSwitch is not mounted yet).",
-          path
+          "Cannot switch to a path '%s' because this path doesn't exist " +
+            '(or component RegisterSwitch is not mounted yet).',
+          path,
         );
 
         const newRoutes = routes.map(route => {
@@ -92,7 +90,7 @@ export class Switchboard extends React.Component<
         });
 
         return {
-          routes: newRoutes
+          routes: newRoutes,
         };
       });
     };
@@ -121,30 +119,23 @@ export class Switchboard extends React.Component<
       actions: {
         registerRoute: this.registerRoute,
         activateRoute: this.activateRoute,
-        isRouteActive: this.isRouteActive
-      }
+        isRouteActive: this.isRouteActive,
+      },
     };
   }
 
   render() {
-    return (
-      <Context.Provider value={this.state}>
-        {this.props.children}
-      </Context.Provider>
-    );
+    return <Context.Provider value={this.state}>{this.props.children}</Context.Provider>;
   }
 }
 
 /**
  * <RegisterSwitch path="/" component={<OnboardingComponent />} />
  */
-export function RegisterSwitch(props: {|
-  +path: string,
-  +component: React.Node
-|}) {
+export function RegisterSwitch(props: {|+path: string, +component: React.Node|}) {
   return (
     <Context.Consumer>
-      {({ actions }) => {
+      {({actions}) => {
         return (
           <RegisterSwitchWithContext
             path={props.path}
@@ -162,27 +153,21 @@ class RegisterSwitchWithContext extends React.Component<{|
   +path: string,
   +component: React.Node,
   +registerRoute: (path: string, component: React.Node) => void,
-  +isRouteActive: (path: string) => boolean
+  +isRouteActive: (path: string) => boolean,
 |}> {
   componentDidMount = () => {
-    const { path, component } = this.props;
+    const {path, component} = this.props;
     this.props.registerRoute(path, component);
   };
 
   render() {
-    return this.props.isRouteActive(this.props.path)
-      ? this.props.component
-      : null;
+    return this.props.isRouteActive(this.props.path) ? this.props.component : null;
   }
 }
 
 /**
  * <Switch to="/dashboard" />
  */
-export function Switch(props: {| +to: string |}) {
-  return (
-    <Context.Consumer>
-      {({ actions }) => actions.activateRoute(props.to)}
-    </Context.Consumer>
-  );
+export function Switch(props: {|+to: string|}) {
+  return <Context.Consumer>{({actions}) => actions.activateRoute(props.to)}</Context.Consumer>;
 }

@@ -1,16 +1,16 @@
 // @flow
 
 import * as React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
+import {MaterialIcons} from '@expo/vector-icons';
 
 import Color from './Colors';
-import type { StylePropType } from '../index';
+import type {StylePropType} from '../index';
 
 type Props = {|
   +name: string,
   +size: number,
   +color?: string,
-  +style?: StylePropType
+  +style?: StylePropType,
 |};
 
 /**
@@ -24,7 +24,7 @@ function Icon(props: Props) {
 Icon.defaultProps = {
   name: 'warning',
   size: 20,
-  color: Color.text
+  color: Color.text,
 };
 
 export default Icon;

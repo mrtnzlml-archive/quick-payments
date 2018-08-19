@@ -3,15 +3,9 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
 
-import { RegisterSwitch, Switchboard, Switch } from '../index';
+import {RegisterSwitch, Switchboard, Switch} from '../index';
 
-const MockedScene = ({
-  shouldThrow,
-  message
-}: {|
-  +shouldThrow?: boolean,
-  +message?: string
-|}) => {
+const MockedScene = ({shouldThrow, message}: {|+shouldThrow?: boolean, +message?: string|}) => {
   if (shouldThrow) {
     throw new Error('This component should not be rendered.');
   }
@@ -22,20 +16,12 @@ it('renders only the first registered component', () => {
   const Application = (
     <Switchboard>
       <RegisterSwitch path="/A" component={<MockedScene />} />
-      <RegisterSwitch
-        path="/B"
-        component={<MockedScene shouldThrow={true} />}
-      />
-      <RegisterSwitch
-        path="/C"
-        component={<MockedScene shouldThrow={true} />}
-      />
+      <RegisterSwitch path="/B" component={<MockedScene shouldThrow={true} />} />
+      <RegisterSwitch path="/C" component={<MockedScene shouldThrow={true} />} />
     </Switchboard>
   );
 
-  expect(
-    TestRenderer.create(Application).getInstance().state
-  ).toMatchSnapshot();
+  expect(TestRenderer.create(Application).getInstance().state).toMatchSnapshot();
 
   expect(TestRenderer.create(Application).toJSON()).toBe('ok');
 });
@@ -46,11 +32,9 @@ it('throw an error when you try to register two switches with the same name', ()
       <Switchboard>
         <RegisterSwitch path="/A" component={<MockedScene />} />
         <RegisterSwitch path="/A" component={<MockedScene />} />
-      </Switchboard>
-    )
-  ).toThrow(
-    "Route with path '/A' already exists and therefore you cannot register it again."
-  );
+      </Switchboard>,
+    ),
+  ).toThrow("Route with path '/A' already exists and therefore you cannot register it again.");
 });
 
 it('switches the scenes declaratively', () => {
@@ -66,16 +50,11 @@ it('switches the scenes declaratively', () => {
         }
       />
       <RegisterSwitch path="/B" component={<MockedScene message="BBB" />} />
-      <RegisterSwitch
-        path="/C"
-        component={<MockedScene shouldThrow={true} />}
-      />
+      <RegisterSwitch path="/C" component={<MockedScene shouldThrow={true} />} />
     </Switchboard>
   );
 
-  expect(
-    TestRenderer.create(Application).getInstance().state
-  ).toMatchSnapshot();
+  expect(TestRenderer.create(Application).getInstance().state).toMatchSnapshot();
 
   expect(TestRenderer.create(Application).toJSON()).toBe('BBB');
 });

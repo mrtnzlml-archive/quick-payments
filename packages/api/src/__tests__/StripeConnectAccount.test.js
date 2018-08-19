@@ -8,6 +8,6 @@ beforeEach(() => {
   Account = new StripeConnectAccount(new InMemoryStripeClientFactory());
 });
 
-it('works', async () => {
-  await expect(Account.create()).resolves.toBe('ACCOUNTS TO BE MOCKED');
+it('works', () => {
+  expect(Account.create()).toBe('ACCOUNTS TO BE MOCKED');
 });

@@ -2,13 +2,16 @@
 
 declare var __DEV__: boolean;
 
-const validateFormat = __DEV__
-  ? function(format: mixed): void {}
-  : function(format: mixed): void {
-      if (format === undefined) {
-        throw new Error('invariant(...): Second argument must be a string.');
-      }
-    };
+let validateFormat;
+if (__DEV__) {
+  validateFormat = function(format: mixed): void {};
+} else {
+  validateFormat = function(format: mixed): void {
+    if (format === undefined) {
+      throw new Error('invariant(...): Second argument must be a string.');
+    }
+  };
+}
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -19,11 +22,7 @@ const validateFormat = __DEV__
  * The invariant message will be stripped in production, but the invariant will
  * remain to ensure logic does not differ in production.
  */
-export default function invariant(
-  condition: mixed,
-  format: string,
-  ...args: Array<mixed>
-): void {
+export default function invariant(condition: mixed, format: string, ...args: Array<mixed>): void {
   validateFormat(format);
 
   if (!condition) {
@@ -31,7 +30,7 @@ export default function invariant(
     if (format === undefined) {
       error = new Error(
         'Minified exception occurred; use the non-minified dev environment ' +
-          'for the full error message and additional helpful warnings.'
+          'for the full error message and additional helpful warnings.',
       );
     } else {
       let argIndex = 0;

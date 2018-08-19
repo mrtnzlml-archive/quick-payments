@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Text, Layout, NumericInput, Button } from 'quick-payments-shared';
+import {Layout, NumericInput, Button} from 'quick-payments-shared';
 import Translation from 'quick-payments-translations';
 
 const VoidCallback = () => {};

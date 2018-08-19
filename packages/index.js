@@ -2,19 +2,19 @@
 
 import * as React from 'react';
 import Expo from 'expo';
-import { Device } from 'quick-payments-shared';
+import {Device} from 'quick-payments-shared';
 import {
   getMessages,
   IntlProvider,
   type SupportedLanguagesType,
-  type TranslationKeysObject
+  type TranslationKeysObject,
 } from 'quick-payments-translations';
-import { Switchboard, RegisterSwitch } from 'quick-payments-navigation';
+import {Switchboard, RegisterSwitch} from 'quick-payments-navigation';
 
 type State = {|
   isLoading: boolean,
   locale: SupportedLanguagesType,
-  intlMessages: TranslationKeysObject
+  intlMessages: TranslationKeysObject,
 |};
 
 const Scenes = {
@@ -23,15 +23,15 @@ const Scenes = {
   payment: {
     amount: require('./scenes/payment/amount').default,
     codeScan: require('./scenes/payment/codeScan').default,
-    result: require('./scenes/payment/result').default
-  }
+    result: require('./scenes/payment/result').default,
+  },
 };
 
 class Application extends React.Component<{||}, State> {
   state = {
     isLoading: true,
     locale: 'en',
-    intlMessages: {}
+    intlMessages: {},
   };
 
   componentDidMount = async () => {
@@ -40,7 +40,7 @@ class Application extends React.Component<{||}, State> {
     this.setState({
       isLoading: false,
       locale: deviceLocale,
-      intlMessages: getMessages(deviceLocale)
+      intlMessages: getMessages(deviceLocale),
     });
   };
 
@@ -50,18 +50,13 @@ class Application extends React.Component<{||}, State> {
     }
 
     return (
-      <IntlProvider
-        locale={this.state.locale}
-        messages={this.state.intlMessages}
-      >
+      <IntlProvider locale={this.state.locale} messages={this.state.intlMessages}>
         <Switchboard>
           <RegisterSwitch path="/" component={<Scenes.onboarding />} />
 
           <RegisterSwitch
             path="/dashboard"
-            component={
-              <Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />
-            }
+            component={<Scenes.dashboard clientId="EA53A691-9970-46BB-BACD-80D4A120334E" />}
           />
 
           <RegisterSwitch

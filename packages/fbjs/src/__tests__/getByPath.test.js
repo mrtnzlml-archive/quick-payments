@@ -7,11 +7,11 @@ it('works with object paths', () => {
     getByPath(
       {
         a: {
-          b: 123
-        }
+          b: 123,
+        },
       },
-      ['a', 'b']
-    )
+      ['a', 'b'],
+    ),
   ).toBe(123);
 });
 
@@ -24,22 +24,22 @@ it('works with object and array paths', () => {
     getByPath(
       {
         a: {
-          b: [{ c: 1 }, { c: 2 }, { c: 3 }]
-        }
+          b: [{c: 1}, {c: 2}, {c: 3}],
+        },
       },
-      ['a', 'b', 1, 'c']
-    )
+      ['a', 'b', 1, 'c'],
+    ),
   ).toBe(2);
 
   expect(
     getByPath(
       {
         a: {
-          b: [{ c: 1 }, { c: 2 }, { c: 3 }]
-        }
+          b: [{c: 1}, {c: 2}, {c: 3}],
+        },
       },
-      ['a', 'b', '2', 'c']
-    )
+      ['a', 'b', '2', 'c'],
+    ),
   ).toBe(3);
 });
 
@@ -48,22 +48,22 @@ it('returns undefined when path does not exist', () => {
     getByPath(
       {
         a: {
-          b: 123
-        }
+          b: 123,
+        },
       },
-      ['a', 'b', 'c']
-    )
+      ['a', 'b', 'c'],
+    ),
   ).toBe(undefined);
 
   expect(
     getByPath(
       {
         a: {
-          b: [{ c: 1 }, { c: 2 }, { c: 3 }]
-        }
+          b: [{c: 1}, {c: 2}, {c: 3}],
+        },
       },
-      ['a', 'b', '3', 'c']
-    )
+      ['a', 'b', '3', 'c'],
+    ),
   ).toBe(undefined);
 });
 
@@ -72,11 +72,11 @@ it('returns null as a fallback value', () => {
     getByPath(
       {
         a: {
-          b: 123
-        }
+          b: 123,
+        },
       },
       ['a', 'b', 'c'],
-      null
-    )
+      null,
+    ),
   ).toBeNull();
 });

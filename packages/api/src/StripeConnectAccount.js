@@ -8,7 +8,7 @@ import StripeClientFactory from './StripeClientFactory';
 export default class StripeConnectAccount {
   StripeAccounts: {|
     // $FlowFixMe: type the return type properly!
-    create: Object => Promise<Object>
+    create: Object => Promise<Object>,
   |};
 
   constructor(stripeClient: StripeClientFactory = new StripeClientFactory()) {
@@ -19,12 +19,12 @@ export default class StripeConnectAccount {
   /**
    * @see https://stripe.com/docs/api/node#create_account
    */
-  create = async () => {
+  create = () => {
     // TODO: handle errors
     return this.StripeAccounts.create({
       type: 'custom',
       country: 'MX', // MX - Mexico currently not supported (?)
-      email: 'mrtn.zlml@gmail.com'
+      email: 'mrtn.zlml@gmail.com',
     });
   };
 }

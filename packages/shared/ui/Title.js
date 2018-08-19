@@ -6,21 +6,19 @@ import Translation from 'quick-payments-translations';
 import Text from './Text';
 import Colors from './Colors';
 import StyleSheet from './PlatformStyleSheet';
-import type { StylePropType } from '../index';
+import type {StylePropType} from '../index';
 
 type Props = {|
   +children: React.Element<typeof Translation>,
-  +style?: StylePropType
+  +style?: StylePropType,
 |};
 
-export default ({ children, style }: Props) => (
-  <Text style={[styleSheet.title, style]}>{children}</Text>
-);
+export default ({children, style}: Props) => <Text style={[styleSheet.title, style]}>{children}</Text>;
 
 const styleSheet = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: Colors.text
-  }
+    color: Colors.text,
+  },
 });

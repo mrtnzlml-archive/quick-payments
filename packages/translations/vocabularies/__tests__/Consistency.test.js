@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import OriginalVocabulary from '../en';
-import { run } from '../../TranslationsTester';
+import {run} from '../../TranslationsTester';
 
 it('is consistent', () => {
   const testFolder = path.join(__dirname, '../');

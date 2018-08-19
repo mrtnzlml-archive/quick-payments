@@ -20,7 +20,7 @@
 export default function getByPath(
   root: Object | $ReadOnlyArray<any>,
   path: $ReadOnlyArray<string | number>,
-  fallbackValue?: any
+  fallbackValue?: any,
 ): any {
   let current = root;
   for (let i = 0; i < path.length; i++) {

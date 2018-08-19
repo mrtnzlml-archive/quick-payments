@@ -8,16 +8,16 @@ import TextInput from './TextInput';
 
 type Props = {|
   +placeholder: React.Element<typeof Translation>,
-  +onValidation?: boolean => void // FIXME: this is being injected in FormGroup component
+  +onValidation?: boolean => void, // FIXME: this is being injected in FormGroup component
 |};
 
 type State = {|
-  isValid: boolean
+  isValid: boolean,
 |};
 
 export default class EmailInput extends React.Component<Props, State> {
   state = {
-    isValid: true
+    isValid: true,
   };
 
   /**
@@ -38,13 +38,13 @@ export default class EmailInput extends React.Component<Props, State> {
     const isValid = this.validateEmail(text);
     this.setState(
       {
-        isValid
+        isValid,
       },
       () => {
         if (this.props.onValidation) {
           this.props.onValidation(isValid); // TODO: this should be enforced otherwise FormGroup won't work
         }
-      }
+      },
     );
   };
 
@@ -54,13 +54,7 @@ export default class EmailInput extends React.Component<Props, State> {
         keyboardType="email-address"
         placeholder={this.props.placeholder}
         onChangeText={_.debounce(this.handleInputChange, 1000)}
-        errorMessage={
-          this.state.isValid ? (
-            undefined
-          ) : (
-            <Translation id="General.Form.Validation.Email" />
-          )
-        }
+        errorMessage={this.state.isValid ? undefined : <Translation id="General.Form.Validation.Email" />}
       />
     );
   };

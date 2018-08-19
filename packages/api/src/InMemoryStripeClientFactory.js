@@ -10,11 +10,11 @@ export default class InMemoryStripeClientFactory extends StripeClientFactory {
   createClient() {
     return {
       accounts: {
-        create: () => 'ACCOUNTS TO BE MOCKED'
+        create: () => 'ACCOUNTS TO BE MOCKED',
       },
       charges: {
-        create: () => 'CHARGES TO BE MOCKED'
-      }
+        create: () => 'CHARGES TO BE MOCKED',
+      },
     };
   }
 }

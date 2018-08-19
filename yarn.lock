@@ -2968,6 +2968,12 @@ eslint-module-utils@^2.2.0:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
+eslint-plugin-babel@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-babel/-/eslint-plugin-babel-5.1.0.tgz#9c76e476162041e50b6ba69aa4eae3bdd6a4e1c3"
+  dependencies:
+    eslint-rule-composer "^0.3.0"
+
 eslint-plugin-dependencies@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-dependencies/-/eslint-plugin-dependencies-2.4.0.tgz#e0d3f32c097281a8afd6c6bef7bb025585e92d6f"
@@ -2996,12 +3002,13 @@ eslint-plugin-import@^2.14.0:
     read-pkg-up "^2.0.0"
     resolve "^1.6.0"
 
-eslint-plugin-prettier@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.6.2.tgz#71998c60aedfa2141f7bfcbf9d1c459bf98b4fad"
-  dependencies:
-    fast-diff "^1.1.1"
-    jest-docblock "^21.0.0"
+eslint-plugin-jasmine@^2.10.1:
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jasmine/-/eslint-plugin-jasmine-2.10.1.tgz#5733b709e751f4bc40e31e1c16989bd2cdfbec97"
+
+eslint-plugin-prefer-object-spread@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prefer-object-spread/-/eslint-plugin-prefer-object-spread-1.2.1.tgz#27fb91853690cceb3ae6101d9c8aecc6a67a402c"
 
 eslint-plugin-react-native-globals@^0.1.1:
   version "0.1.2"
@@ -3022,6 +3029,16 @@ eslint-plugin-react@^7.11.1:
     has "^1.0.3"
     jsx-ast-utils "^2.0.1"
     prop-types "^15.6.2"
+
+eslint-plugin-relay@^0.0.27:
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-relay/-/eslint-plugin-relay-0.0.27.tgz#e44ee3d2dbf966de8d0565ec8a76bf8df8151231"
+  dependencies:
+    graphql "^0.13.0"
+
+eslint-rule-composer@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-rule-composer/-/eslint-rule-composer-0.3.0.tgz#79320c927b0c5c0d3d3d2b76c8b4a488f25bbaf9"
 
 eslint-scope@3.7.1:
   version "3.7.1"
@@ -3534,10 +3551,6 @@ fast-deep-equal@^1.0.0:
 fast-deep-equal@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
-
-fast-diff@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
 
 fast-glob@^2.2.2:
   version "2.2.2"
@@ -4067,7 +4080,7 @@ graphql-compiler@1.7.0-rc.1:
     fb-watchman "^2.0.0"
     immutable "~3.7.6"
 
-graphql@^0.13.2:
+graphql@^0.13.0, graphql@^0.13.2:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
   dependencies:
@@ -4947,10 +4960,6 @@ jest-docblock@22.4.0:
   resolved "https://registry.yarnpkg.com/jest-docblock/-/jest-docblock-22.4.0.tgz#dbf1877e2550070cfc4d9b07a55775a0483159b8"
   dependencies:
     detect-newline "^2.1.0"
-
-jest-docblock@^21.0.0:
-  version "21.2.0"
-  resolved "https://registry.yarnpkg.com/jest-docblock/-/jest-docblock-21.2.0.tgz#51529c3b30d5fd159da60c27ceedc195faf8d414"
 
 jest-docblock@^22.4.0:
   version "22.4.3"
