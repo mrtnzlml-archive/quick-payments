@@ -1,7 +1,7 @@
 // @flow
 
 import Expo from 'expo';
-import {isLanguageSupported, type SupportedLanguagesType} from 'quick-payments-translations';
+import {isLanguageSupported, type SupportedLanguagesType} from '_translations';
 
 export default {
   getCurrentLocaleAsync: async (): Promise<SupportedLanguagesType> => {

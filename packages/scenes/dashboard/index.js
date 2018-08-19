@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import {View, ScrollView} from 'react-native';
-import {StyleSheet, Layout} from 'quick-payments-shared';
-import Translation from 'quick-payments-translations';
-import {QueryRenderer, graphql} from 'quick-payments-relay';
-import {Switch} from 'quick-payments-navigation';
+import {StyleSheet, Layout} from '_shared';
+import Translation from '_translations';
+import {QueryRenderer, graphql} from '_relay';
+import {Switch} from '_navigation';
 import idx from 'idx';
 
 import PaymentRow from './PaymentRow';

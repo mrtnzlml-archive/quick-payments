@@ -1,10 +1,10 @@
 {
   "private": true,
-  "name": "quick-payments-translations",
+  "name": "_translations",
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
-    "quick-payments-shared": "^0",
+    "_shared": "^0",
     "react-intl": "^2.4.0"
   }
 }

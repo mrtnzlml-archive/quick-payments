@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import _ from 'lodash';
-import Translation from 'quick-payments-translations';
+import Translation from '_translations';
 
 import TextInput from './TextInput';
 

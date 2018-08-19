@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {SplitScreen, Icon, Colors, StyleSheet, Price} from 'quick-payments-shared';
-import {createFragmentContainer, graphql} from 'quick-payments-relay';
+import {SplitScreen, Icon, Colors, StyleSheet, Price} from '_shared';
+import {createFragmentContainer, graphql} from '_relay';
 
 const Rejection = ({data}) => (
   <SplitScreen

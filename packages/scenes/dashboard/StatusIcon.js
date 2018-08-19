@@ -1,9 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import {createFragmentContainer, graphql} from 'quick-payments-relay';
-import Translation from 'quick-payments-translations';
-import {Text, StyleSheet, Colors} from 'quick-payments-shared';
+import {createFragmentContainer, graphql} from '_relay';
+import Translation from '_translations';
+import {Text, StyleSheet, Colors} from '_shared';
 
 import type {StatusIcon as StatusIconType} from './__generated__/StatusIcon.graphql';
 

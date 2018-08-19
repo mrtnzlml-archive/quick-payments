@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "quick-payments-relay",
+  "name": "_relay",
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
-    "quick-payments-shared": "^0",
-    "quick-payments-translations": "^0",
+    "_shared": "^0",
+    "_translations": "^0",
     "babel-plugin-relay": "^1.7.0-rc.1",
     "react-relay": "^1.7.0-rc.1",
     "relay-compiler": "^1.7.0-rc.1"

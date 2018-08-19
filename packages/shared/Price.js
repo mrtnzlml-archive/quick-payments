@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import Translation from 'quick-payments-translations';
+import Translation from '_translations';
 
 const SupportedLocales = {
   // TODO

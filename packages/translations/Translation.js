@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Text} from 'quick-payments-shared';
-import type {TranslationKeys} from 'quick-payments-translations';
+import {Text} from '_shared';
+import type {TranslationKeys} from '_translations';
 
 type CommonProps = {|
   +testID?: string,

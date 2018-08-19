@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Text, Icon, Colors, Touchable, StyleSheet} from 'quick-payments-shared';
-import Translation from 'quick-payments-translations';
+import {Text, Icon, Colors, Touchable, StyleSheet} from '_shared';
+import Translation from '_translations';
 
 type Props = {|
   +iconName: string,

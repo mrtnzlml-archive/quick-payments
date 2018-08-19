@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {invariant} from 'quick-payments-fbjs';
+import {invariant} from '_fbjs';
 
 import Context from './Context';
 

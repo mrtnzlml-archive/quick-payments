@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import {createFragmentContainer, graphql} from 'quick-payments-relay';
-import Translation from 'quick-payments-translations';
+import {createFragmentContainer, graphql} from '_relay';
+import Translation from '_translations';
 
 import type {RetailerName as RetailerNameType} from './__generated__/RetailerName.graphql';
 

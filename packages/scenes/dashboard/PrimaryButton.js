@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {View, Image} from 'react-native';
-import {Touchable, StyleSheet, Colors} from 'quick-payments-shared';
+import {Touchable, StyleSheet, Colors} from '_shared';
 
 type Props = {|
   +onPress: () => void,

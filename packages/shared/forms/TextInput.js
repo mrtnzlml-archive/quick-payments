@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as Animatable from 'react-native-animatable';
 import RN from 'react-native';
-import Translation from 'quick-payments-translations';
+import Translation from '_translations';
 
 import Colors from '../ui/Colors';
 import Text from '../ui/Text';

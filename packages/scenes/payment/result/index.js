@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import idx from 'idx';
-import {QueryRenderer, graphql} from 'quick-payments-relay';
+import {QueryRenderer, graphql} from '_relay';
 
 import Confirmation from './Confirmation';
 import Rejection from './Rejection';

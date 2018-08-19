@@ -1,9 +1,9 @@
 {
   "private": true,
-  "name": "quick-payments-navigation",
+  "name": "_navigation",
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
-    "quick-payments-fbjs": "^0"
+    "_fbjs": "^0"
   }
 }

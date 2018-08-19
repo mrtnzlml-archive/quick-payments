@@ -1,9 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import {StyleSheet, Colors, Title, SplitScreen, EmailInput, Button, FormGroup} from 'quick-payments-shared';
-import Translation from 'quick-payments-translations';
-import {Switch} from 'quick-payments-navigation';
+import {StyleSheet, Colors, Title, SplitScreen, EmailInput, Button, FormGroup} from '_shared';
+import Translation from '_translations';
+import {Switch} from '_navigation';
 
 const OnboardingTop = () => (
   <React.Fragment>

@@ -2,14 +2,14 @@
 
 import * as React from 'react';
 import Expo from 'expo';
-import {Device} from 'quick-payments-shared';
+import {Device} from '_shared';
 import {
   getMessages,
   IntlProvider,
   type SupportedLanguagesType,
   type TranslationKeysObject,
-} from 'quick-payments-translations';
-import {Switchboard, RegisterSwitch} from 'quick-payments-navigation';
+} from '_translations';
+import {Switchboard, RegisterSwitch} from '_navigation';
 
 type State = {|
   isLoading: boolean,
