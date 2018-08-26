@@ -19,7 +19,7 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
     performTransition: false,
   };
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const {status} = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({hasCameraPermission: status === 'granted'});
   };

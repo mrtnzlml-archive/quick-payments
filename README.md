@@ -37,6 +37,7 @@ References:
 ## Payment
 
 - [x] QR code scanner
+- [ ] rejected code scanner permissions
 - [ ] amount to pay (after QR code)
 - [ ] confirmation (for the retailer) - should retailer get a notification?
 - [ ] rejection (for the customer)
