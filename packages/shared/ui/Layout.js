@@ -5,22 +5,18 @@ import SafeAreaView from 'react-native-safe-area-view';
 import Translation from '_translations';
 
 import Title from './Title';
-import Text from './Text';
 import Colors from './Colors';
 import StyleSheet from './PlatformStyleSheet';
 
 type Props = {|
   +children: React.Node,
   +title: React.Element<typeof Translation>,
-  +help?: React.Element<typeof Translation>,
 |};
 
-export default ({children, title, help}: Props) => (
+export default ({children, title}: Props) => (
   <SafeAreaView style={styleSheet.safeAreaView}>
-    {/* TODO: optional left button (cancel payment) */}
     <Title style={styleSheet.title}>{title}</Title>
     {children}
-    {help && <Text style={styleSheet.help}>{help}</Text>}
   </SafeAreaView>
 );
 
@@ -32,9 +28,5 @@ const styleSheet = StyleSheet.create({
   },
   title: {
     marginVertical: 10,
-  },
-  help: {
-    marginVertical: 10,
-    color: Colors.grey.$500,
   },
 });
