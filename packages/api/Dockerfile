@@ -1,17 +1,18 @@
 # https://hub.docker.com/_/node/
 FROM node:9.6
 
-# Set the working directory
+# Copy source code
+# TODO: this is not synced when you update files localy
+#COPY . /app
+
+# Set the working directory (see docker-compose)
+#WORKDIR /app
 WORKDIR /app/packages/api
 
-# Copy the current directory contents into the container at /app
-#ADD . /app
-
 # Install any needed packages specified in package.json
-#RUN yarn install
+#RUN yarn install --focus
 
-# Make port 3000 available to the world outside this container
-EXPOSE 3000
+EXPOSE 3000/tcp
 
 # Start application when the container launches
 CMD ["yarn", "start"]
