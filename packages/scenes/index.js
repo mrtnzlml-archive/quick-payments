@@ -10,6 +10,9 @@
 //   },
 // };
 
+export {default as CardsScene} from './cards';
+
 export {default as DashboardScene} from './dashboard';
+
 export {default as CodeScanScene} from './payment/codeScan';
 export {default as PaymentResultScreen} from './payment/result';

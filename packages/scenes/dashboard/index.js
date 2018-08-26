@@ -7,7 +7,7 @@ import Translation from '_translations';
 import {QueryRenderer, graphql} from '_relay';
 import {Switch} from '_navigation';
 import idx from 'idx';
-import {CodeScanScene} from '_scenes';
+import {CodeScanScene, CardsScene} from '_scenes';
 
 import PaymentRow from './PaymentRow';
 import PrimaryButton from './PrimaryButton';
@@ -30,7 +30,7 @@ const Query = graphql`
 type Props = {||};
 
 type State = {|
-  performTransition: boolean,
+  performTransitionTo: React.Node,
 |};
 
 type QueryRendererResponse = {|
@@ -39,7 +39,7 @@ type QueryRendererResponse = {|
 
 export default class Dashboard extends React.Component<Props, State> {
   state = {
-    performTransition: false,
+    performTransitionTo: null,
   };
 
   renderQueryRendererResult = ({props}: QueryRendererResponse) => {
@@ -56,15 +56,25 @@ export default class Dashboard extends React.Component<Props, State> {
     );
   };
 
-  transitionToQRScan = () => {
+  transitionToCards = () => {
     this.setState({
-      performTransition: true,
+      performTransitionTo: <CardsScene />,
     });
   };
 
+  transitionToQRScan = () => {
+    this.setState({
+      performTransitionTo: <CodeScanScene />,
+    });
+  };
+
+  transitionToBecomeRetailer = () => {
+    console.warn('TODO');
+  };
+
   render = () => {
-    if (this.state.performTransition === true) {
-      return <Switch to={<CodeScanScene />} />;
+    if (this.state.performTransitionTo !== null) {
+      return <Switch to={this.state.performTransitionTo} />;
     }
 
     return (
@@ -83,6 +93,7 @@ export default class Dashboard extends React.Component<Props, State> {
             <SecondaryButton
               iconName="credit-card"
               description={<Translation id="Dashboard.Navigation.MyCard" />}
+              onPress={this.transitionToCards}
             />
           </View>
           <View style={styleSheet.button}>
@@ -92,6 +103,7 @@ export default class Dashboard extends React.Component<Props, State> {
             <SecondaryButton
               iconName="trending-up"
               description={<Translation id="Dashboard.Navigation.BecomeRetailer" />}
+              onPress={this.transitionToBecomeRetailer}
             />
           </View>
         </View>
@@ -106,6 +118,7 @@ const styleSheet = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-end',
+    minHeight: 80,
   },
   button: {
     flex: 1,

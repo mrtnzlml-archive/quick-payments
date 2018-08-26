@@ -54,7 +54,7 @@ References:
 ## Others
 
 - [ ] become retailer
-- [ ] debit cards overview
+- [ ] debit cards overview (safe storage needed)
 - [ ] profile of the user + logout
 
 # Building Standalone Apps for Android and iOS

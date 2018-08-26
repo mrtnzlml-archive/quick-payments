@@ -8,15 +8,12 @@ import Translation from '_translations';
 type Props = {|
   +iconName: string,
   +description: React.Element<typeof Translation>,
+  +onPress: () => void,
 |};
 
-const VoidCallback = () => {
-  console.warn('TODO'); // FIXME
-};
-
-export default function SecondaryButton({iconName, description}: Props) {
+export default function SecondaryButton({iconName, description, onPress}: Props) {
   return (
-    <Touchable accessibilityComponentType="button" onPress={VoidCallback}>
+    <Touchable accessibilityComponentType="button" onPress={onPress}>
       <View style={styleSheet.secondaryButton}>
         <Icon name={iconName} size={40} color={Colors.grey.$800} />
         <Text style={styleSheet.secondaryButtonText}>{description}</Text>

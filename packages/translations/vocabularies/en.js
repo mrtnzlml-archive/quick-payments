@@ -13,6 +13,8 @@ const Translations = {
   'BarcodeScanner.RequestingCameraPermission': 'Requesting for camera permission',
   'BarcodeScanner.ScanCode': 'Scan QR code',
 
+  'Cards.Title': 'All your cards',
+
   'Dashboard.Title': 'Payments history',
   'Dashboard.Navigation.BecomeRetailer': 'BECOME RETAILER',
   'Dashboard.Navigation.MyCard': 'MY CARDS',
