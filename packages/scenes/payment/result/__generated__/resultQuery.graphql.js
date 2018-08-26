@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash e270d2e0669289b2fba69407a8f1c4b5
+ * @relayHash 61d849abaeff75b09684ff1b068c4bfb
  */
 
 /* eslint-disable */
@@ -49,11 +49,18 @@ query resultQuery(
 }
 
 fragment Confirmation on Payment {
-  amount
-  currency
+  total {
+    ...Money
+  }
 }
 
 fragment Rejection on Payment {
+  total {
+    ...Money
+  }
+}
+
+fragment Money on Money {
   amount
   currency
 }
@@ -88,7 +95,7 @@ return {
   "operationKind": "query",
   "name": "resultQuery",
   "id": null,
-  "text": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation\n        ...Rejection\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation on Payment {\n  amount\n  currency\n}\n\nfragment Rejection on Payment {\n  amount\n  currency\n}\n",
+  "text": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation\n        ...Rejection\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Rejection on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -177,18 +184,29 @@ return {
                 "selections": [
                   v2,
                   {
-                    "kind": "ScalarField",
+                    "kind": "LinkedField",
                     "alias": null,
-                    "name": "amount",
+                    "name": "total",
+                    "storageKey": null,
                     "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "currency",
-                    "args": null,
-                    "storageKey": null
+                    "concreteType": "Money",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "amount",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "currency",
+                        "args": null,
+                        "storageKey": null
+                      }
+                    ]
                   },
                   {
                     "kind": "ScalarField",

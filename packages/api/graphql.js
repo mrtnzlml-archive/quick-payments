@@ -15,6 +15,7 @@ export const schema = buildSchema(fs.readFileSync(path.join(__dirname, 'schema.g
 export const resolvers = {
   scenes: () => ({
     dashboard: {
+      // TODO: pagination
       payments: ({clientId}: {|clientId: string|}) => {
         return DatabasePayments.filter(payment => payment.clientId === clientId).map(payment => ({
           ...payment,

@@ -8,17 +8,20 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
-type PaymentPrice$ref = any;
+type Money$ref = any;
 type RetailerName$ref = any;
 type StatusIcon$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type PaymentRow$ref: FragmentReference;
 export type PaymentRow = {|
   +id: string,
+  +total: ?{|
+    +$fragmentRefs: Money$ref
+  |},
   +retailer: ?{|
     +$fragmentRefs: RetailerName$ref
   |},
-  +$fragmentRefs: PaymentPrice$ref & StatusIcon$ref,
+  +$fragmentRefs: StatusIcon$ref,
   +$refType: PaymentRow$ref,
 |};
 */
@@ -40,13 +43,24 @@ const node/*: ConcreteFragment*/ = {
     },
     {
       "kind": "FragmentSpread",
-      "name": "PaymentPrice",
+      "name": "StatusIcon",
       "args": null
     },
     {
-      "kind": "FragmentSpread",
-      "name": "StatusIcon",
-      "args": null
+      "kind": "LinkedField",
+      "alias": null,
+      "name": "total",
+      "storageKey": null,
+      "args": null,
+      "concreteType": "Money",
+      "plural": false,
+      "selections": [
+        {
+          "kind": "FragmentSpread",
+          "name": "Money",
+          "args": null
+        }
+      ]
     },
     {
       "kind": "LinkedField",
@@ -67,5 +81,5 @@ const node/*: ConcreteFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '0f0216572c9811b0083f6ddf7201bd25';
+(node/*: any*/).hash = 'ecdc467984d34edf4dcd86f236461f09';
 module.exports = node;

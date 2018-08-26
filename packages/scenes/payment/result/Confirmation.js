@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {SplitScreen, Icon, Colors, StyleSheet, Price} from '_shared';
+import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 
 /**
@@ -19,7 +19,7 @@ const Confirmation = ({data}) => (
     }
     childrenBottom={
       <View>
-        <Price amount={data.amount} currency={data.currency} />
+        <Money data={data.total} />
       </View>
     }
   />
@@ -36,8 +36,9 @@ export default createFragmentContainer(
   Confirmation,
   graphql`
     fragment Confirmation on Payment {
-      amount
-      currency
+      total {
+        ...Money
+      }
     }
   `,
 );

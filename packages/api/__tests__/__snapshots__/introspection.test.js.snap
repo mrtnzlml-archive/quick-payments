@@ -81,16 +81,9 @@ Object {
             },
             Object {
               "isDeprecated": false,
-              "name": "amount",
+              "name": "total",
               "type": Object {
-                "name": "Int",
-              },
-            },
-            Object {
-              "isDeprecated": false,
-              "name": "currency",
-              "type": Object {
-                "name": "PaymentCurrency",
+                "name": "Money",
               },
             },
             Object {
@@ -115,12 +108,31 @@ Object {
           "name": "PaymentStatus",
         },
         Object {
-          "fields": null,
-          "name": "Int",
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "amount",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "currency",
+              "type": Object {
+                "name": "SupportedCurrency",
+              },
+            },
+          ],
+          "name": "Money",
         },
         Object {
           "fields": null,
-          "name": "PaymentCurrency",
+          "name": "String",
+        },
+        Object {
+          "fields": null,
+          "name": "SupportedCurrency",
         },
         Object {
           "fields": Array [
@@ -140,10 +152,6 @@ Object {
             },
           ],
           "name": "Client",
-        },
-        Object {
-          "fields": null,
-          "name": "String",
         },
         Object {
           "fields": Array [

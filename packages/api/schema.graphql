@@ -18,21 +18,9 @@ type PaymentScene {
 type Payment {
   id: ID!
   status: PaymentStatus
-  amount: Int
-  currency: PaymentCurrency
+  total: Money
   client: Client
   retailer: Retailer
-}
-
-# TODO: introduce interfaces (?)
-type Retailer {
-  id: ID!
-  name: String
-}
-
-type Client {
-  id: ID!
-  name: String
 }
 
 enum PaymentStatus {
@@ -40,6 +28,22 @@ enum PaymentStatus {
   FAILED
 }
 
-enum PaymentCurrency {
+type Money {
+  amount: String
+  currency: SupportedCurrency
+}
+
+enum SupportedCurrency {
   MXN
+}
+
+type Client {
+  id: ID!
+  name: String
+}
+
+# TODO: introduce interfaces (?)
+type Retailer {
+  id: ID!
+  name: String
 }

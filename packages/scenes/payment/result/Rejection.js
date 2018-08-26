@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {SplitScreen, Icon, Colors, StyleSheet, Price} from '_shared';
+import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 
 const Rejection = ({data}) => (
@@ -16,7 +16,7 @@ const Rejection = ({data}) => (
     childrenBottom={
       <View>
         {/* TODO: show the error and explanation */}
-        <Price amount={data.amount} currency={data.currency} />
+        <Money data={data.total} />
       </View>
     }
   />
@@ -33,8 +33,9 @@ export default createFragmentContainer(
   Rejection,
   graphql`
     fragment Rejection on Payment {
-      amount
-      currency
+      total {
+        ...Money
+      }
     }
   `,
 );

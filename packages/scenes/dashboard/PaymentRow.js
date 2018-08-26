@@ -2,13 +2,12 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Text, StyleSheet, Colors, Touchable} from '_shared';
+import {Text, StyleSheet, Colors, Touchable, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import {Switch} from '_navigation';
 import {PaymentResultScreen} from '_scenes';
 
-import PaymentPrice from './PaymentPrice';
 import StatusIcon from './StatusIcon';
 import RetailerName from './RetailerName';
 import type {PaymentRow as PaymentRowType} from './__generated__/PaymentRow.graphql';
@@ -47,7 +46,7 @@ class PaymentRow extends React.Component<Props, State> {
               <RetailerName data={data.retailer} />
             </Text>
             <View style={styleSheet.row}>
-              <PaymentPrice data={data} />
+              <Money data={data.total} />
               <Text style={styleSheet.cityName}>
                 <Translation passThrough=" (Todo City Name)" />
               </Text>
@@ -95,8 +94,10 @@ export default createFragmentContainer(
   graphql`
     fragment PaymentRow on Payment {
       id
-      ...PaymentPrice
       ...StatusIcon
+      total {
+        ...Money
+      }
       retailer {
         ...RetailerName
       }

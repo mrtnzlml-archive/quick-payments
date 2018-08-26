@@ -2,6 +2,10 @@
 
 import * as React from 'react';
 import Translation from '_translations';
+import {createFragmentContainer, graphql} from '_relay';
+import Decimal from 'decimal.js-light';
+
+import type {Money as MoneyType} from './__generated__/Money.graphql';
 
 const SupportedLocales = {
   // TODO
@@ -9,10 +13,7 @@ const SupportedLocales = {
 };
 
 type Props = {|
-  // TODO:
-  // Amount should be integer (smallest currency unit) so for example
-  // cents for EUR (100 cents = 1 EUR) or 100 for ¥100 (zero-decimal currency).
-  +amount: ?number,
+  +amount: ?string,
   +currency: ?string, // TODO: SupportedCurrencies (?)
   +locale?: $Keys<typeof SupportedLocales>,
 |};
@@ -20,7 +21,7 @@ type Props = {|
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat
  */
-export default ({amount, currency, locale = 'en'}: Props) => {
+export const Price = ({amount, currency, locale = 'en'}: Props) => {
   if (amount == null || currency == null) {
     return null;
   }
@@ -29,7 +30,17 @@ export default ({amount, currency, locale = 'en'}: Props) => {
   const price = Intl.NumberFormat(locale, {
     style: 'currency',
     currency,
-  }).format(amount);
+  }).format(Decimal(amount).toNumber());
 
   return <Translation passThrough={price} />;
 };
+
+export default createFragmentContainer(
+  ({data}: {|+data: MoneyType|}) => <Price amount={data.amount} currency={data.currency} />,
+  graphql`
+    fragment Money on Money {
+      amount
+      currency
+    }
+  `,
+);

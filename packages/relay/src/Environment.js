@@ -11,7 +11,7 @@ import {
 import {AsyncStorage} from 'react-native';
 
 const ASYNC_STORE_KEY = '@OfflineStore:key';
-const GRAPHQL_URL = 'http://127.0.0.1/graphql';
+const GRAPHQL_URL = 'http://127.0.0.1:3000/graphql';
 
 const store = new Store(new RecordSource());
 

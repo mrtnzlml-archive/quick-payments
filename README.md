@@ -5,10 +5,10 @@ Simplest in-person payments
 # Start API server
 
 ```
-docker-compose up
+(cd packages/api ; yarn start)
 ```
 
-Open: http://127.0.0.1/graphql
+Open: http://127.0.0.1:3000/graphql
 
 # TODO
 

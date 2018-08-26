@@ -8,12 +8,13 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
-export type PaymentCurrency = "MXN" | "%future added value";
+type Money$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Rejection$ref: FragmentReference;
 export type Rejection = {|
-  +amount: ?number,
-  +currency: ?PaymentCurrency,
+  +total: ?{|
+    +$fragmentRefs: Money$ref
+  |},
   +$refType: Rejection$ref,
 |};
 */
@@ -27,21 +28,23 @@ const node/*: ConcreteFragment*/ = {
   "argumentDefinitions": [],
   "selections": [
     {
-      "kind": "ScalarField",
+      "kind": "LinkedField",
       "alias": null,
-      "name": "amount",
+      "name": "total",
+      "storageKey": null,
       "args": null,
-      "storageKey": null
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "currency",
-      "args": null,
-      "storageKey": null
+      "concreteType": "Money",
+      "plural": false,
+      "selections": [
+        {
+          "kind": "FragmentSpread",
+          "name": "Money",
+          "args": null
+        }
+      ]
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '2e68a306b89ac420f35b57d5624a2925';
+(node/*: any*/).hash = 'e93f507607f08f8233a310a0be315928';
 module.exports = node;

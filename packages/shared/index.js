@@ -17,7 +17,7 @@ export {default as Touchable} from './ui/Touchable';
 
 export {default as Device} from './Device';
 export {default as Dimensions} from './Dimensions';
-export {default as Price} from './Price';
+export {default as Money} from './Money';
 
 export {default as SafeAreaView} from 'react-native-safe-area-view';
 

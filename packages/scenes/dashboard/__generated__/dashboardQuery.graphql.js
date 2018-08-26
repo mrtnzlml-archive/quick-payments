@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a1e021cb1d271ea6891912a23692cc87
+ * @relayHash ac48a327561408e9e8651699966236de
  */
 
 /* eslint-disable */
@@ -46,21 +46,23 @@ query dashboardQuery(
 
 fragment PaymentRow on Payment {
   id
-  ...PaymentPrice
   ...StatusIcon
+  total {
+    ...Money
+  }
   retailer {
     ...RetailerName
     id
   }
 }
 
-fragment PaymentPrice on Payment {
-  amount
-  currency
-}
-
 fragment StatusIcon on Payment {
   status
+}
+
+fragment Money on Money {
+  amount
+  currency
 }
 
 fragment RetailerName on Retailer {
@@ -97,7 +99,7 @@ return {
   "operationKind": "query",
   "name": "dashboardQuery",
   "id": null,
-  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  ...PaymentPrice\n  ...StatusIcon\n  retailer {\n    ...RetailerName\n    id\n  }\n}\n\nfragment PaymentPrice on Payment {\n  amount\n  currency\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment RetailerName on Retailer {\n  name\n}\n",
+  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    ...RetailerName\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n\nfragment RetailerName on Retailer {\n  name\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -183,23 +185,34 @@ return {
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "name": "amount",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "currency",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
                     "name": "status",
                     "args": null,
                     "storageKey": null
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "total",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "Money",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "amount",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "currency",
+                        "args": null,
+                        "storageKey": null
+                      }
+                    ]
                   },
                   {
                     "kind": "LinkedField",
