@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 23716276ea5d47eb963f15e7a54aa52f
+ * @relayHash 1e858c0d5201eb2349ed683de402af54
  */
 
 /* eslint-disable */
@@ -46,6 +46,8 @@ query dashboardQuery(
 
 fragment PaymentRow on Payment {
   id
+  location
+  date
   ...StatusIcon
   total {
     ...Money
@@ -95,7 +97,7 @@ return {
   "operationKind": "query",
   "name": "dashboardQuery",
   "id": null,
-  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
+  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -178,6 +180,20 @@ return {
                 "plural": true,
                 "selections": [
                   v2,
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "location",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "date",
+                    "args": null,
+                    "storageKey": null
+                  },
                   {
                     "kind": "ScalarField",
                     "alias": null,

@@ -107,6 +107,20 @@ Object {
                 "name": "Retailer",
               },
             },
+            Object {
+              "isDeprecated": false,
+              "name": "location",
+              "type": Object {
+                "name": "String",
+              },
+            },
+            Object {
+              "isDeprecated": false,
+              "name": "date",
+              "type": Object {
+                "name": "String",
+              },
+            },
           ],
           "name": "Payment",
         },

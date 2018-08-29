@@ -14,6 +14,8 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type PaymentRow$ref: FragmentReference;
 export type PaymentRow = {|
   +id: string,
+  +location: ?string,
+  +date: ?string,
   +total: ?{|
     +$fragmentRefs: Money$ref
   |},
@@ -37,6 +39,20 @@ const node/*: ConcreteFragment*/ = {
       "kind": "ScalarField",
       "alias": null,
       "name": "id",
+      "args": null,
+      "storageKey": null
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "location",
+      "args": null,
+      "storageKey": null
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "date",
       "args": null,
       "storageKey": null
     },
@@ -82,5 +98,5 @@ const node/*: ConcreteFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'f614a796ff651cd464ccf055bb969903';
+(node/*: any*/).hash = 'b410cdb70c489910dc7b9b44d9c00f06';
 module.exports = node;

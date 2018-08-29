@@ -50,11 +50,12 @@ class PaymentRow extends React.Component<Props, State> {
             <View style={styleSheet.row}>
               <Money data={data.total} />
               <Text style={styleSheet.cityName}>
-                <Translation passThrough=" (Todo City Name)" />
+                <Translation passThrough={` (${data.location || ''})`} />
               </Text>
             </View>
             <Text style={styleSheet.dateTime}>
-              <Translation passThrough="2018-11-11 12:34" />
+              {/* TODO: Date, Time and DateTime components similar to Money */}
+              <Translation passThrough={data.date} />
             </Text>
           </View>
 
@@ -96,6 +97,8 @@ export default createFragmentContainer(
   graphql`
     fragment PaymentRow on Payment {
       id
+      location
+      date
       ...StatusIcon
       total {
         ...Money

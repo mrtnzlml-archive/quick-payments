@@ -43,7 +43,8 @@ export const Payments: $ReadOnlyArray<{|
     +currency: $Keys<typeof Currencies>,
   |},
   +retailerId: UUID,
-  // TODO: date
+  +location: string,
+  +date: string,
 |}> = Array.from({length: 20}, () => ({
   id: uuidv4(),
   clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E', // we need to fetch by this ID
@@ -53,4 +54,6 @@ export const Payments: $ReadOnlyArray<{|
     amount: String(Math.round(Math.random() * 100000) / 100),
     currency: Currencies.MXN,
   },
+  location: 'Mexico City',
+  date: String(Date.now()),
 }));

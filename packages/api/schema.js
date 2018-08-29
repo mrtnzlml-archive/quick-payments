@@ -32,6 +32,8 @@ type Payment implements Node {
   total: Money
   client: Client
   retailer: Retailer
+  location: String
+  date: String # date in milliseconds
 }
 
 enum PaymentStatus {
