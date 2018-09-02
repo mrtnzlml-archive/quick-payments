@@ -215,7 +215,7 @@ module.exports = {
     'no-tabs': ERROR,
     'no-ternary': OFF,
     'no-trailing-spaces': WARN,
-    'no-underscore-dangle': [ERROR, { enforceInMethodNames: true }],
+    'no-underscore-dangle': OFF,
     'no-unneeded-ternary': WARN,
     'no-whitespace-before-property': WARN,
     'object-curly-newline': OFF,
