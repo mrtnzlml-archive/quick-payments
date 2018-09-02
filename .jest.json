@@ -1,13 +1,9 @@
 {
-  "collectCoverage": false,
   "preset": "jest-expo",
-  "verbose": false,
-  "globals": {
-    "__DEV__": false
-  },
+  "rootDir": "",
+  "timers": "fake",
   "transform": {
     "^.+\\.js$": "babel-jest"
   },
-  "setupTestFrameworkScriptFile": "<rootDir>/.jestSetup.js",
-  "testPathIgnorePatterns": ["/node_modules/", "__tests__/__mocks__"]
+  "verbose": false
 }

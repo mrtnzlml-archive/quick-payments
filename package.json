@@ -37,7 +37,7 @@
     "start": "react-native-scripts start",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --config=.jest.json",
+    "test": "node node_modules/.bin/jest --config=.jest.json",
     "test-ci": "sh ./scripts/test.sh",
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "relay-compiler --src ./packages --schema ./packages/api/schema.graphql --verbose",
