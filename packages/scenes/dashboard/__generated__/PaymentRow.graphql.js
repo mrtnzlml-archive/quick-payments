@@ -9,7 +9,6 @@
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
 type Money$ref = any;
-type RetailerName$ref = any;
 type StatusIcon$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type PaymentRow$ref: FragmentReference;
@@ -19,7 +18,7 @@ export type PaymentRow = {|
     +$fragmentRefs: Money$ref
   |},
   +retailer: ?{|
-    +$fragmentRefs: RetailerName$ref
+    +name: ?string
   |},
   +$fragmentRefs: StatusIcon$ref,
   +$refType: PaymentRow$ref,
@@ -72,14 +71,16 @@ const node/*: ConcreteFragment*/ = {
       "plural": false,
       "selections": [
         {
-          "kind": "FragmentSpread",
-          "name": "RetailerName",
-          "args": null
+          "kind": "ScalarField",
+          "alias": null,
+          "name": "name",
+          "args": null,
+          "storageKey": null
         }
       ]
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'ecdc467984d34edf4dcd86f236461f09';
+(node/*: any*/).hash = 'f614a796ff651cd464ccf055bb969903';
 module.exports = node;

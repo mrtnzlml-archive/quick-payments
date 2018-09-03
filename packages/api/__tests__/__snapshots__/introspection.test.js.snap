@@ -25,6 +25,13 @@ Object {
                 "name": "AllAvailableScenes",
               },
             },
+            Object {
+              "isDeprecated": false,
+              "name": "node",
+              "type": Object {
+                "name": "Node",
+              },
+            },
           ],
           "name": "Query",
         },
@@ -102,6 +109,18 @@ Object {
             },
           ],
           "name": "Payment",
+        },
+        Object {
+          "fields": Array [
+            Object {
+              "isDeprecated": false,
+              "name": "id",
+              "type": Object {
+                "name": null,
+              },
+            },
+          ],
+          "name": "Node",
         },
         Object {
           "fields": null,

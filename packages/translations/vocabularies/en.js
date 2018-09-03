@@ -22,6 +22,8 @@ const Translations = {
   'General.Cancel': 'Cancel',
   'General.Form.Validation.Email': 'Please insert valid email address.',
   'General.TODO': '***TODO***',
+  'General.QueryRenderer.Error.Title': 'Unable to load data',
+  'General.QueryRenderer.Error.TryAgain': 'Try again',
 
   'Onboarding.Email': 'What is your email address?',
   'Onboarding.Email.Submit': 'Login',

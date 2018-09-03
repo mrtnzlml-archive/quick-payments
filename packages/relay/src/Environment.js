@@ -1,40 +1,24 @@
 // @flow
 
-import {Environment, Network, RecordSource, Store, Observable} from 'relay-runtime';
+import {Environment, Network, RecordSource, Store} from 'relay-runtime';
+import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
-import fetchWithRetries from './fetch/fetchWithRetries';
+import executeFunction from './executeFunction';
 
-const GRAPHQL_URL = 'http://127.0.0.1:3000/graphql';
+const network = Network.create(
+  process.env.NODE_ENV === 'development'
+    ? RelayNetworkLogger.wrapFetch(executeFunction)
+    : executeFunction,
+);
 
-const store = new Store(new RecordSource());
+// TODO: implement and wrapSubscribe
 
-function fetchQuery(operation, variables) {
-  return Observable.create(observer => {
-    fetchWithRetries(GRAPHQL_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: operation.text, // TODO: fetch persisted queries instead (based on operation.id)
-        variables,
-      }),
-    })
-      .then(fetchResponse => fetchResponse.json())
-      .then(jsonResponse => {
-        if (jsonResponse.errors) {
-          jsonResponse.errors.forEach(error => console.warn(error));
-        }
-        observer.next(jsonResponse);
-        observer.complete();
-      })
-      .catch(error => {
-        console.warn(error.message);
-      });
-  });
-}
+const source = new RecordSource();
+const store = new Store(source);
 
-export default new Environment({
-  network: Network.create(fetchQuery),
+const env = new Environment({
+  network,
   store,
 });
+
+export default env;

@@ -51,6 +51,7 @@ const styleSheet = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.brandPrimary,
     borderRadius: 2,
+    paddingHorizontal: 10,
     android: {
       android: {
         elevation: 4,

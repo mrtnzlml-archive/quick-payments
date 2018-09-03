@@ -20,9 +20,9 @@ type State = {|
   performTransition: boolean,
 |};
 
-type QueryRendererResponse = {|
-  +props: resultQueryResponse,
-|};
+type QueryRendererResponse = {
+  +props: ?resultQueryResponse,
+};
 
 export default class PaymentStatus extends React.Component<Props, State> {
   state = {
