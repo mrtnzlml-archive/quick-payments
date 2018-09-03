@@ -36,6 +36,7 @@ export default class QueryRenderer extends React.Component<Props, State> {
 
   renderQueryRendererResult = (readyState: ReadyState) => {
     if (readyState.error !== null) {
+      // TODO: logging service
       return <QueryRendererError onTryAgain={this.handleTryAgainAction} />;
     }
 

@@ -1,7 +1,5 @@
 // @flow
 
-import fs from 'fs';
-import path from 'path';
 import {buildSchema} from 'graphql';
 
 import {
@@ -9,8 +7,9 @@ import {
   Clients as DatabaseClients,
   Retailers as DatabaseRetailers,
 } from './src/InMemoryDatabase';
+import {rawSchema} from './schema';
 
-export const schema = buildSchema(fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8'));
+export const schema = buildSchema(rawSchema);
 
 export const resolvers = {
   scenes: () => ({

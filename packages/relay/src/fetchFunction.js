@@ -2,16 +2,17 @@
 
 import type {Variables, UploadableMap, CacheConfig} from 'react-relay';
 import type {RequestNode} from 'relay-runtime';
+import {executeQuery} from '_api';
 
 import fetchWithRetries from './fetch/fetchWithRetries';
 import {handleData, getRequestBody, getHeaders, isMutation} from './helpers';
 import type {Sink, ExecutePayload} from './executeFunction';
 
 // return user auth token
-const getToken = () => {
-  return undefined;
-  // localStorage.getItem('authToken');
-};
+// const getToken = () => {
+//   return undefined;
+//   // localStorage.getItem('authToken');
+// };
 
 const ENV = ((process.env: any): {
   GRAPHQL_URL: string,
@@ -33,22 +34,23 @@ const fetchFunction = async (
   // TODO: InMemoryMiddleWare here?
 
   try {
-    const body = getRequestBody(request, variables, uploadables);
+    // const body = getRequestBody(request, variables, uploadables);
 
-    const headers = {
-      ...getHeaders(uploadables),
-      authorization: getToken(),
-    };
+    // const headers = {
+    //   ...getHeaders(uploadables),
+    //   authorization: getToken(),
+    // };
 
-    const response = await fetchWithRetries(ENV.GRAPHQL_URL, {
-      method: 'POST',
-      headers,
-      body,
-      fetchTimeout: 20000,
-      retryDelays: [1000, 3000, 5000],
-    });
+    // const response = await fetchWithRetries(ENV.GRAPHQL_URL, {
+    //   method: 'POST',
+    //   headers,
+    //   body,
+    //   fetchTimeout: 20000,
+    //   retryDelays: [1000, 3000, 5000],
+    // });
 
-    const data = await handleData(response);
+    // const data = await handleData(response);
+    const data = await executeQuery(request.text, variables, request.name);
 
     if (isMutation(request) && data.errors) {
       sink.error(data);
