@@ -1,11 +1,7 @@
-#
-#
-#
-# TODO: replace with normal objects
-#
-#
-#
+// @flow
 
+// TODO: rewrite to normal objects, this is only for cool kids
+export const rawSchema = `
 type Query {
   scenes: AllAvailableScenes
 
@@ -62,3 +58,4 @@ type Retailer implements Node {
   id: ID!
   name: String
 }
+`;
