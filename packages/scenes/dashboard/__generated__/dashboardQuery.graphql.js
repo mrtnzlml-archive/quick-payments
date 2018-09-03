@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ac48a327561408e9e8651699966236de
+ * @relayHash 23716276ea5d47eb963f15e7a54aa52f
  */
 
 /* eslint-disable */
@@ -51,7 +51,7 @@ fragment PaymentRow on Payment {
     ...Money
   }
   retailer {
-    ...RetailerName
+    name
     id
   }
 }
@@ -63,10 +63,6 @@ fragment StatusIcon on Payment {
 fragment Money on Money {
   amount
   currency
-}
-
-fragment RetailerName on Retailer {
-  name
 }
 */
 
@@ -99,7 +95,7 @@ return {
   "operationKind": "query",
   "name": "dashboardQuery",
   "id": null,
-  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    ...RetailerName\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n\nfragment RetailerName on Retailer {\n  name\n}\n",
+  "text": "query dashboardQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",

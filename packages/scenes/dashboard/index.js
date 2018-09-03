@@ -33,9 +33,9 @@ type State = {|
   performTransitionTo: React.Node,
 |};
 
-type QueryRendererResponse = {|
-  +props: dashboardQueryResponse,
-|};
+type QueryRendererResponse = {
+  props: ?dashboardQueryResponse,
+};
 
 export default class Dashboard extends React.Component<Props, State> {
   state = {

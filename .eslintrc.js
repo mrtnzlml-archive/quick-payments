@@ -21,8 +21,11 @@ module.exports = {
     node: true,
   },
 
+  // set each global variable name equal to true to allow the variable to be overwritten or
+  // false to disallow overwriting
   globals: {
     fetch: false, // already by default in RN
+    FormData: false, // already by default in RN
   },
 
   rules: {

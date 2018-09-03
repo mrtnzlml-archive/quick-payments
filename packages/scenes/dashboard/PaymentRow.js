@@ -7,9 +7,9 @@ import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import {Switch} from '_navigation';
 import {PaymentResultScreen} from '_scenes';
+import idx from 'idx';
 
 import StatusIcon from './StatusIcon';
-import RetailerName from './RetailerName';
 import type {PaymentRow as PaymentRowType} from './__generated__/PaymentRow.graphql';
 
 type Props = {|
@@ -38,12 +38,14 @@ class PaymentRow extends React.Component<Props, State> {
       return <Switch to={<PaymentResultScreen paymentId={data.id} />} />;
     }
 
+    const retailerName = idx(data, _ => _.retailer.name);
+
     return (
       <Touchable style={styleSheet.container} onPress={this.transitionToPaymentResult}>
         <React.Fragment>
           <View style={styleSheet.containerLeft}>
             <Text style={styleSheet.retailerName}>
-              <RetailerName data={data.retailer} />
+              <Translation passThrough={retailerName} />
             </Text>
             <View style={styleSheet.row}>
               <Money data={data.total} />
@@ -99,7 +101,7 @@ export default createFragmentContainer(
         ...Money
       }
       retailer {
-        ...RetailerName
+        name
       }
     }
   `,

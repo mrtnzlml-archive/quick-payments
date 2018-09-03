@@ -23,7 +23,7 @@ it('gives up if response failed after retries', () => {
     .catch(handleCatch);
   expect(fetch.mock.calls.length).toBe(1);
   fetch.mock.deferreds[0].resolve(failedResponse);
-  for (var ii = 0; ii < 100; ii++) {
+  for (let ii = 0; ii < 100; ii++) {
     if (fetch.mock.calls.length < 2) {
       jest.runOnlyPendingTimers();
     } else {

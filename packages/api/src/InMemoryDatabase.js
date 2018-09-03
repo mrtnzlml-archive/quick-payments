@@ -44,7 +44,7 @@ export const Payments: $ReadOnlyArray<{|
   |},
   +retailerId: UUID,
   // TODO: date
-|}> = Array.from({length: 100}, () => ({
+|}> = Array.from({length: 20}, () => ({
   id: uuidv4(),
   clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E', // we need to fetch by this ID
   retailerId: '5B3D42C0-A0EF-4F69-8AF6-F8162F2ACB60',
