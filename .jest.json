@@ -1,6 +1,7 @@
 {
   "preset": "jest-expo",
   "rootDir": "",
+  "testRegex": "/__tests__/.*-test.*\\.js$",
   "timers": "fake",
   "transform": {
     "^.+\\.js$": "babel-jest"
