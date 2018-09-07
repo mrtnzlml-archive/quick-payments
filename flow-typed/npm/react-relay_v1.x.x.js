@@ -295,10 +295,15 @@ declare module 'react-relay' {
 
   declare export type GeneratedNodeMap = {[key: string]: GraphQLTaggedNode};
 
-  declare export function createFragmentContainer<TBase: React$ComponentType<*>>(
+  // NOTE: this is custom type because the default one is very shitty.
+  // This type is only half shitty - it preserves the props key but
+  // cripples the values to `mixed`. Otherwise it's nearly impossible
+  // to type `createFragmentContainer` correctly at this moment.
+  declare type CrippleProps = () => mixed;
+  declare export function createFragmentContainer<TBase: React$ComponentType<any>>(
     Component: TBase,
     fragmentSpec: GraphQLTaggedNode | GeneratedNodeMap,
-  ): TBase;
+  ): React$ComponentType<$ObjMap<React$ElementConfig<TBase>, CrippleProps>>;
 
   declare export function createRefetchContainer<TBase: React$ComponentType<*>>(
     Component: TBase,
