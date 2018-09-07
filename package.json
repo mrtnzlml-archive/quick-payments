@@ -42,7 +42,7 @@
     "test": "node node_modules/.bin/jest --config=.jest.json",
     "test-ci": "sh ./scripts/test.sh",
     "lint": "eslint . --report-unused-disable-directives",
-    "relay": "relay-compiler --src ./packages --schema ./packages/api/schema.graphql --verbose",
+    "relay": "relay-compiler --src ./packages --schema ./packages/schema.graphql --verbose",
     "relay-cleanup": "find packages -name \"*.graphql.js\" -type f -delete && yarn relay",
     "prettier": "prettier --write \"{flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
   },
