@@ -1,6 +1,6 @@
 // @flow
 
-import {sprintf} from '_fbjs';
+import {sprintf, warning} from '_fbjs';
 
 const fetch = require('./fetch');
 
@@ -46,7 +46,7 @@ export default function fetchWithRetries(
       const requestTimeout = setTimeout(() => {
         isRequestAlive = false;
         if (shouldRetry(requestsAttempted)) {
-          console.warn('fetchWithRetries: HTTP timeout, retrying.');
+          warning(false, 'fetchWithRetries: HTTP timeout, retrying.');
           retryRequest();
         } else {
           reject(
@@ -71,7 +71,7 @@ export default function fetchWithRetries(
             } else if (shouldRetry(requestsAttempted)) {
               // Fetch was not successful, retrying.
               // TODO(#7595849): Only retry on transient HTTP errors.
-              console.warn('fetchWithRetries: HTTP error, retrying.');
+              warning(false, 'fetchWithRetries: HTTP error, retrying.');
               retryRequest();
             } else {
               // Request was not successful, giving up.

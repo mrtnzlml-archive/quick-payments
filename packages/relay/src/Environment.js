@@ -6,9 +6,7 @@ import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 import executeFunction from './executeFunction';
 
 const network = Network.create(
-  process.env.NODE_ENV === 'development'
-    ? RelayNetworkLogger.wrapFetch(executeFunction)
-    : executeFunction,
+  __DEV__ ? RelayNetworkLogger.wrapFetch(executeFunction) : executeFunction,
 );
 
 // TODO: implement and wrapSubscribe

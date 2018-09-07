@@ -4,6 +4,7 @@ import * as React from 'react';
 import {StyleSheet, Colors, Title, SplitScreen, EmailInput, Button, FormGroup} from '_shared';
 import Translation from '_translations';
 import {Switch} from '_navigation';
+import {warning} from '_fbjs';
 
 const OnboardingTop = () => (
   <React.Fragment>
@@ -37,7 +38,7 @@ class OnboardingBottom extends React.Component<{||}, State> {
       submitFormTo: '/dashboard',
     });
 
-    console.warn('TODO: form values');
+    warning(false, 'TODO: form values');
   };
 
   render = () => {

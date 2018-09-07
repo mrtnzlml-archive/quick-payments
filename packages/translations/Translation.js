@@ -4,6 +4,7 @@ import * as React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {Text} from '_shared';
 import type {TranslationKeys} from '_translations';
+import {invariant} from '_fbjs';
 
 type CommonProps = {|
   +testID?: string,
@@ -23,11 +24,12 @@ export default class Translation extends React.PureComponent<Props> {
   render = () => {
     const p = this.props;
 
-    if (p.id !== undefined && p.passThrough !== undefined) {
-      throw new Error(
-        "You can use only 'id' or 'passThrough' property in translations but not both.",
-      );
-    }
+    // id XOR passThrough
+    invariant(
+      (p.id !== undefined && p.passThrough === undefined) ||
+        (p.id === undefined && p.passThrough !== undefined),
+      "You have to use 'id' or 'passThrough' property in translations.",
+    );
 
     if (p.id !== undefined) {
       return (

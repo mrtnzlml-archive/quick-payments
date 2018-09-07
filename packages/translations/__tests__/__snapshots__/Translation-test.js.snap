@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`throws exception for unclear properties 1`] = `"You can use only 'id' or 'passThrough' property in translations but not both."`;
+exports[`throws exception for unclear properties 1`] = `"You have to use 'id' or 'passThrough' property in translations."`;
 
 exports[`works with \`passThrough\` property 1`] = `
 <Text>
@@ -8,21 +8,19 @@ exports[`works with \`passThrough\` property 1`] = `
 </Text>
 `;
 
-exports[`works with almost any type of \`passThrough\` property 1`] = `
+exports[`works with almost any type of \`passThrough\` property - testing: "string" 1`] = `
 <Text>
   string
 </Text>
 `;
 
-exports[`works with almost any type of \`passThrough\` property 2`] = `
+exports[`works with almost any type of \`passThrough\` property - testing: 123 1`] = `
 <Text>
   123
 </Text>
 `;
 
-exports[`works with almost any type of \`passThrough\` property 3`] = `<Text />`;
-
-exports[`works with almost any type of \`passThrough\` property 4`] = `<Text />`;
+exports[`works with almost any type of \`passThrough\` property - testing: null 1`] = `<Text />`;
 
 exports[`works with translation ID property 1`] = `
 <FormattedMessage

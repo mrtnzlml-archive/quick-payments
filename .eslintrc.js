@@ -26,12 +26,13 @@ module.exports = {
   globals: {
     fetch: false, // already by default in RN
     FormData: false, // already by default in RN
+    __DEV__: false, // already by default in RN
   },
 
   rules: {
     // Possible Errors (http://eslint.org/docs/rules/#possible-errors)
     'no-cond-assign': WARN,
-    'no-console': [WARN, {allow: ['warn']}],
+    'no-console': ERROR,
     'no-constant-condition': [WARN, {checkLoops: false}],
     'no-control-regex': WARN,
     'no-debugger': ERROR,

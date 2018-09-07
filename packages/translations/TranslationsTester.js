@@ -1,5 +1,7 @@
 // @flow
 
+import {warning} from '_fbjs';
+
 import type {TranslationKeysObject} from './index';
 
 const first = text => text.slice(0, 1);
@@ -15,7 +17,7 @@ export const run = (
   // default failIf implementation (console.warn)
   let failIf = (test, failMessage) => {
     if (test === true) {
-      console.warn(failMessage);
+      warning(false, failMessage);
       return true;
     }
     return false;

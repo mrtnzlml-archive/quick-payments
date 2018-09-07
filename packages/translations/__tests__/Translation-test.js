@@ -31,17 +31,13 @@ it('throws exception for unclear properties', () => {
   ).toThrowErrorMatchingSnapshot();
 });
 
-it('works with almost any type of `passThrough` property', () => {
-  const test = value => {
+test.each([['string'], [123], [null]])(
+  'works with almost any type of `passThrough` property - testing: %p',
+  value => {
     expect(
       new Translation({
         passThrough: value,
       }).render(),
     ).toMatchSnapshot();
-  };
-
-  test('string');
-  test(123);
-  test(null);
-  test(undefined);
-});
+  },
+);

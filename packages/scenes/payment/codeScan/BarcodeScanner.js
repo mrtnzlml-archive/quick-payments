@@ -7,6 +7,7 @@ import Translation from '_translations';
 import {StyleSheet, Colors, Text, Touchable} from '_shared';
 import {Switch} from '_navigation';
 import {DashboardScene} from '_scenes';
+import {warning} from '_fbjs';
 
 type State = {|
   hasCameraPermission: boolean | null,
@@ -31,7 +32,7 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
   };
 
   handleBarCodeRead = ({data}: {data: string}) => {
-    console.warn(data);
+    warning(false, data);
   };
 
   render = () => {

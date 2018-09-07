@@ -1,16 +1,16 @@
 // @flow
 
-declare var __DEV__: boolean;
+import sprintf from './sprintf';
 
 let validateFormat;
 if (__DEV__) {
-  validateFormat = function(format: mixed): void {};
-} else {
   validateFormat = function(format: mixed): void {
     if (format === undefined) {
       throw new Error('invariant(...): Second argument must be a string.');
     }
   };
+} else {
+  validateFormat = function(format: mixed): void {};
 }
 
 /**
@@ -33,8 +33,7 @@ export default function invariant(condition: mixed, format: string, ...args: Arr
           'for the full error message and additional helpful warnings.',
       );
     } else {
-      let argIndex = 0;
-      error = new Error(format.replace(/%s/g, () => String(args[argIndex++])));
+      error = new Error(sprintf(format, ...args));
       error.name = 'Invariant Violation';
     }
 

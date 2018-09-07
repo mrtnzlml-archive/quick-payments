@@ -8,6 +8,7 @@ import {QueryRenderer, graphql} from '_relay';
 import {Switch} from '_navigation';
 import idx from 'idx';
 import {CodeScanScene, CardsScene} from '_scenes';
+import {warning} from '_fbjs';
 
 import PaymentRow from './PaymentRow';
 import PrimaryButton from './PrimaryButton';
@@ -69,7 +70,7 @@ export default class Dashboard extends React.Component<Props, State> {
   };
 
   transitionToBecomeRetailer = () => {
-    console.warn('TODO');
+    warning(false, 'TODO');
   };
 
   render = () => {
