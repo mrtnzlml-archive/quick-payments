@@ -5,7 +5,13 @@ import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 
-const Rejection = ({data}) => (
+import type {Rejection as RejectionDataType} from './__generated__/Rejection.graphql';
+
+type Props = {|
+  +data: RejectionDataType,
+|};
+
+const Rejection = ({data}: Props) => (
   <SplitScreen
     backgroundColor={Colors.error}
     childrenTop={

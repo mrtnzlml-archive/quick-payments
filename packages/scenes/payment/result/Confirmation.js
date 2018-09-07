@@ -5,12 +5,18 @@ import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 
+import type {ConfirmationDataType} from './__generated__/Confirmation.graphql';
+
+type Props = {|
+  +data: ConfirmationDataType,
+|};
+
 /**
  * TODO: this page must be animated to avoid scam with static screenshots
  * TODO: show date and time
  * TODO: it should be grey on return from homepage (?) - to prevent scams with just opening older
  */
-const Confirmation = ({data}) => (
+const Confirmation = ({data}: Props) => (
   <SplitScreen
     childrenTop={
       <View style={styleSheet.container}>
