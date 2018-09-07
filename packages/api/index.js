@@ -1,8 +1,6 @@
 // @flow
 
-import {graphql} from 'graphql';
-
-import {schema, resolvers} from './graphql';
+import {graphql, GraphQLSchema} from 'graphql';
 
 export function executeQuery(
   requestString: string,
@@ -10,5 +8,10 @@ export function executeQuery(
   operationName?: ?string,
 ) {
   const contextValue = undefined;
-  return graphql(schema, requestString, resolvers, contextValue, variableValues, operationName);
+  const rootValue = undefined;
+  const schema = new GraphQLSchema({
+    query: require('./src/graphql/Queries'),
+  });
+
+  return graphql(schema, requestString, rootValue, contextValue, variableValues, operationName);
 }
