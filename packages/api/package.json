@@ -3,8 +3,8 @@
   "name": "_api",
   "version": "0.0.0",
   "dependencies": {
-    "graphql": "^0.13.2",
-    "stripe": "^6.7.0",
+    "graphql": "^14.0.2",
+    "stripe": "^6.10.0",
     "uuid": "^3.3.2"
   }
 }
