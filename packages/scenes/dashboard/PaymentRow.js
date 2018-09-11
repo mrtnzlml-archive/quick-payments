@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Text, StyleSheet, Colors, Touchable, Money} from '_shared';
+import {Text, StyleSheet, Colors, Touchable, Money, DateTime} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import {Switch} from '_navigation';
@@ -54,8 +54,7 @@ class PaymentRow extends React.Component<Props, State> {
               </Text>
             </View>
             <Text style={styleSheet.dateTime}>
-              {/* TODO: Date, Time and DateTime components similar to Money */}
-              <Translation passThrough={data.date} />
+              <Translation passThrough={<DateTime milliseconds={data.date} />} />
             </Text>
           </View>
 

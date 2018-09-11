@@ -16,7 +16,7 @@ type Props =
       ...CommonProps,
     |}
   | {|
-      +passThrough: ?string | ?number,
+      +passThrough: any, // must be compatible with Text children type!
       ...CommonProps,
     |};
 
@@ -39,9 +39,6 @@ export default class Translation extends React.PureComponent<Props> {
       );
     }
 
-    // we do not allow to use 'string' in the 'Text' components but
-    // translations are the only exceptions
-    // $FlowExpectedError: ^^
     return <Text>{p.passThrough}</Text>;
   };
 }
