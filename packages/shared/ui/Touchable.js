@@ -11,13 +11,18 @@ type Props = {|
   +onPress: () => void,
   +style?: StylePropType,
   +pressColor?: string,
-  +accessibilityComponentType?: 'button',
+  +accessibilityRole?: 'none' | 'button',
+
+  // FIXME: should be "React.Element<typeof Translation>" because for example every button works
+  // with the translations in title and accessibility label should be translated as well. But how?
+  +accessibilityLabel?: string,
 |};
 
 const ANDROID_VERSION_LOLLIPOP = 21;
 
 export default class Touchable extends React.Component<Props> {
   static defaultProps = {
+    accessibilityRole: 'button',
     pressColor: 'rgba(0, 0, 0, .32)',
   };
 
@@ -34,10 +39,12 @@ export default class Touchable extends React.Component<Props> {
      * We need to pass the background prop to specify a borderless ripple effect.
      */
     if (Platform.OS === 'android' && Platform.Version >= ANDROID_VERSION_LOLLIPOP) {
-      const {style, ...rest} = this.props;
+      const {accessibilityRole, style, ...rest} = this.props;
       return (
         <TouchableNativeFeedback
           useForeground={TouchableNativeFeedback.canUseNativeForeground()}
+          accessibilityTraits={accessibilityRole} // TODO: replace with accessibilityRole (RN 57)
+          accessibilityComponentType={accessibilityRole} // TODO: replace with accessibilityRole (RN 57)
           {...rest}
           style={null}
           background={TouchableNativeFeedback.Ripple(this.props.pressColor, false)}

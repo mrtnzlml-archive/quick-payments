@@ -13,7 +13,7 @@ type Props = {|
 
 export default function SecondaryButton({iconName, description, onPress}: Props) {
   return (
-    <Touchable accessibilityComponentType="button" onPress={onPress}>
+    <Touchable onPress={onPress}>
       <View style={styleSheet.secondaryButton}>
         <Icon name={iconName} size={40} color={Colors.grey.$800} />
         <Text style={styleSheet.secondaryButtonText}>{description}</Text>

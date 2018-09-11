@@ -32,11 +32,7 @@ function Button(props: Props) {
     return <View style={styleSheet.disabled}>{child}</View>;
   }
 
-  return (
-    <Touchable accessibilityComponentType="button" onPress={props.onPress}>
-      {child}
-    </Touchable>
-  );
+  return <Touchable onPress={props.onPress}>{child}</Touchable>;
 }
 
 Button.defaultProps = {
