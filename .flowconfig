@@ -19,7 +19,7 @@
 ; Ignore metro
 .*/node_modules/metro/.*
 
-; Custom Adeira ignores
+; My custom ignores
 <PROJECT_ROOT>/\.git/
 <PROJECT_ROOT>/node_modules/reqwest/.+
 <PROJECT_ROOT>/node_modules/fbemitter/.+
@@ -27,6 +27,7 @@
 <PROJECT_ROOT>/node_modules/react-relay/lib/.+
 <PROJECT_ROOT>/node_modules/relay-compiler/lib/.+
 <PROJECT_ROOT>/node_modules/relay-runtime/lib/.+
+<PROJECT_ROOT>/node_modules/react-native-web/.+
 
 [include]
 
@@ -55,6 +56,7 @@ module.name_mapper='^[./a-zA-Z0-9$_-]+\.\(bmp\|gif\|jpg\|jpeg\|png\|psd\|svg\|we
 module.file_ext=.js
 module.file_ext=.android.js
 module.file_ext=.ios.js
+module.file_ext=.web.js
 module.file_ext=.jsx
 module.file_ext=.json
 module.file_ext=.native.js

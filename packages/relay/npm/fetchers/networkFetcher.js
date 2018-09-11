@@ -12,30 +12,21 @@ const getToken = () => {
   // localStorage.getItem('authToken');
 };
 
-const ENV = ((process.env: any): {
-  GRAPHQL_URL: string,
-  [key: string]: ?string,
-});
+module.exports = function(graphQLServerURL: string) {
+  return async (request: RequestNode, variables: Variables, uploadables: ?UploadableMap) => {
+    const body = getRequestBody(request, variables, uploadables);
 
-ENV.GRAPHQL_URL = 'http://127.0.0.1:4040';
+    const headers = {
+      ...getHeaders(uploadables),
+      authorization: getToken(),
+    };
 
-module.exports = async (
-  request: RequestNode,
-  variables: Variables,
-  uploadables: ?UploadableMap,
-) => {
-  const body = getRequestBody(request, variables, uploadables);
+    const response = await fetchWithRetries(graphQLServerURL, {
+      method: 'POST',
+      headers,
+      body,
+    });
 
-  const headers = {
-    ...getHeaders(uploadables),
-    authorization: getToken(),
+    return handleData(response);
   };
-
-  const response = await fetchWithRetries(ENV.GRAPHQL_URL, {
-    method: 'POST',
-    headers,
-    body,
-  });
-
-  return handleData(response);
 };

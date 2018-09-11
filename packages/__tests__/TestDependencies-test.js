@@ -30,7 +30,7 @@ test('all dependencies of our workspaces', () => {
     expect(packageJson.bundledDependencies).toBeUndefined();
 
     // no dev deps
-    expect(packageJson.devDependencies).toBeUndefined();
+    // expect(packageJson.devDependencies).toBeUndefined();
 
     for (const dependencyName in packageJson.dependencies) {
       // same dependency versions

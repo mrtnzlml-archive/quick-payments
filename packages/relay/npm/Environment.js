@@ -16,7 +16,7 @@ import RequestExecutor from './RequestExecutor';
 import RequestHandler from './RequestHandler';
 import RequestHandlerBatch from './RequestHandlerBatch';
 // Different fetcher implementations:
-import networkFetcher from './fetchers/networkFetcher';
+import createNetworkFetcher from './fetchers/networkFetcher';
 // import createAsyncFetcher from './fetchers/asyncStorageFetcher';
 
 const source = new RecordSource();
@@ -37,7 +37,7 @@ const fetch = (
       size: 250,
       ttl: 60 * 1000, // one minute
     });
-    const requestExecutor = new RequestExecutor(networkFetcher);
+    const requestExecutor = new RequestExecutor(createNetworkFetcher('http://127.0.0.1:4040'));
     const requestHandler = new RequestHandler(burstCache, requestExecutor);
     const requestHandlerBatch = new RequestHandlerBatch(requestHandler);
 
