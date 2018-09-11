@@ -26,7 +26,6 @@ export const Price = ({amount, currency, locale = 'en'}: Props) => {
     return null;
   }
 
-  // $FlowIssue: https://github.com/facebook/flow/issues/2801
   const price = Intl.NumberFormat(locale, {
     style: 'currency',
     currency,
