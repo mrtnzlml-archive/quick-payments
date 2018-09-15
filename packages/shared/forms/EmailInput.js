@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import _ from 'lodash';
 import Translation from '_translations';
+import {debounce} from '_fbjs';
 
 import TextInput from './TextInput';
 
@@ -42,7 +42,8 @@ export default class EmailInput extends React.Component<Props, State> {
       },
       () => {
         if (this.props.onValidation) {
-          this.props.onValidation(isValid); // TODO: this should be enforced otherwise FormGroup won't work
+          // TODO: this should be enforced otherwise FormGroup won't work
+          this.props.onValidation(isValid);
         }
       },
     );
@@ -53,7 +54,7 @@ export default class EmailInput extends React.Component<Props, State> {
       <TextInput
         keyboardType="email-address"
         placeholder={this.props.placeholder}
-        onChangeText={_.debounce(this.handleInputChange, 1000)}
+        onChangeText={debounce(this.handleInputChange, 1000)}
         errorMessage={
           this.state.isValid ? undefined : <Translation id="General.Form.Validation.Email" />
         }

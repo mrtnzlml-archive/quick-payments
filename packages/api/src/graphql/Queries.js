@@ -2,7 +2,6 @@
 
 import {GraphQLObjectType} from 'graphql';
 
-import GraphQLAllAvailableScenesType from '../__generated__/GraphQLAllAvailableScenesType';
 import {
   Clients as DatabaseClients,
   Payments as DatabasePayments,
@@ -13,7 +12,7 @@ module.exports = new GraphQLObjectType({
   name: 'Query',
   fields: {
     scenes: {
-      type: GraphQLAllAvailableScenesType,
+      type: require('../__generated__/GraphQLAllAvailableScenesType'),
       resolve: () => {
         // TODO: this should be replaced with generated schema - see src/__generated__/README.md
         return {
