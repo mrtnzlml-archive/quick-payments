@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/adeira/mobile-quick-payments/tree/master.svg?style=svg)](https://circleci.com/gh/adeira/mobile-quick-payments/tree/master)
-
 Simplest in-person payments
 
 # Start API server

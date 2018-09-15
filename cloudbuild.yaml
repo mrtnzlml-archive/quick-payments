@@ -1,0 +1,9 @@
+steps:
+  - name: node:8
+    entrypoint: yarn
+    args: ['install']
+
+  - name: node:8
+    args: ['yarn', 'test-ci']
+
+# TODO: cache node_modules
