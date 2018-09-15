@@ -1,6 +1,6 @@
 // @flow
 
-import {GraphQLObjectType} from 'graphql';
+import {GraphQLObjectType, GraphQLNonNull, GraphQLID} from 'graphql';
 
 import {
   Clients as DatabaseClients,
@@ -12,7 +12,7 @@ module.exports = new GraphQLObjectType({
   name: 'Query',
   fields: {
     scenes: {
-      type: require('../__generated__/GraphQLAllAvailableScenesType'),
+      type: require('../generated/GraphQLAllAvailableScenesType'),
       resolve: () => {
         // TODO: this should be replaced with generated schema - see src/__generated__/README.md
         return {
@@ -38,14 +38,24 @@ module.exports = new GraphQLObjectType({
       },
     },
 
-    // TODO: should be implemented by Payment, Client and Retailer
-    // node: {
-    //   type: GraphQLNodeType,
-    //   args: {
-    //     id: {
-    //       type: GraphQLNonNull(GraphQLID),
-    //     },
-    //   },
-    // },
+    node: {
+      type: require('../generated/GraphQLNodeType'),
+      args: {
+        id: {
+          type: GraphQLNonNull(GraphQLID),
+        },
+      },
+      resolve: (_, args) => {
+        // TODO: check the ID! and return appropriate object
+        // (currently returns only Payment structure)
+        return {
+          id: args.id,
+          total: {
+            amount: 123,
+            currency: 'MXN',
+          },
+        };
+      },
+    },
   },
 });

@@ -4,6 +4,10 @@ import {GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString} from 'graph
 
 module.exports = new GraphQLObjectType({
   name: 'Payment',
+  interfaces: [require('./GraphQLNodeType')],
+  isTypeOf: value => {
+    return true; // TODO: check "value instanceof ..."
+  },
   fields: {
     id: {
       type: GraphQLNonNull(GraphQLID),

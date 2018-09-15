@@ -5,6 +5,7 @@ import {GraphQLObjectType, GraphQLString, GraphQLID, GraphQLNonNull} from 'graph
 // TODO: introduce interfaces? (see Client type)
 module.exports = new GraphQLObjectType({
   name: 'Retailer',
+  interfaces: [require('./GraphQLNodeType')],
   fields: {
     id: {
       type: GraphQLNonNull(GraphQLID),
