@@ -25,13 +25,15 @@ export default function getByPath(
   path: $ReadOnlyArray<string | number>,
   fallbackValue?: any,
 ): any {
+  const wildcardArray = [];
   let current = root;
+
   for (let i = 0; i < path.length; i++) {
     const segment = path[i];
 
     if (segment === '*') {
       current.forEach((c, index) => {
-        current[index] = getByPath(c, path.slice(i + 1));
+        wildcardArray[index] = getByPath(c, path.slice(i + 1));
       });
       break;
     }
@@ -43,7 +45,7 @@ export default function getByPath(
       return fallbackValue;
     }
   }
-  return current;
+  return wildcardArray.length > 0 ? wildcardArray : current;
 }
 
 // TODO: helper "isGraphQLError"

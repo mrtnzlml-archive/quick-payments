@@ -3,7 +3,7 @@ type AllAvailableScenes {
   payment: PaymentScene
 }
 
-type Client {
+type Client implements Node {
   id: ID!
   name: String
 }
@@ -17,7 +17,11 @@ type Money {
   currency: SupportedCurrency
 }
 
-type Payment {
+interface Node {
+  id: ID!
+}
+
+type Payment implements Node {
   id: ID!
   status: PaymentStatus
   total: Money
@@ -38,9 +42,10 @@ enum PaymentStatus {
 
 type Query {
   scenes: AllAvailableScenes
+  node(id: ID!): Node
 }
 
-type Retailer {
+type Retailer implements Node {
   id: ID!
   name: String
 }
