@@ -1,5 +1,7 @@
 Simplest in-person payments
 
+- [Relay README](./packages/relay/README.md)
+
 # Start API server
 
 ```
