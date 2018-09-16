@@ -1,7 +1,7 @@
 Note - this directory is actually not generated but this is the idea:
 
 https://youtu.be/9czIsWUoQJY
-https://youtu.be/G_zipR8Y8Ks
+https://youtu.be/G_zipR8Y8Ks - GraphQL at Facebook using Hack/PHP (Adam Kramer)
 
 TL;DR: use codegen
 
@@ -35,30 +35,10 @@ Basically, this idea is that generated GraphQL type should contain all the annot
 descriptions but no actual implementation. It should call the actual JS class from BE. This is a 
 great way how to keep the generated layer as thin as possible.
 
-JavaScript (TODO):
 
-```js
-const Flow = require('flow-parser');
-
-console.error(
-  JSON.stringify(
-    Flow.parse(
-      `
-class DashboardScene {
-  payments = () => {}
-}
-
-export default class AllAvailableScenes {
-  dashboard = (): DashboardScene => {}
-}
-`,
-      {
-        esproposal_class_instance_fields: true,
-        esproposal_optional_chaining: true,
-      },
-    ),
-    null,
-    2,
-  ),
-);
-```
+// GraphQLDeprecatedEnumValues
+// GraphQLEnumValueDescriptions
+// GraphQLObject
+// GraphQLField 
+// GraphQLInterface
+// SelfDescriptive
