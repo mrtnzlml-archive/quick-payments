@@ -48,6 +48,27 @@ export default function getByPath(
   return wildcardArray.length > 0 ? wildcardArray : current;
 }
 
+/**
+ * a.b
+ * a.b[2].c
+ * a[*].b.c
+ * a[*].b.c[*].d.e
+ *
+ * See tests...
+ */
+export function getByStringPath(
+  root: Object | $ReadOnlyArray<any>,
+  path: string,
+  fallbackValue?: any,
+) {
+  const pathChunks = path
+    .replace(/\[(.+?)]/g, '.$1')
+    .split('.')
+    .filter(value => value !== '');
+
+  return getByPath(root, pathChunks, fallbackValue);
+}
+
 // TODO: helper "isGraphQLError"
 //
 // {

@@ -1,16 +1,11 @@
 // @flow
 
-import {getByPath} from '_fbjs';
+import {getByStringPath} from '_fbjs';
 import type {CacheConfig, UploadableMap, Variables} from 'react-relay';
 import type {RequestNode} from 'relay-runtime';
 
 import type {ExecutePayload, Sink} from './executeFunction';
 import cacheHandler from './cacheHandler';
-
-export function get(data: Object, path: string) {
-  const pathChunks = path.replace(/\[\*]/, '.*').split('.');
-  return getByPath(data, pathChunks);
-}
 
 const getDeferrableVariables = (requests, request, variables: Variables) => {
   const {argumentDependencies} = request;
@@ -33,7 +28,7 @@ const getDeferrableVariables = (requests, request, variables: Variables) => {
     // ]
     const {response} = requests[ad.fromRequestName];
 
-    const variable = get(response.data, ad.fromRequestPath);
+    const variable = getByStringPath(response.data, ad.fromRequestPath);
 
     // TODO - handle ifList, ifNull
     return {

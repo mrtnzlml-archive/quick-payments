@@ -1,120 +1,100 @@
 // @flow
 
-import getByPath from '../getByPath';
+import getByPath, {getByStringPath} from '../getByPath';
 
 it('works with object paths', () => {
-  expect(
-    getByPath(
-      {
-        a: {
-          b: 123,
-        },
-      },
-      ['a', 'b'],
-    ),
-  ).toBe(123);
+  const root = {
+    a: {
+      b: 123,
+    },
+  };
+
+  expect(getByPath(root, ['a', 'b'])).toBe(123);
+  expect(getByStringPath(root, 'a.b')).toBe(123);
 });
 
 it('works with array paths', () => {
-  expect(getByPath([[], [[21]]], [1, 0, 0])).toBe(21);
+  const root = [[], [[21]]];
+  expect(getByPath(root, [1, 0, 0])).toBe(21);
+  expect(getByStringPath(root, '[1][0][0]')).toBe(21);
 });
 
 it('works with object and array paths', () => {
-  expect(
-    getByPath(
-      {
-        a: {
-          b: [{c: 1}, {c: 2}, {c: 3}],
-        },
-      },
-      ['a', 'b', 1, 'c'],
-    ),
-  ).toBe(2);
+  const root = {
+    a: {
+      b: [{c: 1}, {c: 2}, {c: 3}],
+    },
+  };
 
-  expect(
-    getByPath(
-      {
-        a: {
-          b: [{c: 1}, {c: 2}, {c: 3}],
-        },
-      },
-      ['a', 'b', '2', 'c'],
-    ),
-  ).toBe(3);
+  expect(getByPath(root, ['a', 'b', 1, 'c'])).toBe(2);
+  expect(getByStringPath(root, 'a.b[1].c')).toBe(2);
+
+  expect(getByPath(root, ['a', 'b', '2', 'c'])).toBe(3);
+  expect(getByStringPath(root, 'a.b[2].c')).toBe(3);
 });
 
 it('returns undefined when path does not exist', () => {
-  expect(
-    getByPath(
-      {
-        a: {
-          b: 123,
-        },
-      },
-      ['a', 'b', 'c'],
-    ),
-  ).toBe(undefined);
+  let root = {
+    a: {
+      b: 123,
+    },
+  };
+  expect(getByPath(root, ['a', 'b', 'c'])).toBe(undefined);
+  expect(getByStringPath(root, 'a.b.c')).toBe(undefined);
 
-  expect(
-    getByPath(
-      {
-        a: {
-          b: [{c: 1}, {c: 2}, {c: 3}],
-        },
-      },
-      ['a', 'b', '3', 'c'],
-    ),
-  ).toBe(undefined);
+  root = {
+    a: {
+      b: [{c: 1}, {c: 2}, {c: 3}],
+    },
+  };
+  expect(getByPath(root, ['a', 'b', '3', 'c'])).toBe(undefined);
+  expect(getByStringPath(root, 'a.b[3].c')).toBe(undefined);
 });
 
 it('returns null as a fallback value', () => {
-  expect(
-    getByPath(
-      {
-        a: {
-          b: 123,
-        },
-      },
-      ['a', 'b', 'c'],
-      null,
-    ),
-  ).toBeNull();
+  const root = {
+    a: {
+      b: 123,
+    },
+  };
+
+  expect(getByPath(root, ['a', 'b', 'c'], null)).toBeNull();
+  expect(getByStringPath(root, 'a.b.c', null)).toBeNull();
 });
 
 it('supports paths with asterisk (*)', () => {
-  expect(
-    getByPath(
+  const root = {
+    a: [
       {
-        a: [
-          {
-            b: {c: 111},
-          },
-          {
-            b: {c: 222},
-          },
-        ],
+        b: {c: 111},
       },
-      ['a', '*', 'b', 'c'],
-      null,
-    ),
-  ).toEqual([111, 222]);
+      {
+        b: {c: 222},
+      },
+    ],
+  };
+
+  expect(getByPath(root, ['a', '*', 'b', 'c'], null)).toEqual([111, 222]);
+  expect(getByStringPath(root, 'a[*].b.c', null)).toEqual([111, 222]);
 });
 
 it('supports paths with many asterisks (*)', () => {
-  expect(
-    getByPath(
+  const root = {
+    a: [
       {
-        a: [
-          {
-            b: {c: [{d: {e: 111}}, {d: {e: 222}}]},
-          },
-          {
-            b: {c: [{d: {e: 333}}, {d: {e: 444}}]},
-          },
-        ],
+        b: {c: [{d: {e: 111}}, {d: {e: 222}}]},
       },
-      ['a', '*', 'b', 'c', '*', 'd', 'e'],
-      null,
-    ),
-  ).toEqual([[111, 222], [333, 444]]);
+      {
+        b: {c: [{d: {e: 333}}, {d: {e: 444}}]},
+      },
+    ],
+  };
+
+  expect(getByPath(root, ['a', '*', 'b', 'c', '*', 'd', 'e'], null)).toEqual([
+    [111, 222],
+    [333, 444],
+  ]);
+  expect(getByStringPath(root, 'a[*].b.c[*].d.e', null)).toEqual([[111, 222], [333, 444]]);
+  expect(getByStringPath(root, 'a[1].b.c[*].d.e', null)).toEqual([333, 444]);
+  expect(getByStringPath(root, 'a[*].b.c[1].d.e', null)).toEqual([222, 444]);
 });
