@@ -4,11 +4,11 @@ Simplest in-person payments
 
 # Start API server
 
-```
-(cd packages/api ; yarn start)
-```
+Server is not needed because GraphQL currently runs in the client but you can start it anyway:
 
-Open: http://127.0.0.1:3000/graphql
+```
+yarn babel-node ./packages/api/server.js
+```
 
 # TODO
 
