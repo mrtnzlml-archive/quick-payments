@@ -7,7 +7,7 @@ import {
   type ReadyState,
 } from 'react-relay';
 
-import Environment from './Environment';
+import {Environment} from '../npm/Public';
 import QueryRendererError from './QueryRendererError';
 import QueryRendererLoading from './QueryRendererLoading';
 

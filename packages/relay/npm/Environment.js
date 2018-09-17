@@ -16,7 +16,7 @@ import RequestExecutor from './RequestExecutor';
 import RequestHandler from './RequestHandler';
 import RequestHandlerBatch from './RequestHandlerBatch';
 // Different fetcher implementations:
-import inMemoryFetcher from './fetchers/inMemoryFetcher';
+import inMemoryFetcher from '../src/inMemoryFetcher';
 // import networkFetcher from './fetchers/networkFetcher';
 // import createAsyncFetcher from './fetchers/asyncStorageFetcher';
 
@@ -60,10 +60,8 @@ const handlerProvider = handle => {
   throw new Error(`handlerProvider: No handler provided for ${handle}`);
 };
 
-const env = new Environment({
+module.exports = new Environment({
   handlerProvider,
   network,
   store,
 });
-
-export default env;
