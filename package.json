@@ -41,7 +41,7 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/.bin/jest --config=.jest.json",
-    "test-ci": "sh ./scripts/test.sh",
+    "test-ci": "node ./scripts/test-ci.js",
     "flow": "flow --include-warnings",
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "relay-compiler --src ./packages --schema ./packages/schema.graphql --verbose",
