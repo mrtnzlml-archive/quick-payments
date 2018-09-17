@@ -4,7 +4,9 @@ const {spawnSync} = require('child_process');
 
 const _x = (command, args) => {
   const {status} = spawnSync(command, args, {stdio: 'inherit'});
-  process.exit(status);
+  if (status !== 0) {
+    process.exit(status);
+  }
 };
 
 _x('yarn', ['lint']);
