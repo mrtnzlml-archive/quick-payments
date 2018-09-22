@@ -26,7 +26,7 @@ mix format --check-formatted                # CI only
 ```
 
 ```
-iex> :observer.start()
+iex> :observer.start
 iex> runtime_info
 ```
 
