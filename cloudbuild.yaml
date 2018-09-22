@@ -1,9 +1,16 @@
 steps:
   - name: node:8
-    entrypoint: yarn
-    args: ['install']
+    args: ['yarn', 'install']
 
   - name: node:8
     args: ['yarn', 'test-ci']
 
-# TODO: cache node_modules
+  # TODO: cache node_modules
+
+  - name: elixir:1.7
+    args: ['mix', 'format', '--check-formatted']
+    dir: 'backend'
+
+  - name: elixir:1.7
+    args: ['mix', 'test']
+    dir: 'backend'
