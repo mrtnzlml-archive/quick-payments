@@ -26,6 +26,8 @@ it('retries the request if the previous attempt timed-out', () => {
   // Timeout last request.
   jest.runAllTimers();
   expect(handleNext.mock.calls[0][0].message).toEqual(
-    'fetchWithRetries: Failed to get response from server, tried ' + (retries + 1) + ' times.',
+    'fetchWithRetries: Failed to get response from server (https://localhost), tried ' +
+      (retries + 1) +
+      ' times.',
   );
 });

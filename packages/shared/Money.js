@@ -35,7 +35,12 @@ export const Price = ({amount, currency, locale = 'en'}: Props) => {
 };
 
 export default createFragmentContainer(
-  ({data}: {|+data: MoneyType|}) => <Price amount={data.amount} currency={data.currency} />,
+  ({data}: {|+data: ?MoneyType|}) => {
+    if (!data) {
+      return null;
+    }
+    return <Price amount={data.amount} currency={data.currency} />;
+  },
   graphql`
     fragment Money on Money {
       amount

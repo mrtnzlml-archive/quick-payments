@@ -31,6 +31,7 @@
     "flow-bin": "^0.81.0",
     "glob": "^7.1.3",
     "jest-expo": "^29.0.0",
+    "node-fetch": "^2.2.0",
     "prettier": "^1.14.2",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
@@ -44,7 +45,7 @@
     "test-ci": "node ./scripts/test-ci.js",
     "flow": "flow --include-warnings",
     "lint": "eslint . --report-unused-disable-directives",
-    "relay": "relay-compiler --src ./packages --schema ./packages/schema.graphql --verbose",
+    "relay": "node ./scripts/relay-compiler.js",
     "relay-cleanup": "find packages -name \"*.graphql.js\" -type f -delete && yarn relay",
     "prettier": "prettier --write \"{flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
   },

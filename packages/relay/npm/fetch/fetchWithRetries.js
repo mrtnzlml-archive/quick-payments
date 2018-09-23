@@ -46,13 +46,13 @@ export default function fetchWithRetries(
       const requestTimeout = setTimeout(() => {
         isRequestAlive = false;
         if (shouldRetry(requestsAttempted)) {
-          warning(false, 'fetchWithRetries: HTTP timeout, retrying.');
+          warning(false, `fetchWithRetries: HTTP timeout (${uri}), retrying.`);
           retryRequest();
         } else {
           reject(
             new Error(
               sprintf(
-                'fetchWithRetries: Failed to get response from server, tried %s times.',
+                `fetchWithRetries: Failed to get response from server (${uri}), tried %s times.`,
                 requestsAttempted,
               ),
             ),
@@ -71,7 +71,7 @@ export default function fetchWithRetries(
             } else if (shouldRetry(requestsAttempted)) {
               // Fetch was not successful, retrying.
               // TODO(#7595849): Only retry on transient HTTP errors.
-              warning(false, 'fetchWithRetries: HTTP error, retrying.');
+              warning(false, `fetchWithRetries: HTTP error (${uri}), retrying.`);
               retryRequest();
             } else {
               // Request was not successful, giving up.

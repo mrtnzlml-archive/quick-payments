@@ -242,7 +242,17 @@ module.exports = {
     'space-in-parens': [WARN, 'never'],
     'space-infix-ops': [WARN, {int32Hint: true}],
     'space-unary-ops': [WARN, {words: true, nonwords: false}],
-    'spaced-comment': [WARN, 'always', {line: {exceptions: ['-', 'eslint', 'global']}, block: {balanced: true}}],
+    'spaced-comment': [
+      ERROR,
+      'always',
+      {
+        block:
+          {
+            balanced: true,
+            markers: [':'] // flow
+          }
+      }
+    ],
     'unicode-bom': [WARN, 'never'],
     'wrap-regex': OFF,
 

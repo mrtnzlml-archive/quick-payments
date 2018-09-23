@@ -1,13 +1,6 @@
 // @flow
 
-const {spawnSync} = require('child_process');
-
-const _x = (command, args) => {
-  const {status} = spawnSync(command, args, {stdio: 'inherit'});
-  if (status !== 0) {
-    process.exit(status);
-  }
-};
+const _x = require('./_x');
 
 _x('yarn', ['lint']);
 _x('yarn', ['flow']);

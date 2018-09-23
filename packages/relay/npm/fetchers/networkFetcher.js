@@ -17,7 +17,7 @@ const ENV = ((process.env: any): {
   [key: string]: ?string,
 });
 
-ENV.GRAPHQL_URL = 'http://127.0.0.1:3000';
+ENV.GRAPHQL_URL = 'http://127.0.0.1:4040';
 
 module.exports = async (
   request: RequestNode,

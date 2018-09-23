@@ -1,25 +1,14 @@
 defmodule GraphQL.Schema do
   use Absinthe.Schema
 
-  @desc "An item"
-  object :item do
-    field(:id, :id)
-    field(:name, :string)
-  end
+  import_types(GraphQL.Scenes.AvailableScenes)
 
-  # Example data
-  @items %{
-    "foo" => %{id: "foo", name: "Foo"},
-    "bar" => %{id: "bar", name: "Bar"}
-  }
+  # TODO: implement `node` query for Payment, Client and Retailer types
 
-  query do
-    field :item, :item do
-      arg(:id, non_null(:id))
-
-      resolve(fn %{id: item_id}, _ ->
-        {:ok, @items[item_id]}
-      end)
+  query name: "RootQuery" do
+    field(:scenes, :AvailableScenes) do
+      # passthrough
+      resolve(fn _, _ -> {:ok, %{}} end)
     end
   end
 end
