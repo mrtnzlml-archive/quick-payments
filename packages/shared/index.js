@@ -9,6 +9,7 @@ export {default as NumericInput} from './forms/NumericInput';
 export {default as Colors} from './ui/Colors';
 export {default as Icon} from './ui/Icon';
 export {default as Layout} from './ui/Layout';
+export {default as NullBoundary} from './ui/NullBoundary';
 export {default as StyleSheet} from './ui/PlatformStyleSheet';
 export {default as SplitScreen} from './ui/SplitScreen';
 export {default as Text} from './ui/Text';
