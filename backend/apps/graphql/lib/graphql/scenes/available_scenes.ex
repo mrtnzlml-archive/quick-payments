@@ -10,6 +10,9 @@ defmodule GraphQL.Scenes.AvailableScenes do
       resolve(fn _, _ -> {:ok, %{}} end)
     end
 
-    field(:payment, :PaymentScene)
+    field(:payment, :PaymentScene) do
+      # passthrough
+      resolve(fn _, _ -> {:ok, %{}} end)
+    end
   end
 end

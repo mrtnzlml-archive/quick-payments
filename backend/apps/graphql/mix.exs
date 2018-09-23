@@ -32,7 +32,8 @@ defmodule GraphQL.MixProject do
       {:absinthe_plug, "~> 1.4"},
       {:cowboy, "~> 2.4"},
       {:plug, "~> 1.6"},
-      {:poison, "~> 4.0"}
+      {:poison, "~> 4.0"},
+      {:uuid, "~> 1.1"}
     ]
   end
 end

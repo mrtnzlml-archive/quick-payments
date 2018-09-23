@@ -1,9 +1,13 @@
-type AllAvailableScenes {
+schema {
+  query: RootQuery
+}
+
+type AvailableScenes {
   dashboard: DashboardScene
   payment: PaymentScene
 }
 
-type Client implements Node {
+type Client {
   id: ID!
   name: String
 }
@@ -17,18 +21,14 @@ type Money {
   currency: SupportedCurrency
 }
 
-interface Node {
+type Payment {
+  client: Client
+  date: String
   id: ID!
-}
-
-type Payment implements Node {
-  id: ID!
+  location: String
+  retailer: Retailer
   status: PaymentStatus
   total: Money
-  client: Client
-  retailer: Retailer
-  location: String
-  date: String
 }
 
 type PaymentScene {
@@ -36,18 +36,17 @@ type PaymentScene {
 }
 
 enum PaymentStatus {
-  PAID
   FAILED
+  PAID
 }
 
-type Query {
-  scenes: AllAvailableScenes
-  node(id: ID!): Node
-}
-
-type Retailer implements Node {
+type Retailer {
   id: ID!
   name: String
+}
+
+type RootQuery {
+  scenes: AvailableScenes
 }
 
 enum SupportedCurrency {

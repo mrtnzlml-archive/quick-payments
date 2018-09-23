@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 1e858c0d5201eb2349ed683de402af54
+ * @relayHash c47b26e624c7ad9670662c6b122d8d0b
  */
 
 /* eslint-disable */
@@ -102,7 +102,7 @@ return {
   "fragment": {
     "kind": "Fragment",
     "name": "dashboardQuery",
-    "type": "Query",
+    "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": v0,
     "selections": [
@@ -112,7 +112,7 @@ return {
         "name": "scenes",
         "storageKey": null,
         "args": null,
-        "concreteType": "AllAvailableScenes",
+        "concreteType": "AvailableScenes",
         "plural": false,
         "selections": [
           {
@@ -158,7 +158,7 @@ return {
         "name": "scenes",
         "storageKey": null,
         "args": null,
-        "concreteType": "AllAvailableScenes",
+        "concreteType": "AvailableScenes",
         "plural": false,
         "selections": [
           {
