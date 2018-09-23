@@ -20,21 +20,3 @@ it('handles failed milliseconds', () => {
 />
 `);
 });
-
-it('works', () => {
-  expect(renderer.render(<DateTime milliseconds="1537727279539" />)).toMatchInlineSnapshot(`
-<Translation
-  passThrough="Sun, Sep 23, 2018, 8:27:59 PM"
-/>
-`);
-});
-
-it('works with different locale', () => {
-  // $FlowExpectedError: locale `cz` is currently not allowed (not officially supported)
-  expect(renderer.render(<DateTime milliseconds="1537727279539" locale="cs" />))
-    .toMatchInlineSnapshot(`
-<Translation
-  passThrough="ne 23. 9. 2018 20:27:59"
-/>
-`);
-});
