@@ -16,7 +16,6 @@ import RequestExecutor from './RequestExecutor';
 import RequestHandler from './RequestHandler';
 import RequestHandlerBatch from './RequestHandlerBatch';
 // Different fetcher implementations:
-// import inMemoryFetcher from '../src/inMemoryFetcher';
 import networkFetcher from './fetchers/networkFetcher';
 // import createAsyncFetcher from './fetchers/asyncStorageFetcher';
 
