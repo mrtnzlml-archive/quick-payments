@@ -5,6 +5,7 @@ import Translation from '_translations';
 import {createFragmentContainer, graphql} from '_relay';
 import Decimal from 'decimal.js-light';
 
+import NullBoundary from './ui/NullBoundary';
 import type {Money as MoneyType} from './__generated__/Money.graphql';
 
 const SupportedLocales = {
@@ -37,7 +38,7 @@ export const Price = ({amount, currency, locale = 'en'}: Props) => {
 export default createFragmentContainer(
   ({data}: {|+data: ?MoneyType|}) => {
     if (!data) {
-      return null;
+      return <NullBoundary length={3} />;
     }
     return <Price amount={data.amount} currency={data.currency} />;
   },
