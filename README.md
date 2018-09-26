@@ -4,11 +4,13 @@ Simplest in-person payments
 
 # Start API server
 
-Server is not needed because GraphQL currently runs in the client but you can start it anyway:
+You will need Elixir to run it:
 
 ```
-yarn babel-node ./packages/api/server.js
+(cd backend ; mix run --no-halt)
 ```
+
+http://127.0.0.1:4040/graphiql
 
 # TODO
 

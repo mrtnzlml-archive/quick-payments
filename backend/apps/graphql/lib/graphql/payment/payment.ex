@@ -1,4 +1,8 @@
 defmodule GraphQL.Payment.Payment do
+  @moduledoc """
+  GraphQL type representing payment.
+  """
+
   use Absinthe.Schema.Notation
 
   import_types(GraphQL.Payment.PaymentStatus)
@@ -14,14 +18,14 @@ defmodule GraphQL.Payment.Payment do
     field(:client, :Client) do
       resolve(fn %{client_id: id}, _, _ ->
         # TODO: connect real data!
-        {:ok, GraphQL.Scenes.PaymentMock.getRandomClient()}
+        {:ok, GraphQL.Scenes.PaymentMock.get_random_client()}
       end)
     end
 
     field(:retailer, :Retailer) do
       resolve(fn %{retailer_id: id}, _, _ ->
         # TODO: connect real data!
-        {:ok, GraphQL.Scenes.PaymentMock.getRandomClient()}
+        {:ok, GraphQL.Scenes.PaymentMock.get_random_client()}
       end)
     end
 

@@ -1,4 +1,8 @@
 defmodule GraphQL.Customers.Client do
+  @moduledoc """
+  GraphQL type representing client.
+  """
+
   use Absinthe.Schema.Notation
 
   object :Client do

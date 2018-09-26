@@ -1,4 +1,8 @@
 defmodule GraphQL.Schema do
+  @moduledoc """
+  GraphQL type representing GraphQL schema.
+  """
+
   use Absinthe.Schema
 
   import_types(GraphQL.Scenes.AvailableScenes)

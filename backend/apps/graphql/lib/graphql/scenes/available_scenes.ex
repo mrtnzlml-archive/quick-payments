@@ -1,4 +1,8 @@
 defmodule GraphQL.Scenes.AvailableScenes do
+  @moduledoc """
+  GraphQL type representing available scenes in the application.
+  """
+
   use Absinthe.Schema.Notation
 
   import_types(GraphQL.Scenes.DashboardScene)

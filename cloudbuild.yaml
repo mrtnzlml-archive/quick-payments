@@ -37,3 +37,5 @@ steps:
   - name: elixir:1.7
     args: ['mix', 'test']
     dir: 'backend'
+
+# TODO: mix credo
