@@ -1,6 +1,7 @@
 defmodule GraphQL.Endpoint do
   use Plug.Router
 
+  plug(CORSPlug)
   plug(:match)
 
   plug(Plug.Parsers,

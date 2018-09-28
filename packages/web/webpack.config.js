@@ -14,15 +14,15 @@ module.exports = {
           options: {
             presets: ['module:metro-react-native-babel-preset'],
             plugins: [
+              'relay',
               [
                 'module-resolver',
                 {
                   alias: {
-                    '^react-native$': 'react-native-web', // FIXME: this is obviously not OK
+                    '^react-native$': 'react-native-web',
                   },
                 },
               ],
-              'relay',
             ],
           },
         },
@@ -30,9 +30,6 @@ module.exports = {
     ],
   },
   resolve: {
-    alias: {
-      'react-native$': 'react-native-web',
-    },
     extensions: ['.web.js', '.js'],
   },
   plugins: [

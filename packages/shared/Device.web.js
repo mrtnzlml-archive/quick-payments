@@ -2,4 +2,5 @@
 
 export default {
   // TODO
+  getCurrentLocaleAsync: () => 'en',
 };

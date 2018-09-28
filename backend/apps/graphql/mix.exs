@@ -30,6 +30,7 @@ defmodule GraphQL.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       # {:sibling_app_in_umbrella, in_umbrella: true},
       {:absinthe_plug, "~> 1.4"},
+      {:cors_plug, "~> 1.5"},
       {:cowboy, "~> 2.4"},
       {:plug, "~> 1.6"},
       {:poison, "~> 4.0"},
