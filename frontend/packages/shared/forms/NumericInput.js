@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import TextInput from './TextInput';
-import Translation from '../../translations';
+import Translation from '../../translations/index';
 
 type Props = {|
   +placeholder: React.Element<typeof Translation>,

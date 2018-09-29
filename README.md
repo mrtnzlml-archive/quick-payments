@@ -1,6 +1,6 @@
 Simplest in-person payments
 
-- [Relay README](./packages/relay/README.md)
+- [Relay README](frontend/packages/relay/README.md)
 
 # Start API server
 
@@ -11,6 +11,25 @@ You will need Elixir to run it:
 ```
 
 http://127.0.0.1:4040/graphiql
+
+# Start Webserver
+
+```
+(cd frontend/apps/website ; yarn start)
+```
+
+And open `file:///...` index.html located in `web` directory. Yes, it's a bit ugly but it's still
+ under heavy development. ¯\_(ツ)_/¯ (`quick-payments/frontend/apps/website/index.html`)
+
+# Start iOS simulator
+
+```
+(cd frontend ; yarn ios)
+```
+
+This should just work (if you have Xcode installed).
+
+---
 
 # TODO
 

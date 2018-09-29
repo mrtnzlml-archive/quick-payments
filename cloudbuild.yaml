@@ -1,41 +1,43 @@
 steps:
   # install JS dependencies
   - name: node:10
+    dir: 'frontend'
     args: ['yarn', 'install']
 
   # test JS client
   - name: node:10
+    dir: 'frontend'
     args: ['yarn', 'test-ci']
 
   # TODO: cache node_modules
 
   # check Elixir formatting
   - name: elixir:1.7
-    args: ['mix', 'format', '--check-formatted']
     dir: 'backend'
+    args: ['mix', 'format', '--check-formatted']
     waitFor: ['-']  # the '-' indicates that this step begins immediately
 
   # install Hex
   - name: elixir:1.7
-    args: ['mix', 'local.hex', '--force']
     dir: 'backend'
+    args: ['mix', 'local.hex', '--force']
     waitFor: ['-']  # the '-' indicates that this step begins immediately
 
   - name: elixir:1.7
-    args: ['mix', 'local.rebar', '--force']
     dir: 'backend'
+    args: ['mix', 'local.rebar', '--force']
     waitFor: ['-']  # the '-' indicates that this step begins immediately
 
   # TODO: create custom Dockerfile to skip all this (^^)
 
   # install dependencies
   - name: elixir:1.7
-    args: ['mix', 'deps.get']
     dir: 'backend'
+    args: ['mix', 'deps.get']
 
   # test Elixir application
   - name: elixir:1.7
-    args: ['mix', 'test']
     dir: 'backend'
+    args: ['mix', 'test']
 
 # TODO: mix credo

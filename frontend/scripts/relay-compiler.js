@@ -27,15 +27,15 @@ fetch(URL, {
   })
   .then(res => {
     const clientSchema = printSchema(buildClientSchema(res.data));
-    fs.writeFileSync(path.join(__dirname, '..', 'packages', 'schema.graphql'), clientSchema);
+    fs.writeFileSync(path.join(__dirname, '..', 'schema.graphql'), clientSchema);
   })
   .catch(error => console.error(error))
   .finally(() => {
     _x('relay-compiler', [
       '--src',
-      './packages',
+      '.',
       '--schema',
-      './packages/schema.graphql',
+      './schema.graphql',
       '--verbose',
       ...process.argv.slice(2),
     ]);
