@@ -282,7 +282,7 @@ module.exports = {
               'StyleSheet', // StyleSheet
             ],
             message:
-              "Please use 'mobile-quick-payments-shared' package instead.",
+              "Please use '_shared' package instead.",
           },
         ],
       },
