@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 22b1f694eff6074bdaabb2d0f911b5f9
+ * @relayHash d31305566d86600e61852e3c0902727a
  */
 
 /* eslint-disable */
@@ -10,10 +10,10 @@
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
 type PaymentRow$ref = any;
-export type srcQueryVariables = {|
+export type PaymentsListQueryVariables = {|
   clientId: string
 |};
-export type srcQueryResponse = {|
+export type PaymentsListQueryResponse = {|
   +scenes: ?{|
     +dashboard: ?{|
       +payments: ?$ReadOnlyArray<?{|
@@ -23,15 +23,15 @@ export type srcQueryResponse = {|
     |}
   |}
 |};
-export type srcQuery = {|
-  variables: srcQueryVariables,
-  response: srcQueryResponse,
+export type PaymentsListQuery = {|
+  variables: PaymentsListQueryVariables,
+  response: PaymentsListQueryResponse,
 |};
 */
 
 
 /*
-query srcQuery(
+query PaymentsListQuery(
   $clientId: ID!
 ) {
   scenes {
@@ -95,13 +95,13 @@ v2 = {
 return {
   "kind": "Request",
   "operationKind": "query",
-  "name": "srcQuery",
+  "name": "PaymentsListQuery",
   "id": null,
-  "text": "query srcQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
+  "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "srcQuery",
+    "name": "PaymentsListQuery",
     "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": v0,
@@ -149,7 +149,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "srcQuery",
+    "name": "PaymentsListQuery",
     "argumentDefinitions": v0,
     "selections": [
       {
@@ -256,5 +256,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '9ea25544cfae719f0c056d0383e1a71a';
+(node/*: any*/).hash = '399141e81cc13d3ea3d09053eb774f3f';
 module.exports = node;

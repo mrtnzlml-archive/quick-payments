@@ -53,7 +53,7 @@
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "node ./scripts/relay-compiler.js",
     "relay-cleanup": "find packages -name \"*.graphql.js\" -type f -delete && yarn relay",
-    "prettier": "prettier --write \"{flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
+    "prettier": "prettier --write \"{apps,flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
   },
   "jest": {
     "preset": "jest-expo"

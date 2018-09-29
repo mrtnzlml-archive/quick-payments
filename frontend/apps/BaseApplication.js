@@ -8,8 +8,10 @@ import {
   type SupportedLanguagesType,
   type TranslationKeysObject,
 } from '_translations';
-import {Switchboard} from '_navigation';
-import {DashboardScene} from '_scenes';
+
+type Props = {|
+  +children: React.Node,
+|};
 
 type State = {|
   isLoading: boolean,
@@ -17,7 +19,7 @@ type State = {|
   intlMessages: TranslationKeysObject,
 |};
 
-export default class Application extends React.Component<{||}, State> {
+export default class BaseApplication extends React.Component<Props, State> {
   state = {
     isLoading: true,
     locale: 'en',
@@ -41,7 +43,7 @@ export default class Application extends React.Component<{||}, State> {
 
     return (
       <IntlProvider locale={this.state.locale} messages={this.state.intlMessages}>
-        <Switchboard initialScene={<DashboardScene />} />
+        {this.props.children}
       </IntlProvider>
     );
   };

@@ -1,60 +1,24 @@
 // @flow
 
 import * as React from 'react';
-import {View, ScrollView} from 'react-native';
+import {View} from 'react-native';
 import {StyleSheet, Layout} from '_shared';
 import Translation from '_translations';
-import {QueryRenderer, graphql} from '_relay';
 import {Switch} from '_navigation';
-import idx from 'idx';
 import {CodeScanScene, CardsScene} from '_scenes';
 import {warning} from '_fbjs';
 
-import PaymentRow from './PaymentRow';
+import PaymentsList from './PaymentsList';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
-import type {dashboardQueryResponse} from './__generated__/dashboardQuery.graphql';
-
-const Query = graphql`
-  query dashboardQuery($clientId: ID!) {
-    scenes {
-      dashboard {
-        payments(clientId: $clientId) {
-          id
-          ...PaymentRow
-        }
-      }
-    }
-  }
-`;
-
-type Props = {||};
 
 type State = {|
   performTransitionTo: React.Node,
 |};
 
-type QueryRendererResponse = {
-  props: ?dashboardQueryResponse,
-};
-
-export default class Dashboard extends React.Component<Props, State> {
+export default class Dashboard extends React.Component<{||}, State> {
   state = {
     performTransitionTo: null,
-  };
-
-  renderQueryRendererResult = ({props}: QueryRendererResponse) => {
-    const payments = idx(props, _ => _.scenes.dashboard.payments) || [];
-    return (
-      <ScrollView>
-        {payments.map(payment => {
-          if (payment) {
-            return <PaymentRow key={payment.id} data={payment} />;
-          }
-          return undefined;
-        })}
-      </ScrollView>
-    );
   };
 
   transitionToCards = () => {
@@ -80,14 +44,7 @@ export default class Dashboard extends React.Component<Props, State> {
 
     return (
       <Layout title={<Translation id="Dashboard.Title" />}>
-        <QueryRenderer
-          query={Query}
-          variables={{
-            // TODO: this should be stored in the device after onboarding
-            clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E',
-          }}
-          render={this.renderQueryRendererResult}
-        />
+        <PaymentsList />
 
         <View style={styleSheet.navigation}>
           <View style={styleSheet.button}>
