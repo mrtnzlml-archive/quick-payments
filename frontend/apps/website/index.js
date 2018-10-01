@@ -4,7 +4,7 @@ import '@babel/polyfill';
 import {View} from 'react-native';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import {invariant} from '_fbjs';
+import {invariant} from '_utils';
 import {Text, StyleSheet, Colors} from '_shared';
 import Translation from '_translations';
 

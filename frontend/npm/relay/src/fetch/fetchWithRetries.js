@@ -1,6 +1,6 @@
 // @flow
 
-import {sprintf, warning} from '_fbjs';
+import {sprintf, warning} from '_utils';
 
 const fetch = require('./fetch');
 

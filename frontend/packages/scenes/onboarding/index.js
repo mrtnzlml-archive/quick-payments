@@ -4,7 +4,7 @@ import * as React from 'react';
 import {StyleSheet, Colors, Title, SplitScreen, EmailInput, Button, FormGroup} from '_shared';
 import Translation from '_translations';
 import {Switch} from '_navigation';
-import {warning} from '_fbjs';
+import {warning} from '_utils';
 
 const OnboardingTop = () => (
   <React.Fragment>

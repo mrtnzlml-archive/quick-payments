@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "_fbjs",
+  "name": "_utils",
   "version": "0.0.0",
   "main": "index.js"
 }

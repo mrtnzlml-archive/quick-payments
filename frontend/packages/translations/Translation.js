@@ -4,7 +4,7 @@ import * as React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {Text} from '_shared';
 import type {TranslationKeys} from '_translations';
-import {invariant} from '_fbjs';
+import {invariant} from '_utils';
 
 type CommonProps = {|
   +testID?: string,

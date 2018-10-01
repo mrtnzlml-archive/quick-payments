@@ -1,6 +1,6 @@
 // @flow
 
-import {warning} from '_fbjs';
+import {warning} from '_utils';
 
 import type {TranslationKeysObject} from './index';
 

@@ -2,7 +2,7 @@
 
 import type {Variables, UploadableMap, CacheConfig} from 'react-relay';
 import type {RequestNode} from 'relay-runtime';
-import {getByStringPath} from '_fbjs';
+import {getByStringPath} from '_utils';
 
 import type {ExecutePayload, Sink} from './helpers';
 

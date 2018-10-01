@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Translation from '_translations';
-import {debounce} from '_fbjs';
+import {debounce} from '_utils';
 
 import TextInput from './TextInput';
 

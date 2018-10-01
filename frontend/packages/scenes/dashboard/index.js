@@ -6,7 +6,7 @@ import {StyleSheet, Layout} from '_shared';
 import Translation from '_translations';
 import {Switch} from '_navigation';
 import {CodeScanScene, CardsScene} from '_scenes';
-import {warning} from '_fbjs';
+import {warning} from '_utils';
 
 import PaymentsList from './PaymentsList';
 import PrimaryButton from './PrimaryButton';

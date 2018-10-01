@@ -7,7 +7,7 @@ import Translation from '_translations';
 import {StyleSheet, Colors, Text, Touchable} from '_shared';
 import {Switch} from '_navigation';
 import {DashboardScene} from '_scenes';
-import {warning} from '_fbjs';
+import {warning} from '_utils';
 
 type State = {|
   hasCameraPermission: boolean | null,
