@@ -13,7 +13,7 @@ defmodule GraphQL.Application do
       Plug.Adapters.Cowboy2.child_spec(
         scheme: :http,
         plug: GraphQL.Endpoint,
-        options: [port: 4040]
+        options: [port: 2048]
       )
     ]
 

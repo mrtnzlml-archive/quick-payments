@@ -1,0 +1,9 @@
+{
+  "private": false,
+  "name": "@mrtnzlml/relay",
+  "version": "0.0.1",
+  "main": "src/Public.js",
+  "dependencies": {
+    "react-relay": "^1.7.0-rc.1"
+  }
+}

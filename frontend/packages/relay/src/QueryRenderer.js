@@ -1,13 +1,13 @@
 // @flow
 
 import * as React from 'react';
+import {Environment} from '@mrtnzlml/relay';
 import {
   QueryRenderer as RelayQueryRenderer,
   type GraphQLTaggedNode,
   type ReadyState,
 } from 'react-relay';
 
-import {Environment} from '../npm/Public';
 import QueryRendererError from './QueryRendererError';
 import QueryRendererLoading from './QueryRendererLoading';
 

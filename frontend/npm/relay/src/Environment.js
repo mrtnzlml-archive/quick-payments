@@ -37,7 +37,7 @@ const fetch = (
       size: 250,
       ttl: 60 * 1000, // one minute
     });
-    const requestExecutor = new RequestExecutor(createNetworkFetcher('http://127.0.0.1:4040'));
+    const requestExecutor = new RequestExecutor(createNetworkFetcher('http://127.0.0.1:2048'));
     const requestHandler = new RequestHandler(burstCache, requestExecutor);
     const requestHandlerBatch = new RequestHandlerBatch(requestHandler);
 

@@ -1,6 +1,6 @@
 Simplest in-person payments
 
-- [Relay README](frontend/packages/relay/README.md)
+- [Relay README](frontend/npm/relay/README.md)
 
 # Start API server
 
@@ -28,6 +28,22 @@ And open `file:///...` index.html located in `web` directory. Yes, it's a bit ug
 ```
 
 This should just work (if you have Xcode installed).
+
+# Directory structure
+
+```
+.
+├── backend
+│   ├── apps
+├── cloudbuild.yaml
+└── frontend
+    ├── apps
+    ├── flow-typed
+    ├── npm
+    ├── packages
+    ├── schema.graphql
+    ├── scripts
+```
 
 ---
 
