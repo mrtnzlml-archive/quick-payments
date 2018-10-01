@@ -9,7 +9,7 @@ const {buildClientSchema, introspectionQuery, printSchema} = require('graphql/ut
 const _x = require('./_x');
 
 // (cd backend ; mix run --no-halt)
-const URL = 'http://localhost:4040';
+const URL = 'http://127.0.0.1:2048';
 
 fetch(URL, {
   method: 'POST',
