@@ -1,6 +1,6 @@
 // @flow
 
-import {warning} from '_utils';
+import {warning} from '@mrtnzlml/utils';
 import {AsyncStorage} from 'react-native';
 import {RecordSource, createOperationSelector, Store, type RequestNode} from 'relay-runtime';
 import type {UploadableMap, Variables, CacheConfig} from 'react-relay';

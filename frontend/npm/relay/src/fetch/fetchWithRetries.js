@@ -1,6 +1,6 @@
 // @flow
 
-import {sprintf, warning} from '_utils';
+import {sprintf, warning} from '@mrtnzlml/utils';
 
 const fetch = require('./fetch');
 

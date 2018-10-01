@@ -2,7 +2,10 @@
 
 const _x = require('./_x');
 
-['relay'].forEach(packageName => publishPackage(packageName));
+[
+  'relay',
+  'utils',
+].forEach(packageName => publishPackage(packageName));
 
 function publishPackage(packageName) {
   _x('yarn', [
