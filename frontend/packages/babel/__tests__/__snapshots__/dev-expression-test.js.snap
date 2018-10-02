@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dev-expression should replace __DEV__ in if 1`] = `
+"if (process.env.NODE_ENV !== \\"production\\") {
+  console.log('foo');
+}"
+`;
+
+exports[`dev-expression should replace __DEV__ in ternary operator 1`] = `"const dev = process.env.NODE_ENV !== \\"production\\" ? true : false;"`;
