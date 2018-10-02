@@ -38,6 +38,7 @@ const fetch = (
       ttl: 60 * 1000, // one minute
     });
     const requestExecutor = new RequestExecutor(createNetworkFetcher('http://127.0.0.1:2048'));
+    // TODO: burst cache should be optional
     const requestHandler = new RequestHandler(burstCache, requestExecutor);
     const requestHandlerBatch = new RequestHandlerBatch(requestHandler);
 

@@ -5,5 +5,14 @@
  */
 module.exports = {
   // TODO: export even other stuff
+  // TODO: deal with the __DEV__
   Environment: require('./Environment'),
+
+  RequestHandler: require('./RequestHandler'),
+  RequestHandlerBatch: require('./RequestHandlerBatch'),
+  RequestExecutor: require('./RequestExecutor'),
+
+  // fetchers
+  createNetworkFetcher: require('./fetchers/networkFetcher'),
+  createAsyncFetcher: require('./fetchers/asyncStorageFetcher'),
 };
