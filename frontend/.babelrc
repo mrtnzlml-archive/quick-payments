@@ -1,9 +1,12 @@
 {
   "presets": ["babel-preset-expo"],
   "plugins": [
-    "./packages/babel/dev-expression.js", // transforms __DEV__ => process.env.NODE_ENV
-//    TODO: this cannot be run in tests env (vv)
-//    "babel-plugin-transform-node-env-inline", // evaluates process.env.NODE_ENV => true/false
+    // TODO: this cannot be used with RN
+    // "./packages/babel/dev-expression.js", // transforms __DEV__ => process.env.NODE_ENV
+
+    // TODO: this cannot be run in tests env (vv)
+    // "babel-plugin-transform-node-env-inline", // evaluates process.env.NODE_ENV => true/false
+
     "babel-plugin-minify-dead-code-elimination",
     "babel-plugin-transform-undefined-to-void", // undefined => void 0
     "babel-plugin-idx",
