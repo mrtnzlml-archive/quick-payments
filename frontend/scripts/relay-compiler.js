@@ -32,10 +32,8 @@ fetch(URL, {
   .catch(error => console.error(error))
   .finally(() => {
     _x('relay-compiler', [
-      '--src',
-      '.',
-      '--schema',
-      './schema.graphql',
+      '--src=.',
+      '--schema=./schema.graphql',
       '--verbose',
       ...process.argv.slice(2),
     ]);

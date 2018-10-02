@@ -41,7 +41,9 @@
     "jest-expo": "^30.0.0",
     "node-fetch": "^2.2.0",
     "prettier": "^1.14.2",
-    "react-test-renderer": "16.3.1"
+    "prompts": "^1.1.1",
+    "react-test-renderer": "16.3.1",
+    "rimraf": "^2.6.2"
   },
   "main": "apps/mobile/index.js",
   "scripts": {
@@ -52,8 +54,8 @@
     "flow": "flow --include-warnings",
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "node ./scripts/relay-compiler.js",
-    "relay-cleanup": "find packages -name \"*.graphql.js\" -type f -delete && yarn relay",
-    "prettier": "prettier --write \"{apps,flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
+    "prettier": "prettier --write \"{apps,flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js",
+    "release": "node ./scripts/publish-npm-packages.js"
   },
   "jest": {
     "preset": "jest-expo"

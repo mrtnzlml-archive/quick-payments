@@ -1,11 +1,18 @@
 // @flow
 
+const prompts = require('prompts');
+const rimraf = require('rimraf');
+
 const _x = require('./_x');
 
-[
-  'relay',
-  'utils',
-].forEach(packageName => publishPackage(packageName));
+prompts({
+  type: 'select',
+  name: 'value',
+  message: 'What package do you want to release?',
+  choices: [{title: '@mrtnzlml/relay', value: 'relay'}, {title: '@mrtnzlml/utils', value: 'utils'}],
+}).then(({value: packageName}) => {
+  rimraf('npm/.build', () => publishPackage(packageName));
+});
 
 function publishPackage(packageName) {
   _x('yarn', [
@@ -18,5 +25,3 @@ function publishPackage(packageName) {
   _x('yarn', ['test', `npm/.build/${packageName}`]);
   _x('npm', ['publish', `npm/.build/${packageName}`, '--access=public']);
 }
-
-// node ./scripts/publish-npm-packages.js
