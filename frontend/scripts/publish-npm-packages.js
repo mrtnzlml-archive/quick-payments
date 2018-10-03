@@ -23,5 +23,7 @@ function publishPackage(packageName) {
     '--include-dotfiles', // TODO: does not copy .npmignore (?)
   ]);
   _x('yarn', ['test', `npm/.build/${packageName}`]);
+
+  // https://github.com/yarnpkg/yarn/issues/2935
   _x('npm', ['publish', `npm/.build/${packageName}`, '--access=public']);
 }

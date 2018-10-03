@@ -8,7 +8,7 @@
 - uploadables
 - request burst cache (response cache)
 - batch requests
-- fetch with retries
+- fetch [ponyfill](https://ponyfill.com/) with retries and timeouts
 
 TODO:
 

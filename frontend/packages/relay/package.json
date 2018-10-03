@@ -6,6 +6,7 @@
   "dependencies": {
     "@mrtnzlml/relay": "^0",
     "babel-plugin-relay": "^1.7.0-rc.1",
+    "cross-fetch": "^2.2.2",
     "relay-compiler": "^1.7.0-rc.1"
   }
 }
