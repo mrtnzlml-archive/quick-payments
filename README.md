@@ -45,6 +45,10 @@ This should just work (if you have Xcode installed).
     ├── scripts
 ```
 
+```
+node ./scripts/publish-npm-packages.js
+```
+
 ---
 
 # TODO

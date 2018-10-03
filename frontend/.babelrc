@@ -1,9 +1,6 @@
 {
-  "presets": ["babel-preset-expo"],
   "plugins": [
-    "./packages/babel/dev-expression.js", // transforms __DEV__ => process.env.NODE_ENV
-
-    // TODO: inline requires
+    // TODO: inline require() calls
 
     "babel-plugin-minify-dead-code-elimination",
     "babel-plugin-transform-undefined-to-void", // undefined => void 0
@@ -14,5 +11,6 @@
         "schema": "schema.graphql"
       }
     ]
-  ]
+  ],
+  "presets": ["babel-preset-expo"]
 }

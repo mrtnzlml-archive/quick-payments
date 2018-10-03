@@ -1,9 +1,9 @@
 // @flow
 
+import fetchWithRetries from '@mrtnzlml/fetch';
 import type {UploadableMap, Variables} from 'react-relay';
 import type {RequestNode} from 'relay-runtime';
 
-import fetchWithRetries from '../fetch/fetchWithRetries';
 import {handleData, getRequestBody, getHeaders} from '../helpers';
 
 // return user auth token

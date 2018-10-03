@@ -56,8 +56,7 @@
     "flow": "flow --include-warnings",
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "node ./scripts/relay-compiler.js",
-    "prettier": "prettier --write \"{apps,flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js",
-    "release": "NODE_ENV=production node ./scripts/publish-npm-packages.js"
+    "prettier": "prettier --write \"{apps,flow-typed,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
   },
   "jest": {
     "preset": "jest-expo"
