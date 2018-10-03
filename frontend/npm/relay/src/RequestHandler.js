@@ -11,12 +11,12 @@ import {isMutation, isQuery, forceFetch, type ExecutePayload, type Sink} from '.
  * It uses burst cache to reduce number of requests being sent.
  */
 export default class RequestHandler {
-  burstCache: RelayQueryResponseCache;
   requestExecutor: Object; // TODO
+  burstCache: RelayQueryResponseCache;
 
-  constructor(burstCache: RelayQueryResponseCache, requestExecutor: Object) {
-    this.burstCache = burstCache;
+  constructor(requestExecutor: Object, burstCache: RelayQueryResponseCache | boolean = false) {
     this.requestExecutor = requestExecutor;
+    this.burstCache = burstCache;
   }
 
   handle = async (
@@ -30,7 +30,9 @@ export default class RequestHandler {
     const queryID = request.text;
 
     if (isMutation(request)) {
-      this.burstCache.clear();
+      if (this.burstCache) {
+        this.burstCache.clear();
+      }
       return this.requestExecutor.execute(
         request,
         variables,
@@ -41,14 +43,15 @@ export default class RequestHandler {
       );
     }
 
-    const fromCache = this.burstCache.get(queryID, variables);
-
-    if (isQuery(request) && fromCache !== null && !forceFetch(cacheConfig)) {
-      sink.next(fromCache);
-      if (complete) {
-        sink.complete();
+    if (this.burstCache) {
+      const fromCache = this.burstCache.get(queryID, variables);
+      if (isQuery(request) && fromCache !== null && !forceFetch(cacheConfig)) {
+        sink.next(fromCache);
+        if (complete) {
+          sink.complete();
+        }
+        return fromCache;
       }
-      return fromCache;
     }
 
     const fromServer = await this.requestExecutor.execute(
@@ -59,7 +62,7 @@ export default class RequestHandler {
       sink,
       complete,
     );
-    if (fromServer) {
+    if (fromServer && this.burstCache) {
       this.burstCache.set(queryID, variables, fromServer);
     }
 

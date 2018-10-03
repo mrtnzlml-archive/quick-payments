@@ -14,3 +14,4 @@ TODO:
 
 - subscriptions
 - deferrable requests (only simple requests allowed now)
+- handle partial errors (is it necessary thought? there is RelayNetworkLogger instead)

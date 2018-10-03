@@ -39,7 +39,7 @@ const fetch = (
     });
     const requestExecutor = new RequestExecutor(createNetworkFetcher('http://127.0.0.1:2048'));
     // TODO: burst cache should be optional
-    const requestHandler = new RequestHandler(burstCache, requestExecutor);
+    const requestHandler = new RequestHandler(requestExecutor, burstCache);
     const requestHandlerBatch = new RequestHandlerBatch(requestHandler);
 
     if (request.kind === 'Request') {
