@@ -1,0 +1,144 @@
+{
+  "id": "4cc7694c-a93d-4627-a0a6-5eb7555556e7",
+  "projectId": "quick-payments-216313",
+  "status": "SUCCESS",
+  "source": {
+    "storageSource": {
+      "bucket": "493873499514.cloudbuild-source.googleusercontent.com",
+      "object": "30ec503a68e14d1d09b7e6e42a625adad4dec539-3857fe7e-ad99-4040-badb-b33070d5ebc2.tar.gz"
+    }
+  },
+  "steps": [
+    {
+      "name": "node:10",
+      "args": ["yarn", "install"],
+      "dir": "frontend",
+      "timing": {
+        "startTime": "2018-10-01T15:53:22.688985514Z",
+        "endTime": "2018-10-01T15:55:04.034744775Z"
+      },
+      "status": "SUCCESS"
+    },
+    {
+      "name": "node:10",
+      "args": ["yarn", "test-ci"],
+      "dir": "frontend",
+      "timing": {
+        "startTime": "2018-10-01T15:55:04.034756157Z",
+        "endTime": "2018-10-01T15:56:34.552320456Z"
+      },
+      "status": "SUCCESS"
+    },
+    {
+      "name": "elixir:1.7",
+      "args": ["mix", "format", "--check-formatted"],
+      "dir": "backend",
+      "waitFor": ["-"],
+      "timing": {
+        "startTime": "2018-10-01T15:53:22.689360777Z",
+        "endTime": "2018-10-01T15:53:47.031737493Z"
+      },
+      "status": "SUCCESS"
+    },
+    {
+      "name": "elixir:1.7",
+      "args": ["mix", "local.hex", "--force"],
+      "dir": "backend",
+      "waitFor": ["-"],
+      "timing": {
+        "startTime": "2018-10-01T15:53:22.693829121Z",
+        "endTime": "2018-10-01T15:53:48.596330485Z"
+      },
+      "status": "SUCCESS"
+    },
+    {
+      "name": "elixir:1.7",
+      "args": ["mix", "local.rebar", "--force"],
+      "dir": "backend",
+      "waitFor": ["-"],
+      "timing": {
+        "startTime": "2018-10-01T15:53:22.709327560Z",
+        "endTime": "2018-10-01T15:53:48.799391874Z"
+      },
+      "status": "SUCCESS"
+    },
+    {
+      "name": "elixir:1.7",
+      "args": ["mix", "deps.get"],
+      "dir": "backend",
+      "timing": {
+        "startTime": "2018-10-01T15:56:34.552335407Z",
+        "endTime": "2018-10-01T15:56:38.900160100Z"
+      },
+      "status": "SUCCESS"
+    },
+    {
+      "name": "elixir:1.7",
+      "args": ["mix", "test"],
+      "dir": "backend",
+      "timing": {
+        "startTime": "2018-10-01T15:56:38.900180002Z",
+        "endTime": "2018-10-01T15:57:41.109590171Z"
+      },
+      "status": "SUCCESS"
+    }
+  ],
+  "results": {
+    "buildStepImages": [
+      "",
+      "sha256:32d5d5435e5038028bd0c0871d256d5887b06c4315cb1a135bcf81e0735627c9",
+      "",
+      "",
+      "",
+      "sha256:493901ce1b3c9f5d88b66bc80ed47ca0500bd6e0e5ee6e77562cabb5fcb4c394",
+      "sha256:493901ce1b3c9f5d88b66bc80ed47ca0500bd6e0e5ee6e77562cabb5fcb4c394"
+    ],
+    "buildStepOutputs": []
+  },
+  "createTime": "2018-10-01T15:53:17.436216787Z",
+  "startTime": "2018-10-01T15:53:18.652125359Z",
+  "finishTime": "2018-10-01T15:57:44.669922Z",
+  "timeout": "600s",
+  "logsBucket": "gs://493873499514.cloudbuild-logs.googleusercontent.com",
+  "sourceProvenance": {
+    "resolvedStorageSource": {
+      "bucket": "493873499514.cloudbuild-source.googleusercontent.com",
+      "object": "30ec503a68e14d1d09b7e6e42a625adad4dec539-3857fe7e-ad99-4040-badb-b33070d5ebc2.tar.gz",
+      "generation": "1538409197078298"
+    },
+    "fileHashes": {
+      "gs://493873499514.cloudbuild-source.googleusercontent.com/30ec503a68e14d1d09b7e6e42a625adad4dec539-3857fe7e-ad99-4040-badb-b33070d5ebc2.tar.gz#1538409197078298": {
+        "fileHash": [
+          {
+            "type": "MD5",
+            "value": "yh8SZtqDHeR47mhDiBzxJQ=="
+          }
+        ]
+      }
+    }
+  },
+  "options": {
+    "substitutionOption": "ALLOW_LOOSE",
+    "logging": "LEGACY"
+  },
+  "logUrl": "https://console.cloud.google.com/gcr/builds/4cc7694c-a93d-4627-a0a6-5eb7555556e7?project=493873499514",
+  "substitutions": {
+    "BRANCH_NAME": "master",
+    "COMMIT_SHA": "30ec503a68e14d1d09b7e6e42a625adad4dec539",
+    "REPO_NAME": "quick-payments",
+    "REVISION_ID": "30ec503a68e14d1d09b7e6e42a625adad4dec539",
+    "SHORT_SHA": "30ec503",
+    "TAG_NAME": ""
+  },
+  "tags": ["event-fad77d00-3855-4872-a900-b4b1e2325b98"],
+  "timing": {
+    "BUILD": {
+      "startTime": "2018-10-01T15:53:22.688947581Z",
+      "endTime": "2018-10-01T15:57:43.982182042Z"
+    },
+    "FETCHSOURCE": {
+      "startTime": "2018-10-01T15:53:20.173925009Z",
+      "endTime": "2018-10-01T15:53:22.672615476Z"
+    }
+  }
+}
