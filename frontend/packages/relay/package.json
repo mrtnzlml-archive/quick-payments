@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@mrtnzlml/relay": "^0",
-    "babel-plugin-relay": "^1.7.0-rc.1"
+    "babel-plugin-relay": "^1.7.0-rc.1",
+    "relay-compiler": "^1.7.0-rc.1"
   }
 }

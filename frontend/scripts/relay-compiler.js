@@ -31,7 +31,8 @@ fetch(URL, {
   })
   .catch(error => console.error(error))
   .finally(() => {
-    _x('relay-compiler', [
+    _x('yarn', [
+      'relay-compiler',
       '--src=.',
       '--schema=./schema.graphql',
       '--verbose',
