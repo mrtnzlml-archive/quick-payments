@@ -46,8 +46,7 @@ export default function fetchWithRetries(
       const requestTimeout = setTimeout(() => {
         isRequestAlive = false;
         if (shouldRetry(requestsAttempted)) {
-          warning(false, `fetchWithRetries: HTTP timeout (${uri}), retrying.`);
-          retryRequest();
+          retryRequest(`fetchWithRetries: HTTP timeout (${uri}), retrying.`);
         } else {
           reject(
             new Error(
@@ -71,8 +70,7 @@ export default function fetchWithRetries(
             } else if (shouldRetry(requestsAttempted)) {
               // Fetch was not successful, retrying.
               // TODO(#7595849): Only retry on transient HTTP errors.
-              warning(false, `fetchWithRetries: HTTP error (${uri}), retrying.`);
-              retryRequest();
+              retryRequest(`fetchWithRetries: HTTP error (${uri}), retrying.`);
             } else {
               // Request was not successful, giving up.
               const error: any = new Error(
@@ -90,7 +88,7 @@ export default function fetchWithRetries(
         .catch(error => {
           clearTimeout(requestTimeout);
           if (shouldRetry(requestsAttempted)) {
-            retryRequest();
+            retryRequest(`fetchWithRetries: ${error.message} (${uri}), retrying.`);
           } else {
             reject(error);
           }
@@ -101,7 +99,9 @@ export default function fetchWithRetries(
      * Schedules another run of sendTimedRequest based on how much time has
      * passed between the time the last request was sent and now.
      */
-    function retryRequest(): void {
+    function retryRequest(reason): void {
+      warning(false, reason);
+
       const retryDelay = _retryDelays[requestsAttempted - 1];
       const retryStartTime = requestStartTime + retryDelay;
       // Schedule retry for a configured duration after last request started.

@@ -2,15 +2,6 @@
   "plugins": [
     // TODO: inline require() calls
 
-    [
-      "babel-plugin-transform-runtime",
-      {
-        "corejs": false,
-        "helpers": false,
-        "regenerator": true,
-        "useESModules": false
-      }
-    ],
     "babel-plugin-minify-dead-code-elimination",
     "babel-plugin-transform-undefined-to-void", // undefined => void 0
     "babel-plugin-idx",

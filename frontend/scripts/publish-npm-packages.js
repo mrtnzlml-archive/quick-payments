@@ -37,6 +37,7 @@ function publishPackage(packageName) {
     '--copy-files',
     '--include-dotfiles', // TODO: does not copy .npmignore (?)
     `--plugins=${path.join(__dirname, '../packages/babel/dev-expression.js')}`, // transforms __DEV__ => process.env.NODE_ENV
+    '--plugins=babel-plugin-transform-runtime', // so we don't require global regenerator runtime
   ]);
   _x('cp', ['scripts/templates/.npmignore', `${path.join(buildDirPackage, '.npmignore')}`]);
   _x('yarn', ['test', buildDirPackage]);
