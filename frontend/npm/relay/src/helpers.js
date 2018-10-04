@@ -7,12 +7,15 @@ export const isMutation = (request: RequestNode) => request.operationKind === 'm
 export const isQuery = (request: RequestNode) => request.operationKind === 'query';
 export const forceFetch = (cacheConfig: CacheConfig) => !!(cacheConfig && cacheConfig.force);
 
-export const handleData = (response: any) => {
+export const handleData = (response: {|
+  +headers: Object, // TODO
+  +json: () => Object,
+  +text: () => string,
+|}) => {
   const contentType = response.headers.get('content-type');
   if (contentType && contentType.indexOf('application/json') !== -1) {
     return response.json();
   }
-
   return response.text();
 };
 
