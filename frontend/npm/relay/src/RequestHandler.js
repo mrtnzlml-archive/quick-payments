@@ -1,16 +1,15 @@
 // @flow
 
 import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
-import type {Variables, UploadableMap, CacheConfig} from 'react-relay';
-import type {RequestNode} from 'relay-runtime';
 
-import {isMutation, isQuery, forceFetch, type ExecutePayload, type Sink} from './helpers';
+import {isMutation, isQuery, forceFetch} from './helpers';
+import type {RequestNode, CacheConfig, Uploadables, Variables, Sink} from './types.flow';
 
 /**
  * This takes care about handling simple request to your GraphQL underlying service.
  * It uses burst cache to reduce number of requests being sent.
  */
-export default class RequestHandler {
+module.exports = class RequestHandler {
   requestExecutor: Object; // TODO
   burstCache: RelayQueryResponseCache;
 
@@ -20,21 +19,21 @@ export default class RequestHandler {
   }
 
   handle = async (
-    request: RequestNode,
+    requestNode: RequestNode,
     variables: Variables,
     cacheConfig: CacheConfig,
-    uploadables: ?UploadableMap,
-    sink: Sink<ExecutePayload>,
+    uploadables: ?Uploadables,
+    sink: Sink,
     complete: boolean = false,
   ) => {
-    const queryID = request.text;
+    const queryID = requestNode.text;
 
-    if (isMutation(request)) {
+    if (isMutation(requestNode)) {
       if (this.burstCache) {
         this.burstCache.clear();
       }
       return this.requestExecutor.execute(
-        request,
+        requestNode,
         variables,
         cacheConfig,
         uploadables,
@@ -45,7 +44,7 @@ export default class RequestHandler {
 
     if (this.burstCache) {
       const fromCache = this.burstCache.get(queryID, variables);
-      if (isQuery(request) && fromCache !== null && !forceFetch(cacheConfig)) {
+      if (isQuery(requestNode) && fromCache !== null && !forceFetch(cacheConfig)) {
         sink.next(fromCache);
         if (complete) {
           sink.complete();
@@ -55,7 +54,7 @@ export default class RequestHandler {
     }
 
     const fromServer = await this.requestExecutor.execute(
-      request,
+      requestNode,
       variables,
       cacheConfig,
       uploadables,
@@ -68,4 +67,4 @@ export default class RequestHandler {
 
     return fromServer;
   };
-}
+};

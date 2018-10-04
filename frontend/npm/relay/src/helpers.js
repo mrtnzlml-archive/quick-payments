@@ -7,36 +7,6 @@ export const isMutation = (request: RequestNode) => request.operationKind === 'm
 export const isQuery = (request: RequestNode) => request.operationKind === 'query';
 export const forceFetch = (cacheConfig: CacheConfig) => !!(cacheConfig && cacheConfig.force);
 
-type ConcreteOperation = any;
-type GraphQLResponse = any;
-
-/**
- * The data returned from Relay's execute function, which includes both the
- * raw GraphQL network response as well as any related client metadata.
- */
-export type ExecutePayload = {|
-  // The operation executed
-  operation: ConcreteOperation,
-  // The variables which were used during this execution.
-  variables: Variables,
-  // The response from GraphQL execution
-  response: GraphQLResponse,
-  // Default is false
-  isOptimistic?: boolean,
-|};
-
-/**
- * A Sink is an object of methods provided by Observable during construction.
- * The methods are to be called to trigger each event. It also contains a closed
- * field to see if the resulting subscription has closed.
- */
-export type Sink<-T> = {|
-  +next: T => void,
-  +error: (Error, isUncaughtThrownError?: boolean) => void,
-  +complete: () => void,
-  +closed: boolean,
-|};
-
 export const handleData = (response: any) => {
   const contentType = response.headers.get('content-type');
   if (contentType && contentType.indexOf('application/json') !== -1) {

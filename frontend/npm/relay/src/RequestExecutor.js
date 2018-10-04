@@ -1,32 +1,30 @@
 // @flow
 
-import type {CacheConfig, UploadableMap, Variables} from 'react-relay';
-import type {RequestNode} from 'relay-runtime';
-
-import {isMutation, type ExecutePayload, type Sink} from './helpers';
+import {isMutation} from './helpers';
+import type {RequestNode, CacheConfig, Uploadables, Variables, Sink} from './types.flow';
 
 /**
  * Handles actual execution using observables.
  */
-export default class RequestExecutor {
-  fetcherImplementation: Function; // TODO
+module.exports = class RequestExecutor {
+  fetcher: Object; // TODO
 
-  constructor(fetcherImplementation: Function) {
-    this.fetcherImplementation = fetcherImplementation;
+  constructor(fetcher: Object) {
+    this.fetcher = fetcher;
   }
 
   execute = async (
-    request: RequestNode,
+    requestNode: RequestNode,
     variables: Variables,
     cacheConfig: CacheConfig,
-    uploadables: ?UploadableMap,
-    sink: Sink<ExecutePayload>,
+    uploadables: ?Uploadables,
+    sink: Sink,
     complete: boolean = false,
   ) => {
     try {
-      const data = await this.fetcherImplementation(request, variables, uploadables);
+      const data = await this.fetcher.fetch(requestNode, variables, uploadables);
 
-      if (isMutation(request) && data.errors) {
+      if (isMutation(requestNode) && data.errors) {
         sink.error(data);
 
         if (complete) {
@@ -37,7 +35,7 @@ export default class RequestExecutor {
       }
 
       sink.next({
-        operation: request.operation,
+        operation: requestNode.operation,
         variables,
         response: data,
       });
@@ -47,7 +45,7 @@ export default class RequestExecutor {
       }
 
       return {
-        operation: request.operation,
+        operation: requestNode.operation,
         variables,
         response: data,
       };
@@ -56,4 +54,4 @@ export default class RequestExecutor {
       return undefined;
     }
   };
-}
+};

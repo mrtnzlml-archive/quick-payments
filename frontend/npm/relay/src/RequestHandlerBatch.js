@@ -1,10 +1,8 @@
 // @flow
 
-import type {Variables, UploadableMap, CacheConfig} from 'react-relay';
-import type {RequestNode} from 'relay-runtime';
 import {getByStringPath} from '@mrtnzlml/utils';
 
-import type {ExecutePayload, Sink} from './helpers';
+import type {RequestNode, CacheConfig, Uploadables, Variables, Sink} from './types.flow';
 
 const getDeferrableVariables = (requests, request, variables: Variables) => {
   const {argumentDependencies} = request;
@@ -42,7 +40,7 @@ const getDeferrableVariables = (requests, request, variables: Variables) => {
  *
  * PLEASE NOTE: it doesn't support deferred lists at this moment (TODO).
  */
-export default class RequestHandlerBatch {
+module.exports = class RequestHandlerBatch {
   requestHandler: Object; // TODO
 
   constructor(requestHandler: Object) {
@@ -50,15 +48,15 @@ export default class RequestHandlerBatch {
   }
 
   handle = async (
-    request: RequestNode,
+    requestNode: RequestNode,
     variables: Variables,
     cacheConfig: CacheConfig,
-    uploadables: ?UploadableMap,
-    sink: Sink<ExecutePayload>,
+    uploadables: ?Uploadables,
+    sink: Sink,
   ) => {
     const requests = {};
 
-    for (const r of request.requests) {
+    for (const r of requestNode.requests) {
       const v = getDeferrableVariables(requests, r, variables);
 
       // TODO: we must send multiple queries here
@@ -75,4 +73,4 @@ export default class RequestHandlerBatch {
 
     sink.complete();
   };
-}
+};
