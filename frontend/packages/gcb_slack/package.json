@@ -5,6 +5,6 @@
   "description": "Slack integration for Google Cloud Build, using Google Cloud Functions",
   "main": "index.js",
   "dependencies": {
-    "@slack/client": "3.9.0"
+    "@slack/client": "4.8.0"
   }
 }
