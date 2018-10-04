@@ -49,12 +49,16 @@ it('works with additional headers', async () => {
   });
 });
 
-it('works with async headers', async () => {
-  const getHeaders = new Promise.resolve({
-    'X-Custom': '222',
+it('works with promised headers', async () => {
+  const headers = new Promise(async resolve => {
+    // simulates somehow difficult and async way how to get headers (real-world example)
+    const token = await Promise.resolve('222');
+    resolve({
+      'X-Custom': `Bearer ${token}`,
+    });
   });
 
-  const fetcher = new NetworkFetcher('//localhost', getHeaders);
+  const fetcher = new NetworkFetcher('//localhost', headers);
 
   await expect(fetcher.fetch(request, variables)).resolves.toEqual({mock: 'ok'});
   expect(originalFetch).toHaveBeenCalledWith('//localhost', {
@@ -62,7 +66,7 @@ it('works with async headers', async () => {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
-      'X-Custom': '222',
+      'X-Custom': 'Bearer 222',
     },
     method: 'POST',
   });
