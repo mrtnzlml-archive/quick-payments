@@ -4,9 +4,6 @@
  * The public interface to Relay package.
  */
 module.exports = {
-  RequestHandler: require('./RequestHandler'),
-  RequestHandlerBatch: require('./RequestHandlerBatch'),
-
-  // default fetchers
+  EnvironmentFactory: require('./EnvironmentFactory'),
   NetworkFetcher: require('./fetchers/NetworkFetcher'),
 };

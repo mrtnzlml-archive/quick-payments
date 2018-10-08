@@ -2,13 +2,27 @@
 - [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3) (big inspiration)
 - https://github.com/mrtnzlml/meta/blob/master/relay.md
 
-There are basically two important layers: _request handlers_ and _request executors_. Request 
-handlers take the high-level request and make it ready for the executor (use burst cache, deal 
-with batch requests). Request executor then executes this request using fetcher implementation 
-and it will take care of handling the response (adding it to the Relay store properly).
+Minimal example:
 
-# Features
+```js
+import {NetworkFetcher, EnvironmentFactory} from '@mrtnzlml/relay';
 
+const fetcher = new NetworkFetcher('http://127.0.0.1:2048');
+const envFactory = new EnvironmentFactory(fetcher);
+
+module.exports = envFactory.create({
+  handlerProvider: handle => {
+    throw new Error(`handlerProvider: No handler provided for ${handle}`);
+  },
+});
+```
+
+Please note: this default API is minimalistic on purpose and I will unlock new features only when
+necessary.
+
+# Built-in features
+
+- logging
 - network or `AsyncStorage` fetching
 - uploadables
 - request burst cache (response cache)
