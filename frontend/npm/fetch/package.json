@@ -1,10 +1,10 @@
 {
   "private": false,
   "name": "@mrtnzlml/fetch",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "main": "src/fetchWithRetries.js",
   "dependencies": {
-    "@mrtnzlml/utils": "^0",
+    "@mrtnzlml/utils": "^1.0.0",
     "cross-fetch": "^2.2.2"
   },
   "devDependencies": {
