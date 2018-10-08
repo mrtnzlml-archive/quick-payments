@@ -4,7 +4,7 @@ import {sprintf, warning} from '@mrtnzlml/utils';
 
 const fetch = require('./fetch');
 
-export type InitWithRetries = {
+export type InitWithRetries = $ReadOnly<{|
   body?: mixed,
   cache?: ?string,
   credentials?: ?string,
@@ -13,13 +13,13 @@ export type InitWithRetries = {
   method?: ?string,
   mode?: ?string,
   retryDelays?: ?Array<number>,
-};
+|}>;
 
 const DEFAULT_TIMEOUT = 15000;
 const DEFAULT_RETRIES = [1000, 3000];
 
 /**
- * Makes a POST request to the server with the given data as the payload.
+ * Makes a request to the server with the given data as the payload.
  * Automatic retries are done based on the values in `retryDelays`.
  */
 export default function fetchWithRetries(
@@ -46,7 +46,7 @@ export default function fetchWithRetries(
       const requestTimeout = setTimeout(() => {
         isRequestAlive = false;
         if (shouldRetry(requestsAttempted)) {
-          retryRequest(`fetchWithRetries: HTTP timeout (${uri}), retrying.`);
+          retryRequest('HTTP timeout', uri);
         } else {
           reject(
             new Error(
@@ -70,7 +70,7 @@ export default function fetchWithRetries(
             } else if (shouldRetry(requestsAttempted)) {
               // Fetch was not successful, retrying.
               // TODO(#7595849): Only retry on transient HTTP errors.
-              retryRequest(`fetchWithRetries: HTTP error (${uri}), retrying.`);
+              retryRequest('HTTP error', uri);
             } else {
               // Request was not successful, giving up.
               const error: any = new Error(
@@ -88,7 +88,7 @@ export default function fetchWithRetries(
         .catch(error => {
           clearTimeout(requestTimeout);
           if (shouldRetry(requestsAttempted)) {
-            retryRequest(`fetchWithRetries: ${error.message} (${uri}), retrying.`);
+            retryRequest(error.message, uri);
           } else {
             reject(error);
           }
@@ -99,8 +99,8 @@ export default function fetchWithRetries(
      * Schedules another run of sendTimedRequest based on how much time has
      * passed between the time the last request was sent and now.
      */
-    function retryRequest(reason): void {
-      warning(false, reason);
+    function retryRequest(reason, uri): void {
+      warning(false, `fetchWithRetries: ${reason} (${uri}), retrying.`);
 
       const retryDelay = _retryDelays[requestsAttempted - 1];
       const retryStartTime = requestStartTime + retryDelay;

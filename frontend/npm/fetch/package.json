@@ -6,5 +6,8 @@
   "dependencies": {
     "@mrtnzlml/utils": "^0",
     "cross-fetch": "^2.2.2"
+  },
+  "devDependencies": {
+    "lolex": "^2.7.5"
   }
 }

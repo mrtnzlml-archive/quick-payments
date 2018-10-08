@@ -12,14 +12,12 @@ beforeEach(() => {
 
 it('retries the request if the previous attempt timed-out', () => {
   let retries;
-  const retryDelays = [1000, 3000];
+  const retryDelays = [1000, 3000, 5000];
   const init = {retryDelays};
   fetchWithRetries('https://localhost', init).catch(handleNext);
   expect(fetch.mock.calls.length).toBe(1);
   for (retries = 0; retries < retryDelays.length; retries++) {
     // Timeout request.
-    jest.runAllTimers();
-    // Delay before next try.
     jest.runAllTimers();
   }
   expect(fetch.mock.calls.length).toBe(retries + 1);
