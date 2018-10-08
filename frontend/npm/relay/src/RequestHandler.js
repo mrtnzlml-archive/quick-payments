@@ -5,17 +5,33 @@ import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
 import {isMutation, isQuery, forceFetch} from './helpers';
 import type {RequestNode, CacheConfig, Uploadables, Variables, Sink} from './types.flow';
 
+type BurstCacheConfig = {|
+  +size: number,
+  +ttl: number,
+|};
+
 /**
  * This takes care about handling simple request to your GraphQL underlying service.
  * It uses burst cache to reduce number of requests being sent.
  */
 module.exports = class RequestHandler {
   requestExecutor: Object; // TODO
-  burstCache: RelayQueryResponseCache;
+  burstCache: RelayQueryResponseCache | false;
 
-  constructor(requestExecutor: Object, burstCache: RelayQueryResponseCache | boolean = false) {
+  constructor(
+    requestExecutor: Object,
+    burstCacheConfig: BurstCacheConfig | false = {
+      size: 250,
+      ttl: 60 * 1000, // one minute
+    },
+  ) {
     this.requestExecutor = requestExecutor;
-    this.burstCache = burstCache;
+
+    if (burstCacheConfig === false) {
+      this.burstCache = false;
+    } else {
+      this.burstCache = new RelayQueryResponseCache(burstCacheConfig);
+    }
   }
 
   handle = async (

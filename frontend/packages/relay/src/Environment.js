@@ -8,19 +8,13 @@ import {
 } from '@mrtnzlml/relay';
 import {Environment, Network, RecordSource, Store, Observable} from 'relay-runtime';
 import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
-import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
 
 const source = new RecordSource();
 const store = new Store(source);
-const burstCacheConfig = {
-  size: 250,
-  ttl: 60 * 1000, // one minute
-};
 
 const networkFetcher = new NetworkFetcher('http://127.0.0.1:2048');
 const requestExecutor = new RequestExecutor(networkFetcher);
-const burstCache = new RelayQueryResponseCache(burstCacheConfig);
-const requestHandler = new RequestHandler(requestExecutor, burstCache);
+const requestHandler = new RequestHandler(requestExecutor);
 
 const fetch = (requestNode, variables, cacheConfig, uploadables) => {
   return Observable.create(sink => {
