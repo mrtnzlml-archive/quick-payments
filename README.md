@@ -18,8 +18,9 @@ http://127.0.0.1:4040/graphiql
 (cd frontend/apps/website ; yarn start)
 ```
 
-And open `file:///...` index.html located in `web` directory. Yes, it's a bit ugly but it's still
- under heavy development. ¯\_(ツ)_/¯ (`quick-payments/frontend/apps/website/index.html`)
+http://127.0.0.1:8080/webpack-dev-server/index.html
+
+See: https://github.com/webpack/docs/wiki/webpack-dev-server
 
 # Start iOS simulator
 

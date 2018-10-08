@@ -16,8 +16,9 @@ module.exports = {
             presets: ['module:metro-react-native-babel-preset'],
             plugins: [
               'relay',
+              '@babel/plugin-transform-runtime',
               [
-                'module-resolver',
+                'babel-plugin-module-resolver',
                 {
                   alias: {
                     '^react-native$': 'react-native-web',
