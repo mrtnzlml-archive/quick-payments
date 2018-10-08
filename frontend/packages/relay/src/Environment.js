@@ -1,11 +1,6 @@
 // @flow
 
-import {
-  RequestExecutor,
-  RequestHandler,
-  RequestHandlerBatch,
-  NetworkFetcher,
-} from '@mrtnzlml/relay';
+import {RequestHandler, RequestHandlerBatch, NetworkFetcher} from '@mrtnzlml/relay';
 import {Environment, Network, RecordSource, Store, Observable} from 'relay-runtime';
 import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
@@ -13,8 +8,7 @@ const source = new RecordSource();
 const store = new Store(source);
 
 const networkFetcher = new NetworkFetcher('http://127.0.0.1:2048');
-const requestExecutor = new RequestExecutor(networkFetcher);
-const requestHandler = new RequestHandler(requestExecutor);
+const requestHandler = new RequestHandler(networkFetcher);
 
 const fetch = (requestNode, variables, cacheConfig, uploadables) => {
   return Observable.create(sink => {

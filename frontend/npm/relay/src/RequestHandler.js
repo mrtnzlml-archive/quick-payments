@@ -2,6 +2,7 @@
 
 import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
 
+import RequestExecutor from './RequestExecutor';
 import {isMutation, isQuery, forceFetch} from './helpers';
 import type {RequestNode, CacheConfig, Uploadables, Variables, Sink} from './types.flow';
 
@@ -19,13 +20,13 @@ module.exports = class RequestHandler {
   burstCache: RelayQueryResponseCache | false;
 
   constructor(
-    requestExecutor: Object,
+    fetcher: Object,
     burstCacheConfig: BurstCacheConfig | false = {
       size: 250,
       ttl: 60 * 1000, // one minute
     },
   ) {
-    this.requestExecutor = requestExecutor;
+    this.requestExecutor = new RequestExecutor(fetcher);
 
     if (burstCacheConfig === false) {
       this.burstCache = false;
