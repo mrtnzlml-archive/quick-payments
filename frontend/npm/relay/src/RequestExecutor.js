@@ -24,6 +24,12 @@ module.exports = class RequestExecutor {
     try {
       const data = await this.fetcher.fetch(requestNode, variables, uploadables);
 
+      if (data.errors) {
+        // What should we do with these partial errors?
+        // eslint-disable-next-line no-console
+        data.errors.map(error => console.error(error.message, error));
+      }
+
       if (isMutation(requestNode) && data.errors) {
         sink.error(data);
 
