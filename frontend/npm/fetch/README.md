@@ -35,6 +35,9 @@ Retries are performed in these situations:
 - fetch returned HTTP status <200 or >=300
 - when the timeout (`fetchTimeout`) occurs
 
+This package uses fetch [ponyfill](https://ponyfill.com/) internally (cross-fetch) so it supports
+server JS as well as browsers.
+
 # FAQ
 
 ## How does the timing work in this case?

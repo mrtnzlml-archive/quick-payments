@@ -7,28 +7,27 @@ import type {RequestNode, Uploadables, Variables} from '../types.flow';
 
 type AdditionalHeaders = Object | Promise<Object>;
 
-module.exports = class NetworkFetcher {
-  graphQLServerURL: string;
-  additionalHeaders: AdditionalHeaders;
-
-  constructor(graphQLServerURL: string, additionalHeaders: AdditionalHeaders = {}) {
-    this.graphQLServerURL = graphQLServerURL;
-    this.additionalHeaders = additionalHeaders;
-  }
-
-  fetch = async (request: RequestNode, variables: Variables, uploadables: ?Uploadables) => {
+module.exports = function createNetworkFetcher(
+  graphQLServerURL: string,
+  additionalHeaders: AdditionalHeaders = {},
+) {
+  return async function fetch(
+    request: RequestNode,
+    variables: Variables,
+    uploadables: ?Uploadables,
+  ) {
     const body = getRequestBody(request, variables, uploadables);
 
     // sometimes it's necessary to get headers asynchronously (while refreshing authorization
     // token for example) - for this reason we accept object or promise here and we always
     // resolve it as a promise (see tests)
-    const additionalHeaders = await Promise.resolve(this.additionalHeaders);
+    const resolvedAdditionalHeaders = await Promise.resolve(additionalHeaders);
     const headers = {
       ...getHeaders(uploadables),
-      ...additionalHeaders,
+      ...resolvedAdditionalHeaders,
     };
 
-    const response = await fetchWithRetries(this.graphQLServerURL, {
+    const response = await fetchWithRetries(graphQLServerURL, {
       method: 'POST',
       headers,
       body,

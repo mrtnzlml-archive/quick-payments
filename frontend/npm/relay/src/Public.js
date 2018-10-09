@@ -4,6 +4,8 @@
  * The public interface to Relay package.
  */
 module.exports = {
-  EnvironmentFactory: require('./EnvironmentFactory'),
-  NetworkFetcher: require('./fetchers/NetworkFetcher'),
+  createEnvironment: require('./createEnvironment'),
+
+  // fetchers:
+  createNetworkFetcher: require('./fetchers/createNetworkFetcher'),
 };

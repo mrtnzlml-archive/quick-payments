@@ -2,7 +2,7 @@
 
 import originalFetch from '@mrtnzlml/fetch';
 
-import NetworkFetcher from '../NetworkFetcher';
+import createNetworkFetcher from '../createNetworkFetcher';
 
 jest.mock('@mrtnzlml/fetch', () =>
   jest.fn().mockImplementation(() => ({
@@ -19,9 +19,9 @@ const variables = {mock: true};
 const expectedBody = '{"query":"mocked request.text","variables":{"mock":true}}';
 
 it('works without additional headers', async () => {
-  const fetcher = new NetworkFetcher('//localhost');
+  const fetcher = createNetworkFetcher('//localhost');
 
-  await expect(fetcher.fetch(request, variables)).resolves.toEqual({mock: 'ok'});
+  await expect(fetcher(request, variables)).resolves.toEqual({mock: 'ok'});
   expect(originalFetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
@@ -33,11 +33,11 @@ it('works without additional headers', async () => {
 });
 
 it('works with additional headers', async () => {
-  const fetcher = new NetworkFetcher('//localhost', {
+  const fetcher = createNetworkFetcher('//localhost', {
     'X-Custom': '111',
   });
 
-  await expect(fetcher.fetch(request, variables)).resolves.toEqual({mock: 'ok'});
+  await expect(fetcher(request, variables)).resolves.toEqual({mock: 'ok'});
   expect(originalFetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
@@ -58,9 +58,9 @@ it('works with promised headers', async () => {
     });
   });
 
-  const fetcher = new NetworkFetcher('//localhost', headers);
+  const fetcher = createNetworkFetcher('//localhost', headers);
 
-  await expect(fetcher.fetch(request, variables)).resolves.toEqual({mock: 'ok'});
+  await expect(fetcher(request, variables)).resolves.toEqual({mock: 'ok'});
   expect(originalFetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
