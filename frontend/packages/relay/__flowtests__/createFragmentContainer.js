@@ -17,7 +17,8 @@ module.exports = {
     return <Container />;
   },
   checkInvalidProperty() {
-    return <Container data={1} />; // this is OK because we ignore the actual property type
+    // $FlowExpectedError: data property value should be string (not number)
+    return <Container data={1} />;
   },
   checkValidProperty() {
     return <Container data="ok" />;

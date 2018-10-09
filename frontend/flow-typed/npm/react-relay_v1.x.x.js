@@ -295,15 +295,28 @@ declare module 'react-relay' {
 
   declare export type GeneratedNodeMap = {[key: string]: GraphQLTaggedNode};
 
-  // NOTE: this is custom type because the default one is very shitty.
-  // This type is only half shitty - it preserves the props key but
-  // cripples the values to `mixed`. Otherwise it's nearly impossible
-  // to type `createFragmentContainer` correctly at this moment.
-  declare type CrippleProps = () => mixed;
-  declare export function createFragmentContainer<TBase: React$ComponentType<any>>(
-    Component: TBase,
+  declare export type RelayProp = {
+    environment: Environment,
+  };
+
+  declare type $FragmentRef<T> = {
+    +$fragmentRefs: $PropertyType<T, '$refType'>,
+  };
+
+  declare type $RelayProps<Props, RelayPropT> = $ObjMap<
+    $Diff<Props, {relay: RelayPropT | void}>,
+    (<TRef: any, T: {+$refType: TRef}>(T) => $FragmentRef<T>) &
+      (<TRef: any, T: {+$refType: TRef}>(?T) => ?$FragmentRef<T>) &
+      // TODO: extend as needed
+      // see: https://github.com/facebook/relay/blob/v1.7.0-rc.1/packages/react-relay/modern/ReactRelayTypes.js
+      // see: https://github.com/sibelius/relay-modern-network-deep-dive/tree/master/flow-typed
+      (<T>(T) => T),
+  >;
+
+  declare export function createFragmentContainer<TComponent: React$ComponentType<any>>(
+    Component: TComponent,
     fragmentSpec: GraphQLTaggedNode | GeneratedNodeMap,
-  ): React$ComponentType<$ObjMap<React$ElementConfig<TBase>, CrippleProps>>;
+  ): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, RelayProp>>;
 
   declare export function createRefetchContainer<TBase: React$ComponentType<*>>(
     Component: TBase,
@@ -1243,10 +1256,6 @@ declare module 'react-relay' {
     param: string,
     import: string,
     max_runs: number,
-  };
-
-  declare export type RelayProp = {
-    environment: Environment,
   };
 
   declare export type RelayPaginationProp = RelayProp & {

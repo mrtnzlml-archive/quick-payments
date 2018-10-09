@@ -4,29 +4,33 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
+import idx from 'idx';
 
 import type {Rejection as RejectionDataType} from './__generated__/Rejection.graphql';
 
 type Props = {|
-  +data: RejectionDataType,
+  +data: ?RejectionDataType,
 |};
 
-const Rejection = ({data}: Props) => (
-  <SplitScreen
-    backgroundColor={Colors.error}
-    childrenTop={
-      <View style={styleSheet.container}>
-        <Icon name="clear" color={Colors.white} size={300} />
-      </View>
-    }
-    childrenBottom={
-      <View>
-        {/* TODO: show the error and explanation */}
-        <Money data={data.total} />
-      </View>
-    }
-  />
-);
+const Rejection = ({data}: Props) => {
+  const total = idx(data, _ => _.total);
+  return (
+    <SplitScreen
+      backgroundColor={Colors.error}
+      childrenTop={
+        <View style={styleSheet.container}>
+          <Icon name="clear" color={Colors.white} size={300} />
+        </View>
+      }
+      childrenBottom={
+        <View>
+          {/* TODO: show the error and explanation */}
+          <Money data={total} />
+        </View>
+      }
+    />
+  );
+};
 
 const styleSheet = StyleSheet.create({
   container: {
