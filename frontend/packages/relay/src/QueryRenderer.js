@@ -17,27 +17,11 @@ type Props = {|
   +variables?: Object,
 |};
 
-type State = {|
-  increaseToRerender: number,
-|};
-
-export default class QueryRenderer extends React.Component<Props, State> {
-  state = {
-    // This value is used in the `key` of `RelayQueryRenderer` so every change will force this
-    // component to re-render.
-    increaseToRerender: 1,
-  };
-
-  handleTryAgainAction = () => {
-    this.setState(state => ({
-      increaseToRerender: state.increaseToRerender + 1,
-    }));
-  };
-
+export default class QueryRenderer extends React.Component<Props> {
   renderQueryRendererResult = (readyState: ReadyState) => {
     if (readyState.error !== null) {
       // TODO: logging service
-      return <QueryRendererError onTryAgain={this.handleTryAgainAction} />;
+      return <QueryRendererError onTryAgain={readyState.retry} />;
     }
 
     if (!readyState.props) {
@@ -49,7 +33,6 @@ export default class QueryRenderer extends React.Component<Props, State> {
 
   render = () => (
     <RelayQueryRenderer
-      key={this.state.increaseToRerender}
       environment={Environment}
       {...this.props}
       render={this.renderQueryRendererResult}

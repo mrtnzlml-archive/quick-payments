@@ -6,17 +6,19 @@ import {StyleSheet, Button} from '_shared';
 import Translation from '_translations';
 
 type Props = {|
-  +onTryAgain: () => void,
+  +onTryAgain: ?() => void,
 |};
 
 export default function QueryRendererError(props: Props) {
   return (
     <View style={styleSheet.container}>
       <Translation id="General.QueryRenderer.Error.Title" />
-      <Button
-        title={<Translation id="General.QueryRenderer.Error.TryAgain" />}
-        onPress={props.onTryAgain}
-      />
+      {props.onTryAgain && (
+        <Button
+          title={<Translation id="General.QueryRenderer.Error.TryAgain" />}
+          onPress={props.onTryAgain}
+        />
+      )}
     </View>
   );
 }
