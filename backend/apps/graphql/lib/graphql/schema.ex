@@ -15,4 +15,11 @@ defmodule GraphQL.Schema do
       resolve(fn _, _ -> {:ok, %{}} end)
     end
   end
+
+  mutation name: "RootMutation" do
+    field :test, type: :string do
+      arg(:input, non_null(:string))
+      resolve(fn %{input: input}, _ -> {:ok, input} end)
+    end
+  end
 end

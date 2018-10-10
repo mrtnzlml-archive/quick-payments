@@ -1,5 +1,6 @@
 schema {
   query: RootQuery
+  mutation: RootMutation
 }
 
 type AvailableScenes {
@@ -43,6 +44,10 @@ enum PaymentStatus {
 type Retailer {
   id: ID!
   name: String
+}
+
+type RootMutation {
+  test(input: String!): String
 }
 
 type RootQuery {
