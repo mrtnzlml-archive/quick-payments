@@ -5,7 +5,6 @@
   "main": "src/Public.js",
   "dependencies": {
     "@mrtnzlml/fetch": "^1.0.0",
-    "@mrtnzlml/utils": "^1.0.0",
     "react-relay": "^1.7.0-rc.1"
   }
 }

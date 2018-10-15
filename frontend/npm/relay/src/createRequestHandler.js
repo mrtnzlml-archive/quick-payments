@@ -2,7 +2,6 @@
 
 import Runtime from 'relay-runtime';
 import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
-import {getByStringPath} from '@mrtnzlml/utils';
 
 import {forceFetch, isMutation, isQuery} from './helpers';
 import type {CacheConfig, RequestNode, Sink, Uploadables, Variables} from './types.flow';
@@ -102,67 +101,6 @@ async function processRequest(
   return fromServer;
 }
 
-const getDeferrableVariables = (requests, request, variables: Variables) => {
-  const {argumentDependencies} = request;
-
-  if (argumentDependencies.length === 0) {
-    return variables;
-  }
-
-  return argumentDependencies.reduce((acc, ad) => {
-    // Example:
-    //
-    // "argumentDependencies": [
-    //   {
-    //     "name": "deferrableID",
-    //     "fromRequestName": "dashboardQuery",
-    //     "fromRequestPath": "scenes.dashboard.payments[*].StatusIcon_deferrableID",
-    //     "ifList": "each",
-    //     "ifNull": "skip"
-    //   }
-    // ]
-    const {response} = requests[ad.fromRequestName];
-
-    const variable = getByStringPath(response.data, ad.fromRequestPath);
-
-    // TODO - handle ifList, ifNull
-    return {
-      ...acc,
-      [ad.name]: variable,
-    };
-  }, {});
-};
-
-async function processBatchRequest(
-  customFetcher: Function,
-  requestNode: RequestNode,
-  variables: Variables,
-  cacheConfig: CacheConfig,
-  uploadables: ?Uploadables,
-  sink: Sink,
-  complete: boolean = false,
-) {
-  const requests = {};
-
-  for (const r of requestNode.requests) {
-    const v = getDeferrableVariables(requests, r, variables);
-
-    // TODO: we must send multiple queries here
-    // https://github.com/facebook/relay/issues/2194#issuecomment-407155883
-    requests[r.name] = await processRequest(
-      customFetcher,
-      r,
-      v,
-      cacheConfig,
-      uploadables,
-      sink,
-      false,
-    );
-  }
-
-  sink.complete();
-}
-
 module.exports = function createRequestHandler(customFetcher: Function) {
   return function handleRequest(
     requestNode: RequestNode,
@@ -171,13 +109,7 @@ module.exports = function createRequestHandler(customFetcher: Function) {
     uploadables: ?Uploadables,
   ) {
     return Runtime.Observable.create(sink => {
-      if (requestNode.kind === 'Request') {
-        processRequest(customFetcher, requestNode, variables, cacheConfig, uploadables, sink, true);
-      }
-
-      if (requestNode.kind === 'BatchRequest') {
-        processBatchRequest(customFetcher, requestNode, variables, cacheConfig, uploadables, sink);
-      }
+      processRequest(customFetcher, requestNode, variables, cacheConfig, uploadables, sink, true);
     });
   };
 };
