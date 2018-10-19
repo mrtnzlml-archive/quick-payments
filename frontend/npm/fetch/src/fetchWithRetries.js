@@ -2,7 +2,8 @@
 
 import {sprintf, warning} from '@mrtnzlml/utils';
 
-const fetch = require('./fetch');
+import fetch from './fetch';
+import TimeoutError from './TimeoutError';
 
 export type InitWithRetries = $ReadOnly<{|
   body?: mixed,
@@ -17,6 +18,8 @@ export type InitWithRetries = $ReadOnly<{|
 
 const DEFAULT_TIMEOUT = 15000;
 const DEFAULT_RETRIES = [1000, 3000];
+
+export {TimeoutError as unstable_TimeoutError};
 
 /**
  * Makes a request to the server with the given data as the payload.
@@ -49,7 +52,7 @@ export default function fetchWithRetries(
           retryRequest('HTTP timeout', uri);
         } else {
           reject(
-            new Error(
+            new TimeoutError(
               sprintf(
                 `fetchWithRetries: Failed to get response from server (${uri}), tried %s times.`,
                 requestsAttempted,

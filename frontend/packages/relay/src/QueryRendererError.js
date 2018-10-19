@@ -6,13 +6,14 @@ import {StyleSheet, Button} from '_shared';
 import Translation from '_translations';
 
 type Props = {|
+  +title: React.Element<typeof Translation>,
   +onTryAgain: ?() => void,
 |};
 
 export default function QueryRendererError(props: Props) {
   return (
     <View style={styleSheet.container}>
-      <Translation id="General.QueryRenderer.Error.Title" />
+      {props.title}
       {props.onTryAgain && (
         <Button
           title={<Translation id="General.QueryRenderer.Error.TryAgain" />}
