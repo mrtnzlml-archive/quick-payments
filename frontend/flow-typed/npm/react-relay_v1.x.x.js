@@ -303,26 +303,34 @@ declare module 'react-relay' {
     +$fragmentRefs: $PropertyType<T, '$refType'>,
   };
 
+  // prettier-ignore
   declare type $RelayProps<Props, RelayPropT> = $ObjMap<
-    $Diff<Props, {relay: RelayPropT | void}>,
-    (<TRef: any, T: {+$refType: TRef}>(T) => $FragmentRef<T>) &
-      (<TRef: any, T: {+$refType: TRef}>(?T) => ?$FragmentRef<T>) &
-      // TODO: extend as needed
-      // see: https://github.com/facebook/relay/blob/v1.7.0-rc.1/packages/react-relay/modern/ReactRelayTypes.js
-      // see: https://github.com/sibelius/relay-modern-network-deep-dive/tree/master/flow-typed
-      (<T>(T) => T),
-  >;
+    $Diff<Props, { relay: RelayPropT | void }>,
+    // We currently don't know how to preserve Function and Object type
+    // correctly while using `createFragmentContainer`, see:
+    // https://github.com/facebook/relay/commit/2141964373703dcaa9bd49aa3cd2e9efdd09425f
+    (<T: Function>( T) =>  T) &
+    (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
+    (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
+    (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+    (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+    (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+    (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+    // see: https://github.com/facebook/relay/blob/v1.7.0-rc.1/packages/react-relay/modern/ReactRelayTypes.js
+    // see: https://github.com/sibelius/relay-modern-network-deep-dive/tree/master/flow-typed
+    (<T>(T) => T)
+  >
 
   declare export function createFragmentContainer<TComponent: React$ComponentType<any>>(
     Component: TComponent,
     fragmentSpec: GraphQLTaggedNode | GeneratedNodeMap,
   ): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, RelayProp>>;
 
-  declare export function createRefetchContainer<TBase: React$ComponentType<*>>(
-    Component: TBase,
+  declare export function createRefetchContainer<TComponent: React$ComponentType<*>>(
+    Component: TComponent,
     fragmentSpec: GraphQLTaggedNode | GeneratedNodeMap,
     taggedNode: GraphQLTaggedNode,
-  ): TBase;
+  ): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, RelayProp>>;
 
   declare type FragmentVariablesGetter = (prevVars: Variables, totalCount: number) => Variables;
 
