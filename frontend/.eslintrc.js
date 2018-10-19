@@ -67,13 +67,13 @@ module.exports = {
     'array-callback-return': OFF,
     'block-scoped-var': OFF,
     'class-methods-use-this': OFF,
-    'complexity': OFF,
+    complexity: OFF,
     'consistent-return': WARN,
-    'curly': WARN,
+    curly: WARN,
     'default-case': OFF,
     'dot-location': [WARN, 'property'],
     'dot-notation': WARN,
-    'eqeqeq': [WARN, 'allow-null'],
+    eqeqeq: [WARN, 'allow-null'],
     'guard-for-in': OFF,
     'no-alert': WARN,
     'no-await-in-loop': WARN,
@@ -128,14 +128,14 @@ module.exports = {
     'no-void': WARN,
     'no-warning-comments': OFF,
     'no-with': WARN,
-    'radix': WARN,
+    radix: WARN,
     'require-await': WARN,
     'vars-on-top': OFF,
     'wrap-iife': [WARN, 'inside'],
-    'yoda': WARN,
+    yoda: WARN,
 
     // Strict Mode (http://eslint.org/docs/rules/#strict-mode)
-    'strict': WARN,
+    strict: WARN,
 
     // Variables (http://eslint.org/docs/rules/#variables)
     'init-declarations': OFF,
@@ -167,9 +167,18 @@ module.exports = {
     'array-bracket-spacing': WARN,
     'block-spacing': WARN,
     'brace-style': [WARN, '1tbs', {allowSingleLine: true}],
-    'camelcase': [WARN, {properties: 'always'}],
+    camelcase: [WARN, {properties: 'always'}],
     'capitalized-comments': OFF,
-    'comma-dangle': [WARN, {arrays: 'always-multiline', objects: 'always-multiline', imports: 'always-multiline', exports: 'always-multiline', functions: 'always-multiline'}],
+    'comma-dangle': [
+      WARN,
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'always-multiline',
+      },
+    ],
     'comma-spacing': WARN,
     'comma-style': WARN,
     'computed-property-spacing': WARN,
@@ -182,7 +191,7 @@ module.exports = {
     'id-blacklist': OFF,
     'id-length': OFF,
     'id-match': OFF,
-    'indent': [WARN, 2, {SwitchCase: 1}],
+    indent: [WARN, 2, {SwitchCase: 1}],
     'jsx-quotes': [WARN, 'prefer-double'],
     'key-spacing': [WARN, {beforeColon: false, afterColon: true}],
     'keyword-spacing': WARN,
@@ -231,14 +240,17 @@ module.exports = {
     'operator-linebreak': OFF,
     'padded-blocks': OFF,
     'quote-props': [WARN, 'as-needed'],
-    'quotes': [WARN, 'single', 'avoid-escape'],
+    quotes: [WARN, 'single', 'avoid-escape'],
     'require-jsdoc': OFF,
     'semi-spacing': ERROR,
-    'semi': ERROR,
+    semi: ERROR,
     'sort-keys': OFF,
     'sort-vars': OFF,
     'space-before-blocks': WARN,
-    'space-before-function-paren': [WARN, {anonymous: 'never', named: 'never', asyncArrow: 'always'}],
+    'space-before-function-paren': [
+      WARN,
+      {anonymous: 'never', named: 'never', asyncArrow: 'always'},
+    ],
     'space-in-parens': [WARN, 'never'],
     'space-infix-ops': [WARN, {int32Hint: true}],
     'space-unary-ops': [WARN, {words: true, nonwords: false}],
@@ -246,12 +258,11 @@ module.exports = {
       ERROR,
       'always',
       {
-        block:
-          {
-            balanced: true,
-            markers: [':'] // flow
-          }
-      }
+        block: {
+          balanced: true,
+          markers: [':'], // flow
+        },
+      },
     ],
     'unicode-bom': [WARN, 'never'],
     'wrap-regex': OFF,
@@ -281,8 +292,7 @@ module.exports = {
               'TouchableNativeFeedback', // Touchable
               'StyleSheet', // StyleSheet
             ],
-            message:
-              "Please use '_shared' package instead.",
+            message: "Please use '_shared' package instead.",
           },
         ],
       },
@@ -383,7 +393,10 @@ module.exports = {
     'react/sort-prop-types': OFF,
     'react/style-prop-object': OFF,
     'react/jsx-boolean-value': OFF,
-    'react/jsx-closing-bracket-location': [WARN, {selfClosing: 'tag-aligned', nonEmpty: 'tag-aligned'}],
+    'react/jsx-closing-bracket-location': [
+      WARN,
+      {selfClosing: 'tag-aligned', nonEmpty: 'tag-aligned'},
+    ],
     'react/jsx-curly-spacing': [WARN, 'never'],
     'react/jsx-equals-spacing': [WARN, 'never'],
     'react/jsx-filename-extension': OFF,
@@ -423,6 +436,7 @@ module.exports = {
     'import/newline-after-import': ERROR,
     'import/no-mutable-exports': ERROR,
     'import/no-absolute-path': ERROR,
+    'import/no-useless-path-segments': ERROR,
 
     // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
     'dependencies/case-sensitive': ERROR,
