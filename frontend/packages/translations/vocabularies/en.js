@@ -22,6 +22,7 @@ const Translations = {
   'General.Cancel': 'Cancel',
   'General.Form.Validation.Email': 'Please insert valid email address.',
   'General.TODO': '***TODO***',
+  'General.QueryRenderer.TimeoutError.Title': 'Server is unreachable',
   'General.QueryRenderer.Error.Title': 'Unable to load data',
   'General.QueryRenderer.Error.TryAgain': 'Try again',
 
