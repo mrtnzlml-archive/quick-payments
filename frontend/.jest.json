@@ -2,6 +2,7 @@
   "preset": "jest-expo",
   "rootDir": "",
   "testRegex": "/__tests__/.*-test.*\\.js$",
+  "testRunner": "jest-circus/runner",
   "timers": "fake",
   "transform": {
     "^.+\\.js$": "babel-jest"
