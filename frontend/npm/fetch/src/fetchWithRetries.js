@@ -67,9 +67,8 @@ export default function fetchWithRetries(
             if (response.status >= 200 && response.status < 300) {
               // Got a response code that indicates success, resolve the promise.
               resolve(response);
-            } else if (shouldRetry(requestsAttempted)) {
+            } else if (shouldRetry(requestsAttempted, response.status)) {
               // Fetch was not successful, retrying.
-              // TODO(#7595849): Only retry on transient HTTP errors.
               retryRequest('HTTP error', uri);
             } else {
               // Request was not successful, giving up.
@@ -110,8 +109,16 @@ export default function fetchWithRetries(
 
     /**
      * Checks if another attempt should be done to send a request to the server.
+     * It returns false for non-transient HTTP status codes like 401 or 403.
      */
-    function shouldRetry(attempt: number): boolean {
+    function shouldRetry(attempt: number, statusCode?: number): boolean {
+      // user is unathorized and it won't be authorized in next requests
+      const nonTransientCodes = [401, 403];
+
+      if (statusCode != null && nonTransientCodes.includes(statusCode)) {
+        return false;
+      }
+
       return attempt <= _retryDelays.length;
     }
 
