@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@mrtnzlml/fetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/fetchWithRetries.js",
   "dependencies": {
     "@mrtnzlml/utils": "^1.0.0",
