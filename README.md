@@ -1,6 +1,7 @@
 Simplest in-person payments
 
-- [Relay README](frontend/npm/relay/README.md)
+- [@mrtnzlml/fetch README](frontend/npm/fetch/README.md)
+- [@mrtnzlml/relay README](frontend/npm/relay/README.md)
 
 # Start API server
 
