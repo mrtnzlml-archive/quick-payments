@@ -28,6 +28,7 @@ export default class QueryRenderer extends React.Component<Props> {
         <QueryRendererError
           onTryAgain={readyState.retry}
           title={
+            // TODO: add also ResponseError (?)
             readyState.error instanceof TimeoutError ? (
               <Translation id="General.QueryRenderer.TimeoutError.Title" />
             ) : (

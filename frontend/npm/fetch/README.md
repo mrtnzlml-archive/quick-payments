@@ -3,25 +3,26 @@ This package has been extracted from the original [fbjs](https://github.com/face
 - fetch timeouts, and
 - retries
 
-Installation:
+# Installation
 
 ```
 yarn add @mrtnzlml/fetch
 ```
 
-Usage:
+# Usage
 
 ```js
 import fetchWithRetries from '@mrtnzlml/fetch';
 
-// see: https://github.com/github/fetch/
 fetchWithRetries('//localhost', {
   // see: https://github.com/github/fetch/
   // ...
 
   fetchTimeout: 15000,
   retryDelays: [1000, 3000],
-}).then(response => console.warn(response));
+})
+  .then(response => console.warn(response))
+  .catch(error => console.error(error));
 ```
 
 It does two things:
@@ -32,21 +33,53 @@ It does two things:
 Retries are performed in these situations:
 
 - original fetch request failed
-- fetch returned HTTP status <200 or >=300
+- fetch returned HTTP status <200 or >=300 (but not 401 or 403 since these errors are not transitive)
 - when the timeout (`fetchTimeout`) occurs
 
 This package uses fetch [ponyfill](https://ponyfill.com/) internally (cross-fetch) so it supports
 server JS as well as browsers.
+
+# Error handling
+
+You have to catch errors while fetching the response. This fetch throws these exceptions:
+
+- standard fetch exception (`Error`) when request failed for some reason
+- `TimeoutError` when fetch fails because of defined timeout
+- `ResponseError` when final response returns HTTP status <200 or >=300
+
+Example:
+
+```js
+import fetchWithRetries, {
+  unstable_TimeoutError as TimeoutError,
+  unstable_ResponseError as ResponseError,
+} from '@mrtnzlml/fetch';
+
+(async () => {
+  try {
+    const response = await fetchWithRetries('//localhost');
+    // TODO: do something with the response
+  } catch (error) {
+    if (error instanceof TimeoutError) {
+      console.error('request timeouted');
+    } else if (error instanceof ResponseError) {
+      console.error('unsuccessful response', error.response);
+    } else {
+      console.error('unknown error');
+    }
+  }
+})();
+```
 
 # FAQ
 
 ## How does the timing work in this case?
 
 ```js
-{
+const config = {
   fetchTimeout: 2000,
   retryDelays: [100, 3000],
-}
+};
 ```
 
 There are many situations that may occur (skipping happy path):

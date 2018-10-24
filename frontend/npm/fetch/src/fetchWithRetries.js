@@ -4,6 +4,7 @@ import {sprintf, warning} from '@mrtnzlml/utils';
 
 import fetch from './fetch';
 import TimeoutError from './TimeoutError';
+import ResponseError from './ResponseError';
 
 export type InitWithRetries = $ReadOnly<{|
   body?: mixed,
@@ -19,7 +20,7 @@ export type InitWithRetries = $ReadOnly<{|
 const DEFAULT_TIMEOUT = 15000;
 const DEFAULT_RETRIES = [1000, 3000];
 
-export {TimeoutError as unstable_TimeoutError};
+export {TimeoutError as unstable_TimeoutError, ResponseError as unstable_ResponseError};
 
 /**
  * Makes a request to the server with the given data as the payload.
@@ -75,15 +76,16 @@ export default function fetchWithRetries(
               retryRequest('HTTP error', uri);
             } else {
               // Request was not successful, giving up.
-              const error: any = new Error(
-                sprintf(
-                  'fetchWithRetries: Still no successful response after ' +
-                    '%s retries, giving up.',
-                  requestsAttempted,
+              reject(
+                new ResponseError(
+                  response,
+                  sprintf(
+                    'fetchWithRetries: Still no successful response after ' +
+                      '%s retries, giving up.',
+                    requestsAttempted,
+                  ),
                 ),
               );
-              error.response = response;
-              reject(error);
             }
           }
         })
