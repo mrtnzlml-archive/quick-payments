@@ -2,5 +2,6 @@
   "private": false,
   "name": "@mrtnzlml/utils",
   "version": "1.0.1",
-  "main": "index.js"
+  "main": "index.js",
+  "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/npm/utils"
 }

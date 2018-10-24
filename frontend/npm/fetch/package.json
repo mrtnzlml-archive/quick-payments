@@ -3,6 +3,7 @@
   "name": "@mrtnzlml/fetch",
   "version": "1.1.0",
   "main": "src/fetchWithRetries.js",
+  "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/npm/fetch",
   "dependencies": {
     "@mrtnzlml/utils": "^1.0.0",
     "cross-fetch": "^2.2.2"

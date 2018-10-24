@@ -43,6 +43,7 @@
     "jest": "^23.6.0",
     "jest-circus": "^23.6.0",
     "jest-expo": "^30.0.0",
+    "jest-extended": "^0.11.0",
     "node-fetch": "^2.2.0",
     "prettier": "^1.14.2",
     "prompts": "^1.1.1",
