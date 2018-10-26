@@ -1,6 +1,6 @@
 // @flow
 
-import Deferred from '../Deferred';
+import Deferred from './Deferred';
 import fetch from '../fetch';
 
 jest.mock('../fetch');

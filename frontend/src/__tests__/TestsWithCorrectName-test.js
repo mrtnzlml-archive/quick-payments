@@ -2,6 +2,7 @@
 
 import path from 'path';
 import glob from 'glob';
+import fs from 'fs';
 
 test('every test should follow the filename conventions', done => {
   expect.hasAssertions();
@@ -11,9 +12,18 @@ test('every test should follow the filename conventions', done => {
     expect(filenames.length > 20).toBe(true);
 
     filenames.forEach(filename => {
-      if (!/.*-test.*\.js$/.test(filename)) {
-        expect(filename).toBe('to end with "-test.js"');
-      }
+      fs.readFile(filename, (err, data) => {
+        if (err) {
+          throw err;
+        }
+
+        if (data.indexOf('expect(') >= 0) {
+          // so it's probably a test file
+          if (!/.*-test.*\.js$/.test(filename)) {
+            expect(filename).toBe(filename.replace(/\.js$/, '-test.js'));
+          }
+        }
+      });
     });
 
     done();

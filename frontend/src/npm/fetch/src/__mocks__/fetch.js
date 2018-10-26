@@ -1,6 +1,6 @@
 // @flow
 
-import Deferred from '../Deferred';
+import Deferred from '../__tests__/Deferred';
 
 // $FlowExpectedError: flow-typed expects explicit types but eslint parser is broken
 const fetch = jest.fn(
