@@ -5,7 +5,7 @@ const path = require('path');
 
 const topLevelPackagePath = path.join(__dirname, '../../');
 // $FlowIssue: https://github.com/facebook/flow/issues/2692
-const topLevelPackageJson = require(path.join(topLevelPackagePath, 'package.json'));
+const topLevelPackageJson = require(path.join(topLevelPackagePath, '..', 'package.json'));
 const packagesRoot = path.join(topLevelPackagePath, 'packages');
 const packagePaths = fs
   .readdirSync(packagesRoot)

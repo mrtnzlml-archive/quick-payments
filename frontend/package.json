@@ -3,9 +3,9 @@
   "name": "quick-payments",
   "version": "0.0.0",
   "workspaces": [
-    "apps/*",
-    "npm/*",
-    "packages/*"
+    "src/apps/*",
+    "src/npm/*",
+    "src/packages/*"
   ],
   "dependencies": {
     "decimal.js-light": "^2.4.1",
@@ -50,17 +50,17 @@
     "react-test-renderer": "16.3.1",
     "rimraf": "^2.6.2"
   },
-  "main": "apps/mobile/index.js",
+  "main": "src/apps/mobile/index.js",
   "scripts": {
     "start": "expo start",
     "ios": "expo start --ios",
-    "web": "(cd apps/website ; yarn start)",
+    "web": "(cd src/apps/website ; yarn start)",
     "test": "node node_modules/.bin/jest --config=.jest.json",
     "test-ci": "node ./scripts/test-ci.js",
     "flow": "flow --include-warnings",
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "node ./scripts/relay-compiler.js",
-    "prettier": "prettier --write \"{apps,flow-typed,npm,packages,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
+    "prettier": "prettier --write \"{flow-typed,src,scripts,__{tests,mocks}__}/**/*.js\" --config ./.prettierrc.js"
   },
   "jest": {
     "preset": "jest-expo"

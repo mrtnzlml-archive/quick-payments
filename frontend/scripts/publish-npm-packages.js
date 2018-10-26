@@ -34,7 +34,7 @@ function publishPackage(packageName) {
 
   const additionalBabelPlugins = [
     // transforms __DEV__ => process.env.NODE_ENV
-    path.join(__dirname, '../packages/babel/dev-expression.js'),
+    path.join(__dirname, '../src/packages/babel/dev-expression.js'),
     // so we don't require global regenerator runtime
     'babel-plugin-transform-runtime',
   ];
