@@ -20,7 +20,7 @@ export type InitWithRetries = $ReadOnly<{|
 const DEFAULT_TIMEOUT = 15000;
 const DEFAULT_RETRIES = [1000, 3000];
 
-export {TimeoutError as unstable_TimeoutError, ResponseError as unstable_ResponseError};
+export {TimeoutError, ResponseError};
 
 /**
  * Makes a request to the server with the given data as the payload.

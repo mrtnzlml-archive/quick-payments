@@ -1,6 +1,6 @@
 // @flow
 
-import {unstable_ResponseError as ResponseError} from '../fetchWithRetries';
+import {ResponseError} from '../fetchWithRetries';
 
 const fetchResponse = {
   status: 403,

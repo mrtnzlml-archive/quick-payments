@@ -1,6 +1,6 @@
 // @flow
 
-import {unstable_TimeoutError as TimeoutError} from '../fetchWithRetries';
+import {TimeoutError} from '../fetchWithRetries';
 
 it('is instance of Error and TimeoutError', () => {
   const error = new TimeoutError('ups');

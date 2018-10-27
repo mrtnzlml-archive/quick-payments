@@ -50,10 +50,7 @@ You have to catch errors while fetching the response. This fetch throws these ex
 Example:
 
 ```js
-import fetchWithRetries, {
-  unstable_TimeoutError as TimeoutError,
-  unstable_ResponseError as ResponseError,
-} from '@mrtnzlml/fetch';
+import fetchWithRetries, {TimeoutError, ResponseError} from '@mrtnzlml/fetch';
 
 (async () => {
   try {
