@@ -41,7 +41,7 @@ function publishPackage(packageName) {
 
   _x('yarn', [
     'babel',
-    `npm/${packageName}`,
+    `src/npm/${packageName}`,
     `--out-dir=${buildDirPackage}`,
     '--copy-files',
     '--include-dotfiles', // TODO: does not copy .npmignore (?)
