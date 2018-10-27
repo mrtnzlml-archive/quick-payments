@@ -12,10 +12,6 @@ defmodule GraphQL.Endpoint do
 
   plug(:dispatch)
 
-  get "/" do
-    send_resp(conn, 200, "TODO: README (looking for /graphiql ?)")
-  end
-
   post("/",
     to: Absinthe.Plug,
     init_opts: [
@@ -25,7 +21,7 @@ defmodule GraphQL.Endpoint do
     ]
   )
 
-  get("/graphiql",
+  get("/",
     to: Absinthe.Plug.GraphiQL,
     init_opts: [
       schema: GraphQL.Schema

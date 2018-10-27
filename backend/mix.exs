@@ -1,7 +1,7 @@
 defmodule QuickPayments.MixProject do
   use Mix.Project
 
-  # TODO: maybe re-init Distillery to support umbrella diferently? (currently not needed)
+  # TODO: maybe re-init Distillery to support umbrella differently? (currently not needed)
 
   def project do
     [

@@ -5,8 +5,6 @@ defmodule GraphQL.Scenes.DashboardScene do
 
   use Absinthe.Schema.Notation
 
-  require Logger
-
   import_types(GraphQL.Payment.Payment)
 
   object :DashboardScene do
