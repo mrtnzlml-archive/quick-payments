@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import {invariant} from '_utils';
 import {Text, StyleSheet, Colors} from '_shared';
 import Translation from '_translations';
+import {Switchboard} from '_navigation';
 
 // TODO: separate into truly shared package
 import PaymentsList from '../../packages/scenes/dashboard/PaymentsList';
@@ -17,18 +18,22 @@ invariant(container !== null, 'Cannot render React application because root elem
 function Application() {
   return (
     <BaseApplication>
-      <View style={styleSheet.application}>
-        <View style={styleSheet.menu}>
-          <View style={styleSheet.menuItem}>
-            <Text style={styleSheet.menuItemText}>
-              <Translation id="Dashboard.Title" />
-            </Text>
+      <Switchboard
+        initialScene={
+          <View style={styleSheet.application}>
+            <View style={styleSheet.menu}>
+              <View style={styleSheet.menuItem}>
+                <Text style={styleSheet.menuItemText}>
+                  <Translation id="Dashboard.Title" />
+                </Text>
+              </View>
+            </View>
+            <View style={styleSheet.content}>
+              <PaymentsList />
+            </View>
           </View>
-        </View>
-        <View style={styleSheet.content}>
-          <PaymentsList />
-        </View>
-      </View>
+        }
+      />
     </BaseApplication>
   );
 }
