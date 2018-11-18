@@ -6,6 +6,6 @@
   "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/npm/relay",
   "dependencies": {
     "@mrtnzlml/fetch": "^1.0.0",
-    "react-relay": "^1.7.0-rc.1"
+    "react-relay": "^1.7.0"
   }
 }
