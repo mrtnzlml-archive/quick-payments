@@ -9272,17 +9272,17 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-art@16.3.1:
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/react-art/-/react-art-16.3.1.tgz#eefd1aa4e36bdd1c9d82adb0a92a66dfb14253c5"
-  integrity sha512-F92yIbCoTgUm4UfdzxbCcpCD0xxfMMdQtunk8qGATzOluCbW+f3Ic3jviy+mnqw9qwR/o1WxQyoTjjtLxqoIOg==
+react-art@^16.6.3:
+  version "16.6.3"
+  resolved "https://registry.yarnpkg.com/react-art/-/react-art-16.6.3.tgz#05bbc83fabe8f9e1dea425008e9af744e637c56f"
+  integrity sha512-L4mhwVTI3x96b9iuySVsIvWcbLfld9d6SShEbhuuPkNzR3xap5EwnoZzckKTbF9oJQUlS41xCeyuc7uUDZ6TTA==
   dependencies:
     art "^0.10.1"
     create-react-class "^15.6.2"
-    fbjs "^0.8.16"
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
+    scheduler "^0.11.2"
 
 react-clone-referenced-element@^1.0.1:
   version "1.1.0"
@@ -9302,15 +9302,15 @@ react-devtools-core@3.1.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-dom@16.3.1:
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.1.tgz#6a3c90a4fb62f915bdbcf6204422d93a7d4ca573"
-  integrity sha512-2Infg89vzahq8nfVi1GkjPqq0vrBvf0f3T0+dTtyjq4f6HKOqKixAK25Vr593O3QTx4kw/vmUtAJwerlevNWOA==
+react-dom@^16.6.3:
+  version "16.6.3"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
+  integrity sha512-8ugJWRCWLGXy+7PmNh8WJz3g1TaTUt1XyoIcFN+x0Zbkoz+KKdUyx1AQLYJdbFXjuF41Nmjn5+j//rxvhFjgSQ==
   dependencies:
-    fbjs "^0.8.16"
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
+    scheduler "^0.11.2"
 
 react-intl@^2.7.2:
   version "2.7.2"
@@ -9323,7 +9323,7 @@ react-intl@^2.7.2:
     intl-relativeformat "^2.1.0"
     invariant "^2.1.1"
 
-react-is@^16.3.1, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.6.3:
+react-is@^16.3.2, react-is@^16.6.0, react-is@^16.6.3:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.3.tgz#d2d7462fcfcbe6ec0da56ad69047e47e56e7eac0"
   integrity sha512-u7FDWtthB4rWibG/+mFbVd5FvdI20yde86qKGx4lVUTWmPlSWQ4QxbBIrrs+HnXGbxOUlUzTAP/VDmvCwaP2yA==
@@ -9404,10 +9404,10 @@ react-native-vector-icons@4.5.0:
     prop-types "^15.5.10"
     yargs "^8.0.2"
 
-react-native-web@^0.8.0:
-  version "0.8.11"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.8.11.tgz#e569af7076527af40ae7b4e6ce81e0544913a7c7"
-  integrity sha512-XwlSYkeGBYKif7Md1Yg8YHnHFUzaILPM9ebz2vQrg7PKxwL7u/MhCTFT2prCyhqbHqsTKnl54K5H+mrRTPiAgg==
+react-native-web@^0.9.8:
+  version "0.9.8"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.9.8.tgz#a87531277d40df48257f73d0a2bbc54d2a400df3"
+  integrity sha512-Z0B8FvOpVF8pzaFdtW769wEM/v1tzskQ85bDifI6wlZvx6Yyl855sUOsTNKPsA1FkaSCGz+8A2WEy0bnSNC1pA==
   dependencies:
     array-find-index "^1.0.2"
     create-react-class "^15.6.2"
@@ -9514,17 +9514,7 @@ react-relay@^1.7.0:
     prop-types "^15.5.8"
     relay-runtime "1.7.0"
 
-react-test-renderer@16.3.1:
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.3.1.tgz#d9257936d8535bd40f57f3d5a84e7b0452fb17f2"
-  integrity sha512-emEcIPUowMjT5EQ+rrb0FAwVCzuJ+LKDweoYDh073v2/jHxrBDPUk8nzI5dofG3R+140+Bb9TMcT2Ez5OP6pQw==
-  dependencies:
-    fbjs "^0.8.16"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
-    react-is "^16.3.1"
-
-react-test-renderer@^16.3.1:
+react-test-renderer@^16.3.1, react-test-renderer@^16.6.3:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.6.3.tgz#5f3a1a7d5c3379d46f7052b848b4b72e47c89f38"
   integrity sha512-B5bCer+qymrQz/wN03lT0LppbZUDRq6AMfzMKrovzkGzfO81a9T+PWQW6MzkWknbwODQH/qpJno/yFQLX5IWrQ==
@@ -9547,17 +9537,7 @@ react-transform-hmr@^1.0.4:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@16.3.1:
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
-  integrity sha512-NbkxN9jsZ6+G+ICsLdC7/wUD26uNbvKU/RAxEWgc9kcdKvROt+5d5j2cNQm5PSFTQ4WNGsR3pa4qL2Q0/WSy1w==
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
-
-react@^16.0.0:
+react@^16.0.0, react@^16.6.3:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
   integrity sha512-zCvmH2vbEolgKxtqXL2wmGCUxUyNheYn/C+PD1YAjfxHC54+MhdruyhO7QieQrYsYeTxrn93PM2y0jRH1zEExw==
