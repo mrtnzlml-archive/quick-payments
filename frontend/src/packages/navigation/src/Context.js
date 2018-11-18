@@ -9,8 +9,16 @@ const UseSwitchboxFirstError = (...args) => {
   );
 };
 
-export default React.createContext({
+const NavigationContext: React$Context<{|
+  +activeComponent: React.Node,
+  +actions: {|
+    +activateComponent: (component: React$Node) => void,
+  |},
+|}> = React.createContext({
+  activeComponent: null,
   actions: {
     activateComponent: UseSwitchboxFirstError,
   },
 });
+
+export default NavigationContext;

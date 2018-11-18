@@ -11,12 +11,12 @@ type Props = {|
 type State = {|
   activeComponent: React.Node,
   actions: {|
-    activateComponent: (component: React.Node) => void,
+    activateComponent: (component: React$Node) => void,
   |},
 |};
 
 export class Switchboard extends React.Component<Props, State> {
-  activateComponent: (component: React.Node) => void;
+  activateComponent: (component: React$Node) => void;
 
   constructor(props: Props) {
     super(props);

@@ -13,7 +13,9 @@ type Props = {|
   +style?: StylePropType,
 |};
 
-const TextContext = React.createContext({
+const TextContext: React$Context<{|
+  +isNested: boolean,
+|}> = React.createContext({
   isNested: false,
 });
 

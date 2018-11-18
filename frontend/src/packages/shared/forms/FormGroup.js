@@ -48,7 +48,7 @@ export default class FormGroup extends React.Component<Props, State> {
     const children = this.props.children;
     const isLast = index => index === children.length - 1;
 
-    return children.map((child, index) => {
+    return children.map<React$Node>((child, index) => {
       let validatedChild = child;
 
       if (React.isValidElement(child)) {
