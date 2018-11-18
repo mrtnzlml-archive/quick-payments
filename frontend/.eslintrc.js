@@ -423,6 +423,10 @@ module.exports = {
     'react-native/no-unused-styles': ERROR,
 
     // Relay (https://github.com/relayjs/eslint-plugin-relay)
+    'relay/generated-flow-types': ERROR,
+    'relay/graphql-naming': ERROR,
+    'relay/graphql-syntax': ERROR,
+    'relay/no-future-added-value': ERROR,
     'relay/unused-fields': ERROR,
 
     // import (https://github.com/benmosher/eslint-plugin-import)
