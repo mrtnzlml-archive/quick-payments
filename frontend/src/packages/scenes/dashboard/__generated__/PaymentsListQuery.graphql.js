@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d31305566d86600e61852e3c0902727a
+ * @relayHash 9da942eac27427e53379549f14d70781
  */
 
 /* eslint-disable */
@@ -45,7 +45,6 @@ query PaymentsListQuery(
 }
 
 fragment PaymentRow on Payment {
-  id
   location
   date
   ...StatusIcon
@@ -97,7 +96,7 @@ return {
   "operationKind": "query",
   "name": "PaymentsListQuery",
   "id": null,
-  "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  id\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
+  "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",

@@ -4,9 +4,8 @@ import * as React from 'react';
 import idx from 'idx';
 import {QueryRenderer, graphql} from '_relay';
 import {Button} from '_shared';
-import {Switch} from '_navigation';
-import {DashboardScene} from '_scenes';
 import Translation from '_translations';
+import {warning} from '_utils';
 
 import Confirmation from './Confirmation';
 import Rejection from './Rejection';
@@ -16,23 +15,13 @@ type Props = {|
   +paymentId: string,
 |};
 
-type State = {|
-  performTransition: boolean,
-|};
-
 type QueryRendererResponse = {
   +props: ?resultQueryResponse,
 };
 
-export default class PaymentStatus extends React.Component<Props, State> {
-  state = {
-    performTransition: false,
-  };
-
-  transitionToDashboard = () => {
-    this.setState({
-      performTransition: true,
-    });
+export default class PaymentStatus extends React.Component<Props> {
+  void = () => {
+    warning(false, 'TODO');
   };
 
   renderQueryRendererResult = ({props}: QueryRendererResponse) => {
@@ -42,19 +31,12 @@ export default class PaymentStatus extends React.Component<Props, State> {
     return (
       <React.Fragment>
         {status === 'PAID' ? <Confirmation data={data} /> : <Rejection data={data} />}
-        <Button
-          title={<Translation id="Payment.Result.GoToDashboard" />}
-          onPress={this.transitionToDashboard}
-        />
+        <Button title={<Translation id="Payment.Result.GoToDashboard" />} onPress={this.void} />
       </React.Fragment>
     );
   };
 
   render = () => {
-    if (this.state.performTransition) {
-      return <Switch to={<DashboardScene />} />;
-    }
-
     return (
       <QueryRenderer
         query={graphql`

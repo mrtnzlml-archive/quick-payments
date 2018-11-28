@@ -13,7 +13,6 @@ type StatusIcon$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type PaymentRow$ref: FragmentReference;
 export type PaymentRow = {|
-  +id: string,
   +location: ?string,
   +date: ?string,
   +total: ?{|
@@ -35,13 +34,6 @@ const node/*: ConcreteFragment*/ = {
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "id",
-      "args": null,
-      "storageKey": null
-    },
     {
       "kind": "ScalarField",
       "alias": null,
@@ -98,5 +90,5 @@ const node/*: ConcreteFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'b410cdb70c489910dc7b9b44d9c00f06';
+(node/*: any*/).hash = '09e90e01c99c7d83c8542d81e977ec8b';
 module.exports = node;

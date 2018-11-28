@@ -5,19 +5,15 @@ import {View} from 'react-native';
 import {BarCodeScanner, Permissions} from 'expo';
 import Translation from '_translations';
 import {StyleSheet, Colors, Text, Touchable} from '_shared';
-import {Switch} from '_navigation';
-import {DashboardScene} from '_scenes';
 import {warning} from '_utils';
 
 type State = {|
   hasCameraPermission: boolean | null,
-  performTransition: boolean,
 |};
 
 export default class BarcodeScanner extends React.Component<{||}, State> {
   state = {
     hasCameraPermission: null,
-    performTransition: false,
   };
 
   componentDidMount = async () => {
@@ -25,21 +21,15 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
     this.setState({hasCameraPermission: status === 'granted'});
   };
 
-  transitionToDashboard = () => {
-    this.setState({
-      performTransition: true,
-    });
-  };
-
   handleBarCodeRead = ({data}: {data: string}) => {
     warning(false, data);
   };
 
-  render = () => {
-    if (this.state.performTransition) {
-      return <Switch to={<DashboardScene />} />;
-    }
+  void = () => {
+    warning(false, 'TODO');
+  };
 
+  render = () => {
     const {hasCameraPermission} = this.state;
     if (hasCameraPermission === null) {
       return (
@@ -80,7 +70,7 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
             <View style={styleSheet.opacityFrame} />
           </View>
           <View style={[styleSheet.opacityFrame, styleSheet.cancelView]}>
-            <Touchable onPress={this.transitionToDashboard}>
+            <Touchable onPress={this.void}>
               <Text style={styleSheet.cancel}>
                 <Translation id="General.Cancel" />
               </Text>
