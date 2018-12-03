@@ -3,5 +3,5 @@
   "name": "@mrtnzlml/utils",
   "version": "1.0.2",
   "main": "index.js",
-  "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/npm/utils"
+  "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/src/npm/utils"
 }

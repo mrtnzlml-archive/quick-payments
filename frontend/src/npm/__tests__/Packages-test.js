@@ -18,7 +18,7 @@ test('all NPM package.json files', done => {
       expect(packageJson.version).toBeString();
       expect(packageJson.main).toBeString();
       expect(packageJson.homepage).toStartWith(
-        'https://github.com/mrtnzlml/quick-payments/tree/master/frontend/npm/',
+        'https://github.com/mrtnzlml/quick-payments/tree/master/frontend/src/npm/',
       );
     });
 
