@@ -1,8 +1,9 @@
 // @flow
 
 import Runtime from 'relay-runtime';
+import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
-import createNetwork from './createNetwork';
+import createRequestHandler from './createRequestHandler';
 
 // we usually copy-paste this everywhere
 const source = new Runtime.RecordSource();
@@ -13,6 +14,16 @@ type Options = {|
   +subscribeFn?: Function,
   +handlerProvider?: string => void,
 |};
+
+function createNetwork(fetchFn: Function, subscribeFn?: Function) {
+  const fetch = createRequestHandler(fetchFn);
+  return __DEV__
+    ? Runtime.Network.create(
+        RelayNetworkLogger.wrapFetch(fetch),
+        RelayNetworkLogger.wrapSubscribe(subscribeFn),
+      )
+    : Runtime.Network.create(fetch, subscribeFn);
+}
 
 module.exports = function createEnvironment(options: Options) {
   const {fetcherFn, subscribeFn, ...rest} = options;
