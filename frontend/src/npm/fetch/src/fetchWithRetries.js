@@ -73,7 +73,7 @@ export default function fetchWithRetries(
               resolve(response);
             } else if (shouldRetry(requestsAttempted, response.status)) {
               // Fetch was not successful, retrying.
-              retryRequest('HTTP error', uri);
+              retryRequest(`HTTP error ${response.status}`, uri);
             } else {
               // Request was not successful, giving up.
               reject(
