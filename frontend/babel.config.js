@@ -25,6 +25,6 @@ module.exports = function(api /*: ApiType */) {
         },
       ],
     ],
-    presets: ['babel-preset-expo'],
+    presets: ['@kiwicom/babel-preset-kiwicom', 'babel-preset-expo'],
   };
 };
