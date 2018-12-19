@@ -32,7 +32,7 @@ const eventToBuild = data => {
 // createSlackMessage create a message from a build object.
 const createSlackMessage = build => {
   return {
-    text: `Build \`${build.id}\``,
+    text: `${build.status} - build ID \`${build.id}\``,
     mrkdwn: true,
     attachments: [
       {
