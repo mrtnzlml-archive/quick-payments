@@ -1,32 +1,16 @@
 // @flow
 
-import Device from '../Device';
+import {_normalizeLocale} from '../Device';
 
-let mockLOCALE = undefined;
-afterEach(() => {
-  mockLOCALE = undefined;
+it('resolves valid locales', () => {
+  expect(_normalizeLocale('en')).toBe('en');
+  expect(_normalizeLocale('es-419')).toBe('es');
 });
 
-jest.mock('expo', () => ({
-  DangerZone: {
-    Localization: {
-      getCurrentLocaleAsync: () => Promise.resolve(mockLOCALE),
-    },
-  },
-}));
+it('falls back for invalid values', () => {
+  // language is not supported
+  expect(_normalizeLocale('cz')).toBe('en');
 
-it('resolves valid locales', async () => {
-  mockLOCALE = 'en';
-  await expect(Device.getCurrentLocaleAsync()).resolves.toBe('en');
-
-  mockLOCALE = 'es-419';
-  await expect(Device.getCurrentLocaleAsync()).resolves.toBe('es');
-});
-
-it('falls back for invalid values', async () => {
-  mockLOCALE = 'cz'; // language is not supported
-  await expect(Device.getCurrentLocaleAsync()).resolves.toBe('en');
-
-  mockLOCALE = '-es-419'; // language tag is invalid
-  await expect(Device.getCurrentLocaleAsync()).resolves.toBe('en');
+  // language tag is invalid
+  expect(_normalizeLocale('-es-419')).toBe('en');
 });

@@ -1,11 +1,8 @@
 {
   "expo": {
-    "sdkVersion": "30.0.0"
+    "sdkVersion": "31.0.0"
   },
   "githubUrl": "https://github.com/mrtnzlml/quick-payments",
   "orientation": "portrait",
-  "platforms": [
-    "android",
-    "ios"
-  ]
+  "platforms": ["ios"]
 }

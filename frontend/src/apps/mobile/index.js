@@ -1,6 +1,6 @@
 // @flow
 
-import Expo from 'expo';
+import * as Expo from 'expo';
 import * as React from 'react';
 import {DashboardScene} from '_scenes';
 

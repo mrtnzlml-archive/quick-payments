@@ -2,9 +2,6 @@
 
 exports[`renders Price component as expected 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -22,9 +19,6 @@ exports[`renders Price component as expected 1`] = `
 
 exports[`renders Price component as expected 2`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -42,9 +36,6 @@ exports[`renders Price component as expected 2`] = `
 
 exports[`renders Price component as expected 3`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {

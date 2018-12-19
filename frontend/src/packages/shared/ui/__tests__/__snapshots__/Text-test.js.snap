@@ -2,9 +2,6 @@
 
 exports[`is possible to use Text component with children 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -22,9 +19,6 @@ exports[`is possible to use Text component with children 1`] = `
 
 exports[`is possible to use Text component with custom styles 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -44,9 +38,6 @@ exports[`is possible to use Text component with custom styles 1`] = `
 
 exports[`is possible to use Text component without children 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {

@@ -2,9 +2,6 @@
 
 exports[`renders status FAIL 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -23,11 +20,7 @@ exports[`renders status FAIL 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <Text>
     FAIL
   </Text>
 </Text>
@@ -35,9 +28,6 @@ exports[`renders status FAIL 1`] = `
 
 exports[`renders status PAID 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -56,11 +46,7 @@ exports[`renders status PAID 1`] = `
     ]
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <Text>
     PAID
   </Text>
 </Text>
