@@ -41,44 +41,44 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
         // TODO: design this (vv)
         <Translation id="BarcodeScanner.NoCameraPermission" />
       );
-    } else {
-      return (
-        <View style={styleSheet.barCodeScannerWrapper}>
-          {/* <View style={[StyleSheet.absoluteFill, { backgroundColor: 'red' }]} /> */}
-          <BarCodeScanner
-            onBarCodeRead={this.handleBarCodeRead}
-            barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-            style={StyleSheet.absoluteFill}
-          />
+    }
 
-          {/*
+    return (
+      <View style={styleSheet.barCodeScannerWrapper}>
+        {/* <View style={[StyleSheet.absoluteFill, { backgroundColor: 'red' }]} /> */}
+        <BarCodeScanner
+          onBarCodeRead={this.handleBarCodeRead}
+          barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+          style={StyleSheet.absoluteFill}
+        />
+
+        {/*
             These Views below create opacity around scan window (just a design).
           */}
-          <View style={[styleSheet.opacityFrame, styleSheet.titleView]}>
-            <Text style={styleSheet.title}>
-              <Translation id="BarcodeScanner.ScanCode" />
-            </Text>
-          </View>
-          <View style={styleSheet.verticalScanWindow}>
-            <View style={styleSheet.opacityFrame} />
-            <View style={styleSheet.horizontalScanWindow}>
-              <View style={styleSheet.topLeftCorner} />
-              <View style={styleSheet.topRightCorner} />
-              <View style={styleSheet.bottomLeftCorner} />
-              <View style={styleSheet.bottomRightCorner} />
-            </View>
-            <View style={styleSheet.opacityFrame} />
-          </View>
-          <View style={[styleSheet.opacityFrame, styleSheet.cancelView]}>
-            <Touchable onPress={this.void}>
-              <Text style={styleSheet.cancel}>
-                <Translation id="General.Cancel" />
-              </Text>
-            </Touchable>
-          </View>
+        <View style={[styleSheet.opacityFrame, styleSheet.titleView]}>
+          <Text style={styleSheet.title}>
+            <Translation id="BarcodeScanner.ScanCode" />
+          </Text>
         </View>
-      );
-    }
+        <View style={styleSheet.verticalScanWindow}>
+          <View style={styleSheet.opacityFrame} />
+          <View style={styleSheet.horizontalScanWindow}>
+            <View style={styleSheet.topLeftCorner} />
+            <View style={styleSheet.topRightCorner} />
+            <View style={styleSheet.bottomLeftCorner} />
+            <View style={styleSheet.bottomRightCorner} />
+          </View>
+          <View style={styleSheet.opacityFrame} />
+        </View>
+        <View style={[styleSheet.opacityFrame, styleSheet.cancelView]}>
+          <Touchable onPress={this.void}>
+            <Text style={styleSheet.cancel}>
+              <Translation id="General.Cancel" />
+            </Text>
+          </Touchable>
+        </View>
+      </View>
+    );
   };
 }
 

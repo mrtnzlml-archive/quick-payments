@@ -9,9 +9,9 @@ export function _normalizeLocale(locale: string): SupportedLanguagesType {
   if (language !== null && isLanguageSupported(language[0])) {
     // $FlowExpectedError: cannot determine the value here properly (supported language)
     return language[0];
-  } else {
-    return 'en'; // unable to resolve the language = fallback to EN
   }
+
+  return 'en'; // unable to resolve the language = fallback to EN
 }
 
 export default {

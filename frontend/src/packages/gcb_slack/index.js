@@ -22,6 +22,8 @@ module.exports.subscribe = (event: $FlowFixMe, callback: $FlowFixMe) => {
   // Send message to Slack.
   const message = createSlackMessage(build);
   webhook.send(message, callback);
+
+  return undefined;
 };
 
 // eventToBuild transforms pubsub event message to a build object.

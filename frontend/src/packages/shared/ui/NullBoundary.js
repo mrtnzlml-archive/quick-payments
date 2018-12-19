@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import Translation from '_translations/Translation';
+import Translation from '_translations';
 
 import Text from './Text';
 import StyleSheet from './PlatformStyleSheet';

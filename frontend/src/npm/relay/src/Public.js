@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable camelcase  */
+
 import {TimeoutError as unstable_TimeoutError} from '@mrtnzlml/fetch';
 
 /**
