@@ -9,6 +9,6 @@
     "cross-fetch": "^2.2.2"
   },
   "devDependencies": {
-    "lolex": "^2.7.5"
+    "lolex": "^3.0.0"
   }
 }

@@ -30,7 +30,7 @@ module.exports = {
   },
 
   rules: {
-    camelcase: WARN,
+    'babel/camelcase': WARN,
     'object-curly-spacing': [ERROR, 'never'],
     'import/no-extraneous-dependencies': OFF, // FIXME
     'no-restricted-imports': [
