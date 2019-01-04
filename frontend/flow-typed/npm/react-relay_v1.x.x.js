@@ -309,7 +309,7 @@ declare module 'react-relay' {
     // We currently don't know how to preserve Function and Object type
     // correctly while using `createFragmentContainer`, see:
     // https://github.com/facebook/relay/commit/2141964373703dcaa9bd49aa3cd2e9efdd09425f
-    (<T: Function>( T) =>  T) &
+    (<T: () => void>( T) =>  T) &
     (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
     (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
     (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
@@ -321,7 +321,7 @@ declare module 'react-relay' {
     (<T>(T) => T)
   >
 
-  declare export function createFragmentContainer<TComponent: React$ComponentType<any>>(
+  declare export function createFragmentContainer<TComponent: React$ComponentType<*>>(
     Component: TComponent,
     fragmentSpec: GraphQLTaggedNode | GeneratedNodeMap,
   ): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, RelayProp>>;
