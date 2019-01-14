@@ -1,3 +1,9 @@
+# https://cloud.google.com/cloud-build/docs/securing-builds/use-encrypted-secrets-credentials#encrypting_an_environment_variable_using_the_cryptokey
+secrets:
+  - kmsKeyName: projects/quick-payments-216313/locations/global/keyRings/KEY_RING_1/cryptoKeys/NPM_AUTH_TOKEN
+    secretEnv:
+      NPM_AUTH_TOKEN: CiQALtjyR32vPnKsZisaa5iX7CCz2y2aBDlS4yC1J1WxlgNy2JsSTQAF4p7Wxd6S/wtgqPC5QOc/OKn/54YOWWCGCK8yKjlAT7iILz10mlXZEI4lwEgtS/9bxZNQ6tyiYHh3RtrS+SGp3qw/0nAvcCJCifzu
+
 steps:
   # install JS dependencies
   - name: node:10
@@ -8,6 +14,11 @@ steps:
   - name: node:10
     dir: 'frontend'
     args: ['yarn', 'test-ci']
+
+  - name: node:10
+    dir: 'frontend'
+    args: ['yarn', 'babel-node', 'scripts/publish-npm-packages.js']
+    secretEnv: ['NPM_AUTH_TOKEN']
 
   # TODO: cache node_modules
 
