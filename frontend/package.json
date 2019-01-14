@@ -18,10 +18,12 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-flow": "^7.0.0",
     "@kiwicom/babel-preset-kiwicom": "^1.0.0",
     "@kiwicom/eslint-config": "^1.4.0",
+    "@kiwicom/npm-publisher": "^0.3.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.4.2",
@@ -37,7 +39,6 @@
     "jest-extended": "^0.11.0",
     "node-fetch": "^2.2.0",
     "prettier": "^1.15.3",
-    "prompts": "^2.0.1",
     "react-test-renderer": "16.5.0",
     "rimraf": "^2.6.3"
   },
