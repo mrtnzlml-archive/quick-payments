@@ -12,7 +12,10 @@ export default function PrimaryButton(props: Props) {
   return (
     <Touchable onPress={props.onPress} accessibilityLabel="Open QR code reader">
       <View style={styleSheet.primaryButton}>
-        <Image style={styleSheet.primaryButtonImage} source={require('./qr_code.png')} />
+        <Image
+          style={styleSheet.primaryButtonImage}
+          source={require('./qr_code.png')}
+        />
       </View>
     </Touchable>
   );

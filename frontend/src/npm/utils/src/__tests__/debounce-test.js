@@ -38,7 +38,7 @@ describe('debounceCore', () => {
 
     // make sure that subsequent function isn't called right away
     debounced(2, 'a');
-    expect(func.mock.calls.length).toBe(1);
+    expect(func.mock.calls).toHaveLength(1);
     jest.clearAllTimers();
   });
 
@@ -61,7 +61,7 @@ describe('debounceCore', () => {
     debounced(7, 'a');
     jest.advanceTimersByTime(wait + BUFFER);
     assertCalledWith(7, 'a');
-    expect(func.mock.calls.length).toBe(2);
+    expect(func.mock.calls).toHaveLength(2);
   });
 
   it('should be reset-able', () => {

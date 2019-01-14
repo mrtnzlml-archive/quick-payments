@@ -1,7 +1,15 @@
 // @flow
 
 import * as React from 'react';
-import {StyleSheet, Colors, Title, SplitScreen, EmailInput, Button, FormGroup} from '_shared';
+import {
+  StyleSheet,
+  Colors,
+  Title,
+  SplitScreen,
+  EmailInput,
+  Button,
+  FormGroup,
+} from '_shared';
 import Translation from '_translations';
 import {warning} from '_utils';
 
@@ -55,7 +63,10 @@ class OnboardingBottom extends React.Component<{||}, State> {
  * one simple process.
  */
 export default () => (
-  <SplitScreen childrenTop={<OnboardingTop />} childrenBottom={<OnboardingBottom />} />
+  <SplitScreen
+    childrenTop={<OnboardingTop />}
+    childrenBottom={<OnboardingBottom />}
+  />
 );
 
 const styleSheet = StyleSheet.create({

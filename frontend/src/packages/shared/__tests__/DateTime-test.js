@@ -8,13 +8,15 @@ import DateTime from '../DateTime';
 const renderer = new ShallowRenderer();
 
 it('handles failed milliseconds', () => {
-  expect(renderer.render(<DateTime milliseconds={null} />)).toMatchInlineSnapshot(`
+  expect(renderer.render(<DateTime milliseconds={null} />))
+    .toMatchInlineSnapshot(`
 <NullBoundary
   length={5}
 />
 `);
 
-  expect(renderer.render(<DateTime milliseconds={undefined} />)).toMatchInlineSnapshot(`
+  expect(renderer.render(<DateTime milliseconds={undefined} />))
+    .toMatchInlineSnapshot(`
 <NullBoundary
   length={5}
 />

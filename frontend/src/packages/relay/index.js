@@ -38,5 +38,9 @@ const commitLocalUpdate = (
 };
 
 export {commitMutation, commitLocalUpdate};
-export {createFragmentContainer, createPaginationContainer, graphql} from 'react-relay';
+export {
+  createFragmentContainer,
+  createPaginationContainer,
+  graphql,
+} from 'react-relay';
 export {default as QueryRenderer} from './src/QueryRenderer';

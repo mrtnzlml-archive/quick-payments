@@ -15,10 +15,16 @@ function printWarning(format, ...args) {
   }
 }
 
-export default function(condition: mixed, format: string, ...args: Array<mixed>): void {
+export default function(
+  condition: mixed,
+  format: string,
+  ...args: Array<mixed>
+): void {
   if (__DEV__) {
     if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning message argument');
+      throw new Error(
+        '`warning(condition, format, ...args)` requires a warning message argument',
+      );
     }
     if (!condition) {
       printWarning(format, ...args);

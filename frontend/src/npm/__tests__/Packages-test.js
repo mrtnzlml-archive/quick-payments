@@ -7,7 +7,7 @@ test('all NPM package.json files', done => {
   expect.hasAssertions();
 
   glob(path.join(__dirname, '..', './**/package.json'), (error, filenames) => {
-    expect(error).toBe(null);
+    expect(error).toBeNull();
     expect(filenames).toHaveLength(3);
 
     filenames.forEach(filename => {

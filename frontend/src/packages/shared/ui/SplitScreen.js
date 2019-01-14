@@ -22,9 +22,13 @@ function SplitScreen(props: Props) {
       contentContainerStyle={styleSheet.wrapper} // the style of the content container(View) when behavior is 'position'
     >
       <View style={styleSheet.topArea}>
-        <SafeAreaView style={styleSheet.safeAreaView}>{props.childrenTop}</SafeAreaView>
+        <SafeAreaView style={styleSheet.safeAreaView}>
+          {props.childrenTop}
+        </SafeAreaView>
       </View>
-      <SafeAreaView style={styleSheet.safeAreaView}>{props.childrenBottom}</SafeAreaView>
+      <SafeAreaView style={styleSheet.safeAreaView}>
+        {props.childrenBottom}
+      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 }

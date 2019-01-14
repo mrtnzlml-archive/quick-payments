@@ -39,16 +39,16 @@ it('returns undefined when path does not exist', () => {
       b: 123,
     },
   };
-  expect(getByPath(root, ['a', 'b', 'c'])).toBe(undefined);
-  expect(getByStringPath(root, 'a.b.c')).toBe(undefined);
+  expect(getByPath(root, ['a', 'b', 'c'])).toBeUndefined();
+  expect(getByStringPath(root, 'a.b.c')).toBeUndefined();
 
   root = {
     a: {
       b: [{c: 1}, {c: 2}, {c: 3}],
     },
   };
-  expect(getByPath(root, ['a', 'b', '3', 'c'])).toBe(undefined);
-  expect(getByStringPath(root, 'a.b[3].c')).toBe(undefined);
+  expect(getByPath(root, ['a', 'b', '3', 'c'])).toBeUndefined();
+  expect(getByStringPath(root, 'a.b[3].c')).toBeUndefined();
 });
 
 it('returns null as a fallback value', () => {
@@ -94,7 +94,10 @@ it('supports paths with many asterisks (*)', () => {
     [111, 222],
     [333, 444],
   ]);
-  expect(getByStringPath(root, 'a[*].b.c[*].d.e', null)).toEqual([[111, 222], [333, 444]]);
+  expect(getByStringPath(root, 'a[*].b.c[*].d.e', null)).toEqual([
+    [111, 222],
+    [333, 444],
+  ]);
   expect(getByStringPath(root, 'a[1].b.c[*].d.e', null)).toEqual([333, 444]);
   expect(getByStringPath(root, 'a[*].b.c[1].d.e', null)).toEqual([222, 444]);
 });

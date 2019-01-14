@@ -2,7 +2,12 @@
 
 import * as React from 'react';
 // eslint-disable-next-line no-restricted-imports
-import {Platform, TouchableNativeFeedback, TouchableOpacity, View} from 'react-native';
+import {
+  Platform,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import type {StylePropType} from '../index';
 
@@ -38,7 +43,10 @@ export default class Touchable extends React.Component<Props> {
      * platform design guidelines.
      * We need to pass the background prop to specify a borderless ripple effect.
      */
-    if (Platform.OS === 'android' && Platform.Version >= ANDROID_VERSION_LOLLIPOP) {
+    if (
+      Platform.OS === 'android' &&
+      Platform.Version >= ANDROID_VERSION_LOLLIPOP
+    ) {
       const {accessibilityRole, style, ...rest} = this.props;
       return (
         <TouchableNativeFeedback
@@ -47,7 +55,10 @@ export default class Touchable extends React.Component<Props> {
           accessibilityComponentType={accessibilityRole} // TODO: replace with accessibilityRole (RN 57)
           {...rest}
           style={null}
-          background={TouchableNativeFeedback.Ripple(this.props.pressColor, false)}
+          background={TouchableNativeFeedback.Ripple(
+            this.props.pressColor,
+            false,
+          )}
         >
           <View style={style}>{children}</View>
         </TouchableNativeFeedback>

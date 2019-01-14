@@ -10,7 +10,8 @@
  */
 const Translations = {
   'BarcodeScanner.NoCameraPermission': 'No access to camera',
-  'BarcodeScanner.RequestingCameraPermission': 'Requesting for camera permission',
+  'BarcodeScanner.RequestingCameraPermission':
+    'Requesting for camera permission',
   'BarcodeScanner.ScanCode': 'Scan QR code',
 
   'Cards.Title': 'All your cards',

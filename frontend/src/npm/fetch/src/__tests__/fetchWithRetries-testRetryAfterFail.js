@@ -17,7 +17,7 @@ beforeEach(() => {
 it('retries the request if the previous attempt failed', () => {
   const failedResponse = mockResponse(500);
   fetchWithRetries('https://localhost', {}).then(handleNext);
-  expect(fetch.mock.calls.length).toBe(1);
+  expect(fetch.mock.calls).toHaveLength(1);
   fetch.mock.deferreds[0].resolve(failedResponse);
   for (let ii = 0; ii < 100; ii++) {
     if (fetch.mock.calls.length < 2) {
@@ -27,7 +27,7 @@ it('retries the request if the previous attempt failed', () => {
     }
   }
   // Resolved with `failedResponse`, next run is scheduled
-  expect(fetch.mock.calls.length).toBe(2);
+  expect(fetch.mock.calls).toHaveLength(2);
   const successfulResponse = mockResponse(200);
   fetch.mock.deferreds[1].resolve(successfulResponse);
   expect(handleNext).not.toBeCalled();

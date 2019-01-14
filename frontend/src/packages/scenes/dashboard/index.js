@@ -36,7 +36,9 @@ export default class Dashboard extends React.Component<Props> {
           <View style={styleSheet.button}>
             <SecondaryButton
               iconName="trending-up"
-              description={<Translation id="Dashboard.Navigation.BecomeRetailer" />}
+              description={
+                <Translation id="Dashboard.Navigation.BecomeRetailer" />
+              }
               onPress={this.void}
             />
           </View>

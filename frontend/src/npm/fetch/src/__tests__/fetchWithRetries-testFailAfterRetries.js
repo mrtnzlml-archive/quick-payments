@@ -21,7 +21,7 @@ it('gives up if response failed after retries', () => {
   fetchWithRetries('https://localhost', init)
     .then(handleNext)
     .catch(handleCatch);
-  expect(fetch.mock.calls.length).toBe(1);
+  expect(fetch.mock.calls).toHaveLength(1);
   fetch.mock.deferreds[0].resolve(failedResponse);
   for (let ii = 0; ii < 100; ii++) {
     if (fetch.mock.calls.length < 2) {
@@ -31,7 +31,7 @@ it('gives up if response failed after retries', () => {
     }
   }
   // Resolved with `failedResponse`, next run is scheduled
-  expect(fetch.mock.calls.length).toBe(2);
+  expect(fetch.mock.calls).toHaveLength(2);
   fetch.mock.deferreds[1].resolve(failedResponse);
   // No more re-tries, it should reject with an `Error`
   expect(handleNext).not.toBeCalled();

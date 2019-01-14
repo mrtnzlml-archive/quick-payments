@@ -32,7 +32,9 @@ const RootText = ({children, style}) => (
  * Style property may be `undefined`. Style `undefined` in nested Text
  * components indicates style inheritance in RN.
  */
-const NestedText = ({children, style}) => <RN.Text style={style}>{children}</RN.Text>;
+const NestedText = ({children, style}) => (
+  <RN.Text style={style}>{children}</RN.Text>
+);
 
 export default class Text extends React.Component<Props> {
   // note: this must be class (not functional component) to work properly

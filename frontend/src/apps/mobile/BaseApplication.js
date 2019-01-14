@@ -42,7 +42,10 @@ export default class BaseApplication extends React.Component<Props, State> {
     }
 
     return (
-      <IntlProvider locale={this.state.locale} messages={this.state.intlMessages}>
+      <IntlProvider
+        locale={this.state.locale}
+        messages={this.state.intlMessages}
+      >
         {this.props.children}
       </IntlProvider>
     );

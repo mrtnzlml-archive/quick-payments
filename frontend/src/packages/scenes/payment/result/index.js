@@ -30,8 +30,15 @@ export default class PaymentStatus extends React.Component<Props> {
 
     return (
       <React.Fragment>
-        {status === 'PAID' ? <Confirmation data={data} /> : <Rejection data={data} />}
-        <Button title={<Translation id="Payment.Result.GoToDashboard" />} onPress={this.void} />
+        {status === 'PAID' ? (
+          <Confirmation data={data} />
+        ) : (
+          <Rejection data={data} />
+        )}
+        <Button
+          title={<Translation id="Payment.Result.GoToDashboard" />}
+          onPress={this.void}
+        />
       </React.Fragment>
     );
   };

@@ -5,7 +5,11 @@
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
-const {buildClientSchema, introspectionQuery, printSchema} = require('graphql/utilities');
+const {
+  buildClientSchema,
+  introspectionQuery,
+  printSchema,
+} = require('graphql/utilities');
 
 const _x = require('./_x');
 
@@ -28,7 +32,10 @@ fetch(URL, {
   })
   .then(res => {
     const clientSchema = printSchema(buildClientSchema(res.data));
-    fs.writeFileSync(path.join(__dirname, '..', 'schema.graphql'), clientSchema);
+    fs.writeFileSync(
+      path.join(__dirname, '..', 'schema.graphql'),
+      clientSchema,
+    );
   })
   .catch(error => console.error(error))
   .finally(() => {

@@ -22,7 +22,11 @@ if (__DEV__) {
  * The invariant message will be stripped in production, but the invariant will
  * remain to ensure logic does not differ in production.
  */
-export default function invariant(condition: mixed, format: string, ...args: Array<mixed>): void {
+export default function invariant(
+  condition: mixed,
+  format: string,
+  ...args: Array<mixed>
+): void {
   validateFormat(format);
 
   if (!condition) {

@@ -4,7 +4,13 @@ import Runtime from 'relay-runtime';
 import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
 
 import {forceFetch, isMutation, isQuery} from './helpers';
-import type {CacheConfig, RequestNode, Sink, Uploadables, Variables} from './types.flow';
+import type {
+  CacheConfig,
+  RequestNode,
+  Sink,
+  Uploadables,
+  Variables,
+} from './types.flow';
 
 const burstCache = new RelayQueryResponseCache({
   size: 250,
@@ -73,7 +79,15 @@ async function processRequest(
 
   if (isMutation(requestNode)) {
     burstCache.clear();
-    return execute(customFetcher, requestNode, variables, cacheConfig, uploadables, sink, complete);
+    return execute(
+      customFetcher,
+      requestNode,
+      variables,
+      cacheConfig,
+      uploadables,
+      sink,
+      complete,
+    );
   }
 
   const fromCache = burstCache.get(queryID, variables);
@@ -109,7 +123,15 @@ module.exports = function createRequestHandler(customFetcher: Function) {
     uploadables: ?Uploadables,
   ) {
     return Runtime.Observable.create(sink => {
-      processRequest(customFetcher, requestNode, variables, cacheConfig, uploadables, sink, true);
+      processRequest(
+        customFetcher,
+        requestNode,
+        variables,
+        cacheConfig,
+        uploadables,
+        sink,
+        true,
+      );
     });
   };
 };

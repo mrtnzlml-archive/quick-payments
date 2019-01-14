@@ -28,7 +28,9 @@ export const isLanguageSupported = (language: string) => {
 /**
  * Returns all messages for given language.
  */
-export const getMessages = (language: SupportedLanguagesType): TranslationKeysObject => {
+export const getMessages = (
+  language: SupportedLanguagesType,
+): TranslationKeysObject => {
   // Metro Bundler currently doesn't support dynamic requires
   switch (language) {
     case 'en':

@@ -31,7 +31,6 @@ module.exports = {
 
   rules: {
     'babel/camelcase': WARN,
-    'object-curly-spacing': [ERROR, 'never'],
     'import/no-extraneous-dependencies': OFF, // FIXME
     'no-restricted-imports': [
       ERROR,
@@ -49,6 +48,16 @@ module.exports = {
             message: "Please use '_shared' package instead.",
           },
         ],
+      },
+    ],
+    'prettier/prettier': [
+      ERROR,
+      {
+        bracketSpacing: false,
+        printWidth: 80,
+        singleQuote: true,
+        tabWidth: 2,
+        trailingComma: 'all',
       },
     ],
   },

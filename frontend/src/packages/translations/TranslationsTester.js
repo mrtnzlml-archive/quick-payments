@@ -78,7 +78,9 @@ export const run = (
           originalVariables.length !== translatedVariables.length,
           `Translated string should contain '${
             originalVariables.length
-          }' special variables but it contains '${translatedVariables.length}' variables.`,
+          }' special variables but it contains '${
+            translatedVariables.length
+          }' variables.`,
         );
       }
 

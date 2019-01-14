@@ -2,7 +2,15 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Text, StyleSheet, Colors, Touchable, Money, DateTime, NullBoundary} from '_shared';
+import {
+  Text,
+  StyleSheet,
+  Colors,
+  Touchable,
+  Money,
+  DateTime,
+  NullBoundary,
+} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import idx from 'idx';
@@ -35,12 +43,20 @@ class PaymentRow extends React.Component<Props> {
               <Money data={data.total} />
               <Text style={styleSheet.cityName}>
                 <Translation
-                  passThrough={data.location ? ` (${data.location})` : <NullBoundary length={6} />}
+                  passThrough={
+                    data.location ? (
+                      ` (${data.location})`
+                    ) : (
+                      <NullBoundary length={6} />
+                    )
+                  }
                 />
               </Text>
             </View>
             <Text style={styleSheet.dateTime}>
-              <Translation passThrough={<DateTime milliseconds={data.date} />} />
+              <Translation
+                passThrough={<DateTime milliseconds={data.date} />}
+              />
             </Text>
           </View>
 

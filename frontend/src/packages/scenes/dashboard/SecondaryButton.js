@@ -11,7 +11,11 @@ type Props = {|
   +onPress: () => void,
 |};
 
-export default function SecondaryButton({iconName, description, onPress}: Props) {
+export default function SecondaryButton({
+  iconName,
+  description,
+  onPress,
+}: Props) {
   return (
     <Touchable onPress={onPress}>
       <View style={styleSheet.secondaryButton}>

@@ -40,18 +40,24 @@ class Deferred<Tvalue, Treason> {
     return Promise.prototype.catch.apply(this._promise, arguments);
   }
 
-  then(onFulfill?: ?(value: any) => mixed, onReject?: ?(error: any) => mixed): Promise<any> {
+  then(
+    onFulfill?: ?(value: any) => mixed,
+    onReject?: ?(error: any) => mixed,
+  ): Promise<any> {
     return Promise.prototype.then.apply(this._promise, arguments);
   }
 
-  done(onFulfill?: ?(value: any) => mixed, onReject?: ?(error: any) => mixed): void {
+  done(
+    onFulfill?: ?(value: any) => mixed,
+    onReject?: ?(error: any) => mixed,
+  ): void {
     // Embed the polyfill for the non-standard Promise.prototype.done so that
     // users of the open source fbjs don't need a custom lib for Promise
     const promise = arguments.length
       ? this._promise.then.apply(this._promise, arguments)
       : this._promise;
-    promise.then(undefined, function(err) {
-      setTimeout(function() {
+    promise.then(undefined, err => {
+      setTimeout(() => {
         throw err;
       }, 0);
     });
