@@ -1,11 +1,11 @@
 {
   "private": false,
   "name": "@mrtnzlml/fetch",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": "src/fetchWithRetries.js",
   "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/src/npm/fetch",
   "dependencies": {
-    "@mrtnzlml/utils": "^1.0.0",
+    "@mrtnzlml/utils": "^1.1.0",
     "cross-fetch": "^2.2.2"
   },
   "devDependencies": {

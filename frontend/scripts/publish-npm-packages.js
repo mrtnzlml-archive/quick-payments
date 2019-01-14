@@ -12,5 +12,5 @@ publish({
   // buildCache: path.join(__dirname, 'mrtnzlml.quick-payments', '.build'),
   buildCache: path.join(os.tmpdir(), 'mrtnzlml.quick-payments', '.build'),
   packages: path.join(__dirname, '..', 'src', 'npm'),
-  dryRun: true,
+  dryRun: false,
 });

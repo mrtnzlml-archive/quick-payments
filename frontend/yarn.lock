@@ -660,6 +660,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
+"@babel/plugin-transform-object-set-prototype-of-to-assign@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-object-set-prototype-of-to-assign/-/plugin-transform-object-set-prototype-of-to-assign-7.2.0.tgz#fb1d0bfd1fb8570935304a51cb5ece4a296a2cbf"
+  integrity sha512-EoLB3QrYKP8/LPKPJenbO444tkIWXFIaY09to8+tpqPE86mpavq0zC/t2HoA4phttPzgUpMFvVMJ5gr698zdzw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+
 "@babel/plugin-transform-object-super@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-object-super/-/plugin-transform-object-super-7.2.0.tgz#b35d4c10f56bab5d650047dad0f1d8e8814b6598"
