@@ -1,11 +1,13 @@
 // @flow
 
+import setPrototypeOf from './setPrototypeOf';
+
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
  */
 function TimeoutError(message?: string) {
   const instance = new Error(message);
-  Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
+  setPrototypeOf(instance, Object.getPrototypeOf(this));
   if (Error.captureStackTrace) {
     Error.captureStackTrace(instance, TimeoutError);
   }
@@ -21,11 +23,6 @@ TimeoutError.prototype = Object.create(Error.prototype, {
   },
 });
 
-if (Object.setPrototypeOf) {
-  Object.setPrototypeOf(TimeoutError, Error);
-} else {
-  // $FlowExpectedError: mutating this prototype is unsupported (?)
-  TimeoutError.__proto__ = Error; // eslint-disable-line no-proto
-}
+setPrototypeOf(TimeoutError, Error);
 
 module.exports = TimeoutError;
