@@ -4,7 +4,6 @@ import os from 'os';
 import path from 'path';
 import publish from '@kiwicom/npm-publisher';
 
-// TODO: run this automatically from CI (ENV variable needed)
 // yarn babel-node scripts/publish-npm-packages.js
 
 publish({

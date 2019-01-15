@@ -18,7 +18,6 @@ module.exports = function(api /*: ApiType */) {
       // TODO: inline require() calls
 
       'babel-plugin-idx',
-      '../packages/babel/dev-expression.js',
     ],
     presets: ['@kiwicom/babel-preset-kiwicom'],
   };
