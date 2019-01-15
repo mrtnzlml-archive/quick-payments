@@ -19,7 +19,6 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
-    "@babel/plugin-transform-object-set-prototype-of-to-assign": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-flow": "^7.0.0",
     "@kiwicom/babel-preset-kiwicom": "^1.0.0",

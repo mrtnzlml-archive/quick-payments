@@ -1,5 +1,7 @@
 // @flow
 
+import setPrototypeOf from './setPrototypeOf';
+
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
  */
@@ -8,7 +10,7 @@ function ResponseError(response: Object, message?: string) {
   // $FlowExpectedError: ^^
   const instance = new Error(message);
   instance.response = response;
-  Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
+  setPrototypeOf(instance, Object.getPrototypeOf(this));
   if (Error.captureStackTrace) {
     Error.captureStackTrace(instance, ResponseError);
   }
@@ -24,11 +26,6 @@ ResponseError.prototype = Object.create(Error.prototype, {
   },
 });
 
-if (Object.setPrototypeOf) {
-  Object.setPrototypeOf(ResponseError, Error);
-} else {
-  // $FlowExpectedError: mutating this prototype is unsupported (?)
-  ResponseError.__proto__ = Error; // eslint-disable-line no-proto
-}
+setPrototypeOf(ResponseError, Error);
 
 module.exports = ResponseError;

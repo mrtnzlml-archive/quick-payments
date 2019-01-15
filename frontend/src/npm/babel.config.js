@@ -17,9 +17,6 @@ module.exports = function(api /*: ApiType */) {
     plugins: [
       // TODO: inline require() calls
 
-      // This is necessary to transform 'Object.setPrototypeOf' which is not
-      // supported in React Native environment (Android).
-      '@babel/plugin-transform-object-set-prototype-of-to-assign',
       'babel-plugin-idx',
       '../packages/babel/dev-expression.js',
     ],
