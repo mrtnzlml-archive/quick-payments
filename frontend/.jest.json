@@ -1,7 +1,7 @@
 {
   "preset": "jest-expo",
   "rootDir": "",
-  "setupTestFrameworkScriptFile": "jest-extended",
+  "setupFilesAfterEnv": ["jest-extended"],
   "testMatch": ["**/__tests__/**/*-test*.js"],
   "testRunner": "jest-circus/runner",
   "timers": "fake"
