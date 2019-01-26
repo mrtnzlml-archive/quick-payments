@@ -25,6 +25,11 @@ module.exports = function(api /*: ApiType */) {
         },
       ],
     ],
-    presets: ['@kiwicom/babel-preset-kiwicom', 'babel-preset-expo'],
+    presets: [
+      'babel-preset-expo',
+      // FIXME: this transpiles __DEV__ inside Expo internals which breaks because of undefined
+      //  process.env.NODE_ENV
+      // '@kiwicom/babel-preset-kiwicom',
+    ],
   };
 };
