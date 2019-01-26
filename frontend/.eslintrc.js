@@ -30,7 +30,7 @@ module.exports = {
   },
 
   rules: {
-    'babel/camelcase': WARN,
+    'babel/camelcase': WARN, // FIXME
     'import/no-extraneous-dependencies': OFF, // FIXME
     'no-restricted-imports': [
       ERROR,
@@ -53,7 +53,7 @@ module.exports = {
     'prettier/prettier': [
       ERROR,
       {
-        bracketSpacing: false,
+        bracketSpacing: false, // this is different from @kiwicom/eslint-config in my project
         printWidth: 80,
         singleQuote: true,
         tabWidth: 2,
