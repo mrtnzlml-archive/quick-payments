@@ -5,7 +5,7 @@
   "main": "src/Public.js",
   "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/src/npm/relay",
   "dependencies": {
-    "@mrtnzlml/fetch": "^2",
+    "@kiwicom/fetch": "^2.1.0",
     "react-relay": "^1.7.0"
   }
 }

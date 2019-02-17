@@ -1,6 +1,5 @@
 Simplest in-person payments
 
-- [@mrtnzlml/fetch README](frontend/src/npm/fetch/README.md)
 - [@mrtnzlml/relay README](frontend/src/npm/relay/README.md)
 - [@mrtnzlml/utils README](frontend/src/npm/utils/README.md)
 

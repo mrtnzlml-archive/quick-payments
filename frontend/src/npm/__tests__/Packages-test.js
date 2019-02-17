@@ -8,7 +8,7 @@ test('all NPM package.json files', done => {
 
   glob(path.join(__dirname, '..', './**/package.json'), (error, filenames) => {
     expect(error).toBeNull();
-    expect(filenames).toHaveLength(3);
+    expect(filenames).toHaveLength(2);
 
     filenames.forEach(filename => {
       // $FlowIssue: https://github.com/facebook/flow/issues/2692

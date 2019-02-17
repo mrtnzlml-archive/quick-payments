@@ -1,6 +1,6 @@
 // @flow
 
-import fetchWithRetries from '@mrtnzlml/fetch';
+import fetchWithRetries from '@kiwicom/fetch';
 
 import {handleData, getRequestBody, getHeaders} from '../helpers';
 import type {RequestNode, Uploadables, Variables} from '../types.flow';

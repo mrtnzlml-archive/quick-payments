@@ -6,7 +6,7 @@ This package is **Opinionated Relay Environment**. Goal of this package is to cr
 simple to use Relay Environment with all the important features:
 
 - query logging during development
-- network fetching with retries and timeouts (see `@mrtnzlml/fetch`)
+- network fetching with retries and timeouts (see `@kiwicom/fetch`)
 - support for uploadables
 - request burst cache (response cache)
 - batch requests
