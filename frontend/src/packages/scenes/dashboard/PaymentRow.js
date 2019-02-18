@@ -13,7 +13,6 @@ import {
 } from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
-import idx from 'idx';
 import {warning} from '_utils';
 
 import StatusIcon from './StatusIcon';
@@ -30,7 +29,7 @@ class PaymentRow extends React.Component<Props> {
 
   render() {
     const {data} = this.props;
-    const retailerName = idx(data, _ => _.retailer.name);
+    const retailerName = data.retailer?.name;
 
     return (
       <Touchable style={styleSheet.container} onPress={this.void}>

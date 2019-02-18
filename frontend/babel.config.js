@@ -16,8 +16,6 @@ module.exports = function(api /*: ApiType */) {
   return {
     plugins: [
       // TODO: inline require() calls
-
-      'babel-plugin-idx',
       [
         'relay',
         {

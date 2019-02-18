@@ -4,7 +4,6 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
-import idx from 'idx';
 
 import type {ConfirmationDataType} from './__generated__/Confirmation.graphql';
 
@@ -18,7 +17,7 @@ type Props = {|
  * TODO: it should be grey on return from homepage (?) - to prevent scams with just opening older
  */
 const Confirmation = ({data}: Props) => {
-  const total = idx(data, _ => _.total);
+  const total = data?.total;
   return (
     <SplitScreen
       childrenTop={

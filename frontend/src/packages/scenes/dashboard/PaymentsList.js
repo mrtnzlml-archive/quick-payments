@@ -3,7 +3,6 @@
 import * as React from 'react';
 import {ScrollView} from 'react-native';
 import {QueryRenderer, graphql} from '_relay';
-import idx from 'idx';
 
 import PaymentRow from './PaymentRow';
 import type {PaymentsListQueryResponse} from './__generated__/PaymentsListQuery.graphql';
@@ -14,7 +13,7 @@ type QueryRendererResponse = {
 
 export default class PaymentsList extends React.Component<{||}> {
   renderQueryRendererResult = ({props}: QueryRendererResponse) => {
-    const payments = idx(props, _ => _.scenes.dashboard.payments) || [];
+    const payments = props?.scenes?.dashboard?.payments ?? [];
     return (
       <ScrollView>
         {payments.map(payment => {

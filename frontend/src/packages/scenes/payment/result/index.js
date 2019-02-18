@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import idx from 'idx';
 import {QueryRenderer, graphql} from '_relay';
 import {Button} from '_shared';
 import Translation from '_translations';
@@ -25,7 +24,7 @@ export default class PaymentStatus extends React.Component<Props> {
   };
 
   renderQueryRendererResult = ({props}: QueryRendererResponse) => {
-    const data = idx(props, _ => _.scenes.payment.checkStatus);
+    const data = props?.scenes?.payment?.checkStatus;
     const status = data && data.status;
 
     return (

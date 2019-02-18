@@ -68,6 +68,9 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/iss
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
 suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
 
+esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
+
 [lints]
 all=error
 sketchy-null=off

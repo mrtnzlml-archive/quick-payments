@@ -4,7 +4,6 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
-import idx from 'idx';
 
 import type {Rejection as RejectionDataType} from './__generated__/Rejection.graphql';
 
@@ -13,7 +12,7 @@ type Props = {|
 |};
 
 const Rejection = ({data}: Props) => {
-  const total = idx(data, _ => _.total);
+  const total = data?.total;
   return (
     <SplitScreen
       backgroundColor={Colors.error}
