@@ -1,7 +1,5 @@
 Simplest in-person payments
 
-- [@mrtnzlml/utils README](frontend/src/npm/utils/README.md)
-
 # Start API server
 
 You will need Elixir to run it:
@@ -10,17 +8,7 @@ You will need Elixir to run it:
 (cd backend ; mix run --no-halt)
 ```
 
-http://127.0.0.1:4040/graphiql
-
-# Start Webserver
-
-```
-(cd frontend/apps/website ; yarn start)
-```
-
-http://127.0.0.1:8080/webpack-dev-server/index.html
-
-See: https://github.com/webpack/docs/wiki/webpack-dev-server
+http://127.0.0.1:2048/
 
 # Start iOS simulator
 
@@ -44,10 +32,6 @@ This should just work (if you have Xcode installed).
     ├── packages
     ├── schema.graphql
     ├── scripts
-```
-
-```
-node ./scripts/publish-npm-packages.js
 ```
 
 ---
