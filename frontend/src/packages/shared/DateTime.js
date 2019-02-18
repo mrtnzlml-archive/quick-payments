@@ -18,7 +18,7 @@ type Props = {|
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
  */
-export default ({milliseconds, locale = 'en'}: Props) => {
+export default function DateTime({milliseconds, locale = 'en'}: Props) {
   if (milliseconds == null) {
     return <NullBoundary length={5} />;
   }
@@ -34,4 +34,4 @@ export default ({milliseconds, locale = 'en'}: Props) => {
   }).format(new Date(Number(milliseconds)));
 
   return <Translation passThrough={dateTime} />;
-};
+}

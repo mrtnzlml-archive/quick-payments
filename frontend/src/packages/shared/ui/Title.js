@@ -13,9 +13,9 @@ type Props = {|
   +style?: StylePropType,
 |};
 
-export default ({children, style}: Props) => (
-  <Text style={[styleSheet.title, style]}>{children}</Text>
-);
+export default function Title({children, style}: Props) {
+  return <Text style={[styleSheet.title, style]}>{children}</Text>;
+}
 
 const styleSheet = StyleSheet.create({
   title: {

@@ -13,12 +13,14 @@ type Props = {|
   +title: React.Element<typeof Translation>,
 |};
 
-export default ({children, title}: Props) => (
-  <SafeAreaView style={styleSheet.safeAreaView}>
-    <Title style={styleSheet.title}>{title}</Title>
-    {children}
-  </SafeAreaView>
-);
+export default function Layout({children, title}: Props) {
+  return (
+    <SafeAreaView style={styleSheet.safeAreaView}>
+      <Title style={styleSheet.title}>{title}</Title>
+      {children}
+    </SafeAreaView>
+  );
+}
 
 const styleSheet = StyleSheet.create({
   safeAreaView: {

@@ -1,9 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import {QueryRenderer as RelayQueryRenderer} from '@kiwicom/relay';
 import Translation from '_translations';
-import {unstable_TimeoutError as TimeoutError} from '@kiwicom/relay';
+import {
+  QueryRenderer as RelayQueryRenderer,
+  unstable_TimeoutError as TimeoutError,
+} from '@kiwicom/relay';
 
 import Environment from './Environment';
 import QueryRendererError from './QueryRendererError';
