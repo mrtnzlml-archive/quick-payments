@@ -2,9 +2,8 @@
 
 import {
   commitMutation as _commitMutation,
-  // $FlowFixMe: this is actually correct
   commitLocalUpdate as _commitLocalUpdate,
-} from 'react-relay';
+} from '@kiwicom/relay';
 
 import Environment from './src/Environment';
 
@@ -42,5 +41,5 @@ export {
   createFragmentContainer,
   createPaginationContainer,
   graphql,
-} from 'react-relay';
+} from '@kiwicom/relay';
 export {default as QueryRenderer} from './src/QueryRenderer';

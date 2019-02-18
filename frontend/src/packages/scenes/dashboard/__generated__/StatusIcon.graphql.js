@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 export type PaymentStatus = "FAILED" | "PAID" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type StatusIcon$ref: FragmentReference;
@@ -18,7 +18,7 @@ export type StatusIcon = {|
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "StatusIcon",
   "type": "Payment",

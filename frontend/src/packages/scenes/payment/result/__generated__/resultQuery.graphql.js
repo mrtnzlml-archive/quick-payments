@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6a55d50f4101604099af120f0dc45ec3
+ * @relayHash 384c50fd3bb9850485df258bc994747f
  */
 
 /* eslint-disable */
@@ -92,17 +92,12 @@ v2 = {
 };
 return {
   "kind": "Request",
-  "operationKind": "query",
-  "name": "resultQuery",
-  "id": null,
-  "text": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation\n        ...Rejection\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Rejection on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "resultQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": v0,
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -127,11 +122,11 @@ return {
                 "alias": null,
                 "name": "checkStatus",
                 "storageKey": null,
-                "args": v1,
+                "args": (v1/*: any*/),
                 "concreteType": "Payment",
                 "plural": false,
                 "selections": [
-                  v2,
+                  (v2/*: any*/),
                   {
                     "kind": "FragmentSpread",
                     "name": "Confirmation",
@@ -153,7 +148,7 @@ return {
   "operation": {
     "kind": "Operation",
     "name": "resultQuery",
-    "argumentDefinitions": v0,
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -178,11 +173,11 @@ return {
                 "alias": null,
                 "name": "checkStatus",
                 "storageKey": null,
-                "args": v1,
+                "args": (v1/*: any*/),
                 "concreteType": "Payment",
                 "plural": false,
                 "selections": [
-                  v2,
+                  (v2/*: any*/),
                   {
                     "kind": "LinkedField",
                     "alias": null,
@@ -222,6 +217,13 @@ return {
         ]
       }
     ]
+  },
+  "params": {
+    "operationKind": "query",
+    "name": "resultQuery",
+    "id": null,
+    "text": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation\n        ...Rejection\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Rejection on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
+    "metadata": {}
   }
 };
 })();

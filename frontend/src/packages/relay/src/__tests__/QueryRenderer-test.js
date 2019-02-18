@@ -1,6 +1,6 @@
 // @flow
 
-import {unstable_TimeoutError as TimeoutError} from '@mrtnzlml/relay';
+import {unstable_TimeoutError as TimeoutError} from '@kiwicom/relay';
 
 import QueryRenderer from '../QueryRenderer';
 

@@ -1,26 +1,22 @@
 // @flow
 
 import * as React from 'react';
-import {
-  QueryRenderer as RelayQueryRenderer,
-  type GraphQLTaggedNode,
-  type ReadyState,
-} from 'react-relay';
+import {QueryRenderer as RelayQueryRenderer} from '@kiwicom/relay';
 import Translation from '_translations';
-import {unstable_TimeoutError as TimeoutError} from '@mrtnzlml/relay';
+import {unstable_TimeoutError as TimeoutError} from '@kiwicom/relay';
 
 import Environment from './Environment';
 import QueryRendererError from './QueryRendererError';
 import QueryRendererLoading from './QueryRendererLoading';
 
 type Props = {|
-  +query: GraphQLTaggedNode,
-  +render: (readyState: ReadyState) => ?React$Element<any>,
+  +query: $FlowFixMe,
+  +render: (readyState: $FlowFixMe) => ?React$Element<any>,
   +variables?: Object,
 |};
 
 export default class QueryRenderer extends React.Component<Props> {
-  renderQueryRendererResult = (readyState: ReadyState) => {
+  renderQueryRendererResult = (readyState: $FlowFixMe) => {
     if (readyState.error !== null) {
       // TODO: logging service
 
@@ -47,6 +43,8 @@ export default class QueryRenderer extends React.Component<Props> {
   };
 
   render = () => (
+    // https://gitlab.skypicker.com/incubator/universe/merge_requests/1024
+    // $FlowExpectedError: this is gonna be fixed in the future @kiwicom/relay version, see ^^
     <RelayQueryRenderer
       environment={Environment}
       {...this.props}

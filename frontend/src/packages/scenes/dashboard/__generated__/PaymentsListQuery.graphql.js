@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 9da942eac27427e53379549f14d70781
+ * @relayHash a154f3b4bff1acdcc334ba1b3bfc54dc
  */
 
 /* eslint-disable */
@@ -93,17 +93,12 @@ v2 = {
 };
 return {
   "kind": "Request",
-  "operationKind": "query",
-  "name": "PaymentsListQuery",
-  "id": null,
-  "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "PaymentsListQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": v0,
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -128,11 +123,11 @@ return {
                 "alias": null,
                 "name": "payments",
                 "storageKey": null,
-                "args": v1,
+                "args": (v1/*: any*/),
                 "concreteType": "Payment",
                 "plural": true,
                 "selections": [
-                  v2,
+                  (v2/*: any*/),
                   {
                     "kind": "FragmentSpread",
                     "name": "PaymentRow",
@@ -149,7 +144,7 @@ return {
   "operation": {
     "kind": "Operation",
     "name": "PaymentsListQuery",
-    "argumentDefinitions": v0,
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -174,11 +169,11 @@ return {
                 "alias": null,
                 "name": "payments",
                 "storageKey": null,
-                "args": v1,
+                "args": (v1/*: any*/),
                 "concreteType": "Payment",
                 "plural": true,
                 "selections": [
-                  v2,
+                  (v2/*: any*/),
                   {
                     "kind": "ScalarField",
                     "alias": null,
@@ -241,7 +236,7 @@ return {
                         "args": null,
                         "storageKey": null
                       },
-                      v2
+                      (v2/*: any*/)
                     ]
                   }
                 ]
@@ -251,6 +246,13 @@ return {
         ]
       }
     ]
+  },
+  "params": {
+    "operationKind": "query",
+    "name": "PaymentsListQuery",
+    "id": null,
+    "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
+    "metadata": {}
   }
 };
 })();

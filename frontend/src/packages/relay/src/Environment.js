@@ -1,6 +1,6 @@
 // @flow
 
-import {createEnvironment, createNetworkFetcher} from '@mrtnzlml/relay';
+import {createEnvironment, createNetworkFetcher} from '@kiwicom/relay';
 
 module.exports = createEnvironment({
   fetcherFn: createNetworkFetcher('http://127.0.0.1:2048'),

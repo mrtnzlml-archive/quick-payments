@@ -11,7 +11,7 @@ test('every test should follow the filename conventions', done => {
     path.join(__dirname, '..', './**/__tests__/**.js'),
     (error, filenames) => {
       // just to be sure we actually found some files
-      expect(filenames.length > 20).toBe(true);
+      expect(filenames.length > 10).toBe(true);
 
       filenames.forEach(filename => {
         fs.readFile(filename, (err, data) => {
