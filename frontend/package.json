@@ -23,7 +23,6 @@
     "@babel/preset-flow": "^7.0.0",
     "@kiwicom/babel-preset-kiwicom": "^1.2.2",
     "@kiwicom/eslint-config": "^2.5.0",
-    "@kiwicom/npm-publisher": "^0.3.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
