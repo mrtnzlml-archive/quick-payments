@@ -3,14 +3,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const topLevelPackagePath = path.join(__dirname, '../../');
-// $FlowIssue: https://github.com/facebook/flow/issues/2692
+// $FlowAllowDynamicImport
 const topLevelPackageJson = require(path.join(
-  topLevelPackagePath,
+  __dirname,
+  '..',
   '..',
   'package.json',
 ));
-const packagesRoot = path.join(topLevelPackagePath, 'packages');
+const packagesRoot = path.join(__dirname, '..');
 const packagePaths = fs
   .readdirSync(packagesRoot)
   .map(filepath => path.join(packagesRoot, filepath))
@@ -22,8 +22,10 @@ const packagePaths = fs
   });
 
 test('all dependencies of our workspaces', () => {
+  expect.hasAssertions();
+
   packagePaths.forEach(packagePath => {
-    // $FlowIssue: https://github.com/facebook/flow/issues/2692
+    // $FlowAllowDynamicImport
     const packageJson = require(path.join(packagePath, 'package.json'));
     const packageName = path.basename(packagePath);
 
@@ -53,7 +55,7 @@ test('all dependencies of our workspaces', () => {
       }
     }
 
-    // TODO: disallow top level dependencies completely to make sure deps of all pacakges are OK?
+    // TODO: disallow top level dependencies completely to make sure deps of all packages are OK?
     // see: https://github.com/facebook/react/blob/master/package.json
   });
 });
