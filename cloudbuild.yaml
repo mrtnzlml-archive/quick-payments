@@ -1,12 +1,10 @@
 steps:
   # install JS dependencies
   - name: node:10
-    dir: 'frontend'
     args: ['yarn', 'install']
 
   # test JS client
   - name: node:10
-    dir: 'frontend'
     args: ['yarn', 'test-ci']
 
   # TODO: cache node_modules

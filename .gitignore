@@ -1,4 +1,4 @@
-# this is not where Yarn should be executed - go to "/frontend" first
+.expo
+node_modules
 
-/yarn.lock
-/node_modules/.yarn-integrity
+yarn.lock

@@ -13,28 +13,11 @@ http://127.0.0.1:2048/
 # Start iOS simulator
 
 ```
-(cd frontend ; yarn ios)
+yarn install
+yarn ios
 ```
 
 This should just work (if you have Xcode installed).
-
-# Directory structure
-
-```
-.
-├── backend
-│   ├── apps
-├── cloudbuild.yaml
-└── frontend
-    ├── apps
-    ├── flow-typed
-    ├── npm
-    ├── packages
-    ├── schema.graphql
-    ├── scripts
-```
-
----
 
 # TODO
 
