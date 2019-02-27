@@ -1,9 +1,45 @@
 // @flow
 
-import {createEnvironment, createNetworkFetcher} from '@kiwicom/relay';
+import {invariant} from '_utils';
+import {createEnvironment} from '@kiwicom/relay';
+
+async function inMemoryFetch(request, variables, uploadables) {
+  invariant(
+    uploadables === undefined,
+    'Uploadables are not supported with in-memory fetch.',
+  );
+
+  // TODO: remove this data mock
+  return {
+    data: {
+      scenes: {
+        dashboard: {
+          payments: [
+            {
+              id: 'payment:1',
+              location: 'Mexico City',
+              date: '1537727279539',
+              status: 'PAID',
+              total: {amount: '100', currency: 'MXN'},
+              retailer: {name: 'a', id: 'retailer:1'},
+            },
+            {
+              id: 'payment:2',
+              location: 'Mexico City',
+              date: '1537727279539',
+              status: 'PAID',
+              total: {amount: '100', currency: 'MXN'},
+              retailer: {name: 'a', id: 'retailer:1'},
+            },
+          ],
+        },
+      },
+    },
+  };
+}
 
 module.exports = createEnvironment({
-  fetcherFn: createNetworkFetcher('http://127.0.0.1:2048'),
+  fetcherFn: inMemoryFetch,
   handlerProvider: handle => {
     throw new Error(`handlerProvider: No handler provided for ${handle}`);
   },

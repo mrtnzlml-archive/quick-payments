@@ -7,8 +7,7 @@ import {
 
 import Environment from './src/Environment';
 
-// TODO use here the actual Flow types instead of (broken) flow-typed definitions
-
+// TODO: remove
 const commitMutation = (
   mutation: string,
   options: Object, // TODO: MutationConfig<T>
