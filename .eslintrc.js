@@ -30,8 +30,6 @@ module.exports = {
   },
 
   rules: {
-    'babel/camelcase': WARN, // FIXME
-    'import/no-extraneous-dependencies': OFF, // FIXME
     'no-restricted-imports': [
       ERROR,
       {
@@ -48,16 +46,6 @@ module.exports = {
             message: "Please use '_shared' package instead.",
           },
         ],
-      },
-    ],
-    'prettier/prettier': [
-      ERROR,
-      {
-        bracketSpacing: false, // this is different from @kiwicom/eslint-config in my project
-        printWidth: 80,
-        singleQuote: true,
-        tabWidth: 2,
-        trailingComma: 'all',
       },
     ],
   },
