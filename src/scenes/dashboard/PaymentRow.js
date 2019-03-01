@@ -14,9 +14,9 @@ import {
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import {warning} from '_utils';
+import type {PaymentRow as PaymentRowType} from '__generated__/PaymentRow.graphql';
 
 import StatusIcon from './StatusIcon';
-import type {PaymentRow as PaymentRowType} from './__generated__/PaymentRow.graphql';
 
 type Props = {|
   +data: PaymentRowType,

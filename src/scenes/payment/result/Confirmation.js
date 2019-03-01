@@ -4,8 +4,7 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
-
-import type {ConfirmationDataType} from './__generated__/Confirmation.graphql';
+import type {ConfirmationDataType} from '__generated__/Confirmation.graphql';
 
 type Props = {|
   +data: ?ConfirmationDataType,

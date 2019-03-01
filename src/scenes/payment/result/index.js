@@ -5,10 +5,10 @@ import {QueryRenderer, graphql} from '_relay';
 import {Button} from '_shared';
 import Translation from '_translations';
 import {warning} from '_utils';
+import type {resultQueryResponse} from '__generated__/resultQuery.graphql';
 
 import Confirmation from './Confirmation';
 import Rejection from './Rejection';
-import type {resultQueryResponse} from './__generated__/resultQuery.graphql';
 
 type Props = {|
   +paymentId: string,

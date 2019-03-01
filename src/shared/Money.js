@@ -4,9 +4,9 @@ import * as React from 'react';
 import Translation from '_translations';
 import {createFragmentContainer, graphql} from '_relay';
 import Decimal from 'decimal.js-light';
+import type {Money as MoneyType} from '__generated__/Money.graphql';
 
 import NullBoundary from './ui/NullBoundary';
-import type {Money as MoneyType} from './__generated__/Money.graphql';
 
 const SupportedLocales = {
   // TODO

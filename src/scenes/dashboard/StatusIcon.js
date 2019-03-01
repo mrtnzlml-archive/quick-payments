@@ -4,8 +4,7 @@ import * as React from 'react';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import {Text, StyleSheet, Colors} from '_shared';
-
-import type {StatusIcon as StatusIconType} from './__generated__/StatusIcon.graphql';
+import type {StatusIcon as StatusIconType} from '__generated__/StatusIcon.graphql';
 
 type Props = {|
   +data: StatusIconType,

@@ -3,9 +3,9 @@
 import * as React from 'react';
 import {ScrollView} from 'react-native';
 import {QueryRenderer, graphql} from '_relay';
+import type {PaymentsListQueryResponse} from '__generated__/PaymentsListQuery.graphql';
 
 import PaymentRow from './PaymentRow';
-import type {PaymentsListQueryResponse} from './__generated__/PaymentsListQuery.graphql';
 
 type QueryRendererResponse = {
   +props: ?PaymentsListQueryResponse,

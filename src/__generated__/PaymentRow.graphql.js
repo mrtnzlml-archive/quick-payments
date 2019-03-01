@@ -8,8 +8,8 @@
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
-type Money$ref = any;
-type StatusIcon$ref = any;
+import type { Money$ref } from "./Money.graphql";
+import type { StatusIcon$ref } from "./StatusIcon.graphql";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type PaymentRow$ref: FragmentReference;
 export type PaymentRow = {|

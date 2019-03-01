@@ -19,7 +19,8 @@ module.exports = function(api /*: ApiType */) {
       [
         'relay',
         {
-          schema: 'schema.graphql',
+          schema: './schema.graphql',
+          artifactDirectory: './src/__generated__',
         },
       ],
     ],

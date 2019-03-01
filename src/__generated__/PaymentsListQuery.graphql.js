@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a154f3b4bff1acdcc334ba1b3bfc54dc
+ * @relayHash a09e77763bd87e5167e439263beaa999
  */
 
 /* eslint-disable */
@@ -9,7 +9,7 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type PaymentRow$ref = any;
+import type { PaymentRow$ref } from "./PaymentRow.graphql";
 export type PaymentsListQueryVariables = {|
   clientId: string
 |};

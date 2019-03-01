@@ -7,9 +7,9 @@ const path = require('path');
 const fetch = require('node-fetch');
 const {
   buildClientSchema,
-  introspectionQuery,
+  getIntrospectionQuery,
   printSchema,
-} = require('graphql/utilities');
+} = require('graphql');
 
 const _x = require('./_x');
 
@@ -23,7 +23,7 @@ fetch(URL, {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    query: introspectionQuery,
+    query: getIntrospectionQuery(),
   }),
 })
   .then(res => {
@@ -41,8 +41,9 @@ fetch(URL, {
   .finally(() => {
     _x('yarn', [
       'relay-compiler',
-      '--src=.',
+      '--src=./src',
       '--schema=./schema.graphql',
+      '--artifactDirectory=./src/__generated__',
       '--verbose',
       ...process.argv.slice(2),
     ]);

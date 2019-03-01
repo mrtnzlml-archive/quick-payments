@@ -4,8 +4,7 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
-
-import type {Rejection as RejectionDataType} from './__generated__/Rejection.graphql';
+import type {Rejection as RejectionDataType} from '__generated__/Rejection.graphql';
 
 type Props = {|
   +data: ?RejectionDataType,

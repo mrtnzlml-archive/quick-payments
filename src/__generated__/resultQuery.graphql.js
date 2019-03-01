@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 384c50fd3bb9850485df258bc994747f
+ * @relayHash 8a8a7abd8840e63f5ddbf4e045bf6984
  */
 
 /* eslint-disable */
@@ -9,8 +9,8 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type Confirmation$ref = any;
-type Rejection$ref = any;
+import type { Confirmation$ref } from "./Confirmation.graphql";
+import type { Rejection$ref } from "./Rejection.graphql";
 export type PaymentStatus = "FAILED" | "PAID" | "%future added value";
 export type resultQueryVariables = {|
   paymentId: string
