@@ -40,9 +40,9 @@
     "start": "expo start",
     "ios": "expo start --ios",
     "test": "node node_modules/.bin/jest --config=.jest.json",
-    "test-ci": "node ./scripts/test-ci.js",
+    "test-ci": "yarn flow & yarn lint & yarn test",
     "lint": "eslint . --report-unused-disable-directives",
-    "relay": "node ./scripts/relay-compiler.js"
+    "relay": "yarn relay-compiler --src=./src --schema=./schema.graphql --artifactDirectory=./src/__generated__ --verbose"
   },
   "jest": {
     "preset": "jest-expo"
