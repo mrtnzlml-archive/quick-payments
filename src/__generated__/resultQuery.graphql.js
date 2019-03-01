@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash b66bbb2e83ac226b793a24e77305d083
+ * @relayHash d199d87e0bf2fbdf07a31490fde0a381
  */
 
 /* eslint-disable */
@@ -221,8 +221,8 @@ return {
   "params": {
     "operationKind": "query",
     "name": "resultQuery",
-    "id": null,
-    "text": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation_data\n        ...Rejection_data\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation_data on Payment {\n  total {\n    ...Money_data\n  }\n}\n\nfragment Rejection_data on Payment {\n  total {\n    ...Money_data\n  }\n}\n\nfragment Money_data on Money {\n  amount\n  currency\n}\n",
+    "id": "bcb3eac08a55ae0c4a5fef55b52b1230",
+    "text": null,
     "metadata": {}
   }
 };

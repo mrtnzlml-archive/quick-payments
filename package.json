@@ -42,7 +42,7 @@
     "test": "node node_modules/.bin/jest --config=.jest.json",
     "test-ci": "yarn flow & yarn lint & yarn test",
     "lint": "eslint . --report-unused-disable-directives",
-    "relay": "yarn relay-compiler --src=./src --schema=./schema.graphql --artifactDirectory=./src/__generated__ --verbose"
+    "relay": "yarn relay-compiler --src=./src --schema=./src/schema.graphql --artifactDirectory=./src/__generated__ --persist-output ./src/persisted-queries.json --verbose"
   },
   "jest": {
     "preset": "jest-expo"

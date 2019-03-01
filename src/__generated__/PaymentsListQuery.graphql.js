@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f1abadb7992d982b1237678cfb4fc78c
+ * @relayHash 65b2a62250fcb59d3c5c47bff8990608
  */
 
 /* eslint-disable */
@@ -250,8 +250,8 @@ return {
   "params": {
     "operationKind": "query",
     "name": "PaymentsListQuery",
-    "id": null,
-    "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow_data\n      }\n    }\n  }\n}\n\nfragment PaymentRow_data on Payment {\n  location\n  date\n  ...StatusIcon_data\n  total {\n    ...Money_data\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon_data on Payment {\n  status\n}\n\nfragment Money_data on Money {\n  amount\n  currency\n}\n",
+    "id": "fe6ede535e34fded4ff5ce6778b87baa",
+    "text": null,
     "metadata": {}
   }
 };
