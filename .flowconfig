@@ -74,6 +74,9 @@ esproposal.nullish_coalescing=enable
 
 module.name_mapper='^__generated__/\(.+\)$' -> '<PROJECT_ROOT>/src/__generated__/\1'
 
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src/util
+
 [lints]
 all=error
 sketchy-null=off

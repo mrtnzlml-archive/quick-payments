@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "_components",
+  "version": "0.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "react-native-safe-area-view": "^0.11.0"
+  }
+}

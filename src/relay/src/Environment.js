@@ -1,7 +1,7 @@
 // @flow
 
-import {invariant} from '_utils';
 import {createEnvironment} from '@kiwicom/relay';
+import invariant from 'util/invariant';
 
 async function inMemoryFetch(request, variables, uploadables) {
   invariant(

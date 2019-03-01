@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {ActivityIndicator, View} from 'react-native';
-import {StyleSheet} from '_shared';
+import {StyleSheet} from '_components';
 
 export default function QueryRendererLoading() {
   return (

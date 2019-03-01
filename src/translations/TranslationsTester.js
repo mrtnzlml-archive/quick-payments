@@ -1,6 +1,6 @@
 // @flow
 
-import {warning} from '_utils';
+import warning from 'util/warning';
 
 import type {TranslationKeysObject} from './index';
 
