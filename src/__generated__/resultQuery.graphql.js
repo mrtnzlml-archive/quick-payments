@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 8a8a7abd8840e63f5ddbf4e045bf6984
+ * @relayHash b66bbb2e83ac226b793a24e77305d083
  */
 
 /* eslint-disable */
@@ -9,8 +9,8 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-import type { Confirmation$ref } from "./Confirmation.graphql";
-import type { Rejection$ref } from "./Rejection.graphql";
+import type { Confirmation_data$ref } from "./Confirmation_data.graphql";
+import type { Rejection_data$ref } from "./Rejection_data.graphql";
 export type PaymentStatus = "FAILED" | "PAID" | "%future added value";
 export type resultQueryVariables = {|
   paymentId: string
@@ -20,7 +20,7 @@ export type resultQueryResponse = {|
     +payment: ?{|
       +checkStatus: ?{|
         +status: ?PaymentStatus,
-        +$fragmentRefs: Confirmation$ref & Rejection$ref,
+        +$fragmentRefs: Confirmation_data$ref & Rejection_data$ref,
       |}
     |}
   |}
@@ -40,27 +40,27 @@ query resultQuery(
     payment {
       checkStatus(paymentId: $paymentId) {
         status
-        ...Confirmation
-        ...Rejection
+        ...Confirmation_data
+        ...Rejection_data
         id
       }
     }
   }
 }
 
-fragment Confirmation on Payment {
+fragment Confirmation_data on Payment {
   total {
-    ...Money
+    ...Money_data
   }
 }
 
-fragment Rejection on Payment {
+fragment Rejection_data on Payment {
   total {
-    ...Money
+    ...Money_data
   }
 }
 
-fragment Money on Money {
+fragment Money_data on Money {
   amount
   currency
 }
@@ -129,12 +129,12 @@ return {
                   (v2/*: any*/),
                   {
                     "kind": "FragmentSpread",
-                    "name": "Confirmation",
+                    "name": "Confirmation_data",
                     "args": null
                   },
                   {
                     "kind": "FragmentSpread",
-                    "name": "Rejection",
+                    "name": "Rejection_data",
                     "args": null
                   }
                 ]
@@ -222,11 +222,11 @@ return {
     "operationKind": "query",
     "name": "resultQuery",
     "id": null,
-    "text": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation\n        ...Rejection\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Rejection on Payment {\n  total {\n    ...Money\n  }\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
+    "text": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation_data\n        ...Rejection_data\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation_data on Payment {\n  total {\n    ...Money_data\n  }\n}\n\nfragment Rejection_data on Payment {\n  total {\n    ...Money_data\n  }\n}\n\nfragment Money_data on Money {\n  amount\n  currency\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '170d36d2be6c226dafcec99c68767208';
+(node/*: any*/).hash = 'bcb3eac08a55ae0c4a5fef55b52b1230';
 module.exports = node;

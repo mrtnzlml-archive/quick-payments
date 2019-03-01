@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a09e77763bd87e5167e439263beaa999
+ * @relayHash f1abadb7992d982b1237678cfb4fc78c
  */
 
 /* eslint-disable */
@@ -9,7 +9,7 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-import type { PaymentRow$ref } from "./PaymentRow.graphql";
+import type { PaymentRow_data$ref } from "./PaymentRow_data.graphql";
 export type PaymentsListQueryVariables = {|
   clientId: string
 |};
@@ -18,7 +18,7 @@ export type PaymentsListQueryResponse = {|
     +dashboard: ?{|
       +payments: ?$ReadOnlyArray<?{|
         +id: string,
-        +$fragmentRefs: PaymentRow$ref,
+        +$fragmentRefs: PaymentRow_data$ref,
       |}>
     |}
   |}
@@ -38,18 +38,18 @@ query PaymentsListQuery(
     dashboard {
       payments(clientId: $clientId) {
         id
-        ...PaymentRow
+        ...PaymentRow_data
       }
     }
   }
 }
 
-fragment PaymentRow on Payment {
+fragment PaymentRow_data on Payment {
   location
   date
-  ...StatusIcon
+  ...StatusIcon_data
   total {
-    ...Money
+    ...Money_data
   }
   retailer {
     name
@@ -57,11 +57,11 @@ fragment PaymentRow on Payment {
   }
 }
 
-fragment StatusIcon on Payment {
+fragment StatusIcon_data on Payment {
   status
 }
 
-fragment Money on Money {
+fragment Money_data on Money {
   amount
   currency
 }
@@ -130,7 +130,7 @@ return {
                   (v2/*: any*/),
                   {
                     "kind": "FragmentSpread",
-                    "name": "PaymentRow",
+                    "name": "PaymentRow_data",
                     "args": null
                   }
                 ]
@@ -251,11 +251,11 @@ return {
     "operationKind": "query",
     "name": "PaymentsListQuery",
     "id": null,
-    "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow\n      }\n    }\n  }\n}\n\nfragment PaymentRow on Payment {\n  location\n  date\n  ...StatusIcon\n  total {\n    ...Money\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon on Payment {\n  status\n}\n\nfragment Money on Money {\n  amount\n  currency\n}\n",
+    "text": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow_data\n      }\n    }\n  }\n}\n\nfragment PaymentRow_data on Payment {\n  location\n  date\n  ...StatusIcon_data\n  total {\n    ...Money_data\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon_data on Payment {\n  status\n}\n\nfragment Money_data on Money {\n  amount\n  currency\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '399141e81cc13d3ea3d09053eb774f3f';
+(node/*: any*/).hash = 'fe6ede535e34fded4ff5ce6778b87baa';
 module.exports = node;

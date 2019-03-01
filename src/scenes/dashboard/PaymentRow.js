@@ -14,7 +14,7 @@ import {
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import {warning} from '_utils';
-import type {PaymentRow as PaymentRowType} from '__generated__/PaymentRow.graphql';
+import type {PaymentRow_data as PaymentRowType} from '__generated__/PaymentRow_data.graphql';
 
 import StatusIcon from './StatusIcon';
 
@@ -92,19 +92,18 @@ const styleSheet = StyleSheet.create({
   },
 });
 
-export default createFragmentContainer(
-  PaymentRow,
-  graphql`
-    fragment PaymentRow on Payment {
+export default createFragmentContainer(PaymentRow, {
+  data: graphql`
+    fragment PaymentRow_data on Payment {
       location
       date
-      ...StatusIcon
+      ...StatusIcon_data
       total {
-        ...Money
+        ...Money_data
       }
       retailer {
         name
       }
     }
   `,
-);
+});

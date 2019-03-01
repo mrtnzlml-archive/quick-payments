@@ -13,7 +13,7 @@ import QueryRendererLoading from './QueryRendererLoading';
 
 type Props = {|
   +query: $FlowFixMe,
-  +render: (readyState: $FlowFixMe) => ?React$Element<any>,
+  +render: (readyState: $FlowFixMe) => React$Node,
   +variables?: Object,
 |};
 
@@ -24,8 +24,8 @@ export default function QueryRenderer(props: Props) {
     return <QueryRendererLoading />;
   }
 
-  function handleSystemError() {
-    return ({error, retry}) => (
+  function handleSystemError({error, retry}) {
+    return (
       <QueryRendererError
         onTryAgain={retry}
         title={

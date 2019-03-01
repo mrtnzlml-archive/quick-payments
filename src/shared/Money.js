@@ -4,7 +4,7 @@ import * as React from 'react';
 import Translation from '_translations';
 import {createFragmentContainer, graphql} from '_relay';
 import Decimal from 'decimal.js-light';
-import type {Money as MoneyType} from '__generated__/Money.graphql';
+import type {Money_data as MoneyType} from '__generated__/Money_data.graphql';
 
 import NullBoundary from './ui/NullBoundary';
 
@@ -42,10 +42,12 @@ export default createFragmentContainer(
     }
     return <Price amount={data.amount} currency={data.currency} />;
   },
-  graphql`
-    fragment Money on Money {
-      amount
-      currency
-    }
-  `,
+  {
+    data: graphql`
+      fragment Money_data on Money {
+        amount
+        currency
+      }
+    `,
+  },
 );

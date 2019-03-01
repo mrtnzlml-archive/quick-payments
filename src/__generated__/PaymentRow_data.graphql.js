@@ -8,28 +8,28 @@
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
-import type { Money$ref } from "./Money.graphql";
-import type { StatusIcon$ref } from "./StatusIcon.graphql";
+import type { Money_data$ref } from "./Money_data.graphql";
+import type { StatusIcon_data$ref } from "./StatusIcon_data.graphql";
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type PaymentRow$ref: FragmentReference;
-export type PaymentRow = {|
+declare export opaque type PaymentRow_data$ref: FragmentReference;
+export type PaymentRow_data = {|
   +location: ?string,
   +date: ?string,
   +total: ?{|
-    +$fragmentRefs: Money$ref
+    +$fragmentRefs: Money_data$ref
   |},
   +retailer: ?{|
     +name: ?string
   |},
-  +$fragmentRefs: StatusIcon$ref,
-  +$refType: PaymentRow$ref,
+  +$fragmentRefs: StatusIcon_data$ref,
+  +$refType: PaymentRow_data$ref,
 |};
 */
 
 
 const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
-  "name": "PaymentRow",
+  "name": "PaymentRow_data",
   "type": "Payment",
   "metadata": null,
   "argumentDefinitions": [],
@@ -50,7 +50,7 @@ const node/*: ReaderFragment*/ = {
     },
     {
       "kind": "FragmentSpread",
-      "name": "StatusIcon",
+      "name": "StatusIcon_data",
       "args": null
     },
     {
@@ -64,7 +64,7 @@ const node/*: ReaderFragment*/ = {
       "selections": [
         {
           "kind": "FragmentSpread",
-          "name": "Money",
+          "name": "Money_data",
           "args": null
         }
       ]
@@ -90,5 +90,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '09e90e01c99c7d83c8542d81e977ec8b';
+(node/*: any*/).hash = '7cceb772b37a1870db76bc04b78badd2';
 module.exports = node;

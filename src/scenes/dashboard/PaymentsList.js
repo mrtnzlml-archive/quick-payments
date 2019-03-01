@@ -7,13 +7,9 @@ import type {PaymentsListQueryResponse} from '__generated__/PaymentsListQuery.gr
 
 import PaymentRow from './PaymentRow';
 
-type QueryRendererResponse = {
-  +props: ?PaymentsListQueryResponse,
-};
-
 export default class PaymentsList extends React.Component<{||}> {
-  renderQueryRendererResult = (props: QueryRendererResponse) => {
-    const payments = props?.scenes?.dashboard?.payments ?? [];
+  renderQueryRendererResult = (props: PaymentsListQueryResponse) => {
+    const payments = props.scenes?.dashboard?.payments ?? [];
     return (
       <ScrollView>
         {payments.map(payment => {
@@ -34,7 +30,7 @@ export default class PaymentsList extends React.Component<{||}> {
             dashboard {
               payments(clientId: $clientId) {
                 id
-                ...PaymentRow
+                ...PaymentRow_data
               }
             }
           }

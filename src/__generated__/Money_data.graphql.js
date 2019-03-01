@@ -10,18 +10,18 @@
 import type { ReaderFragment } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type Money$ref: FragmentReference;
-export type Money = {|
+declare export opaque type Money_data$ref: FragmentReference;
+export type Money_data = {|
   +amount: ?string,
   +currency: ?SupportedCurrency,
-  +$refType: Money$ref,
+  +$refType: Money_data$ref,
 |};
 */
 
 
 const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
-  "name": "Money",
+  "name": "Money_data",
   "type": "Money",
   "metadata": null,
   "argumentDefinitions": [],
@@ -43,5 +43,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '8da96249b454a3bfb565f5eee314c2e6';
+(node/*: any*/).hash = 'b1125a21495e33abc5b510341cde382e';
 module.exports = node;

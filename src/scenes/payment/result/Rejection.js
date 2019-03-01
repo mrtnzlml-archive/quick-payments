@@ -4,7 +4,7 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
-import type {Rejection as RejectionDataType} from '__generated__/Rejection.graphql';
+import type {Rejection_data as RejectionDataType} from '__generated__/Rejection_data.graphql';
 
 type Props = {|
   +data: ?RejectionDataType,
@@ -37,13 +37,12 @@ const styleSheet = StyleSheet.create({
   },
 });
 
-export default createFragmentContainer(
-  Rejection,
-  graphql`
-    fragment Rejection on Payment {
+export default createFragmentContainer(Rejection, {
+  data: graphql`
+    fragment Rejection_data on Payment {
       total {
-        ...Money
+        ...Money_data
       }
     }
   `,
-);
+});

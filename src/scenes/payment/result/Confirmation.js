@@ -4,7 +4,7 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {SplitScreen, Icon, Colors, StyleSheet, Money} from '_shared';
 import {createFragmentContainer, graphql} from '_relay';
-import type {ConfirmationDataType} from '__generated__/Confirmation.graphql';
+import type {Confirmation_data as ConfirmationDataType} from '__generated__/Confirmation_data.graphql';
 
 type Props = {|
   +data: ?ConfirmationDataType,
@@ -40,13 +40,12 @@ const styleSheet = StyleSheet.create({
   },
 });
 
-export default createFragmentContainer(
-  Confirmation,
-  graphql`
-    fragment Confirmation on Payment {
+export default createFragmentContainer(Confirmation, {
+  data: graphql`
+    fragment Confirmation_data on Payment {
       total {
-        ...Money
+        ...Money_data
       }
     }
   `,
-);
+});

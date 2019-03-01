@@ -8,21 +8,21 @@
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
-import type { Money$ref } from "./Money.graphql";
+import type { Money_data$ref } from "./Money_data.graphql";
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type Confirmation$ref: FragmentReference;
-export type Confirmation = {|
+declare export opaque type Rejection_data$ref: FragmentReference;
+export type Rejection_data = {|
   +total: ?{|
-    +$fragmentRefs: Money$ref
+    +$fragmentRefs: Money_data$ref
   |},
-  +$refType: Confirmation$ref,
+  +$refType: Rejection_data$ref,
 |};
 */
 
 
 const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
-  "name": "Confirmation",
+  "name": "Rejection_data",
   "type": "Payment",
   "metadata": null,
   "argumentDefinitions": [],
@@ -38,7 +38,7 @@ const node/*: ReaderFragment*/ = {
       "selections": [
         {
           "kind": "FragmentSpread",
-          "name": "Money",
+          "name": "Money_data",
           "args": null
         }
       ]
@@ -46,5 +46,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'a49f9fb1aa7f3a169b69503834c04661';
+(node/*: any*/).hash = 'b60f63c140c30fdbd70ba6a04306bd92';
 module.exports = node;

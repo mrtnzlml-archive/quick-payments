@@ -4,7 +4,7 @@ import * as React from 'react';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import {Text, StyleSheet, Colors} from '_shared';
-import type {StatusIcon as StatusIconType} from '__generated__/StatusIcon.graphql';
+import type {StatusIcon_data as StatusIconType} from '__generated__/StatusIcon_data.graphql';
 
 type Props = {|
   +data: StatusIconType,
@@ -41,11 +41,10 @@ const styleSheet = StyleSheet.create({
   },
 });
 
-export default createFragmentContainer(
-  StatusIcon,
-  graphql`
-    fragment StatusIcon on Payment {
+export default createFragmentContainer(StatusIcon, {
+  data: graphql`
+    fragment StatusIcon_data on Payment {
       status
     }
   `,
-);
+});

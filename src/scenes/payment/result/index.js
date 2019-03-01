@@ -14,17 +14,13 @@ type Props = {|
   +paymentId: string,
 |};
 
-type QueryRendererResponse = {
-  +props: ?resultQueryResponse,
-};
-
 export default class PaymentStatus extends React.Component<Props> {
   void = () => {
     warning(false, 'TODO');
   };
 
-  renderQueryRendererResult = (props: QueryRendererResponse) => {
-    const data = props?.scenes?.payment?.checkStatus;
+  renderQueryRendererResult = (props: resultQueryResponse) => {
+    const data = props.scenes?.payment?.checkStatus;
     const status = data && data.status;
 
     return (
@@ -51,8 +47,8 @@ export default class PaymentStatus extends React.Component<Props> {
               payment {
                 checkStatus(paymentId: $paymentId) {
                   status
-                  ...Confirmation
-                  ...Rejection
+                  ...Confirmation_data
+                  ...Rejection_data
                 }
               }
             }

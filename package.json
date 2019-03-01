@@ -41,7 +41,6 @@
     "ios": "expo start --ios",
     "test": "node node_modules/.bin/jest --config=.jest.json",
     "test-ci": "node ./scripts/test-ci.js",
-    "flow": "flow --include-warnings",
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "node ./scripts/relay-compiler.js"
   },
