@@ -4,7 +4,7 @@ import * as React from 'react';
 import Translation from '_translations';
 import {
   QueryRenderer as RelayQueryRenderer,
-  unstable_TimeoutError as TimeoutError,
+  FetchTimeoutError,
 } from '@kiwicom/relay';
 
 import Environment from './Environment';
@@ -17,40 +17,36 @@ type Props = {|
   +variables?: Object,
 |};
 
-export default class QueryRenderer extends React.Component<Props> {
-  renderQueryRendererResult = (readyState: $FlowFixMe) => {
-    if (readyState.error !== null) {
-      // TODO: logging service
+export default function QueryRenderer(props: Props) {
+  // TODO: logging service
 
-      return (
-        <QueryRendererError
-          onTryAgain={readyState.retry}
-          title={
-            // TODO: add also ResponseError (?)
-            readyState.error instanceof TimeoutError ? (
-              <Translation id="General.QueryRenderer.TimeoutError.Title" />
-            ) : (
-              <Translation id="General.QueryRenderer.Error.Title" />
-            )
-          }
-        />
-      );
-    }
+  function handleLoading() {
+    return <QueryRendererLoading />;
+  }
 
-    if (!readyState.props) {
-      return <QueryRendererLoading />;
-    }
+  function handleSystemError() {
+    return ({error, retry}) => (
+      <QueryRendererError
+        onTryAgain={retry}
+        title={
+          error instanceof FetchTimeoutError ? (
+            <Translation id="General.QueryRenderer.TimeoutError.Title" />
+          ) : (
+            <Translation id="General.QueryRenderer.Error.Title" />
+          )
+        }
+      />
+    );
+  }
 
-    return this.props.render(readyState);
-  };
-
-  render = () => (
-    // https://gitlab.skypicker.com/incubator/universe/merge_requests/1024
-    // $FlowExpectedError: this is gonna be fixed in the future @kiwicom/relay version, see ^^
+  return (
     <RelayQueryRenderer
       environment={Environment}
-      {...this.props}
-      render={this.renderQueryRendererResult}
+      query={props.query}
+      variables={props.variables}
+      onLoading={handleLoading}
+      onSystemError={handleSystemError}
+      onResponse={props.render}
     />
   );
 }

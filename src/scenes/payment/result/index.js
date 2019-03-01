@@ -23,7 +23,7 @@ export default class PaymentStatus extends React.Component<Props> {
     warning(false, 'TODO');
   };
 
-  renderQueryRendererResult = ({props}: QueryRendererResponse) => {
+  renderQueryRendererResult = (props: QueryRendererResponse) => {
     const data = props?.scenes?.payment?.checkStatus;
     const status = data && data.status;
 

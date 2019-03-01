@@ -12,7 +12,7 @@ type QueryRendererResponse = {
 };
 
 export default class PaymentsList extends React.Component<{||}> {
-  renderQueryRendererResult = ({props}: QueryRendererResponse) => {
+  renderQueryRendererResult = (props: QueryRendererResponse) => {
     const payments = props?.scenes?.dashboard?.payments ?? [];
     return (
       <ScrollView>
