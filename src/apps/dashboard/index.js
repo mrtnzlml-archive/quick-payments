@@ -10,42 +10,38 @@ import PaymentsList from './PaymentsList';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
 
-type Props = {||};
+function _void() {
+  warning(false, 'TODO');
+}
 
-export default class Dashboard extends React.Component<Props> {
-  void = () => {
-    warning(false, 'TODO');
-  };
+export default function Dashboard() {
+  return (
+    <Layout title={<Translation id="Dashboard.Title" />}>
+      <PaymentsList />
 
-  render = () => {
-    return (
-      <Layout title={<Translation id="Dashboard.Title" />}>
-        <PaymentsList />
-
-        <View style={styleSheet.navigation}>
-          <View style={styleSheet.button}>
-            <SecondaryButton
-              iconName="credit-card"
-              description={<Translation id="Dashboard.Navigation.MyCard" />}
-              onPress={this.void}
-            />
-          </View>
-          <View style={styleSheet.button}>
-            <PrimaryButton onPress={this.void} />
-          </View>
-          <View style={styleSheet.button}>
-            <SecondaryButton
-              iconName="trending-up"
-              description={
-                <Translation id="Dashboard.Navigation.BecomeRetailer" />
-              }
-              onPress={this.void}
-            />
-          </View>
+      <View style={styleSheet.navigation}>
+        <View style={styleSheet.button}>
+          <SecondaryButton
+            iconName="credit-card"
+            description={<Translation id="Dashboard.Navigation.MyCard" />}
+            onPress={_void}
+          />
         </View>
-      </Layout>
-    );
-  };
+        <View style={styleSheet.button}>
+          <PrimaryButton onPress={_void} />
+        </View>
+        <View style={styleSheet.button}>
+          <SecondaryButton
+            iconName="trending-up"
+            description={
+              <Translation id="Dashboard.Navigation.BecomeRetailer" />
+            }
+            onPress={_void}
+          />
+        </View>
+      </View>
+    </Layout>
+  );
 }
 
 const styleSheet = StyleSheet.create({

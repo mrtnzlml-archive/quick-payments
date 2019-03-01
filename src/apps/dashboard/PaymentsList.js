@@ -7,22 +7,22 @@ import type {PaymentsListQueryResponse} from '__generated__/PaymentsListQuery.gr
 
 import PaymentRow from './PaymentRow';
 
-export default class PaymentsList extends React.Component<{||}> {
-  renderQueryRendererResult = (props: PaymentsListQueryResponse) => {
-    const payments = props.scenes?.dashboard?.payments ?? [];
-    return (
-      <ScrollView>
-        {payments.map(payment => {
-          if (payment) {
-            return <PaymentRow key={payment.id} data={payment} />;
-          }
-          return undefined;
-        })}
-      </ScrollView>
-    );
-  };
+function renderQueryRendererResult(props: PaymentsListQueryResponse) {
+  const payments = props.scenes?.dashboard?.payments ?? [];
+  return (
+    <ScrollView>
+      {payments.map(payment => {
+        if (payment) {
+          return <PaymentRow key={payment.id} data={payment} />;
+        }
+        return undefined;
+      })}
+    </ScrollView>
+  );
+}
 
-  render = () => (
+export default function PaymentsList() {
+  return (
     <QueryRenderer
       query={graphql`
         query PaymentsListQuery($clientId: ID!) {
@@ -40,7 +40,7 @@ export default class PaymentsList extends React.Component<{||}> {
         // TODO: this should be stored in the device after onboarding
         clientId: 'EA53A691-9970-46BB-BACD-80D4A120334E',
       }}
-      render={this.renderQueryRendererResult}
+      render={renderQueryRendererResult}
     />
   );
 }

@@ -22,50 +22,45 @@ type Props = {|
   +data: PaymentRowType,
 |};
 
-class PaymentRow extends React.Component<Props> {
-  void = () => {
-    warning(false, 'TODO');
-  };
+function _void() {
+  warning(false, 'TODO');
+}
 
-  render() {
-    const {data} = this.props;
-    const retailerName = data.retailer?.name;
+function PaymentRow({data}: Props) {
+  const retailerName = data.retailer?.name;
 
-    return (
-      <Touchable style={styleSheet.container} onPress={this.void}>
-        <React.Fragment>
-          <View style={styleSheet.containerLeft}>
-            <Text style={styleSheet.retailerName}>
-              <Translation passThrough={retailerName} />
-            </Text>
-            <View style={styleSheet.row}>
-              <Money data={data.total} />
-              <Text style={styleSheet.cityName}>
-                <Translation
-                  passThrough={
-                    data.location ? (
-                      ` (${data.location})`
-                    ) : (
-                      <NullBoundary length={6} />
-                    )
-                  }
-                />
-              </Text>
-            </View>
-            <Text style={styleSheet.dateTime}>
+  return (
+    <Touchable style={styleSheet.container} onPress={_void}>
+      <React.Fragment>
+        <View style={styleSheet.containerLeft}>
+          <Text style={styleSheet.retailerName}>
+            <Translation passThrough={retailerName} />
+          </Text>
+          <View style={styleSheet.row}>
+            <Money data={data.total} />
+            <Text style={styleSheet.cityName}>
               <Translation
-                passThrough={<DateTime milliseconds={data.date} />}
+                passThrough={
+                  data.location ? (
+                    ` (${data.location})`
+                  ) : (
+                    <NullBoundary length={6} />
+                  )
+                }
               />
             </Text>
           </View>
+          <Text style={styleSheet.dateTime}>
+            <Translation passThrough={<DateTime milliseconds={data.date} />} />
+          </Text>
+        </View>
 
-          <View>
-            <StatusIcon data={data} />
-          </View>
-        </React.Fragment>
-      </Touchable>
-    );
-  }
+        <View>
+          <StatusIcon data={data} />
+        </View>
+      </React.Fragment>
+    </Touchable>
+  );
 }
 
 const styleSheet = StyleSheet.create({
