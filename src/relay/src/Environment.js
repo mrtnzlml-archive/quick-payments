@@ -1,9 +1,8 @@
 // @flow
 
-// TODO: fix @kiwicom/relay:
-import {Environment, Network, RecordSource, Store} from 'relay-runtime';
 import invariant from 'util/invariant';
 import {buildSchema, graphql} from 'graphql';
+import {createEnvironment} from '@kiwicom/relay';
 
 const persistedQueries = require('../../persisted-queries');
 
@@ -45,14 +44,12 @@ async function inMemoryFetch(operation, variables, cacheConfig, uploadables) {
   );
 }
 
-// TODO: `RelayNetworkLogger` doesn't work for some reason in `createEnvironment` from `@kiwicom/relay`
-
-export default new Environment({
+module.exports = createEnvironment({
+  logger: false, // Why? Something weird is going on inside RN.
+  fetchFn: inMemoryFetch,
   handlerProvider: handle => {
     throw new Error(`handlerProvider: No handler provided for ${handle}`);
   },
-  network: Network.create(inMemoryFetch),
-  store: new Store(new RecordSource()),
 });
 
 // TODO: schema is currently duplicated - WIP
