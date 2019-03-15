@@ -85,3 +85,6 @@ untyped-import=off
 unclear-type=off
 ; untyped imports are used by Relay Compiler
 untyped-type-import=off
+
+; some WTF (https://github.com/facebook/flow/issues/7473):
+dynamic-export=off

@@ -1,9 +1,9 @@
 // @flow
 
 import {StyleSheet, Platform} from 'react-native'; // eslint-disable-line no-restricted-imports
-// $FlowExpectedError: we are importing file declared as [untyped] in the .flowconfig because of broken RN types
 import type {StyleProp as NativeStyleProp} from 'react-native/Libraries/StyleSheet/StyleSheet';
 
+// FIXME: this type is probably `any` (add __flowtests__)
 export type StylePropType = NativeStyleProp;
 
 /**

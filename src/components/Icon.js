@@ -4,8 +4,7 @@ import * as React from 'react';
 import {MaterialIcons} from '@expo/vector-icons';
 
 import Color from './Colors';
-
-import type {StylePropType} from '.';
+import type {StylePropType} from './stylesheet';
 
 type Props = {|
   +name: string,

@@ -3,6 +3,7 @@
   "name": "_components",
   "version": "0.0.0",
   "dependencies": {
+    "@expo/vector-icons": "^10.0.0",
     "_translations": "^0",
     "react-native-safe-area-view": "^0.13.1"
   },
