@@ -4,13 +4,13 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {
   Text,
-  StyleSheet,
   Colors,
   Touchable,
   Money,
   DateTime,
   NullBoundary,
 } from '_components';
+import StyleSheet from '_components/stylesheet';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
 import warning from 'util/warning';

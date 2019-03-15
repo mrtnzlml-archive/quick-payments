@@ -6,7 +6,7 @@ import Translation from '_translations';
 
 import Title from './Title';
 import Colors from './Colors';
-import StyleSheet from './PlatformStyleSheet';
+import StyleSheet from '../stylesheet';
 
 type Props = {|
   +children: React.Node,

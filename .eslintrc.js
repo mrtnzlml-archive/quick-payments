@@ -30,6 +30,20 @@ module.exports = {
   },
 
   rules: {
+    // I am experimenting with new way how to import stuff which requires to access things
+    // from workspaces deeply.
+    'monorepo/no-internal-import': OFF,
+
+    // Styles in this repository are slightly different from `@kiwicom/eslint-config`
+    'prettier/prettier': [
+      ERROR,
+      {
+        singleQuote: true,
+        trailingComma: 'all',
+        jsxBracketSameLine: false,
+      },
+    ],
+
     'no-restricted-imports': [
       ERROR,
       {

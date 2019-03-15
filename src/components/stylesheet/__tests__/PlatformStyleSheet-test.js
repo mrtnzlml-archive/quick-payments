@@ -2,7 +2,7 @@
 
 import {Platform} from 'react-native';
 
-import StyleSheet from '../PlatformStyleSheet';
+import StyleSheet from '..';
 
 let originalPlatform;
 beforeEach(() => (originalPlatform = Platform.OS));

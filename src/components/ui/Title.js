@@ -5,7 +5,7 @@ import Translation from '_translations';
 
 import Text from './Text';
 import Colors from './Colors';
-import StyleSheet from './PlatformStyleSheet';
+import StyleSheet from '../stylesheet';
 import type {StylePropType} from '../index';
 
 type Props = {|

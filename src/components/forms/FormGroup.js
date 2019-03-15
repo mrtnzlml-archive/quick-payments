@@ -3,7 +3,7 @@
 import * as React from 'react';
 import {View} from 'react-native';
 
-import StyleSheet from '../ui/PlatformStyleSheet';
+import StyleSheet from '../stylesheet';
 
 type Props = {|
   +children: $ReadOnlyArray<React.Element<any>>,

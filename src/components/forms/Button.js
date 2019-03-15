@@ -4,7 +4,7 @@ import * as React from 'react';
 import {View} from 'react-native';
 import Translation from '_translations';
 
-import StyleSheet from '../ui/PlatformStyleSheet';
+import StyleSheet from '../stylesheet';
 import Colors from '../ui/Colors';
 import Touchable from '../ui/Touchable';
 import Text from '../ui/Text';

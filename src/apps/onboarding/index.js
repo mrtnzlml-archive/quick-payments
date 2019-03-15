@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import {
-  StyleSheet,
   Colors,
   Title,
   SplitScreen,
@@ -10,6 +9,7 @@ import {
   Button,
   FormGroup,
 } from '_components';
+import StyleSheet from '_components/stylesheet';
 import Translation from '_translations';
 import warning from 'util/warning';
 

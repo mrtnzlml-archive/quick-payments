@@ -4,7 +4,7 @@ import * as React from 'react';
 import RN from 'react-native';
 import Translation from '_translations';
 
-import StyleSheet from './PlatformStyleSheet';
+import StyleSheet from '../stylesheet';
 import Colors from './Colors';
 import type {StylePropType} from '../index';
 

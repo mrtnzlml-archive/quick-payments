@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import {View, ScrollView} from 'react-native';
-import {Layout, StyleSheet} from '_components';
+import {Layout} from '_components';
+import StyleSheet from '_components/stylesheet';
 import Translation from '_translations';
 
 import Card from './Card';

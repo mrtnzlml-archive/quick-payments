@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import {View, Image} from 'react-native';
-import {Touchable, StyleSheet, Colors} from '_components';
+import {Touchable, Colors} from '_components';
+import StyleSheet from '_components/stylesheet';
 
 type Props = {|
   +onPress: () => void,

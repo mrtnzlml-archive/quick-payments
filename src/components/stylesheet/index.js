@@ -1,8 +1,8 @@
 // @flow
 
 import {StyleSheet, Platform} from 'react-native'; // eslint-disable-line no-restricted-imports
-
-import type {StylePropType} from '../index';
+// $FlowExpectedError: we are importing file declared as [untyped] in the .flowconfig because of broken RN types
+import type {StyleProp as NativeStyleProp} from 'react-native/Libraries/StyleSheet/StyleSheet';
 
 /**
  * This StyleSheet allows to define platform differences easily:
@@ -38,7 +38,7 @@ export default {
   /**
    * Creates a StyleSheet style reference from the given object.
    */
-  create(styles: StylePropType): {[name: string]: number} {
+  create(styles: NativeStyleProp): {[name: string]: number} {
     const platformStyles = {};
     Object.keys(styles).forEach(name => {
       let {ios, android, ...style} = {...styles[name]};

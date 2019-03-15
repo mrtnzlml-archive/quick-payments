@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {StyleSheet, Text} from '_components';
+import {Text} from '_components';
+import StyleSheet from '_components/stylesheet';
 import Translation from '_translations';
 
 type State = {|

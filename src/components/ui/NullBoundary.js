@@ -4,7 +4,7 @@ import * as React from 'react';
 import Translation from '_translations';
 
 import Text from './Text';
-import StyleSheet from './PlatformStyleSheet';
+import StyleSheet from '../stylesheet';
 
 type Props = {|
   +length: number,

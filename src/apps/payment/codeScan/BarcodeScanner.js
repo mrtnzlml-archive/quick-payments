@@ -4,7 +4,8 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {BarCodeScanner, Permissions} from 'expo';
 import Translation from '_translations';
-import {StyleSheet, Colors, Text, Touchable} from '_components';
+import {Colors, Text, Touchable} from '_components';
+import StyleSheet from '_components/stylesheet';
 import warning from 'util/warning';
 
 type State = {|

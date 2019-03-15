@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import {View, KeyboardAvoidingView} from 'react-native';
-import {StyleSheet, Colors, SafeAreaView} from '_components';
+import {Colors, SafeAreaView} from '_components';
+import StyleSheet from '_components/stylesheet';
 
 import Dimensions from '../Dimensions';
 

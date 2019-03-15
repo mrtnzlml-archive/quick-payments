@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Text, Icon, Colors, Touchable, StyleSheet} from '_components';
+import {Text, Icon, Colors, Touchable} from '_components';
+import StyleSheet from '_components/stylesheet';
 import Translation from '_translations';
 
 type Props = {|

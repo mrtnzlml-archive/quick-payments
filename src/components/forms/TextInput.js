@@ -7,7 +7,7 @@ import Translation from '_translations';
 
 import Colors from '../ui/Colors';
 import Text from '../ui/Text';
-import StyleSheet from '../ui/PlatformStyleSheet';
+import StyleSheet from '../stylesheet';
 
 type Props = {|
   // placeholder (help text) of the field will automatically slide to the
