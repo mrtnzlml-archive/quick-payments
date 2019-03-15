@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Colors, Touchable, Money, DateTime, NullBoundary} from '_components';
+import {Colors, Touchable, DateTime, NullBoundary} from '_components';
+import Money from '_components/Money';
 import Text from '_components/typography/Text';
 import StyleSheet from '_components/stylesheet';
 import {createFragmentContainer, graphql} from '_relay';

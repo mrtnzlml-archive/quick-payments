@@ -2,8 +2,9 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Icon, Colors, Money} from '_components';
+import {Icon, Colors} from '_components';
 import SplitScreen from '_components/layout/SplitScreen';
+import Money from '_components/Money';
 import StyleSheet from '_components/stylesheet';
 import {createFragmentContainer, graphql} from '_relay';
 import type {Confirmation_data as ConfirmationDataType} from '__generated__/Confirmation_data.graphql';
