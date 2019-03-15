@@ -5,8 +5,8 @@ import RN from 'react-native';
 import Translation from '_translations';
 
 import StyleSheet from '../stylesheet';
-import Colors from './Colors';
-import type {StylePropType} from '../index';
+import Colors from '../ui/Colors';
+import type {StylePropType} from '..';
 
 type Props = {|
   +children?: React$Element<typeof Translation>,

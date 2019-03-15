@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Renderer from 'react-test-renderer';
 
-import Text from '../Text';
+import Text from '../../typography/Text';
 
 it('is possible to use Text component with children', () => {
   // $FlowExpectedError: children should be type of Translation in real code

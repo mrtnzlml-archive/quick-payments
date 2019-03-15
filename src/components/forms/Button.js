@@ -7,7 +7,7 @@ import Translation from '_translations';
 import StyleSheet from '../stylesheet';
 import Colors from '../ui/Colors';
 import Touchable from '../ui/Touchable';
-import Text from '../ui/Text';
+import Text from '../typography/Text';
 import Icon from '../ui/Icon';
 
 type Props = {|

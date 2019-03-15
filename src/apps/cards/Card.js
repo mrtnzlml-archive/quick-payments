@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Text} from '_components';
+import Text from '_components/typography/Text';
 import StyleSheet from '_components/stylesheet';
 import Translation from '_translations';
 

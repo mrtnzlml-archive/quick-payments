@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Translation from '_translations';
 
-import Text from './Text';
+import Text from '../typography/Text';
 import StyleSheet from '../stylesheet';
 
 type Props = {|

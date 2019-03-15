@@ -6,7 +6,7 @@ import RN from 'react-native';
 import Translation from '_translations';
 
 import Colors from '../ui/Colors';
-import Text from '../ui/Text';
+import Text from '../typography/Text';
 import StyleSheet from '../stylesheet';
 
 type Props = {|
