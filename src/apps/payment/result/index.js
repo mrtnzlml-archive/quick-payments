@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {QueryRenderer, graphql} from '_relay';
-import {Button} from '_components';
+import Button from '_components/forms/Button';
 import Translation from '_translations';
 import warning from 'util/warning';
 import type {resultQueryResponse} from '__generated__/resultQuery.graphql';

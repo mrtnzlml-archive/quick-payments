@@ -1,7 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import {NumericInput, Button} from '_components';
+import {NumericInput} from '_components';
+import Button from '_components/forms/Button';
 import Layout from '_components/layout';
 import Translation from '_translations';
 

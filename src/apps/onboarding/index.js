@@ -1,7 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import {Colors, EmailInput, Button, FormGroup} from '_components';
+import {Colors, EmailInput, FormGroup} from '_components';
+import Button from '_components/forms/Button';
 import SplitScreen from '_components/layout/SplitScreen';
 import StyleSheet from '_components/stylesheet';
 import Title from '_components/typography/Title';
