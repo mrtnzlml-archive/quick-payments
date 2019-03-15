@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 import RN from 'react-native';
 import Translation from '_translations';
 
-import Colors from '../ui/Colors';
+import Colors from '../Colors';
 import Text from '../typography/Text';
 import StyleSheet from '../stylesheet';
 

@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {Text} from '_components';
+import Text from '_components/typography/Text';
 import {
   IntlProvider as ReactIntlProvider,
   addLocaleData as ReactIntlAddLocaleData,

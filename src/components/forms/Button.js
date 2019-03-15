@@ -5,10 +5,10 @@ import {View} from 'react-native';
 import Translation from '_translations';
 
 import StyleSheet from '../stylesheet';
-import Colors from '../ui/Colors';
-import Touchable from '../ui/Touchable';
+import Colors from '../Colors';
+import Touchable from '../Touchable';
 import Text from '../typography/Text';
-import Icon from '../ui/Icon';
+import Icon from '../Icon';
 
 type Props = {|
   +title: React.Element<typeof Translation>,

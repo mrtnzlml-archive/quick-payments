@@ -6,7 +6,7 @@ import {createFragmentContainer, graphql} from '_relay';
 import Decimal from 'decimal.js-light';
 import type {Money_data as MoneyType} from '__generated__/Money_data.graphql';
 
-import NullBoundary from './ui/NullBoundary';
+import NullBoundary from './NullBoundary';
 
 const SupportedLocales = {
   // TODO

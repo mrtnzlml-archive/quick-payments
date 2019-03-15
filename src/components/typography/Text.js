@@ -5,7 +5,7 @@ import RN from 'react-native';
 import Translation from '_translations';
 
 import StyleSheet from '../stylesheet';
-import Colors from '../ui/Colors';
+import Colors from '../Colors';
 import type {StylePropType} from '..';
 
 type Props = {|

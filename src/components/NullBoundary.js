@@ -3,8 +3,8 @@
 import * as React from 'react';
 import Translation from '_translations';
 
-import Text from '../typography/Text';
-import StyleSheet from '../stylesheet';
+import Text from './typography/Text';
+import StyleSheet from './stylesheet';
 
 type Props = {|
   +length: number,

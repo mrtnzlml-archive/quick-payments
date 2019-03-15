@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-import type {StylePropType} from '../index';
+import type {StylePropType} from '.';
 
 type Props = {|
   +children: React.Node,

@@ -5,7 +5,7 @@ import {View, KeyboardAvoidingView} from 'react-native';
 import {Colors, SafeAreaView} from '_components';
 import StyleSheet from '_components/stylesheet';
 
-import Dimensions from '../Dimensions';
+import Dimensions from './Dimensions';
 
 type Props = {|
   +childrenTop: React.Node,

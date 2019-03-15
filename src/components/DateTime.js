@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Translation from '_translations';
 
-import NullBoundary from './ui/NullBoundary';
+import NullBoundary from './NullBoundary';
 
 const SupportedLocales = {
   // TODO
