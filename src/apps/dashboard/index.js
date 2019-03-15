@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Layout} from '_components';
+import Layout from '_components/layout';
 import StyleSheet from '_components/stylesheet';
 import Translation from '_translations';
 import warning from 'util/warning';

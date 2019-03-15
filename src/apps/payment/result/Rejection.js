@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {SplitScreen, Icon, Colors, Money} from '_components';
+import {Icon, Colors, Money} from '_components';
+import SplitScreen from '_components/layout/SplitScreen';
 import StyleSheet from '_components/stylesheet';
 import {createFragmentContainer, graphql} from '_relay';
 import type {Rejection_data as RejectionDataType} from '__generated__/Rejection_data.graphql';

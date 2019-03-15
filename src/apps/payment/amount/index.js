@@ -1,7 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import {Layout, NumericInput, Button} from '_components';
+import {NumericInput, Button} from '_components';
+import Layout from '_components/layout';
 import Translation from '_translations';
 
 const VoidCallback = () => {};
