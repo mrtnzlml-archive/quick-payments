@@ -9,7 +9,13 @@ import {
   type SupportedLanguagesType,
   type TranslationKeysObject,
 } from '_translations';
-import DashboardScene from 'apps/dashboard';
+
+// import MainScene from 'apps/cards';
+import MainScene from 'apps/dashboard';
+// import MainScene from 'apps/onboarding';
+// import MainScene from 'apps/payment/amount';
+// import MainScene from 'apps/payment/codeScan'; // FIXME: this crashes the application - looping?
+// import MainScene from 'apps/payment/result';
 
 type Props = {|
   +children: React.Node,
@@ -48,7 +54,7 @@ class Application extends React.Component<Props, State> {
         locale={this.state.locale}
         messages={this.state.intlMessages}
       >
-        <DashboardScene />
+        <MainScene />
       </IntlProvider>
     );
   };
