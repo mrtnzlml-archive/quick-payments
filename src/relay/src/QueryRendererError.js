@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import {Button} from '_components';
+import Button from '_components/forms/Button';
 import StyleSheet from '_components/stylesheet';
 import Translation from '_translations';
 

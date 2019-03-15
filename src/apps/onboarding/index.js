@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {Colors} from '_components';
+import Colors from '_components/Colors';
 import Button from '_components/forms/Button';
 import FormGroup from '_components/forms/FormGroup';
 import EmailInput from '_components/forms/EmailInput';

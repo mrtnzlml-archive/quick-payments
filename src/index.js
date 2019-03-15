@@ -2,7 +2,7 @@
 
 import * as Expo from 'expo';
 import * as React from 'react';
-import {Device} from '_components';
+import Device from '_components/Device';
 import {
   getMessages,
   IntlProvider,

@@ -4,8 +4,9 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {BarCodeScanner, Permissions} from 'expo';
 import Translation from '_translations';
-import {Colors, Touchable} from '_components';
+import Colors from '_components/Colors';
 import Text from '_components/typography/Text';
+import Touchable from '_components/Touchable';
 import StyleSheet from '_components/stylesheet';
 import warning from 'util/warning';
 

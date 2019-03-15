@@ -3,7 +3,7 @@
 import * as React from 'react';
 import {createFragmentContainer, graphql} from '_relay';
 import Translation from '_translations';
-import {Colors} from '_components';
+import Colors from '_components/Colors';
 import Text from '_components/typography/Text';
 import StyleSheet from '_components/stylesheet';
 import type {StatusIcon_data as StatusIconType} from '__generated__/StatusIcon_data.graphql';
