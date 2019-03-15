@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
-    "@kiwicom/relay": "^0.26.0",
+    "@kiwicom/relay": "^1.0.1",
+    "_components": "^0",
     "babel-plugin-relay": "^3.0.0"
   }
 }
