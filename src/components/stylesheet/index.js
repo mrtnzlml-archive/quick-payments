@@ -4,6 +4,8 @@ import {StyleSheet, Platform} from 'react-native'; // eslint-disable-line no-res
 // $FlowExpectedError: we are importing file declared as [untyped] in the .flowconfig because of broken RN types
 import type {StyleProp as NativeStyleProp} from 'react-native/Libraries/StyleSheet/StyleSheet';
 
+export type StylePropType = NativeStyleProp;
+
 /**
  * This StyleSheet allows to define platform differences easily:
  *

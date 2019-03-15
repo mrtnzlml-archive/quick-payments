@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Text} from '_components';
+import Text from '_components/typography/Text';
 import invariant from 'util/invariant';
 import type {TranslationKeys} from '_translations';
 

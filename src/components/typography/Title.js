@@ -3,10 +3,9 @@
 import * as React from 'react';
 import Translation from '_translations';
 
-import Text from '../typography/Text';
-import Colors from './Colors';
-import StyleSheet from '../stylesheet';
-import type {StylePropType} from '../index';
+import Text from './Text';
+import Colors from '../ui/Colors';
+import StyleSheet, {type StylePropType} from '../stylesheet';
 
 type Props = {|
   +children: React.Element<typeof Translation>,
