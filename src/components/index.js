@@ -1,10 +1,5 @@
 // @flow
 
-export {default as EmailInput} from './forms/EmailInput';
-export {default as FormGroup} from './forms/FormGroup';
-export {default as NumericInput} from './forms/NumericInput';
-// export { default as TextInput } from './forms/TextInput'; // not exported because we should use the specific inputs
-
 export {default as Colors} from './Colors';
 export {default as Icon} from './Icon';
 export {default as NullBoundary} from './NullBoundary';
