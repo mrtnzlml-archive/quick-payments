@@ -6,7 +6,7 @@ import Translation from '_translations';
 
 import StyleSheet from '../stylesheet';
 import Colors from '../Colors';
-import type {StylePropType} from '..';
+import type {StylePropType} from '../stylesheet';
 
 type Props = {|
   +children?: React$Element<typeof Translation>,

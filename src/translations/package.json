@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
+    "_components": "^0",
     "react-intl": "^2.8.0"
+  },
+  "peerDependencies": {
+    "react": "*"
   }
 }

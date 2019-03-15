@@ -4,7 +4,7 @@ import invariant from 'util/invariant';
 import {buildSchema, graphql} from 'graphql';
 import {createEnvironment} from '@kiwicom/relay';
 
-const persistedQueries = require('../../persisted-queries');
+const persistedQueries = require('../../persisted-queries.json');
 
 async function inMemoryFetch(operation, variables, cacheConfig, uploadables) {
   invariant(

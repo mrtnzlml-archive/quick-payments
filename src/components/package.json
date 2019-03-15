@@ -3,6 +3,12 @@
   "name": "_components",
   "version": "0.0.0",
   "dependencies": {
+    "_translations": "^0",
     "react-native-safe-area-view": "^0.13.1"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-test-renderer": "*"
   }
 }
