@@ -3,6 +3,9 @@
   "name": "_relay",
   "version": "0.0.0",
   "main": "index.js",
+  "bin": {
+    "qp-relay-compiler": "./bin/qp-relay-compiler.js"
+  },
   "dependencies": {
     "@kiwicom/relay": "^1.0.1",
     "_components": "^0",

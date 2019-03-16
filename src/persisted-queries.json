@@ -1,4 +1,1 @@
-{
-  "bcb3eac08a55ae0c4a5fef55b52b1230": "query resultQuery(\n  $paymentId: ID!\n) {\n  scenes {\n    payment {\n      checkStatus(paymentId: $paymentId) {\n        status\n        ...Confirmation_data\n        ...Rejection_data\n        id\n      }\n    }\n  }\n}\n\nfragment Confirmation_data on Payment {\n  total {\n    ...Money_data\n  }\n}\n\nfragment Rejection_data on Payment {\n  total {\n    ...Money_data\n  }\n}\n\nfragment Money_data on Money {\n  amount\n  currency\n}\n",
-  "fe6ede535e34fded4ff5ce6778b87baa": "query PaymentsListQuery(\n  $clientId: ID!\n) {\n  scenes {\n    dashboard {\n      payments(clientId: $clientId) {\n        id\n        ...PaymentRow_data\n      }\n    }\n  }\n}\n\nfragment PaymentRow_data on Payment {\n  location\n  date\n  ...StatusIcon_data\n  total {\n    ...Money_data\n  }\n  retailer {\n    name\n    id\n  }\n}\n\nfragment StatusIcon_data on Payment {\n  status\n}\n\nfragment Money_data on Money {\n  amount\n  currency\n}\n"
-}
+{}
