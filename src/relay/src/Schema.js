@@ -73,6 +73,25 @@ const DashboardSceneObjectType = new GraphQLObjectType({
         clientId: {type: GraphQLNonNull(GraphQLID)},
       },
       type: GraphQLList(PaymentObjectType),
+      resolve: () => [
+        // TODO: from database (vv)
+        {
+          id: 'payment:1',
+          location: 'Mexico City',
+          date: '1537727279539',
+          status: 'PAID',
+          total: {amount: '100', currency: 'MXN'},
+          retailer: {name: 'a', id: 'retailer:1'},
+        },
+        {
+          id: 'payment:2',
+          location: 'Mexico City',
+          date: '1537727279539',
+          status: 'PAID',
+          total: {amount: '100', currency: 'MXN'},
+          retailer: {name: 'a', id: 'retailer:1'},
+        },
+      ],
     },
   },
 });
@@ -92,7 +111,10 @@ const PaymentSceneObjectType = new GraphQLObjectType({
 const AvailableScenesObjectType = new GraphQLObjectType({
   name: 'AvailableScenes',
   fields: {
-    dashboard: {type: DashboardSceneObjectType},
+    dashboard: {
+      type: DashboardSceneObjectType,
+      resolve: () => true, // pass through
+    },
     payment: {type: PaymentSceneObjectType},
   },
 });
@@ -100,7 +122,11 @@ const AvailableScenesObjectType = new GraphQLObjectType({
 const RootQueryObjectType = new GraphQLObjectType({
   name: 'RootQuery',
   fields: {
-    scenes: {type: AvailableScenesObjectType},
+    //  TODO: applications -> AvailableApplications
+    scenes: {
+      type: AvailableScenesObjectType,
+      resolve: () => true, // pass through - could be some user context actually
+    },
   },
 });
 

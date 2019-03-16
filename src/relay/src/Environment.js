@@ -15,34 +15,14 @@ async function inMemoryFetch(operation, variables, cacheConfig, uploadables) {
   );
 
   return graphql(
-    Schema, // TODO: this schema is temporary - it will be distributed to applications
-    persistedQueries[operation.id],
-    {
-      scenes: {
-        dashboard: {
-          payments: [
-            {
-              id: 'payment:1',
-              location: 'Mexico City',
-              date: '1537727279539',
-              status: 'PAID',
-              total: {amount: '100', currency: 'MXN'},
-              retailer: {name: 'a', id: 'retailer:1'},
-            },
-            {
-              id: 'payment:2',
-              location: 'Mexico City',
-              date: '1537727279539',
-              status: 'PAID',
-              total: {amount: '100', currency: 'MXN'},
-              retailer: {name: 'a', id: 'retailer:1'},
-            },
-          ],
-        },
-      },
-    },
-    null,
-    variables,
+    // TODO: this schema is temporary - it will be distributed to applications
+    Schema, // argsOrSchema
+    persistedQueries[operation.id], // source
+    undefined, // rootValue
+    undefined, // contextValue
+    variables, // variableValues
+    undefined, // operationName
+    undefined, // fieldResolver
   );
 }
 
