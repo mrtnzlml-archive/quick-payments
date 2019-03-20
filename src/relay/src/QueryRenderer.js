@@ -25,6 +25,9 @@ export default function QueryRenderer(props: Props) {
   }
 
   function handleSystemError({error, retry}) {
+    if (__DEV__) {
+      console.error(error);
+    }
     return (
       <QueryRendererError
         onTryAgain={retry}

@@ -14,10 +14,19 @@ async function inMemoryFetch(operation, variables, cacheConfig, uploadables) {
     'Uploadables are not supported with in-memory fetch.',
   );
 
+  const source = persistedQueries[operation.id];
+
+  invariant(
+    source !== undefined,
+    'Requested operation with name %s (id: %s) is missing in the persisted queries.',
+    operation.name,
+    operation.id,
+  );
+
   return graphql(
     // TODO: this schema is temporary - it will be distributed to applications
     Schema, // argsOrSchema
-    persistedQueries[operation.id], // source
+    source, // source
     undefined, // rootValue
     undefined, // contextValue
     variables, // variableValues
