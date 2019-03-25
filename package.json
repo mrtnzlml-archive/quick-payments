@@ -19,6 +19,7 @@
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.4.0",
+    "@kiwicom/monorepo": "^0.8.0",
     "@kiwicom/eslint-config": "^3.1.0",
     "_relay": "^0",
     "babel-eslint": "^10.0.1",
@@ -40,7 +41,7 @@
   "scripts": {
     "start": "expo start",
     "ios": "expo start --ios",
-    "test": "node node_modules/.bin/jest --config=.jest.json",
+    "test": "monorepo-run-tests",
     "test-ci": "yarn flow & yarn lint & yarn test",
     "lint": "eslint . --report-unused-disable-directives",
     "relay": "qp-relay-compiler"
