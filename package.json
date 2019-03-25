@@ -43,7 +43,7 @@
     "ios": "expo start --ios",
     "test": "monorepo-run-tests",
     "test-ci": "yarn flow & yarn lint & yarn test",
-    "lint": "eslint . --report-unused-disable-directives",
+    "lint": "yarn jest --config=.jest-eslint.config.js",
     "relay": "qp-relay-compiler"
   },
   "jest": {

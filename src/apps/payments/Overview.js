@@ -1,1 +1,3 @@
+// @flow
+
 // TODO: basically PaymentsList

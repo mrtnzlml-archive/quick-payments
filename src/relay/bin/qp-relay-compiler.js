@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// @flow
+
 const spawn = require('child_process').spawn;
 
 // TODO: get Schema and print it first
