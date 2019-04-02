@@ -4,7 +4,6 @@ import * as React from 'react';
 import {ScrollView, View} from 'react-native';
 import Layout from '_components/layout';
 import StyleSheet from '_components/stylesheet';
-import Translation from '_translations';
 
 import Card from './Card';
 
@@ -14,7 +13,7 @@ import Card from './Card';
  */
 export default function CardsScene() {
   return (
-    <Layout title={<Translation id="Cards.Title" />}>
+    <Layout title="All your cards">
       <ScrollView>
         <View style={styleSheet.cardWrapper}>
           <Card />

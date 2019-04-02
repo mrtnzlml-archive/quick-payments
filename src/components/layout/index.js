@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import SafeAreaView from 'react-native-safe-area-view';
-import Translation from '_translations';
 
 import Title from '../typography/Title';
 import Colors from '../Colors';
@@ -10,7 +9,7 @@ import StyleSheet from '../stylesheet';
 
 type Props = {|
   +children: React.Node,
-  +title: React.Element<typeof Translation>,
+  +title: string,
 |};
 
 export default function Layout({children, title}: Props) {

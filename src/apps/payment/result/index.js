@@ -3,7 +3,6 @@
 import * as React from 'react';
 import {QueryRenderer, graphql} from '_relay';
 import Button from '_components/forms/Button';
-import Translation from '_translations';
 import warning from 'util/warning';
 import type {resultQueryResponse} from '__generated__/resultQuery.graphql';
 
@@ -30,10 +29,7 @@ export default class PaymentStatus extends React.Component<Props> {
         ) : (
           <Rejection data={data} />
         )}
-        <Button
-          title={<Translation id="Payment.Result.GoToDashboard" />}
-          onPress={this.void}
-        />
+        <Button title="Go to dashboard" onPress={this.void} />
       </React.Fragment>
     );
   };

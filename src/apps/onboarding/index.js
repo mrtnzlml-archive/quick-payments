@@ -8,15 +8,12 @@ import EmailInput from '_components/forms/EmailInput';
 import SplitScreen from '_components/layout/SplitScreen';
 import StyleSheet from '_components/stylesheet';
 import Title from '_components/typography/Title';
-import Translation from '_translations';
 import warning from 'util/warning';
 
 const OnboardingTop = () => (
   <React.Fragment>
-    <Title style={styleSheet.title}>
-      <Translation id="Onboarding.Title" />
-    </Title>
-    <Translation id="Onboarding.Subtitle" />
+    <Title style={styleSheet.title}>$PRODUCT_NAME</Title>
+    Simplest in-person payments
   </React.Fragment>
 );
 
@@ -43,12 +40,12 @@ class OnboardingBottom extends React.Component<{||}, State> {
   render = () => {
     return (
       <FormGroup onValidationCheck={this.handleValidationFormCheck}>
-        <EmailInput placeholder={<Translation id="Onboarding.Email" />} />
+        <EmailInput placeholder="What is your email address?" />
 
         <Button
           disabled={!this.state.formIsValid}
           omitValidation={true}
-          title={<Translation id="Onboarding.Email.Submit" />}
+          title="Login"
           onPress={this.handleFormSubmit}
         />
       </FormGroup>

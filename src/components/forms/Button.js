@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import {View} from 'react-native';
-import Translation from '_translations';
 
 import StyleSheet from '../stylesheet';
 import Colors from '../Colors';
@@ -11,7 +10,7 @@ import Text from '../typography/Text';
 import Icon from '../Icon';
 
 type Props = {|
-  +title: React.Element<typeof Translation>,
+  +title: string,
   +onPress: () => void,
   // FIXME: this is needed only because of internal details of FormGroup component (vv)
   +omitValidation?: boolean,

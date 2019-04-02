@@ -10,7 +10,6 @@ import DateTime from '_components/DateTime';
 import Text from '_components/typography/Text';
 import StyleSheet from '_components/stylesheet';
 import {createFragmentContainer, graphql} from '_relay';
-import Translation from '_translations';
 import warning from 'util/warning';
 import type {PaymentRow_data as PaymentRowType} from '__generated__/PaymentRow_data.graphql';
 
@@ -31,25 +30,19 @@ function PaymentRow({data}: Props) {
     <Touchable style={styleSheet.container} onPress={_void}>
       <React.Fragment>
         <View style={styleSheet.containerLeft}>
-          <Text style={styleSheet.retailerName}>
-            <Translation passThrough={retailerName} />
-          </Text>
+          <Text style={styleSheet.retailerName}>{retailerName}</Text>
           <View style={styleSheet.row}>
             <Money data={data.total} />
             <Text style={styleSheet.cityName}>
-              <Translation
-                passThrough={
-                  data.location ? (
-                    ` (${data.location})`
-                  ) : (
-                    <NullBoundary length={6} />
-                  )
-                }
-              />
+              {data.location ? (
+                ` (${data.location})`
+              ) : (
+                <NullBoundary length={6} />
+              )}{' '}
             </Text>
           </View>
           <Text style={styleSheet.dateTime}>
-            <Translation passThrough={<DateTime milliseconds={data.date} />} />
+            <DateTime milliseconds={data.date} />
           </Text>
         </View>
 

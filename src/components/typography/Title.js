@@ -1,14 +1,13 @@
 // @flow
 
 import * as React from 'react';
-import Translation from '_translations';
 
 import Text from './Text';
 import Colors from '../Colors';
 import StyleSheet, {type StylePropType} from '../stylesheet';
 
 type Props = {|
-  +children: React.Element<typeof Translation>,
+  +children: string,
   +style?: StylePropType,
 |};
 

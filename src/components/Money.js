@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import Translation from '_translations';
 import {createFragmentContainer, graphql} from '_relay';
+import Text from '_components/typography/Text';
 import Decimal from 'decimal.js-light';
 import type {Money_data as MoneyType} from '__generated__/Money_data.graphql';
 
@@ -32,7 +32,7 @@ export const Price = ({amount, currency, locale = 'en'}: Props) => {
     currency,
   }).format(Decimal(amount).toNumber());
 
-  return <Translation passThrough={price} />;
+  return <Text>{price}</Text>;
 };
 
 export default createFragmentContainer(

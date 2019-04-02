@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import Translation from '_translations';
 import {
   QueryRenderer as RelayQueryRenderer,
   FetchTimeoutError,
@@ -32,11 +31,9 @@ export default function QueryRenderer(props: Props) {
       <QueryRendererError
         onTryAgain={retry}
         title={
-          error instanceof FetchTimeoutError ? (
-            <Translation id="General.QueryRenderer.TimeoutError.Title" />
-          ) : (
-            <Translation id="General.QueryRenderer.Error.Title" />
-          )
+          error instanceof FetchTimeoutError
+            ? 'Server is unreachable'
+            : 'Unable to load data'
         }
       />
     );

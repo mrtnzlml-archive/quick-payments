@@ -2,14 +2,13 @@
 
 import * as React from 'react';
 import RN from 'react-native';
-import typeof Translation from '_translations';
 
 import StyleSheet from '../stylesheet';
 import Colors from '../Colors';
 import type {StylePropType} from '../stylesheet';
 
 type Props = {|
-  +children?: React$Element<Translation>,
+  +children?: string,
   +style?: StylePropType,
 |};
 

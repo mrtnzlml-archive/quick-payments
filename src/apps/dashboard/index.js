@@ -4,7 +4,6 @@ import * as React from 'react';
 import {View} from 'react-native';
 import Layout from '_components/layout';
 import StyleSheet from '_components/stylesheet';
-import Translation from '_translations';
 import warning from 'util/warning';
 
 import PaymentsList from './PaymentsList';
@@ -17,14 +16,14 @@ function _void() {
 
 export default function Dashboard() {
   return (
-    <Layout title={<Translation id="Dashboard.Title" />}>
+    <Layout title="Payments history">
       <PaymentsList />
 
       <View style={styleSheet.navigation}>
         <View style={styleSheet.button}>
           <SecondaryButton
             iconName="credit-card"
-            description={<Translation id="Dashboard.Navigation.MyCard" />}
+            description="BECOME RETAILER"
             onPress={_void}
           />
         </View>
@@ -34,9 +33,7 @@ export default function Dashboard() {
         <View style={styleSheet.button}>
           <SecondaryButton
             iconName="trending-up"
-            description={
-              <Translation id="Dashboard.Navigation.BecomeRetailer" />
-            }
+            description="MY CARDS"
             onPress={_void}
           />
         </View>

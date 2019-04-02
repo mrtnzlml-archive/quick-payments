@@ -1,12 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import Translation from '_translations';
 
 import TextInput from './TextInput';
 
 type Props = {|
-  +placeholder: React.Element<typeof Translation>,
+  +placeholder: string,
 |};
 
 export default class NumericInput extends React.Component<Props> {

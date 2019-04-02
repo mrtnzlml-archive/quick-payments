@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import Translation from '_translations';
+import Text from '_components/typography/Text';
 
 import NullBoundary from './NullBoundary';
 
@@ -33,5 +33,5 @@ export default function DateTime({milliseconds, locale = 'en'}: Props) {
     second: 'numeric',
   }).format(new Date(Number(milliseconds)));
 
-  return <Translation passThrough={dateTime} />;
+  return <Text>{dateTime}</Text>;
 }

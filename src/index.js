@@ -2,13 +2,6 @@
 
 import * as Expo from 'expo';
 import * as React from 'react';
-import Device from '_components/Device';
-import {
-  getMessages,
-  IntlProvider,
-  type SupportedLanguagesType,
-  type TranslationKeysObject,
-} from '_translations';
 
 // import MainScene from 'apps/cards';
 import MainScene from 'apps/dashboard';
@@ -29,34 +22,38 @@ type State = {|
 
 class Application extends React.Component<Props, State> {
   state = {
-    isLoading: true,
-    locale: 'en',
-    intlMessages: {},
+    isLoadingComplete: false,
   };
 
-  componentDidMount = async () => {
-    const deviceLocale = await Device.getCurrentLocaleAsync();
+  loadResourcesAsync = () => {
+    // TODO: load assets
+  };
 
+  handleLoadingError = (error: Error) => {
+    // In this case, you might want to report the error to your error
+    // reporting service, for example Sentry
+    // eslint-disable-next-line no-console
+    console.warn(error);
+  };
+
+  handleFinishLoading = () => {
     this.setState({
-      isLoading: false,
-      locale: deviceLocale,
-      intlMessages: getMessages(deviceLocale),
+      isLoadingComplete: true,
     });
   };
 
   render = () => {
-    if (this.state.isLoading === true) {
-      return null; // TODO: loading indicator or maybe encapsulate it in the IntlProvider?
+    if (this.state.isLoadingComplete === false) {
+      return (
+        <Expo.AppLoading
+          startAsync={this.loadResourcesAsync}
+          onError={this.handleLoadingError}
+          onFinish={this.handleFinishLoading}
+        />
+      );
     }
 
-    return (
-      <IntlProvider
-        locale={this.state.locale}
-        messages={this.state.intlMessages}
-      >
-        <MainScene />
-      </IntlProvider>
-    );
+    return <MainScene />;
   };
 }
 

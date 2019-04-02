@@ -4,7 +4,6 @@ import * as React from 'react';
 import {View} from 'react-native';
 import Button from '_components/forms/Button';
 import StyleSheet from '_components/stylesheet';
-import Translation from '_translations';
 
 type Props = {|
   +title: React.Element<typeof Translation>,
@@ -16,10 +15,7 @@ export default function QueryRendererError(props: Props) {
     <View style={styleSheet.container}>
       {props.title}
       {props.onTryAgain && (
-        <Button
-          title={<Translation id="General.QueryRenderer.Error.TryAgain" />}
-          onPress={props.onTryAgain}
-        />
+        <Button title="Try again" onPress={props.onTryAgain} />
       )}
     </View>
   );

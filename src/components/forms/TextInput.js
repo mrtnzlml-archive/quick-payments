@@ -3,7 +3,6 @@
 import * as React from 'react';
 import * as Animatable from 'react-native-animatable';
 import RN from 'react-native';
-import Translation from '_translations';
 
 import Colors from '../Colors';
 import Text from '../typography/Text';
@@ -12,7 +11,7 @@ import StyleSheet from '../stylesheet';
 type Props = {|
   // placeholder (help text) of the field will automatically slide to the
   // top of the field therefore it's always visible
-  +placeholder: React.Element<typeof Translation>,
+  +placeholder: string,
 
   // these types work across all platforms
   +keyboardType: 'default' | 'numeric' | 'email-address' | 'phone-pad',

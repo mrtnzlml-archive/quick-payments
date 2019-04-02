@@ -7,11 +7,10 @@ import Text from '_components/typography/Text';
 import Icon from '_components/Icon';
 import StyleSheet from '_components/stylesheet';
 import Touchable from '_components/Touchable';
-import Translation from '_translations';
 
 type Props = {|
   +iconName: string,
-  +description: React.Element<typeof Translation>,
+  +description: string,
   +onPress: () => void,
 |};
 

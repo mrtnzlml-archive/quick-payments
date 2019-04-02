@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import Translation from '_translations';
 import debounce from 'util/debounce';
 
 import TextInput from './TextInput';
@@ -56,11 +55,7 @@ export default class EmailInput extends React.Component<Props, State> {
         placeholder={this.props.placeholder}
         onChangeText={debounce(this.handleInputChange, 1000)}
         errorMessage={
-          this.state.isValid ? (
-            undefined
-          ) : (
-            <Translation id="General.Form.Validation.Email" />
-          )
+          this.state.isValid ? undefined : 'Please insert valid email address.'
         }
       />
     );

@@ -4,7 +4,6 @@ import * as React from 'react';
 import {View} from 'react-native';
 import Text from '_components/typography/Text';
 import StyleSheet from '_components/stylesheet';
-import Translation from '_translations';
 
 type State = {|
   width: null | number,
@@ -48,13 +47,8 @@ export default class Card extends React.Component<{||}, State> {
         ]}
       >
         <View style={styleSheet.cardInfo}>
-          <Text style={styleSheet.cardNumber}>
-            <Translation passThrough="1234 1234 1234 1234" />
-          </Text>
-
-          <Text style={styleSheet.cardName}>
-            <Translation passThrough="John Doe" />
-          </Text>
+          <Text style={styleSheet.cardNumber}>1234 1234 1234 1234</Text>
+          <Text style={styleSheet.cardName}>John Doe</Text>
         </View>
 
         {/* TODO: logo: mastercard, visa */}

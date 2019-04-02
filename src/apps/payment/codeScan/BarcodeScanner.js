@@ -3,7 +3,6 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import {BarCodeScanner, Permissions} from 'expo';
-import Translation from '_translations';
 import Colors from '_components/Colors';
 import Text from '_components/typography/Text';
 import Touchable from '_components/Touchable';
@@ -37,12 +36,12 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
     if (hasCameraPermission === null) {
       return (
         // TODO: design this (vv)
-        <Translation id="BarcodeScanner.RequestingCameraPermission" />
+        <Text>Requesting for camera permission</Text>
       );
     } else if (hasCameraPermission === false) {
       return (
         // TODO: design this (vv)
-        <Translation id="BarcodeScanner.NoCameraPermission" />
+        <Text>No access to camera</Text>
       );
     }
 
@@ -59,9 +58,7 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
             These Views below create opacity around scan window (just a design).
           */}
         <View style={[styleSheet.opacityFrame, styleSheet.titleView]}>
-          <Text style={styleSheet.title}>
-            <Translation id="BarcodeScanner.ScanCode" />
-          </Text>
+          <Text style={styleSheet.title}>Scan QR code</Text>
         </View>
         <View style={styleSheet.verticalScanWindow}>
           <View style={styleSheet.opacityFrame} />
@@ -75,9 +72,7 @@ export default class BarcodeScanner extends React.Component<{||}, State> {
         </View>
         <View style={[styleSheet.opacityFrame, styleSheet.cancelView]}>
           <Touchable onPress={this.void}>
-            <Text style={styleSheet.cancel}>
-              <Translation id="General.Cancel" />
-            </Text>
+            <Text style={styleSheet.cancel}>Cancel</Text>
           </Touchable>
         </View>
       </View>
