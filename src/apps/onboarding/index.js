@@ -8,12 +8,13 @@ import EmailInput from '_components/forms/EmailInput';
 import SplitScreen from '_components/layout/SplitScreen';
 import StyleSheet from '_components/stylesheet';
 import Title from '_components/typography/Title';
-import warning from 'util/warning';
+import Text from '_components/typography/Text';
+import warning from '_util/warning';
 
 const OnboardingTop = () => (
   <React.Fragment>
     <Title style={styleSheet.title}>$PRODUCT_NAME</Title>
-    Simplest in-person payments
+    <Text>Simplest in-person payments</Text>
   </React.Fragment>
 );
 

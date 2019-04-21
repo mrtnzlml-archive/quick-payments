@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import debounce from 'util/debounce';
+import debounce from '_util/debounce';
 
 import TextInput from './TextInput';
 
@@ -30,7 +30,7 @@ export default class EmailInput extends React.Component<Props, State> {
    * Email must be validated through verification link.
    */
   validateEmail = (emailAddress: string): boolean => {
-    return /^(\S+@\S+)$/.test(emailAddress);
+    return /^\S+@\S+$/.test(emailAddress);
   };
 
   handleInputChange = (text: string) => {

@@ -10,7 +10,7 @@ import DateTime from '_components/DateTime';
 import Text from '_components/typography/Text';
 import StyleSheet from '_components/stylesheet';
 import {createFragmentContainer, graphql} from '_relay';
-import warning from 'util/warning';
+import warning from '_util/warning';
 import type {PaymentRow_data as PaymentRowType} from '__generated__/PaymentRow_data.graphql';
 
 import StatusIcon from './StatusIcon';

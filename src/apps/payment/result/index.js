@@ -3,7 +3,7 @@
 import * as React from 'react';
 import {QueryRenderer, graphql} from '_relay';
 import Button from '_components/forms/Button';
-import warning from 'util/warning';
+import warning from '_util/warning';
 import type {resultQueryResponse} from '__generated__/resultQuery.graphql';
 
 import Confirmation from './Confirmation';

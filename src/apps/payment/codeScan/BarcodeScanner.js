@@ -7,7 +7,7 @@ import Colors from '_components/Colors';
 import Text from '_components/typography/Text';
 import Touchable from '_components/Touchable';
 import StyleSheet from '_components/stylesheet';
-import warning from 'util/warning';
+import warning from '_util/warning';
 
 type State = {|
   hasCameraPermission: boolean | null,

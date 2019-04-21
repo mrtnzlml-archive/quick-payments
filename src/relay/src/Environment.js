@@ -1,6 +1,6 @@
 // @flow
 
-import invariant from 'util/invariant';
+import invariant from '_util/invariant';
 import {graphql} from 'graphql';
 import {createEnvironment} from '@kiwicom/relay';
 

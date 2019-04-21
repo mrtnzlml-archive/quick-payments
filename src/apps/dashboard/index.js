@@ -4,7 +4,7 @@ import * as React from 'react';
 import {View} from 'react-native';
 import Layout from '_components/layout';
 import StyleSheet from '_components/stylesheet';
-import warning from 'util/warning';
+import warning from '_util/warning';
 
 import PaymentsList from './PaymentsList';
 import PrimaryButton from './PrimaryButton';

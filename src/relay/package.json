@@ -9,6 +9,7 @@
   "dependencies": {
     "@kiwicom/relay": "^1.1.0",
     "_components": "^0",
+    "_util": "^0",
     "babel-plugin-relay": "^3.0.0"
   },
   "peerDependencies": {

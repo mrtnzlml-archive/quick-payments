@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "dependencies": {
     "_components": "^0",
-    "_relay": "^0"
+    "_relay": "^0",
+    "_util": "^0"
   },
   "peerDependencies": {
     "expo": "*",
