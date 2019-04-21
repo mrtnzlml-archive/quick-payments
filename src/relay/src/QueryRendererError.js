@@ -6,7 +6,7 @@ import Button from '_components/forms/Button';
 import StyleSheet from '_components/stylesheet';
 
 type Props = {|
-  +title: React.Element<typeof Translation>,
+  +title: string,
   +onTryAgain: ?() => void,
 |};
 

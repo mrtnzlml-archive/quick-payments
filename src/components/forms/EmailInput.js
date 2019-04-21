@@ -6,7 +6,7 @@ import debounce from 'util/debounce';
 import TextInput from './TextInput';
 
 type Props = {|
-  +placeholder: React.Element<typeof Translation>,
+  +placeholder: string,
   +onValidation?: boolean => void, // FIXME: this is being injected in FormGroup component
 |};
 

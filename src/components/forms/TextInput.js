@@ -20,7 +20,7 @@ type Props = {|
   +onChangeText?: (text: string) => void,
 
   // error message to be displayed below the field
-  +errorMessage?: React.Element<typeof Translation>,
+  +errorMessage?: string,
 |};
 
 type State = {|
@@ -111,7 +111,7 @@ export default class TextInput extends React.Component<Props, State> {
           onChangeText={this.handleChangeText}
         />
         <Text style={styleSheet.errorMessage}>
-          {/* $FlowExpectedError: the white space below prevents line jumping */}
+          {/* the white space below prevents line jumping */}
           {this.props.errorMessage || ' '}
         </Text>
       </RN.View>

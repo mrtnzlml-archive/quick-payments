@@ -15,9 +15,7 @@ type Props = {|
 |};
 
 type State = {|
-  isLoading: boolean,
-  locale: SupportedLanguagesType,
-  intlMessages: TranslationKeysObject,
+  isLoadingComplete: boolean,
 |};
 
 class Application extends React.Component<Props, State> {
