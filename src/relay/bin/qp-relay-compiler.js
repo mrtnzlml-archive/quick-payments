@@ -14,7 +14,7 @@ spawn(
     '--src=./src',
     '--schema=./src/schema.graphql',
     '--artifactDirectory=./src/__generated__',
-    '--persist-output=./src/persisted-queries.json',
+    // '--persist-output=./src/persisted-queries.json',
     '--verbose',
   ],
   {

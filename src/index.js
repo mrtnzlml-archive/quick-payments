@@ -4,7 +4,8 @@ import * as Expo from 'expo';
 import * as React from 'react';
 
 // import MainScene from 'apps/cards';
-import MainScene from 'apps/dashboard';
+// import MainScene from 'apps/dashboard/index';
+import MainScene from 'apps/dashboard/index-spaces';
 // import MainScene from 'apps/onboarding';
 // import MainScene from 'apps/payment/amount';
 // import MainScene from 'apps/payment/codeScan'; // FIXME: this crashes the application - looping?

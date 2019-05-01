@@ -11,12 +11,18 @@ import type { ReaderFragment } from 'relay-runtime';
 import type { Money_data$ref } from "./Money_data.graphql";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Rejection_data$ref: FragmentReference;
+declare export opaque type Rejection_data$fragmentType: Rejection_data$ref;
 export type Rejection_data = {|
   +total: ?{|
     +$fragmentRefs: Money_data$ref
   |},
   +$refType: Rejection_data$ref,
 |};
+export type Rejection_data$data = Rejection_data;
+export type Rejection_data$key = {
+  +$data?: Rejection_data$data,
+  +$fragmentRefs: Rejection_data$ref,
+};
 */
 
 

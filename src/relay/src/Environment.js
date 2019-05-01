@@ -6,7 +6,7 @@ import {createEnvironment} from '@kiwicom/relay';
 
 import Schema from './Schema';
 
-const persistedQueries = require('../../persisted-queries.json');
+// const persistedQueries = require('../../persisted-queries.json');
 
 async function inMemoryFetch(operation, variables, cacheConfig, uploadables) {
   invariant(
@@ -14,7 +14,8 @@ async function inMemoryFetch(operation, variables, cacheConfig, uploadables) {
     'Uploadables are not supported with in-memory fetch.',
   );
 
-  const source = persistedQueries[operation.id];
+  // const source = persistedQueries[operation.id];
+  const source = operation.text;
 
   invariant(
     source !== undefined,

@@ -12,6 +12,7 @@ import type { Money_data$ref } from "./Money_data.graphql";
 import type { StatusIcon_data$ref } from "./StatusIcon_data.graphql";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type PaymentRow_data$ref: FragmentReference;
+declare export opaque type PaymentRow_data$fragmentType: PaymentRow_data$ref;
 export type PaymentRow_data = {|
   +location: ?string,
   +date: ?string,
@@ -24,6 +25,11 @@ export type PaymentRow_data = {|
   +$fragmentRefs: StatusIcon_data$ref,
   +$refType: PaymentRow_data$ref,
 |};
+export type PaymentRow_data$data = PaymentRow_data;
+export type PaymentRow_data$key = {
+  +$data?: PaymentRow_data$data,
+  +$fragmentRefs: PaymentRow_data$ref,
+};
 */
 
 
@@ -47,11 +53,6 @@ const node/*: ReaderFragment*/ = {
       "name": "date",
       "args": null,
       "storageKey": null
-    },
-    {
-      "kind": "FragmentSpread",
-      "name": "StatusIcon_data",
-      "args": null
     },
     {
       "kind": "LinkedField",
@@ -86,6 +87,11 @@ const node/*: ReaderFragment*/ = {
           "storageKey": null
         }
       ]
+    },
+    {
+      "kind": "FragmentSpread",
+      "name": "StatusIcon_data",
+      "args": null
     }
   ]
 };

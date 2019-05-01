@@ -8,6 +8,7 @@ import {
   GraphQLID,
   GraphQLNonNull,
   GraphQLEnumType,
+  GraphQLUnionType,
 } from 'graphql';
 
 // TODO: interface with RetailerObjectType?
@@ -119,12 +120,131 @@ const AvailableScenesObjectType = new GraphQLObjectType({
   },
 });
 
+const ItemTODOObjectType = new GraphQLObjectType({
+  name: 'ItemTODO',
+  fields: {
+    body: {
+      type: GraphQLString,
+      resolve: ({body}) => body,
+    },
+  },
+});
+
+const ItemUnionObjectType = new GraphQLUnionType({
+  name: 'ItemUnion',
+  types: [PaymentObjectType, ItemTODOObjectType],
+  // TODO: study alternatives to `resolveType`
+  resolveType: ({body}) => {
+    return body != null ? ItemTODOObjectType : PaymentObjectType;
+  },
+});
+
+const BlockObjectType = new GraphQLObjectType({
+  name: 'Block',
+  fields: {
+    type: {
+      type: GraphQLString, // TODO: enum
+    },
+    items: {
+      type: GraphQLList(ItemUnionObjectType),
+    },
+  },
+});
+
+// TODO: how to deal with various layouts (?)
+const SpaceObjectType = new GraphQLObjectType({
+  name: 'Space',
+  fields: {
+    title: {
+      type: GraphQLString,
+      resolve: () => 'Payments history',
+    },
+    blocks: {
+      type: GraphQLList(BlockObjectType),
+      resolve: () => [
+        {
+          type: 'aaa',
+          items: [
+            {
+              id: 'payment:1',
+              location: 'Mexico City',
+              date: '1537727279539',
+              status: 'PAID',
+              total: {amount: '100', currency: 'MXN'},
+              retailer: {name: 'a', id: 'retailer:1'},
+            },
+            {
+              body: 'body:aaa-222',
+            },
+          ],
+        },
+        {
+          type: 'bbb',
+          items: [
+            {
+              id: 'payment:1',
+              location: 'Mexico City',
+              date: '1537727279539',
+              status: 'PAID',
+              total: {amount: '100', currency: 'MXN'},
+              retailer: {name: 'a', id: 'retailer:1'},
+            },
+            {
+              id: 'payment:2',
+              location: 'Mexico City',
+              date: '1537727279539',
+              status: 'PAID',
+              total: {amount: '100', currency: 'MXN'},
+              retailer: {name: 'a', id: 'retailer:1'},
+            },
+          ],
+        },
+        {
+          type: 'ccc',
+          items: [
+            {
+              id: 'payment:1',
+              location: 'Mexico City',
+              date: '1537727279539',
+              status: 'PAID',
+              total: {amount: '100', currency: 'MXN'},
+              retailer: {name: 'a', id: 'retailer:1'},
+            },
+            {
+              id: 'payment:2',
+              location: 'Mexico City',
+              date: '1537727279539',
+              status: 'PAID',
+              total: {amount: '100', currency: 'MXN'},
+              retailer: {name: 'a', id: 'retailer:1'},
+            },
+          ],
+        },
+      ],
+    },
+  },
+});
+
+const AvailableSpacesObjectType = new GraphQLObjectType({
+  name: 'AvailableSpaces',
+  fields: {
+    dashboard: {
+      type: SpaceObjectType,
+      resolve: () => true, // pass through
+    },
+  },
+});
+
 const RootQueryObjectType = new GraphQLObjectType({
   name: 'RootQuery',
   fields: {
     //  TODO: applications -> AvailableApplications
     scenes: {
       type: AvailableScenesObjectType,
+      resolve: () => true, // pass through - could be some user context actually
+    },
+    spaces: {
+      type: AvailableSpacesObjectType,
       resolve: () => true, // pass through - could be some user context actually
     },
   },

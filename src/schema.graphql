@@ -8,6 +8,27 @@ type AvailableScenes {
   payment: PaymentScene
 }
 
+type AvailableSpaces {
+  dashboard: Space
+}
+
+type Space {
+  title: String
+  blocks: [Block]
+}
+
+type Block {
+  type: String
+  items: [ItemUnion]
+}
+
+union ItemUnion = Payment | ItemTODO
+
+# TODO: implement Item,Node interface
+type ItemTODO {
+  body: String
+}
+
 type Client {
   id: ID!
   name: String
@@ -52,6 +73,7 @@ type RootMutation {
 
 type RootQuery {
   scenes: AvailableScenes
+  spaces: AvailableSpaces
 }
 
 enum SupportedCurrency {
