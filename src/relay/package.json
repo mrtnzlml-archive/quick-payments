@@ -7,7 +7,7 @@
     "qp-relay-compiler": "./bin/qp-relay-compiler.js"
   },
   "dependencies": {
-    "@kiwicom/relay": "^2.0.0",
+    "@kiwicom/relay": "^2.3.0",
     "_components": "^0",
     "_util": "^0",
     "babel-plugin-relay": "^4.0.0"
